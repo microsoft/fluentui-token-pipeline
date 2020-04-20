@@ -1,4 +1,4 @@
-'use strict'
+"use strict"
 
 const StyleDictionary = require('style-dictionary')
 const Color = require('tinycolor2')
@@ -121,7 +121,8 @@ StyleDictionary.registerTransform({
 			}
 			sdAttributes = getSDAttributes(undefined, prop.path[1])
 			if (sdAttributes) return sdAttributes
-		} else
+		}
+		else
 		{
 			sdAttributes = getSDAttributes(prop.path[2], prop.path[3])
 			if (sdAttributes) return sdAttributes

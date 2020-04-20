@@ -1,3 +1,8 @@
+::-moz-focus-inner
+{   
+	border: 0;
+} 
+
 button
 {
 	border-style: solid;
@@ -20,7 +25,6 @@ button
 }
 button:focus-visible
 {
-	/* Not widely supported, but focus styles are NYI in this prototype anyway */
 	outline: 2px solid black;
 	outline-offset: 2px;
 }
@@ -90,7 +94,6 @@ button.accent
 }
 button.accent:focus-visible
 {
-	/* Not widely supported, but focus styles are NYI in this prototype anyway */
 	outline: 2px solid black;
 	outline-offset: 2px;
 }
@@ -160,7 +163,6 @@ button.outline
 }
 button.outline:focus-visible
 {
-	/* Not widely supported, but focus styles are NYI in this prototype anyway */
 	outline: 2px solid black;
 	outline-offset: 2px;
 }
@@ -230,7 +232,6 @@ button.transparent
 }
 button.transparent:focus-visible
 {
-	/* Not widely supported, but focus styles are NYI in this prototype anyway */
 	outline: 2px solid black;
 	outline-offset: 2px;
 }
