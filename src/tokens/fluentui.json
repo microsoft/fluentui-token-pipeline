@@ -1,0 +1,367 @@
+{
+	"Meta": {
+		"FluentUITokensVersion": 0
+	},
+	"Global": {
+		"Color": {
+			"Red": {
+				"20": { "value": "#f7dadb" },
+				"40": { "value": "#edb1b2" },
+				"60": { "value": "#e48789" },
+				"80": { "value": "#da5e61" },
+				"100": { "value": "#d13438" },
+				"120": { "value": "#ab272a" },
+				"140": { "value": "#821d20" }
+			},
+			"Blue": {
+				"20": { "value": "#a1d6ff" },
+				"40": { "value": "#6ec0ff" },
+				"60": { "value": "#3baaff" },
+				"80": { "value": "#0894ff" },
+				"100": { "value": "#0078d4" },
+				"120": { "value": "#005ba1" },
+				"140": { "value": "#003e6e" }
+			},
+			"Gray": {
+				"20": { "value": "#fbfbfb" },
+				"40": { "value": "#e2e1e1" },
+				"60": { "value": "#c9c8c7" },
+				"80": { "value": "#b0aead" },
+				"100": { "value": "#979593" },
+				"120": { "value": "#7e7b79" },
+				"140": { "value": "#646260" }
+			},
+			"Accent": { "aliasOf": "Global.Color.Blue" },
+			"Neutral": { "aliasOf": "Global.Color.Gray" },
+			"White": { "value": "#ffffff" },
+			"Black": { "value": "#000000" },
+			"Transparent": { "value": "transparent" }
+		},
+		"Stroke": {
+			"Width": {
+				"100": { "value": 1 }
+			}
+		},
+		"Corner": {
+			"Radius": {
+				"100": { "value": 4 }
+			}
+		},
+		"Padding": {
+			"400": {
+				"value": [7, 15, 7, 15]
+			}
+		},
+		"Font": {
+			"Family": {
+				"Default": { "value": "\"Segoe UI\", Roboto, \"Helvetica Neue\", Helvetica, Arial, sans-serif" }
+			},
+			"Weight": {
+				"Light": { "value": 300 },
+				"Regular": { "value": 400 },
+				"Semibold": { "value": 600 }
+			},
+			"Size": {
+				"350": { "value": 14 },
+				"600": { "value": 24 },
+				"800": { "value": 32 }
+			},
+			"LineHeight": {
+				"350": { "value": 20 },
+				"600": { "value": 32 },
+				"800": { "value": 40 }
+			}
+		}
+	},
+	"Set": {
+		"Body": {
+			"Font": {
+				"Family": { "aliasOf": "Global.Font.Family.Default" },
+				"Size": { "aliasOf": "Global.Font.Size.350" },
+				"Weight": { "aliasOf": "Global.Font.Weight.Regular" },
+				"LineHeight": { "aliasOf": "Global.Font.LineHeight.350" }
+			}
+		},
+		"Header": {
+			"Font": {
+				"Family": { "aliasOf": "Global.Font.Family.Default" },
+				"Size": { "aliasOf": "Global.Font.Size.800" },
+				"Weight": { "aliasOf": "Global.Font.Weight.Semibold" },
+				"LineHeight": { "aliasOf": "Global.Font.LineHeight.800" }
+			}
+		},
+		"Subheader": {
+			"Font": {
+				"Family": { "aliasOf": "Global.Font.Family.Default" },
+				"Size": { "aliasOf": "Global.Font.Size.600" },
+				"Weight": { "aliasOf": "Global.Font.Weight.Semibold" },
+				"LineHeight": { "aliasOf": "Global.Font.LineHeight.600" }
+			}
+		},
+		"Control": {
+			"Corner": {
+				"Radius": { "aliasOf": "Global.Corner.Radius.100" }
+			}
+		},
+		"Neutral": {
+			"Fill": {
+				"Color": {
+					"Rest": { "aliasOf": "Global.Color.Neutral.60" },
+					"Hover": { "aliasOf": "Global.Color.Neutral.20" },
+					"Press": { "aliasOf": "Global.Color.Neutral.80" },
+					"Disabled": { "aliasOf": "Global.Color.Neutral.40" }
+				}
+			}
+		},
+		"NeutralDarker": {
+			"Fill": {
+				"Color": {
+					"Rest": { "aliasOf": "Global.Color.Neutral.80" },
+					"Hover": { "aliasOf": "Global.Color.Neutral.100" },
+					"Press": { "aliasOf": "Global.Color.Neutral.120" },
+					"Disabled": { "aliasOf": "Global.Color.Neutral.40" }
+				}
+			}
+		},
+		"NeutralPrimary": {
+			"Fill": {
+				"Color": {
+					"Rest": { "aliasOf": "Global.Color.Black" },
+					"Hover": { "aliasOf": "Global.Color.Black" },
+					"Press": { "aliasOf": "Global.Color.Black" },
+					"Disabled": { "aliasOf": "Global.Color.Neutral.100" }
+				}
+			}
+		},
+		"HCOutline": {
+			"Stroke": {
+				"Color": {
+					"Rest": { "value": "transparent" },
+					"Hover": { "value": "transparent" },
+					"Press": { "value": "transparent" },
+					"Disabled": { "value": "transparent" }
+				},
+				"Width": { "aliasOf": "Global.Stroke.Width.100" }
+			}
+		},
+		"TempAccentBkg": {
+			"Fill": {
+				"Color": {
+					"Rest": { "aliasOf": "Global.Color.Accent.100" },
+					"Hover": { "aliasOf": "Global.Color.Accent.60" },
+					"Press": { "aliasOf": "Global.Color.Accent.120" },
+					"Disabled": { "aliasOf": "Global.Color.Neutral.40" }
+				}
+			}
+		},
+		"TempAccentSelectedBkg": {
+			"Fill": {
+				"Color": {
+					"Rest": { "aliasOf": "Global.Color.Accent.120" },
+					"Hover": { "aliasOf": "Global.Color.Accent.80" },
+					"Press": { "aliasOf": "Global.Color.Accent.140" },
+					"Disabled": { "aliasOf": "Global.Color.Neutral.40" }
+				}
+			}
+		},
+		"TempAccentText": {
+			"Fill": {
+				"Color": {
+					"Rest": { "aliasOf": "Global.Color.White" },
+					"Hover": { "aliasOf": "Global.Color.White" },
+					"Press": { "aliasOf": "Global.Color.White" },
+					"Disabled": { "aliasOf": "Global.Color.Neutral.100" }
+				}
+			}
+		},
+		"TempAccentBorder": {
+			"Stroke": {
+				"Color": {
+					"Rest": { "aliasOf": "Global.Color.Transparent" },
+					"Hover": { "aliasOf": "Global.Color.Transparent" },
+					"Press": { "aliasOf": "Global.Color.Transparent" },
+					"Disabled": { "aliasOf": "Global.Color.Transparent" }
+				},
+				"Width": { "aliasOf": "Global.Stroke.Width.100" }
+			}
+		},
+		"TempOutlineBkg": {
+			"Fill": {
+				"Color": {
+					"Rest": { "aliasOf": "Global.Color.Transparent" },
+					"Hover": { "aliasOf": "Global.Color.Neutral.20" },
+					"Press": { "aliasOf": "Global.Color.Neutral.40" },
+					"Disabled": { "aliasOf": "Global.Color.Transparent" }
+				}
+			}
+		},
+		"TempOutlineSelectedBkg": {
+			"Fill": {
+				"Color": {
+					"Rest": { "aliasOf": "Global.Color.Neutral.40" },
+					"Hover": { "aliasOf": "Global.Color.Neutral.40" },
+					"Press": { "aliasOf": "Global.Color.Neutral.60" },
+					"Disabled": { "aliasOf": "Global.Color.Transparent" }
+				}
+			}
+		},
+		"TempOutlineText": {
+			"Fill": {
+				"Color": {
+					"Rest": { "aliasOf": "Global.Color.Black" },
+					"Hover": { "aliasOf": "Global.Color.Black" },
+					"Press": { "aliasOf": "Global.Color.Black" },
+					"Disabled": { "aliasOf": "Global.Color.Neutral.100" }
+				}
+			}
+		},
+		"TempOutlineBorder": {
+			"Stroke": {
+				"Color": {
+					"Rest": { "aliasOf": "Global.Color.Neutral.80" },
+					"Hover": { "aliasOf": "Global.Color.Neutral.60" },
+					"Press": { "aliasOf": "Global.Color.Neutral.100" },
+					"Disabled": { "aliasOf": "Global.Color.Neutral.40" }
+				},
+				"Width": { "aliasOf": "Global.Stroke.Width.100" }
+			}
+		},
+		"TempTransparentBkg": {
+			"Fill": {
+				"Color": {
+					"Rest": { "aliasOf": "Global.Color.Transparent" },
+					"Hover": { "aliasOf": "Global.Color.Neutral.20" },
+					"Press": { "aliasOf": "Global.Color.Neutral.40" },
+					"Disabled": { "aliasOf": "Global.Color.Transparent" }
+				}
+			}
+		},
+		"TempTransparentSelectedBkg": {
+			"Fill": {
+				"Color": {
+					"Rest": { "aliasOf": "Global.Color.Neutral.40" },
+					"Hover": { "aliasOf": "Global.Color.Neutral.20" },
+					"Press": { "aliasOf": "Global.Color.Neutral.60" },
+					"Disabled": { "aliasOf": "Global.Color.Transparent" }
+				}
+			}
+		},
+		"TempTransparentText": {
+			"Fill": {
+				"Color": {
+					"Rest": { "aliasOf": "Global.Color.Black" },
+					"Hover": { "aliasOf": "Global.Color.Black" },
+					"Press": { "aliasOf": "Global.Color.Black" },
+					"Disabled": { "aliasOf": "Global.Color.Neutral.100" }
+				}
+			}
+		},
+		"TempTransparentBorder": {
+			"Stroke": {
+				"Color": {
+					"Rest": { "aliasOf": "Global.Color.Transparent" },
+					"Hover": { "aliasOf": "Global.Color.Transparent" },
+					"Press": { "aliasOf": "Global.Color.Transparent" },
+					"Disabled": { "aliasOf": "Global.Color.Transparent" }
+				},
+				"Width": { "aliasOf": "Global.Stroke.Width.100" }
+			}
+		},
+		"ControlWide": {
+			"Layout": {
+				"Padding": { "aliasOf": "Global.Padding.400" }
+			}
+		}
+	},
+	"Button": {
+		"Text": {
+			"Font": { "aliasOf": "Set.Body.Font" },
+			"Fill": { "Color": { "aliasOf": "Set.NeutralPrimary.Fill.Color", "Selected": { "aliasOf": "Set.NeutralPrimary.Fill.Color" } } }
+		},
+		"Root": {
+			"Fill": { "Color": { "aliasOf": "Set.Neutral.Fill.Color", "Selected": { "aliasOf": "Set.NeutralDarker.Fill.Color" } } },
+			"Stroke": {
+				"Color": { "aliasOf": "Set.HCOutline.Stroke.Color", "Selected": { "aliasOf": "Set.HCOutline.Stroke.Color" } },
+				"Width": { "aliasOf": "Set.HCOutline.Stroke.Width", "Selected": { "aliasOf": "Set.HCOutline.Stroke.Width" } }
+			},
+			"Layout": { "aliasOf": "Set.ControlWide.Layout" },
+			"Corner": { "aliasOf": "Set.Control.Corner" },
+			"Shadow": {}
+		},
+		"FocusInner": {},
+		"FocusOuter": {}
+	},
+	"AccentButton": {
+		"Text": {
+			"Font": { "aliasOf": "Set.Body.Font" },
+			"Fill": { "Color": { "aliasOf": "Set.TempAccentText.Fill.Color", "Selected": { "aliasOf": "Set.TempAccentText.Fill.Color" } } }
+		},
+		"Root": {
+			"Fill": {
+				"Color": { "aliasOf": "Set.TempAccentBkg.Fill.Color", "Selected": { "aliasOf": "Set.TempAccentSelectedBkg.Fill.Color" } }
+			},
+			"Stroke": {
+				"Color": { "aliasOf": "Set.TempAccentBorder.Stroke.Color", "Selected": { "aliasOf": "Set.TempAccentBorder.Stroke.Color" } },
+				"Width": { "aliasOf": "Set.TempAccentBorder.Stroke.Width", "Selected": { "aliasOf": "Set.TempAccentBorder.Stroke.Width" } }
+			},
+			"Layout": { "aliasOf": "Set.ControlWide.Layout" },
+			"Corner": { "aliasOf": "Set.Control.Corner" }
+		}
+	},
+	"OutlineButton": {
+		"Text": {
+			"Font": { "aliasOf": "Set.Body.Font" },
+			"Fill": {
+				"Color": { "aliasOf": "Set.TempOutlineText.Fill.Color", "Selected": { "aliasOf": "Set.TempOutlineText.Fill.Color" } }
+			}
+		},
+		"Root": {
+			"Fill": {
+				"Color": { "aliasOf": "Set.TempOutlineBkg.Fill.Color", "Selected": { "aliasOf": "Set.TempOutlineSelectedBkg.Fill.Color" } }
+			},
+			"Stroke": {
+				"Color": {
+					"aliasOf": "Set.TempOutlineBorder.Stroke.Color",
+					"Selected": { "aliasOf": "Set.TempOutlineBorder.Stroke.Color" }
+				},
+				"Width": {
+					"aliasOf": "Set.TempOutlineBorder.Stroke.Width",
+					"Selected": { "aliasOf": "Set.TempOutlineBorder.Stroke.Width" }
+				}
+			},
+			"Layout": { "aliasOf": "Set.ControlWide.Layout" },
+			"Corner": { "aliasOf": "Set.Control.Corner" }
+		}
+	},
+	"TransparentButton": {
+		"Text": {
+			"Font": { "aliasOf": "Set.Body.Font" },
+			"Fill": {
+				"Color": {
+					"aliasOf": "Set.TempTransparentText.Fill.Color",
+					"Selected": { "aliasOf": "Set.TempTransparentText.Fill.Color" }
+				}
+			}
+		},
+		"Root": {
+			"Fill": {
+				"Color": {
+					"aliasOf": "Set.TempTransparentBkg.Fill.Color",
+					"Selected": { "aliasOf": "Set.TempTransparentSelectedBkg.Fill.Color" }
+				}
+			},
+			"Stroke": {
+				"Color": {
+					"aliasOf": "Set.TempTransparentBorder.Stroke.Color",
+					"Selected": { "aliasOf": "Set.TempTransparentBorder.Stroke.Color" }
+				},
+				"Width": {
+					"aliasOf": "Set.TempTransparentBorder.Stroke.Width",
+					"Selected": { "aliasOf": "Set.TempTransparentBorder.Stroke.Width" }
+				}
+			},
+			"Layout": { "aliasOf": "Set.ControlWide.Layout" },
+			"Corner": { "aliasOf": "Set.Control.Corner" }
+		}
+	}
+}

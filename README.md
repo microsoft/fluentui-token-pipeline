@@ -2,13 +2,19 @@
 
 The FluentUI token pipeline produces source code for the FluentUI libraries. **It is currently a proof-of-concept.**
 
+## Setting up
+
+After cloning the repo, run `npm install` once to install dependencies.
+
 ## Configuring the pipeline
 
-You can configure the location where the pipeline produces output files—see the bottom of `config.js`. For more information about `config.js`, see the [style-dictionary](https://amzn.github.io/style-dictionary/) documentation: the FluentUI token pipeline uses `style-dictionary` for its configuration.
+You can configure the location where the pipeline produces output files—see the bottom of `src/pipeline/config.js`. For more information about `config.js`, see the [style-dictionary](https://amzn.github.io/style-dictionary/) documentation: the FluentUI token pipeline uses `style-dictionary` for its configuration.
 
 ## Building the pipeline
 
 To build the pipeline and produce the output files, just run `npm run build`. That's it!
+
+By default, the files will be output to the `build` folder. You can change that in `config.js`.
 
 ## Contributing
 
