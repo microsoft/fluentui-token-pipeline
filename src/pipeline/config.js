@@ -67,13 +67,36 @@ const getSDAttributes = (category, attribute) =>
 	return null
 }
 
+const charactersToEscape = /([\<\>\&])/g
+const escapedCharacters = {
+	'<': '&lt;',
+	'>': '&gt;',
+	'&': '&amp;',
+}
+const escapeXml = (text) =>
+	(typeof text === 'string' ? text : text.toString()).replace(charactersToEscape, (char) => escapedCharacters[char])
+
+const getModifiedPathForNaming = (path, prefix) =>
+{
+	// Strip off "Set" if present, and prepend the prefix if specified.
+	// Only makes a copy of the array if necessary; otherwise, it just returns the original array.
+	const isSet = path[0] === 'Set'
+	if (isSet || prefix)
+	{
+		if (prefix) return [prefix, ...(isSet ? path.slice(1) : path)]
+		else return path.slice(1)
+	} else return path
+}
+
+// ------------------------------------------------------------
+// Output settings: common
+// ------------------------------------------------------------
+
 StyleDictionary.registerTransform({
 	name: 'fluentui/attribute',
 	type: 'attribute',
 	transformer: (prop, options) =>
 	{
-		if (prop.path[prop.path.length - 1] === 'AAATest') console.log(prop)
-
 		/*
 			Transforms all properties to add appropriate category and xamlType fields.
 			(FluentUI token names use a different structure than the Category-Type-Item structure recommended
@@ -101,27 +124,6 @@ StyleDictionary.registerTransform({
 		console.log(`ERROR: Unable to determine data type based on token name "${prop.path.join('.')}".`)
 	},
 })
-
-const charactersToEscape = /([\<\>\&])/g
-const escapedCharacters = {
-	'<': '&lt;',
-	'>': '&gt;',
-	'&': '&amp;',
-}
-const escapeXml = (text) =>
-	(typeof text === 'string' ? text : text.toString()).replace(charactersToEscape, (char) => escapedCharacters[char])
-
-const getModifiedPathForNaming = (path, prefix) =>
-{
-	// Strip off "Set" if present, and prepend the prefix if specified.
-	// Only makes a copy of the array if necessary; otherwise, it just returns the original array.
-	const isSet = path[0] === 'Set'
-	if (isSet || prefix)
-	{
-		if (prefix) return [prefix, ...(isSet ? path.slice(1) : path)]
-		else return path.slice(1)
-	} else return path
-}
 
 // ------------------------------------------------------------
 // Output settings: CSS
