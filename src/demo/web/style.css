@@ -1,0 +1,29 @@
+*, *::before, *::after
+{
+	box-sizing: inherit;
+}
+
+html
+{
+	box-sizing: border-box;
+	min-height: 100%;
+
+	font-family: var(--body-font-family, "Comic Sans MS");
+	font-size: var(--body-font-size, 24px);
+	font-weight: var(--body-font-weight, 400);
+	line-height: var(--body-font-lineheight, 32px);
+	color: black;
+	background-color: white;
+
+	cursor: default;
+}
+
+body
+{
+	color: black;
+}
+
+code, pre
+{
+	font-family: Inconsolata, "Cascadia Mono", "Cascadia Mono PL", "Cascadia Code", "Cascadia Code PL", Consolas, SFMono-Regular, monospace;
+}

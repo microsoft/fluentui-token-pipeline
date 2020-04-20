@@ -16,6 +16,10 @@ You can change the source tokens used for producing output in `src/tokens/fluent
 
 To build the pipeline and produce the output files, just run `npm run build`. That's it!
 
+## Verifying that it works
+
+Open `src/demo/web/index.html` in a browser after building to see some of the tokens used in code.
+
 ## Contributing
 
 This project welcomes contributions and suggestions. Most contributions require you to agree to a

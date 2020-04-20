@@ -83,9 +83,15 @@ const getModifiedPathForNaming = (path, prefix) =>
 	const isSet = path[0] === 'Set'
 	if (isSet || prefix)
 	{
-		if (prefix) return [prefix, ...(isSet ? path.slice(1) : path)]
-		else return path.slice(1)
-	} else return path
+		if (prefix)
+			return [prefix, ...(isSet ? path.slice(1) : path)]
+		else
+			return path.slice(1)
+	}
+	else
+	{
+		return path
+	}
 }
 
 // ------------------------------------------------------------
@@ -157,9 +163,12 @@ StyleDictionary.registerTransform({
 			100px 200px 300px 400px
 		*/
 		const value = prop.value
-		if (typeof value === 'number') return `${value}px`
-		else if (Array.isArray(value) && value.length === 4) return `${value[0]}px ${value[1]}px ${value[2]}px ${value[3]}px`
-		else console.warn(`Unrecognized size value: "${value}". Use a single number or an array [top, right, bottom, left].`)
+		if (typeof value === 'number')
+			return `${value}px`
+		else if (Array.isArray(value) && value.length === 4)
+			return `${value[0]}px ${value[1]}px ${value[2]}px ${value[3]}px`
+		else
+			console.warn(`Unrecognized size value: "${value}". Use a single number or an array [top, right, bottom, left].`)
 	},
 })
 
@@ -232,8 +241,10 @@ StyleDictionary.registerTransform({
 				? minusDoubleQuotes.substring(1, minusDoubleQuotes.length - 1)
 				: minusDoubleQuotes
 		})
-		if (transformedList.length === 0) return ''
-		if (winuiInvalidFontFamilies.has(transformedList[transformedList.length - 1])) transformedList.pop()
+		if (transformedList.length === 0)
+			return ''
+		if (winuiInvalidFontFamilies.has(transformedList[transformedList.length - 1]))
+			transformedList.pop()
 		return transformedList.join(', ')
 	},
 })
@@ -258,13 +269,16 @@ StyleDictionary.registerTransform({
 			are not supported.
 		*/
 		const value = prop.value
-		if (typeof value === 'number') return value.toString()
-		else if (value.includes('/')) console.warn(`Size values with a slash are not currently supported: "${value}".`)
+		if (typeof value === 'number')
+			return value.toString()
+		else if (value.includes('/'))
+			console.warn(`Size values with a slash are not currently supported: "${value}".`)
 		else if (Array.isArray(value) && value.length === 4)
 			return prop.attributes.xamlType !== 'CornerRadius'
 				? `${value[3]}, ${value[0]}, ${value[1]}, ${value[2]}`
 				: `${value[0]}, ${value[1]}, ${value[2]}, ${value[3]}`
-		else console.warn(`Unrecognized size value: "${value}". Use a single number or an array [top, right, bottom, left].`)
+		else
+			console.warn(`Unrecognized size value: "${value}". Use a single number or an array [top, right, bottom, left].`)
 	},
 })
 

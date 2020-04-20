@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8" />
+<title>FluentUI token pipeline demo</title>
+<link rel="stylesheet" href="../../../build/web/fluentuitokens.css" />
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="buttons.css" />
+<style type="text/css">
+
+body
+{
+	padding: 40px;
+}
+
+p, h1, h2
+{
+	margin-block-start: 1em;
+	margin-block-end: 1em;
+}
+
+h1
+{
+	font-family: var(--header-font-family);
+	font-size: var(--header-font-size);
+	font-weight: var(--header-font-weight);
+	line-height: var(--header-font-lineheight);
+}
+
+h2
+{
+	font-family: var(--subheader-font-family);
+	font-size: var(--subheader-font-size);
+	font-weight: var(--subheader-font-weight);
+	line-height: var(--subheader-font-lineheight);
+}
+
+.buttonlist
+{
+	display: grid;
+	width: 50em;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 1em;
+	padding: 2em;
+
+	border-style: solid;
+	border-width: var(--global-stroke-width-100);
+	border-radius: var(--global-corner-radius-100);
+
+	border-color: var(--global-color-gray-100);
+}
+
+</style>
+</head>
+<body>
+
+	<h1>FluentUI token pipeline demo page</h1>
+
+	<div class="buttonlist">
+		<button>Neutral</button>
+		<button disabled>Neutral</button>
+		<button class="accent">Accent</button>
+		<button class="accent" disabled>Accent</button>
+		<button class="outline">Outline</button>
+		<button class="outline" disabled>Outline</button>
+		<button class="transparent">Transparent</button>
+		<button class="transparent" disabled>Transparent</button>
+	</div>
+
+	<h2>How to edit</h2>
+
+	<p>
+		The accent button's background color is <code>--accentbutton-root-fill-color-rest</code>, which is built into
+		<a href="../../../build/web/fluentuitokens.css" target="_blank"><code>/build/web/fluentuitokens.css</code></a>.
+		You can right-click and Inspect it to see all of the variables that affect it.
+	</p>
+	<p>
+		To change it, open
+		<a href="../../tokens/fluentui.json" target="_blank"><code>/src/tokens/fluentui.json</code></a>
+		in this repo.
+	</p>
+	<p>
+		If the buttons appear magenta, then <code>fluentuitokens.css</code> didn't load correctly—check the console.
+		Did you remember to build this repo using <code>npm run build</code>? (And, if you changed pipeline output settings in
+		<code>config.js</code>, you may need to adjust paths in this demo page to compensate.)
+	</p>
+
+</body></html>

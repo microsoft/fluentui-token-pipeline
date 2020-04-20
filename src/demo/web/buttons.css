@@ -1,0 +1,166 @@
+button
+{
+	border-style: solid;
+	border-width: var(--button-root-stroke-width, 6px);
+	border-radius: var(--button-root-corner-radius);
+	outline: none;
+
+	padding: var(--button-root-layout-padding);
+
+	font-family: var(--button-text-font-family);
+	font-size: var(--button-text-font-size);
+	font-weight: var(--button-text-font-weight);
+	line-height: var(--button-text-font-lineheight);
+
+	color: var(--button-text-fill-color-rest, pink);
+	background-color: var(--button-root-fill-color-rest, magenta);
+	border-color: var(--button-root-stroke-color-rest, cyan);
+
+	user-select: none;
+}
+button:focus-visible {
+	/* Not widely supported, but focus styles are NYI in this prototype anyway */
+	outline: 2px solid black;
+	outline-offset: 2px;
+}
+button:hover {
+	color: var(--button-text-fill-color-hover, pink);
+	background-color: var(--button-root-fill-color-hover, magenta);
+	border-color: var(--button-root-stroke-color-hover, cyan);
+}
+button:active {
+	color: var(--button-text-fill-color-press, pink);
+	background-color: var(--button-root-fill-color-press, magenta);
+	border-color: var(--button-root-stroke-color-press, cyan);
+}
+button[disabled] {
+	color: var(--button-text-fill-color-disabled, pink);
+	background-color: var(--button-root-fill-color-disabled, magenta);
+	border-color: var(--button-root-stroke-color-disabled, cyan);
+}
+
+
+button.accent
+{
+	border-style: solid;
+	border-width: var(--accentbutton-root-stroke-width, 6px);
+	border-radius: var(--accentbutton-root-corner-radius);
+	outline: none;
+
+	padding: var(--accentbutton-root-layout-padding);
+
+	font-family: var(--accentbutton-text-font-family);
+	font-size: var(--accentbutton-text-font-size);
+	font-weight: var(--accentbutton-text-font-weight);
+	line-height: var(--accentbutton-text-font-lineheight);
+
+	color: var(--accentbutton-text-fill-color-rest, pink);
+	background-color: var(--accentbutton-root-fill-color-rest, magenta);
+	border-color: var(--accentbutton-root-stroke-color-rest, cyan);
+
+	user-select: none;
+}
+button.accent:focus-visible {
+	/* Not widely supported, but focus styles are NYI in this prototype anyway */
+	outline: 2px solid black;
+	outline-offset: 2px;
+}
+button.accent:hover {
+	color: var(--accentbutton-text-fill-color-hover, pink);
+	background-color: var(--accentbutton-root-fill-color-hover, magenta);
+	border-color: var(--accentbutton-root-stroke-color-hover, cyan);
+}
+button.accent:active {
+	color: var(--accentbutton-text-fill-color-press, pink);
+	background-color: var(--accentbutton-root-fill-color-press, magenta);
+	border-color: var(--accentbutton-root-stroke-color-press, cyan);
+}
+button.accent[disabled] {
+	color: var(--accentbutton-text-fill-color-disabled, pink);
+	background-color: var(--accentbutton-root-fill-color-disabled, magenta);
+	border-color: var(--accentbutton-root-stroke-color-disabled, cyan);
+}
+
+
+button.outline
+{
+	border-style: solid;
+	border-width: var(--outlinebutton-root-stroke-width, 6px);
+	border-radius: var(--outlinebutton-root-corner-radius);
+	outline: none;
+
+	padding: var(--outlinebutton-root-layout-padding);
+
+	font-family: var(--outlinebutton-text-font-family);
+	font-size: var(--outlinebutton-text-font-size);
+	font-weight: var(--outlinebutton-text-font-weight);
+	line-height: var(--outlinebutton-text-font-lineheight);
+
+	color: var(--outlinebutton-text-fill-color-rest, pink);
+	background-color: var(--outlinebutton-root-fill-color-rest, magenta);
+	border-color: var(--outlinebutton-root-stroke-color-rest, cyan);
+
+	user-select: none;
+}
+button.outline:focus-visible {
+	/* Not widely supported, but focus styles are NYI in this prototype anyway */
+	outline: 2px solid black;
+	outline-offset: 2px;
+}
+button.outline:hover {
+	color: var(--outlinebutton-text-fill-color-hover, pink);
+	background-color: var(--outlinebutton-root-fill-color-hover, magenta);
+	border-color: var(--outlinebutton-root-stroke-color-hover, cyan);
+}
+button.outline:active {
+	color: var(--outlinebutton-text-fill-color-press, pink);
+	background-color: var(--outlinebutton-root-fill-color-press, magenta);
+	border-color: var(--outlinebutton-root-stroke-color-press, cyan);
+}
+button.outline[disabled] {
+	color: var(--outlinebutton-text-fill-color-disabled, pink);
+	background-color: var(--outlinebutton-root-fill-color-disabled, magenta);
+	border-color: var(--outlinebutton-root-stroke-color-disabled, cyan);
+}
+
+
+button.transparent
+{
+	border-style: solid;
+	border-width: var(--transparentbutton-root-stroke-width, 6px);
+	border-radius: var(--transparentbutton-root-corner-radius);
+	outline: none;
+
+	padding: var(--transparentbutton-root-layout-padding);
+
+	font-family: var(--transparentbutton-text-font-family);
+	font-size: var(--transparentbutton-text-font-size);
+	font-weight: var(--transparentbutton-text-font-weight);
+	line-height: var(--transparentbutton-text-font-lineheight);
+
+	color: var(--transparentbutton-text-fill-color-rest, pink);
+	background-color: var(--transparentbutton-root-fill-color-rest, magenta);
+	border-color: var(--transparentbutton-root-stroke-color-rest, cyan);
+
+	user-select: none;
+}
+button.transparent:focus-visible {
+	/* Not widely supported, but focus styles are NYI in this prototype anyway */
+	outline: 2px solid black;
+	outline-offset: 2px;
+}
+button.transparent:hover {
+	color: var(--transparentbutton-text-fill-color-hover, pink);
+	background-color: var(--transparentbutton-root-fill-color-hover, magenta);
+	border-color: var(--transparentbutton-root-stroke-color-hover, cyan);
+}
+button.transparent:active {
+	color: var(--transparentbutton-text-fill-color-press, pink);
+	background-color: var(--transparentbutton-root-fill-color-press, magenta);
+	border-color: var(--transparentbutton-root-stroke-color-press, cyan);
+}
+button.transparent[disabled] {
+	color: var(--transparentbutton-text-fill-color-disabled, pink);
+	background-color: var(--transparentbutton-root-fill-color-disabled, magenta);
+	border-color: var(--transparentbutton-root-stroke-color-disabled, cyan);
+}
