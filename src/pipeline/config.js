@@ -7,20 +7,59 @@ const _ = require('lodash')
 const FluentUIPreprocessor = require('./fluentui-preprocessor')
 
 // ------------------------------------------------------------
+// Configure the pipeline here
+// ------------------------------------------------------------
+
+const tokensInput = "../tokens/fluentui.json"
+const buildPath = './build/'
+
+module.exports = {
+	properties: FluentUIPreprocessor.resolveAliases(require(tokensInput)),
+	platforms: {
+		debug: {
+			transformGroup: 'js',
+			buildPath: buildPath,
+			files: [{ destination: 'debug/fluentuitokens-debug.json', format: 'json' }],
+		},
+
+		css: {
+			transformGroup: 'fluentui/css',
+			buildPath: buildPath,
+			files: [{ destination: 'web/fluentuitokens.css', format: 'css/variables' }],
+		},
+
+		winui: {
+			transformGroup: 'fluentui/winui',
+			buildPath: buildPath,
+			files: [{ destination: 'winui/FluentUITokens.xaml', format: 'fluentui/xaml/res' }],
+		},
+	},
+}
+
+// ------------------------------------------------------------
+
+// TODO: iOS Swift output will want each control's constants to go into a separate file, so that controls can be
+// shipped as independent packages.
+
+// ------------------------------------------------------------
 // FluentUI-specific utilities
 // ------------------------------------------------------------
 
 /// Returns a Style Dictionary attributes object or null.
-const getSDAttributes = (category, attribute) => {
-	if (category === 'Stroke') {
+const getSDAttributes = (category, attribute) =>
+{
+	if (category === 'Stroke')
+	{
 		if (attribute === 'Width') return { category: 'size', xamlType: 'Thickness' }
 	}
-	if (category === 'Corner') {
+	if (category === 'Corner')
+	{
 		if (attribute === 'Radius') return { category: 'size', xamlType: 'CornerRadius' }
 	}
 	if (attribute === 'Color') return { category: 'color', xamlType: 'SolidColorBrush' }
 	if (attribute === 'Padding') return { category: 'size', xamlType: 'Thickness' }
-	if (category === 'Font') {
+	if (category === 'Font')
+	{
 		if (attribute === 'Family') return { category: 'font', xamlType: 'FontFamily' }
 		if (attribute === 'Size' || attribute === 'LineHeight') return { category: 'size', xamlType: 'x:Double' }
 		if (attribute === 'Weight') return { category: 'fontWeight', xamlType: 'x:Double' }
@@ -31,7 +70,8 @@ const getSDAttributes = (category, attribute) => {
 StyleDictionary.registerTransform({
 	name: 'fluentui/attribute',
 	type: 'attribute',
-	transformer: (prop, options) => {
+	transformer: (prop, options) =>
+	{
 		if (prop.path[prop.path.length - 1] === 'AAATest') console.log(prop)
 
 		/*
@@ -41,16 +81,19 @@ StyleDictionary.registerTransform({
 		*/
 		let sdAttributes
 
-		if (prop.path[0] === 'Global') {
+		if (prop.path[0] === 'Global')
+		{
 			// The category name in global tokens is optional. So, we'll try the type detection twice: first assuming it's
 			// present, and then if that fails, assuming it's not.
-			if (prop.path.length > 3) {
+			if (prop.path.length > 3)
+			{
 				sdAttributes = getSDAttributes(prop.path[1], prop.path[2])
 				if (sdAttributes) return sdAttributes
 			}
 			sdAttributes = getSDAttributes(undefined, prop.path[1])
 			if (sdAttributes) return sdAttributes
-		} else {
+		} else
+		{
 			sdAttributes = getSDAttributes(prop.path[2], prop.path[3])
 			if (sdAttributes) return sdAttributes
 		}
@@ -68,11 +111,13 @@ const escapedCharacters = {
 const escapeXml = (text) =>
 	(typeof text === 'string' ? text : text.toString()).replace(charactersToEscape, (char) => escapedCharacters[char])
 
-const getModifiedPathForNaming = (path, prefix) => {
+const getModifiedPathForNaming = (path, prefix) =>
+{
 	// Strip off "Set" if present, and prepend the prefix if specified.
 	// Only makes a copy of the array if necessary; otherwise, it just returns the original array.
 	const isSet = path[0] === 'Set'
-	if (isSet || prefix) {
+	if (isSet || prefix)
+	{
 		if (prefix) return [prefix, ...(isSet ? path.slice(1) : path)]
 		else return path.slice(1)
 	} else return path
@@ -95,7 +140,8 @@ StyleDictionary.registerTransform({
 	name: 'fluentui/size/css',
 	type: 'value',
 	matcher: (prop) => prop.attributes.category === 'size',
-	transformer: (prop, options) => {
+	transformer: (prop, options) =>
+	{
 		/*
 			Transforms an array of top/right/bottom/left values into a CSS margin or padding string.
 			Single values are also allowed. All numbers are interpreted as pixels.
@@ -127,7 +173,8 @@ StyleDictionary.registerTransformGroup({
 StyleDictionary.registerTransform({
 	name: 'fluentui/name/pascal',
 	type: 'name',
-	transformer: (prop, options) => {
+	transformer: (prop, options) =>
+	{
 		/*
 			TODO: Annotate certain tokens with a "winuiKey" attribute that overrides the generated prop name so you
 			can remove one layer of aliasing between the control tokens here and the legacy tokens defined in WinUI.
@@ -166,7 +213,8 @@ StyleDictionary.registerTransform({
 	name: 'fluentui/font/winui',
 	type: 'value',
 	matcher: (prop) => prop.attributes.category === 'font',
-	transformer: (prop, options) => {
+	transformer: (prop, options) =>
+	{
 		/*
 			Transforms a CSS font-family string to one for Microsoft.UI.Xaml.Media.FontFamily.
 
@@ -174,7 +222,8 @@ StyleDictionary.registerTransform({
 				-->
 			Segoe UI, Roboto, Helvetica Neue, Helvetica, Arial
 		*/
-		const transformedList = prop.value.split(',').map((family) => {
+		const transformedList = prop.value.split(',').map((family) =>
+		{
 			const trimmed = family.trim()
 			const minusDoubleQuotes = trimmed.startsWith('"') && trimmed.endsWith('"') ? trimmed.substring(1, trimmed.length - 1) : trimmed
 			return minusDoubleQuotes.startsWith("'") && minusDoubleQuotes.endsWith("'")
@@ -191,7 +240,8 @@ StyleDictionary.registerTransform({
 	name: 'fluentui/size/winui',
 	type: 'value',
 	matcher: (prop) => prop.attributes.category === 'size',
-	transformer: (prop, options) => {
+	transformer: (prop, options) =>
+	{
 		/*
 			Transforms an array of top/right/bottom/left values into a string for Microsoft.UI.Xaml.Thickness.
 			Single values are also allowed. Note that when four values are specified, the input order is as in CSS,
@@ -220,7 +270,8 @@ StyleDictionary.registerTransform({
 	name: 'fluentui/color/winui',
 	type: 'value',
 	matcher: (prop) => prop.attributes.category === 'color',
-	transformer: (prop, options) => {
+	transformer: (prop, options) =>
+	{
 		/*
 			Transforms a valid CSS color value into a string for Windows.Foundation.Color.
 		*/
@@ -237,7 +288,8 @@ StyleDictionary.registerTransformGroup({
 
 StyleDictionary.registerFormat({
 	name: 'fluentui/xaml/res',
-	formatter: (dictionary, config) => {
+	formatter: (dictionary, config) =>
+	{
 		return `<ResourceDictionary
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
@@ -247,43 +299,12 @@ StyleDictionary.registerFormat({
 		Generated on ${new Date().toUTCString()}
 	-->
 
-${dictionary.allProperties
-	.map((prop) => {
-		const xamlType = prop.attributes.xamlType || 'x:String'
-		return `	<${xamlType} x:Key="${prop.name}">${escapeXml(prop.value)}</${xamlType}>`
-	})
-	.join('\n')}
+${dictionary.allProperties.map((prop) =>
+		{
+			const xamlType = prop.attributes.xamlType || 'x:String'
+			return `	<${xamlType} x:Key="${prop.name}">${escapeXml(prop.value)}</${xamlType}>`
+		}).join('\n')}
 
 </ResourceDictionary>`
 	},
 })
-
-// ------------------------------------------------------------
-
-const buildPath = './build/'
-
-module.exports = {
-	properties: FluentUIPreprocessor.resolveAliases(require('../tokens/fluentui')),
-	platforms: {
-		debug: {
-			transformGroup: 'js',
-			buildPath: buildPath,
-			files: [{ destination: 'debug/fluentuitokens-debug.json', format: 'json' }],
-		},
-
-		css: {
-			transformGroup: 'fluentui/css',
-			buildPath: buildPath,
-			files: [{ destination: 'web/fluentuitokens.css', format: 'css/variables' }],
-		},
-
-		winui: {
-			transformGroup: 'fluentui/winui',
-			buildPath: buildPath,
-			files: [{ destination: 'winui/FluentUITokens.xaml', format: 'fluentui/xaml/res' }],
-		},
-	},
-}
-
-// TODO: iOS Swift output will want each control's constants to go into a separate file, so that controls can be
-// shipped as independent packages.
