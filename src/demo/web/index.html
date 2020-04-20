@@ -38,7 +38,7 @@ h2
 .buttonlist
 {
 	display: grid;
-	width: 50em;
+	width: 30em;
 	grid-template-columns: repeat(2, 1fr);
 	grid-gap: 1em;
 	padding: 2em;
@@ -48,6 +48,11 @@ h2
 	border-radius: var(--global-corner-radius-100);
 
 	border-color: var(--global-color-gray-100);
+}
+
+[data-checked]:after
+{
+	content: " checked";
 }
 
 </style>
@@ -85,4 +90,20 @@ h2
 		<code>config.js</code>, you may need to adjust paths in this demo page to compensate.)
 	</p>
 
+<script>
+
+	function toggleCheck(e)
+	{
+		const target = e.target
+		if (target.dataset["checked"] === "checked")
+			delete target.dataset["checked"]
+		else
+			target.dataset["checked"] = "checked"
+	}
+	
+	for (let button of document.querySelectorAll("button"))
+		button.addEventListener("click", toggleCheck)
+	
+	</script>
+	
 </body></html>

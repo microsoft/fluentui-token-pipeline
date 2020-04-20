@@ -18,25 +18,53 @@ button
 
 	user-select: none;
 }
-button:focus-visible {
+button:focus-visible
+{
 	/* Not widely supported, but focus styles are NYI in this prototype anyway */
 	outline: 2px solid black;
 	outline-offset: 2px;
 }
-button:hover {
+button:hover
+{
 	color: var(--button-text-fill-color-hover, pink);
 	background-color: var(--button-root-fill-color-hover, magenta);
 	border-color: var(--button-root-stroke-color-hover, cyan);
 }
-button:active {
+button:active
+{
 	color: var(--button-text-fill-color-press, pink);
 	background-color: var(--button-root-fill-color-press, magenta);
 	border-color: var(--button-root-stroke-color-press, cyan);
 }
-button[disabled] {
+button[disabled]
+{
 	color: var(--button-text-fill-color-disabled, pink);
 	background-color: var(--button-root-fill-color-disabled, magenta);
 	border-color: var(--button-root-stroke-color-disabled, cyan);
+}
+button[data-checked]
+{
+	color: var(--button-text-fill-color-selected-rest, pink);
+	background-color: var(--button-root-fill-color-selected-rest, magenta);
+	border-color: var(--button-root-stroke-color-selected-rest, cyan);
+}
+button:hover
+{
+	color: var(--button-text-fill-color-selected-hover, pink);
+	background-color: var(--button-root-fill-color-selected-hover, magenta);
+	border-color: var(--button-root-stroke-color-selected-hover, cyan);
+}
+button:active
+{
+	color: var(--button-text-fill-color-selected-press, pink);
+	background-color: var(--button-root-fill-color-selected-press, magenta);
+	border-color: var(--button-root-stroke-color-selected-press, cyan);
+}
+button[disabled]
+{
+	color: var(--button-text-fill-color-selected-disabled, pink);
+	background-color: var(--button-root-fill-color-selected-disabled, magenta);
+	border-color: var(--button-root-stroke-color-selected-disabled, cyan);
 }
 
 
@@ -60,25 +88,53 @@ button.accent
 
 	user-select: none;
 }
-button.accent:focus-visible {
+button.accent:focus-visible
+{
 	/* Not widely supported, but focus styles are NYI in this prototype anyway */
 	outline: 2px solid black;
 	outline-offset: 2px;
 }
-button.accent:hover {
+button.accent:hover
+{
 	color: var(--accentbutton-text-fill-color-hover, pink);
 	background-color: var(--accentbutton-root-fill-color-hover, magenta);
 	border-color: var(--accentbutton-root-stroke-color-hover, cyan);
 }
-button.accent:active {
+button.accent:active
+{
 	color: var(--accentbutton-text-fill-color-press, pink);
 	background-color: var(--accentbutton-root-fill-color-press, magenta);
 	border-color: var(--accentbutton-root-stroke-color-press, cyan);
 }
-button.accent[disabled] {
+button.accent[disabled]
+{
 	color: var(--accentbutton-text-fill-color-disabled, pink);
 	background-color: var(--accentbutton-root-fill-color-disabled, magenta);
 	border-color: var(--accentbutton-root-stroke-color-disabled, cyan);
+}
+button.accent[data-checked]
+{
+	color: var(--accentbutton-text-fill-color-selected-rest, pink);
+	background-color: var(--accentbutton-root-fill-color-selected-rest, magenta);
+	border-color: var(--accentbutton-root-stroke-color-selected-rest, cyan);
+}
+button.accent:hover
+{
+	color: var(--accentbutton-text-fill-color-selected-hover, pink);
+	background-color: var(--accentbutton-root-fill-color-selected-hover, magenta);
+	border-color: var(--accentbutton-root-stroke-color-selected-hover, cyan);
+}
+button.accent:active
+{
+	color: var(--accentbutton-text-fill-color-selected-press, pink);
+	background-color: var(--accentbutton-root-fill-color-selected-press, magenta);
+	border-color: var(--accentbutton-root-stroke-color-selected-press, cyan);
+}
+button.accent[disabled]
+{
+	color: var(--accentbutton-text-fill-color-selected-disabled, pink);
+	background-color: var(--accentbutton-root-fill-color-selected-disabled, magenta);
+	border-color: var(--accentbutton-root-stroke-color-selected-disabled, cyan);
 }
 
 
@@ -102,25 +158,53 @@ button.outline
 
 	user-select: none;
 }
-button.outline:focus-visible {
+button.outline:focus-visible
+{
 	/* Not widely supported, but focus styles are NYI in this prototype anyway */
 	outline: 2px solid black;
 	outline-offset: 2px;
 }
-button.outline:hover {
+button.outline:hover
+{
 	color: var(--outlinebutton-text-fill-color-hover, pink);
 	background-color: var(--outlinebutton-root-fill-color-hover, magenta);
 	border-color: var(--outlinebutton-root-stroke-color-hover, cyan);
 }
-button.outline:active {
+button.outline:active
+{
 	color: var(--outlinebutton-text-fill-color-press, pink);
 	background-color: var(--outlinebutton-root-fill-color-press, magenta);
 	border-color: var(--outlinebutton-root-stroke-color-press, cyan);
 }
-button.outline[disabled] {
+button.outline[disabled]
+{
 	color: var(--outlinebutton-text-fill-color-disabled, pink);
 	background-color: var(--outlinebutton-root-fill-color-disabled, magenta);
 	border-color: var(--outlinebutton-root-stroke-color-disabled, cyan);
+}
+button.outline[data-checked]
+{
+	color: var(--outlinebutton-text-fill-color-selected-rest, pink);
+	background-color: var(--outlinebutton-root-fill-color-selected-rest, magenta);
+	border-color: var(--outlinebutton-root-stroke-color-selected-rest, cyan);
+}
+button.outline:hover
+{
+	color: var(--outlinebutton-text-fill-color-selected-hover, pink);
+	background-color: var(--outlinebutton-root-fill-color-selected-hover, magenta);
+	border-color: var(--outlinebutton-root-stroke-color-selected-hover, cyan);
+}
+button.outline:active
+{
+	color: var(--outlinebutton-text-fill-color-selected-press, pink);
+	background-color: var(--outlinebutton-root-fill-color-selected-press, magenta);
+	border-color: var(--outlinebutton-root-stroke-color-selected-press, cyan);
+}
+button.outline[disabled]
+{
+	color: var(--outlinebutton-text-fill-color-selected-disabled, pink);
+	background-color: var(--outlinebutton-root-fill-color-selected-disabled, magenta);
+	border-color: var(--outlinebutton-root-stroke-color-selected-disabled, cyan);
 }
 
 
@@ -144,23 +228,51 @@ button.transparent
 
 	user-select: none;
 }
-button.transparent:focus-visible {
+button.transparent:focus-visible
+{
 	/* Not widely supported, but focus styles are NYI in this prototype anyway */
 	outline: 2px solid black;
 	outline-offset: 2px;
 }
-button.transparent:hover {
+button.transparent:hover
+{
 	color: var(--transparentbutton-text-fill-color-hover, pink);
 	background-color: var(--transparentbutton-root-fill-color-hover, magenta);
 	border-color: var(--transparentbutton-root-stroke-color-hover, cyan);
 }
-button.transparent:active {
+button.transparent:active
+{
 	color: var(--transparentbutton-text-fill-color-press, pink);
 	background-color: var(--transparentbutton-root-fill-color-press, magenta);
 	border-color: var(--transparentbutton-root-stroke-color-press, cyan);
 }
-button.transparent[disabled] {
+button.transparent[disabled]
+{
 	color: var(--transparentbutton-text-fill-color-disabled, pink);
 	background-color: var(--transparentbutton-root-fill-color-disabled, magenta);
 	border-color: var(--transparentbutton-root-stroke-color-disabled, cyan);
+}
+button.transparent[data-checked]
+{
+	color: var(--transparentbutton-text-fill-color-selected-rest, pink);
+	background-color: var(--transparentbutton-root-fill-color-selected-rest, magenta);
+	border-color: var(--transparentbutton-root-stroke-color-selected-rest, cyan);
+}
+button.transparent:hover
+{
+	color: var(--transparentbutton-text-fill-color-selected-hover, pink);
+	background-color: var(--transparentbutton-root-fill-color-selected-hover, magenta);
+	border-color: var(--transparentbutton-root-stroke-color-selected-hover, cyan);
+}
+button.transparent:active
+{
+	color: var(--transparentbutton-text-fill-color-selected-press, pink);
+	background-color: var(--transparentbutton-root-fill-color-selected-press, magenta);
+	border-color: var(--transparentbutton-root-stroke-color-selected-press, cyan);
+}
+button.transparent[disabled]
+{
+	color: var(--transparentbutton-text-fill-color-selected-disabled, pink);
+	background-color: var(--transparentbutton-root-fill-color-selected-disabled, magenta);
+	border-color: var(--transparentbutton-root-stroke-color-selected-disabled, cyan);
 }
