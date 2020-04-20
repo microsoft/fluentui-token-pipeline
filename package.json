@@ -1,0 +1,25 @@
+{
+	"name": "fluentui-token-pipeline",
+	"version": "0.1.0",
+	"description": "The FluentUI design token pipeline",
+	"private": true,
+	"scripts": {
+		"clean": "echo Clean command not supported.",
+		"build": "style-dictionary build --config ./src/pipeline/config.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/microsoft/fluentui-token-pipeline.git"
+	},
+	"author": "Travis Spomer <travis@microsoft.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/microsoft/fluentui-token-pipeline/issues"
+	},
+	"homepage": "https://github.com/microsoft/fluentui-token-pipeline",
+	"devDependencies": {
+		"style-dictionary": "2.8.3",
+		"tinycolor2": "^1.4.1"
+	}
+}

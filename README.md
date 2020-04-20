@@ -1,7 +1,18 @@
+# FluentUI token pipeline
 
-# Contributing
+The FluentUI token pipeline produces source code for the FluentUI libraries. **It is currently a proof-of-concept.**
 
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
+## Configuring the pipeline
+
+You can configure the location where the pipeline produces output files—see the bottom of `config.js`. For more information about `config.js`, see the [style-dictionary](https://amzn.github.io/style-dictionary/) documentation: the FluentUI token pipeline uses `style-dictionary` for its configuration.
+
+## Building the pipeline
+
+To build the pipeline and produce the output files, just run `npm run build`. That's it!
+
+## Contributing
+
+This project welcomes contributions and suggestions. Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
 the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
 
