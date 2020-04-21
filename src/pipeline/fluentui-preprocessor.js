@@ -2,6 +2,8 @@
 
 class FluentUIPreprocessor
 {
+	_mergePropsOptions = { aliasesInOutput: false }
+
 	/// Resolves all of the aliases in an entire Style Dictionary properties object, and then returns the same object
 	/// instance, modified.
 	resolveAliases(properties)
@@ -14,19 +16,19 @@ class FluentUIPreprocessor
 			{
 				if (!subtree.hasOwnProperty(key)) continue
 				const prop = subtree[key]
-				if (typeof prop === 'object')
+				if (typeof prop === "object")
 				{
-					if ('aliasOf' in prop)
+					if ("aliasOf" in prop)
 					{
 						// This is an alias. Resolve it, and then recurse into it, because the alias target itself may contain aliases.
-						if (this._resolveAlias(prop, subtree, key, properties))
+						if (this._resolveAlias(prop, properties))
 						{
-							if ('aliasOf' in prop)
+							if ("aliasOf" in prop)
 								console.error(`_resolveAlias failed to resolve ${key} -- skipping to prevent infinite recursion.`)
 							else
 								resolveSubtree(prop)
 						}
-					} else if (!('value' in prop))
+					} else if (!("value" in prop))
 					{
 						// This is another subtree, so continue recursion into it. 
 						resolveSubtree(prop)
@@ -41,19 +43,21 @@ class FluentUIPreprocessor
 	}
 
 	/// Resolves an alias, replacing the reference with something useful.
-	_resolveAlias(prop, parent, key, properties)
+	_resolveAlias(prop, properties)
 	{
 		// First, verify that this alias is valid. We only support aliasing with a single string right now.
 		// (In the future, we could use aliasOf: { target: "Token.Name", options... }, or aliasOf: [...].)
-		if (typeof prop.aliasOf !== 'string')
+		if (typeof prop !== "object" || !("aliasOf" in prop))
+			throw new Error("Method was called on a property that wasn't an alias of anything.")
+		if (typeof prop.aliasOf !== "string")
 		{
 			console.error(`ERROR: Invalid aliasOf: ${JSON.stringify(prop.aliasOf)}. The aliasOf property should be a dot-delimited path to another token to refer to, such as "Global.Color.Blue".`)
-			prop.value = '<ERROR: Invalid aliasOf syntax>'
+			prop.value = "<ERROR: Invalid aliasOf syntax>"
 			return null
 		}
 
 		// You can't use aliasOf and value at the same time.
-		if ('value' in prop)
+		if ("value" in prop)
 		{
 			console.error(`ERROR: aliasOf: ${JSON.stringify(prop.aliasOf)} was used along with value ${JSON.stringify(prop.value)}, so the alias was ignored.`)
 		}
@@ -75,51 +79,74 @@ class FluentUIPreprocessor
 		}
 
 		// Okay, it's a good alias! Merge this property with a deep clone of the alias target.
-		this._mergeProps(prop, target, prop.aliasOf, properties)
+		this._mergeProps(prop, target, prop.aliasOf, properties, this._mergePropsOptions)
 
 		// Return the resolved property to indicate that we successfully resolved the alias.
 		return target
-
-		// TODO: Preserve the aliasing all the way to export time rather than replacing with the raw value (so we can use var(--other-token) in CSS, for example)
 
 		// TODO: Allow users to perform math, such as "tokenZ = tokenX * tokenY - 1", or color manipulation.
 	}
 
 	/// Deep-clones a target property's contents onto an alias property. Values already existing on the alias property are not overwritten.
 	/// After this method, the property will no longer be an alias.
-	_mergeProps(prop, target, targetPath, properties)
+	_mergeProps(prop, target, targetPath, properties, options)
 	{
 		console.assert(
-			typeof target === 'object',
-			'This function assumes that the target is always an object, often of the form { value: 123 }.')
+			typeof target === "object",
+			"This function assumes that the target is always an object, often of the form { value: 123 }.")
 
-		// This property isn't an alias anymore.
+		// This property will be resolved when this method finishes, so remove the alias reference.
+		// (If we're keeping aliases in output, they will be transformed into another format in this method.)
 		delete prop.aliasOf
 
-		for (const key in target)
+		// First of all, figure out what the target is.
+		// prop = { aliasOf: "target" }
+		if (typeof target === "object")
 		{
-			if (!target.hasOwnProperty(key)) continue
-			const subpropOnTarget = target[key]
-
-			if (typeof subpropOnTarget === 'object' && !Array.isArray(subpropOnTarget))
+			if ("value" in target)
 			{
-				// If this is an object property, recursively deep-clone it.
-				if (!(key in prop))
-					prop[key] = {}
-				this._mergeProps(prop[key], subpropOnTarget, `${targetPath}.${key}`, properties)
+				// The alias target is a simple value. Easy!
+				// target = { value: 123 }
+				if (options.aliasesInOutput)
+					prop.value = "REF@" + targetPath
+				else
+					prop.value = target.value
+			}
+			else if ("aliasOf" in target)
+			{
+				// The alias target is another alias, so it's recursion time.
+				// target = { aliasOf: "targetoftarget" }
+				this._resolveAlias(target, properties)
 			}
 			else
 			{
-				// If this property is a simple value or array, copy it over, UNLESS the source property already has defined
-				// a value for it, in which case we ignore the property on the target.
-				// (For arrays, this isn't TECHNICALLY a deep clone, but we only use arrays of simple values so that's fine.)
-				if (key in prop)
+				// The alias target is a set, so we need to iterate through keys.
+				// target = { A: { value: 1 }, B: { value: 2 }, C: { aliasOf: "targetoftarget" }, D: { D1: ..., D2: ... } }
+				for (const key in target)
 				{
-					console.log(`Skipping property ${key} from alias target because it's been overridden.`)
-					continue
+					if (!target.hasOwnProperty(key)) continue
+					if (key in prop)
+					{
+						// TODO: Remove this warning once we're 100% confident that things are working, since it's a normal case that doesn't indicate any sort of failure.
+						console.log(`When merging in a set, I skipped "${key}" from the alias target because it was overridden.`)
+						continue
+					}
+
+					const targetProp = target[key]
+					// targetProp = { value: 1 } or { aliasOf: "targetoftarget" } or { D1: ..., H2: ... }
+					if (typeof targetProp === "object")
+					{
+						// target.key is another value or alias, so recurse.
+						prop[key] = {}
+						this._mergeProps(prop[key], targetProp, `${targetPath}.${key}`, properties, options)
+					}
 				}
-				prop[key] = subpropOnTarget
 			}
+		}
+		else
+		{
+			// The target isn't a value, alias, or set, so it must be metadata or something else that we don't need to copy.
+			console.log(`Skipping from target: ${targetPath}, because we're not sure what ${JSON.stringify(subpropOnTarget)} is`)
 		}
 	}
 
@@ -127,7 +154,7 @@ class FluentUIPreprocessor
 	/// Returns null if the target can't be found.
 	_findPropByPath(path, properties)
 	{
-		const targetPathParts = path.trim().split('.')
+		const targetPathParts = path.trim().split(".")
 		if (targetPathParts.length === 0) return null
 
 		let target = properties
@@ -145,13 +172,14 @@ class FluentUIPreprocessor
 	{
 		// Do a couple of quick checks before doing any expensive work.
 		if (original === target) return true
-		if (!('aliasOf' in target)) return false
+		if (typeof target !== "object") return false
+		if (!("aliasOf" in target)) return false
 
 		const traversed = [original]
 		let current = target
 		while (current)
 		{
-			if (!('aliasOf' in current)) return false
+			if (!("aliasOf" in current)) return false
 			traversed.push(current)
 
 			current = this._findPropByPath(current.aliasOf, properties)
