@@ -103,6 +103,9 @@ StyleDictionary.registerTransform({
 	type: 'attribute',
 	transformer: (prop, options) =>
 	{
+		if (prop.resolvedAliasPath)
+			return { category: 'alias' }
+
 		/*
 			Transforms all properties to add appropriate category and xamlType fields.
 			(FluentUI token names use a different structure than the Category-Type-Item structure recommended
@@ -136,13 +139,22 @@ StyleDictionary.registerTransform({
 // Output settings: CSS
 // ------------------------------------------------------------
 
+const getNameForCss = (path, prefix) =>
+	getModifiedPathForNaming(path, prefix)
+		.join('-')
+		.toLowerCase()
+
 StyleDictionary.registerTransform({
 	name: 'fluentui/name/kebab',
 	type: 'name',
-	transformer: (prop, options) =>
-		getModifiedPathForNaming(prop.path, options.prefix)
-			.join('-')
-			.toLowerCase(),
+	transformer: (prop, options) => getNameForCss(prop.path, options.prefix),
+})
+
+StyleDictionary.registerTransform({
+	name: 'fluentui/alias/css',
+	type: 'value',
+	matcher: (prop) => "resolvedAliasPath" in prop,
+	transformer: (prop, options) => `var(--${getNameForCss(prop.resolvedAliasPath.split("."), options.prefix)})`,
 })
 
 StyleDictionary.registerTransform({
@@ -175,37 +187,48 @@ StyleDictionary.registerTransform({
 
 StyleDictionary.registerTransformGroup({
 	name: 'fluentui/css',
-	transforms: ['fluentui/attribute', 'fluentui/name/kebab', 'time/seconds', 'fluentui/size/css', 'color/css'],
+	transforms: ['fluentui/attribute', 'fluentui/name/kebab', 'fluentui/alias/css', 'time/seconds', 'fluentui/size/css', 'color/css'],
 })
 
 // ------------------------------------------------------------
 // Output settings: WinUI
 // ------------------------------------------------------------
 
+/*
+	TODO: Annotate certain tokens with a "winuiKey" attribute that overrides the generated prop name so you
+	can remove one layer of aliasing between the control tokens here and the legacy tokens defined in WinUI.
+
+	{control.neutralButton.border.width} = { value: 1 }
+	<x:Double x:Key="AliasControlNeutralButtonBorderWidth">1</x:Double>
+	<StaticResource x:Key="ButtonBorderThemeThickness" ResourceKey="AliasControlNeutralButtonBorderWidth" />
+
+		-->
+
+	{control.neutralButton.border.width} = { value: 1, attributes: { xamlName: "ButtonBorderThemeThickness" } }
+	<x:Double x:Key="ButtonBorderThemeThickness">1</x:Double>
+	...and no XAML resource for AliasControlNeutralButtonBorderWidth defined at all.
+
+	Note that this assumes that there's some kind of "master" Fluent JSON that gets merged with updates from the
+	plugin and website, or otherwise those sources would need to replicate the same. Alternately, there could just
+	be a single mapping dictionary of Fluent token name to WinUI token name that exists only in this pipeline.
+*/
+
+const getNameForWinUI = (path, prefix) =>
+	_.upperFirst(_.camelCase(getModifiedPathForNaming(path, prefix).join(' ')))
+
 StyleDictionary.registerTransform({
 	name: 'fluentui/name/pascal',
 	type: 'name',
+	transformer: (prop, options) => getNameForWinUI(prop.path, options.prefix),
+})
+
+StyleDictionary.registerTransform({
+	name: 'fluentui/alias/winui',
+	type: 'attribute',
+	matcher: (prop) => "resolvedAliasPath" in prop,
 	transformer: (prop, options) =>
 	{
-		/*
-			TODO: Annotate certain tokens with a "winuiKey" attribute that overrides the generated prop name so you
-			can remove one layer of aliasing between the control tokens here and the legacy tokens defined in WinUI.
-
-			{control.neutralButton.border.width} = { value: 1 }
-			<x:Double x:Key="AliasControlNeutralButtonBorderWidth">1</x:Double>
-			<StaticResource x:Key="ButtonBorderThemeThickness" ResourceKey="AliasControlNeutralButtonBorderWidth" />
-
-				-->
-
-			{control.neutralButton.border.width} = { value: 1, attributes: { xamlName: "ButtonBorderThemeThickness" } }
-			<x:Double x:Key="ButtonBorderThemeThickness">1</x:Double>
-			...and no XAML resource for AliasControlNeutralButtonBorderWidth defined at all.
-
-			Note that this assumes that there's some kind of "master" Fluent JSON that gets merged with updates from the
-			plugin and website, or otherwise those sources would need to replicate the same. Alternately, there could just
-			be a single mapping dictionary of Fluent token name to WinUI token name that exists only in this pipeline.
-		*/
-		return _.upperFirst(_.camelCase(getModifiedPathForNaming(prop.path, options.prefix).join(' ')))
+		return { aliasResourceName: getNameForWinUI(prop.resolvedAliasPath.split("."), options.prefix) }
 	},
 })
 
@@ -300,7 +323,7 @@ StyleDictionary.registerTransform({
 
 StyleDictionary.registerTransformGroup({
 	name: 'fluentui/winui',
-	transforms: ['fluentui/attribute', 'fluentui/name/pascal', 'fluentui/size/winui', 'fluentui/font/winui', 'fluentui/color/winui'],
+	transforms: ['fluentui/attribute', 'fluentui/name/pascal', 'fluentui/alias/winui', 'fluentui/size/winui', 'fluentui/font/winui', 'fluentui/color/winui'],
 })
 
 StyleDictionary.registerFormat({
@@ -318,8 +341,15 @@ StyleDictionary.registerFormat({
 
 ${dictionary.allProperties.map((prop) =>
 		{
-			const xamlType = prop.attributes.xamlType || 'x:String'
-			return `	<${xamlType} x:Key="${prop.name}">${escapeXml(prop.value)}</${xamlType}>`
+			if (prop.attributes.aliasResourceName)	
+			{
+				return `	<StaticResource x:Key="${prop.name}" ResourceKey="${prop.attributes.aliasResourceName}" />`
+			}
+			else
+			{
+				const xamlType = prop.attributes.xamlType || 'x:String'
+				return `	<${xamlType} x:Key="${prop.name}">${escapeXml(prop.value)}</${xamlType}>`
+			}
 		}).join('\n')}
 
 </ResourceDictionary>`

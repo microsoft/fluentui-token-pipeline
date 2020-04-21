@@ -2,8 +2,6 @@
 
 class FluentUIPreprocessor
 {
-	_mergePropsOptions = { aliasesInOutput: false }
-
 	/// Resolves all of the aliases in an entire Style Dictionary properties object, and then returns the same object
 	/// instance, modified.
 	resolveAliases(properties)
@@ -96,7 +94,7 @@ class FluentUIPreprocessor
 			"This function assumes that the target is always an object, often of the form { value: 123 }.")
 
 		// This property will be resolved when this method finishes, so remove the alias reference.
-		// (If we're keeping aliases in output, they will be transformed into another format in this method.)
+		// (We save the path in resolvedAliasPath so that we can use it for output formatting.)
 		delete prop.aliasOf
 
 		// First of all, figure out what the target is.
@@ -107,10 +105,8 @@ class FluentUIPreprocessor
 			{
 				// The alias target is a simple value. Easy!
 				// target = { value: 123 }
-				if (options.aliasesInOutput)
-					prop.value = "REF@" + targetPath
-				else
-					prop.value = target.value
+				prop.value = target.value
+				prop.resolvedAliasPath = targetPath
 			}
 			else if ("aliasOf" in target)
 			{
