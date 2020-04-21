@@ -28,6 +28,12 @@ module.exports = {
 			files: [{ destination: 'web/fluentuitokens.css', format: 'css/variables' }],
 		},
 
+		cssflat: {
+			transformGroup: 'fluentui/cssflat',
+			buildPath: buildPath,
+			files: [{ destination: 'web/fluentuitokens-flat.css', format: 'css/variables' }],
+		},
+
 		winui: {
 			transformGroup: 'fluentui/winui',
 			buildPath: buildPath,
@@ -188,6 +194,11 @@ StyleDictionary.registerTransform({
 StyleDictionary.registerTransformGroup({
 	name: 'fluentui/css',
 	transforms: ['fluentui/attribute', 'fluentui/name/kebab', 'fluentui/alias/css', 'time/seconds', 'fluentui/size/css', 'color/css'],
+})
+
+StyleDictionary.registerTransformGroup({
+	name: 'fluentui/cssflat',
+	transforms: ['fluentui/attribute', 'fluentui/name/kebab', 'time/seconds', 'fluentui/size/css', 'color/css'],
 })
 
 // ------------------------------------------------------------
