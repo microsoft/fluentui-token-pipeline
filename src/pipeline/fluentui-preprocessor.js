@@ -124,7 +124,7 @@ class FluentUIPreprocessor
 					if (key in prop)
 					{
 						// TODO: Remove this warning once we're 100% confident that things are working, since it's a normal case that doesn't indicate any sort of failure.
-						console.log(`When merging in a set, I skipped "${key}" from the alias target because it was overridden.`)
+						console.log(`When merging in a set, I skipped "${key}" from the alias target because it was overridden. (This is probably expected, unless you see a lot of these.)`)
 						continue
 					}
 
