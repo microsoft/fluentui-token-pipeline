@@ -10,6 +10,8 @@ const FluentUIPreprocessor = require('./fluentui-preprocessor')
 // Configure the pipeline here
 // ------------------------------------------------------------
 
+// TODO: Support merging an arbitrary number of token files before the transformation
+
 const tokensInput = "../tokens/fluentui.json"
 const buildPath = './build/'
 
