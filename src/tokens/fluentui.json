@@ -34,8 +34,7 @@
 			"Accent": { "aliasOf": "Global.Color.Blue" },
 			"Neutral": { "aliasOf": "Global.Color.Gray" },
 			"White": { "value": "#ffffff" },
-			"Black": { "value": "#000000" },
-			"Transparent": { "value": "transparent" }
+			"Black": { "value": "#000000" }
 		},
 		"Stroke": {
 			"Width": {
@@ -184,10 +183,10 @@
 		"TempAccentBorder": {
 			"Stroke": {
 				"Color": {
-					"Rest": { "aliasOf": "Global.Color.Transparent" },
-					"Hover": { "aliasOf": "Global.Color.Transparent" },
-					"Press": { "aliasOf": "Global.Color.Transparent" },
-					"Disabled": { "aliasOf": "Global.Color.Transparent" },
+					"Rest": { "value": "transparent" },
+					"Hover": { "value": "transparent" },
+					"Press": { "value": "transparent" },
+					"Disabled": { "value": "transparent" },
 					"IntendedFor": "Control"
 				},
 				"Width": { "aliasOf": "Global.Stroke.Width.100" }
@@ -196,10 +195,10 @@
 		"TempOutlineBkg": {
 			"Fill": {
 				"Color": {
-					"Rest": { "aliasOf": "Global.Color.Transparent" },
+					"Rest": { "value": "transparent" },
 					"Hover": { "aliasOf": "Global.Color.Neutral.20" },
 					"Press": { "aliasOf": "Global.Color.Neutral.40" },
-					"Disabled": { "aliasOf": "Global.Color.Transparent" },
+					"Disabled": { "value": "transparent" },
 					"IntendedFor": "Control"
 				}
 			}
@@ -210,7 +209,7 @@
 					"Rest": { "aliasOf": "Global.Color.Neutral.40" },
 					"Hover": { "aliasOf": "Global.Color.Neutral.40" },
 					"Press": { "aliasOf": "Global.Color.Neutral.60" },
-					"Disabled": { "aliasOf": "Global.Color.Transparent" },
+					"Disabled": { "value": "transparent" },
 					"IntendedFor": "Control"
 				}
 			}
@@ -241,10 +240,10 @@
 		"TempTransparentBkg": {
 			"Fill": {
 				"Color": {
-					"Rest": { "aliasOf": "Global.Color.Transparent" },
+					"Rest": { "value": "transparent" },
 					"Hover": { "aliasOf": "Global.Color.Neutral.20" },
 					"Press": { "aliasOf": "Global.Color.Neutral.40" },
-					"Disabled": { "aliasOf": "Global.Color.Transparent" },
+					"Disabled": { "value": "transparent" },
 					"IntendedFor": "Control"
 				}
 			}
@@ -255,7 +254,7 @@
 					"Rest": { "aliasOf": "Global.Color.Neutral.40" },
 					"Hover": { "aliasOf": "Global.Color.Neutral.20" },
 					"Press": { "aliasOf": "Global.Color.Neutral.60" },
-					"Disabled": { "aliasOf": "Global.Color.Transparent" },
+					"Disabled": { "value": "transparent" },
 					"IntendedFor": "Control"
 				}
 			}
@@ -274,10 +273,10 @@
 		"TempTransparentBorder": {
 			"Stroke": {
 				"Color": {
-					"Rest": { "aliasOf": "Global.Color.Transparent" },
-					"Hover": { "aliasOf": "Global.Color.Transparent" },
-					"Press": { "aliasOf": "Global.Color.Transparent" },
-					"Disabled": { "aliasOf": "Global.Color.Transparent" },
+					"Rest": { "value": "transparent" },
+					"Hover": { "value": "transparent" },
+					"Press": { "value": "transparent" },
+					"Disabled": { "value": "transparent" },
 					"IntendedFor": "Control"
 				},
 				"Width": { "aliasOf": "Global.Stroke.Width.100" }
