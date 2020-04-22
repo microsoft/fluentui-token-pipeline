@@ -12,6 +12,8 @@ const FluentUIPreprocessor = require('./fluentui-preprocessor')
 
 // TODO: Support merging an arbitrary number of token files before the transformation
 
+// TODO: Make an HTML export that lists the name/value pairs in a reasonable way (linking to fluentuitokens.css)
+
 const tokensInput = "../tokens/fluentui.json"
 const buildPath = './build/'
 
