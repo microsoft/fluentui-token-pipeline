@@ -48,7 +48,5 @@ module.exports = {
 
 // ------------------------------------------------------------
 
-// TODO: Make an HTML export that lists the name/value pairs in a reasonable way (linking to fluentuitokens.css)
-
 // TODO: iOS Swift output will want each control's constants to go into a separate file, so that controls can be
 // shipped as independent packages.
