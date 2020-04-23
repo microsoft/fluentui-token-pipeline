@@ -12,28 +12,6 @@ const escapedCharacters =
 
 class Utils
 {
-	/// Returns a Style Dictionary attributes object or null.
-	getSDAttributes(category, attribute)
-	{
-		if (category === 'Stroke')
-		{
-			if (attribute === 'Width') return { category: 'size', xamlType: 'Thickness' }
-		}
-		if (category === 'Corner')
-		{
-			if (attribute === 'Radius') return { category: 'size', xamlType: 'CornerRadius' }
-		}
-		if (attribute === 'Color') return { category: 'color', xamlType: 'SolidColorBrush' }
-		if (attribute === 'Padding') return { category: 'size', xamlType: 'Thickness' }
-		if (category === 'Font')
-		{
-			if (attribute === 'Family') return { category: 'font', xamlType: 'FontFamily' }
-			if (attribute === 'Size' || attribute === 'LineHeight') return { category: 'size', xamlType: 'x:Double' }
-			if (attribute === 'Weight') return { category: 'fontWeight', xamlType: 'x:Double' }
-		}
-		return null
-	}
-
 	escapeXml(text)
 	{
 		return (typeof text === 'string' ? text : text.toString()).replace(charactersToEscape, (char) => escapedCharacters[char])

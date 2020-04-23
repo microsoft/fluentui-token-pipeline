@@ -33,25 +33,29 @@ const getHTMLForToken = (prop) =>
 	const name = prop.name
 	const alias = prop.attributes.aliasResourceName || ""
 	const value = Utils.escapeXml(prop.value)
+	let swatch
 
-	// TODO: For alias tokens, use the category of the final value
+	// Future: Handle other types of tokens
 
-	// TODO: Handle other types of tokens
-
-	switch (prop.attributes.category)
+	switch (prop.attributes.aliasCategory || prop.attributes.category)
 	{
-		case "color": return `
-	<div class="color swatch" style="background-color: ${value};"></div>
-	<div class="name">${name}</div>
-	<div class="value">${alias}</div>
-	<div class="finalvalue">${value}</div>`
+		case "color":
+			if (value === "transparent" || value === "rgba(0, 0, 0, 0)")
+				swatch = `<div class="transparent color swatch"></div>`
+			else if (value === "white" || value === "#ffffff")
+				swatch = `<div class="color swatch" style="background-color: ${value}; border: 1px solid #dddddd;"></div>`
+			else
+				swatch = `<div class="color swatch" style="background-color: ${value};"></div>`
+			break
 
-		default: return `
-	<div class="swatch"></div>
+		default:
+			swatch = `<div class="swatch"></div>`
+	}
+
+	return `	${swatch}
 	<div class="name">${name}</div>
 	<div class="value">${alias}</div>
 	<div class="finalvalue">${value}</div>`
-	}
 }
 
 StyleDictionary.registerFormat({
@@ -152,6 +156,13 @@ h3
 .tokentable > .color.swatch
 {
 	height: 100%;
+}
+
+.tokentable > .transparent.color.swatch
+{
+	background-position: 0px 0px, 8px 8px;
+	background-size: 16px 16px;
+	background-image: linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%, #eee 100%),linear-gradient(45deg, #eee 25%, white 25%, white 75%, #eee 75%, #eee 100%);
 }
 
 .tokentable > .text.swatch
