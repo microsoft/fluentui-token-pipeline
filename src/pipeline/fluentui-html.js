@@ -171,7 +171,7 @@ h3
 	user-select: none;
 }
 
-.tokentable > .value::before, .tokentable > .finalvalue::before
+.tokentable > .value:not(:empty)::before, .tokentable > .finalvalue::before
 {
 	content: " = ";
 	color: #808080;
