@@ -3,6 +3,7 @@
 const FluentUIAliases = require("./fluentui-aliases")
 require("./fluentui-shared")
 require("./fluentui-css")
+require("./fluentui-html")
 require("./fluentui-winui")
 
 // TODO: Support merging an arbitrary number of token files before the transformation
@@ -17,6 +18,12 @@ module.exports = {
 			transformGroup: "js",
 			buildPath: buildPath,
 			files: [{ destination: "debug/fluentuitokens-debug.json", format: "json" }],
+		},
+
+		reference: {
+			transformGroup: "fluentui/html",
+			buildPath: buildPath,
+			files: [{ destination: "reference/fluentuitokens.html", format: "fluentui/html/reference" }],
 		},
 
 		css: {
