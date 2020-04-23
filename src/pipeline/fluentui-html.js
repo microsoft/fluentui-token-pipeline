@@ -96,11 +96,6 @@ body
 	padding: 0 2em 2em 2em;
 }
 
-code, pre
-{
-	font-family: Inconsolata, "Cascadia Mono", "Cascadia Mono PL", "Cascadia Code", "Cascadia Code PL", Consolas, SFMono-Regular, monospace;
-}
-
 p, h1, h2
 {
 	margin-block-start: 1em;
@@ -179,6 +174,7 @@ h3
 
 .tokentable > .finalvalue
 {
+	font-family: Inconsolata, Consolas, SFMono-Regular, monospace;
 	text-overflow: ellipsis;
 }
 
