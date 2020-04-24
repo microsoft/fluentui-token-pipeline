@@ -182,7 +182,7 @@ h3
 .tokentable
 {
 	display: grid;
-	grid-template-columns: [swatch] 32px [name] auto [value] auto [purevalue] auto;
+	grid-template-columns: [swatch] 32px [name] auto [alias] auto [value] 1fr;
 	grid-auto-rows: 32px;
 	gap: .25em 1em;
 	justify-content: start;
@@ -199,6 +199,7 @@ h3
 	overflow: hidden;
 
 	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 
 .tokentable > .color.swatch
@@ -228,7 +229,6 @@ h3
 .tokentable > .finalvalue
 {
 	font-family: Inconsolata, Consolas, SFMono-Regular, monospace;
-	text-overflow: ellipsis;
 }
 
 </style>
