@@ -27,6 +27,7 @@ module.exports = {
 			buildPath: buildPath,
 			files: [{ destination: 'web/fluentuitokens.swift', format: 'ios-swift/class.swift', className: 'FluentUITokens' }],
 		},
+
 		css: {
 			transformGroup: 'fluentui/css',
 			buildPath: buildPath,
@@ -146,8 +147,12 @@ StyleDictionary.registerTransform({
 	},
 })
 
+// ------------------------------------------------------------
+// Output settings: Swift
+// ------------------------------------------------------------
 
 const getNameForSwift = (path, prefix) =>
+	_.camelCase(getModifiedPathForNaming(path, prefix).join(' '))
 
 const getCGFloatFromNumber = (value) =>
 	parseFloat(value, 10).toFixed(1)
