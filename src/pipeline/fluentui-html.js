@@ -55,15 +55,68 @@ const getHTMLForToken = (prop) =>
 	return `	${swatch}
 	<div class="name">${name}</div>
 	<div class="value">${alias}</div>
-	<div class="finalvalue">${value}</div>`
+	<div class="finalvalue">${value}</div>
+
+`
 }
 
 StyleDictionary.registerFormat({
 	name: 'fluentui/html/reference',
 	formatter: (dictionary, config) =>
 	{
-		// TODO: Group them by Global, Alias sets, and individual controls
+		const sortedProps = Utils.sortPropertiesForReadability(dictionary.allProperties)
 
+		// Turn a sorted list of all tokens into HTML, and inject headers as appropriate.
+		let list = ""
+		let previousProp = null
+		for (const thisProp of sortedProps)
+		{
+			// See if we need to add a header first. (This logic requires the list to already be sorted.)
+			let header = null
+			if (thisProp.path[0] === "Global" && (!previousProp))
+			{
+				header = "<h1>Global tokens</h1>\n\n"
+			}
+			else if (thisProp.path[0] === "Set" && (!previousProp || previousProp.path[0] !== "Set"))
+			{
+				header = "<h1>Alias tokens</h1>\n\n"
+			}
+			else if (thisProp.path[0] !== "Global" && thisProp.path[0] !== "Set" && (!previousProp || previousProp.path[0] === "Global" || previousProp.path[0] === "Set"))
+			{
+				header = "<h1>Control tokens</h1>\n\n"
+			}
+
+			if (thisProp.path[0] === "Set" && (!previousProp || thisProp.path[1] !== previousProp.path[1]))
+			{
+				header = (header || "") + `<h2>Set-${thisProp.path[1]}</h2>\n\n`
+			}
+			else if (thisProp.path[0] !== "Global" && thisProp.path[0] !== "Set" && (!previousProp || thisProp.path[0] !== previousProp.path[0]))
+			{
+				header = (header || "") + `<h2>${thisProp.path[0]}</h2>\n\n`
+			}
+
+			if (header)
+			{
+				if (previousProp) list += "</div>\n\n"
+				list += header
+				list += "<div class=\"tokentable\">\n\n"
+			}
+
+			if (thisProp.path[0] !== "Global" && thisProp.path[0] !== "Set" && (!previousProp || thisProp.path[1] !== previousProp.path[1]))
+			{
+				// The H3-level headers inside of the control token tables (such as "Root" for "Button-Root-Fill-Color-Rest")
+				// go INSIDE the table.
+				list += `<h3>${thisProp.path[1]}</h3>\n\n`
+			}
+
+			previousProp = thisProp
+
+			// Add this one to the list and then continue.
+			list += getHTMLForToken(thisProp)
+		}
+		if (previousProp) list += "</div>\n\n"
+
+		// Finally, plug that all into the template page and return.
 		return `<!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -186,11 +239,7 @@ h3
 
 <p>Generated on <time datetime="2020-04-20 16:20">${new Date().toUTCString()}</time></p>
 
-<div class="tokentable">
-
-${dictionary.allProperties.map(getHTMLForToken).join('\n')}
-
-</div>
+${list}
 
 </body></html>`},
 })
