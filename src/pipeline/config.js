@@ -22,10 +22,15 @@ module.exports = {
 			files: [{ destination: 'debug/fluentuitokens-debug.json', format: 'json' }],
 		},
 
-		swift: {
+		ios: {
 			transformGroup: 'fluentui/swift',
 			buildPath: buildPath,
-			files: [{ destination: 'web/fluentuitokens.swift', format: 'ios-swift/class.swift', className: 'FluentUITokens' }],
+			files: [
+				{ destination: 'ios/FluentUITokens.swift', format: 'ios-swift/class.swift', className: 'FluentUITokens' },
+				{ destination: 'ios/FluentUIColorTokens.swift', format: 'ios-swift/class.swift', className: 'FluentUIColorTokens', filter: 'isColor' },
+				{ destination: 'ios/FluentUISizeTokens.swift', format: 'ios-swift/class.swift', className: 'FluentUISizeTokens', filter: 'isSize' },
+				{ destination: 'ios/FluentUIFontTokens.swift', format: 'ios-swift/class.swift', className: 'FluentUIFontTokens', filter: 'isFont' },
+			],
 		},
 
 		css: {
@@ -47,11 +52,6 @@ module.exports = {
 		},
 	},
 }
-
-// ------------------------------------------------------------
-
-// TODO: iOS Swift output will want each control's constants to go into a separate file, so that controls can be
-// shipped as independent packages.
 
 // ------------------------------------------------------------
 // FluentUI-specific utilities
@@ -145,6 +145,36 @@ StyleDictionary.registerTransform({
 
 		console.log(`ERROR: Unable to determine data type based on token name "${prop.path.join('.')}".`)
 	},
+})
+
+// Currently used below custom filters to separate colors, fonts and sizes into a different file.
+StyleDictionary.registerFilter({
+	name: 'isColor',
+	matcher: function (prop)
+	{
+		// var result = false
+		// for (var index = 0; index < prop.path.length; index++) {
+		// 	result = result || prop.path[index] == 'Color'
+		// }
+		return new Set(prop.path).has("Color")
+	}
+})
+
+StyleDictionary.registerFilter({
+	name: 'isSize',
+	matcher: function (prop)
+	{
+		let propSet = new Set(prop.path)
+		return propSet.has("Width") || propSet.has("Padding") || propSet.has("Radius")
+	}
+})
+
+StyleDictionary.registerFilter({
+	name: 'isFont',
+	matcher: function (prop)
+	{
+		return new Set(prop.path).has("Font")
+	}
 })
 
 // ------------------------------------------------------------
