@@ -4,9 +4,7 @@
 	"description": "The FluentUI design token pipeline",
 	"private": true,
 	"scripts": {
-		"clean": "echo Clean command not supported.",
-		"build": "style-dictionary build --config ./src/pipeline/config.js",
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"build": "style-dictionary build --config ./src/pipeline/config.js"
 	},
 	"repository": {
 		"type": "git",
@@ -18,9 +16,9 @@
 		"url": "https://github.com/microsoft/fluentui-token-pipeline/issues"
 	},
 	"homepage": "https://github.com/microsoft/fluentui-token-pipeline",
-	"devDependencies": {
+	"dependencies": {
 		"lodash": "4.17.15",
-		"style-dictionary": "2.8.3",
+		"style-dictionary": "2.9.0",
 		"tinycolor2": "^1.4.1"
 	}
 }
