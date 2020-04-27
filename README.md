@@ -8,7 +8,7 @@ After cloning the repo, run `npm install` once to install dependencies.
 
 ## Configuring the pipeline (optional)
 
-You can change the source tokens used for producing output in `src/tokens/fluentui.json`, or configure the pipeline to use a different location in `src/pipeline/config.js`.The pipeline will output files to the `build` folder; you can configure that in `config.js` as well.
+You can change the source tokens used for producing output in `src/tokens/fluentui.json`, or configure the pipeline to use a different location in `src/pipeline/config.js`. The pipeline will output files to the `build` folder; you can configure that in `config.js` as well.
 
 *For more information about `config.js`, see the [style-dictionary](https://amzn.github.io/style-dictionary/) documentation: the FluentUI token pipeline uses `style-dictionary` for its configuration.*
 
@@ -18,7 +18,7 @@ To build the pipeline and produce the output files, just run `npm run build`. Th
 
 ## Verifying that it works
 
-Open `src/demo/web/index.html` in a browser after building to see some of the tokens used in code.
+Open one of the pages in `src/demo/web/` in a browser after building to see some of the tokens used in code.
 
 ## Contributing
 

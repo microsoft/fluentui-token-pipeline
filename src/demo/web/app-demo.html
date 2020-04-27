@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8" />
+<title>FluentUI token pipeline demo app</title>
+<link rel="stylesheet" href="../../../build/web/fluentuitokens.css" />
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="buttons.css" />
+<style type="text/css">
+
+body
+{
+	display: grid;
+	grid-template-columns: [nav] 320px [body] 1fr;
+	grid-template-rows: [header] 48px [body] 1fr;
+	margin: 0;
+	height: 100vh;
+}
+
+header
+{
+	grid-column: 1 / -1;
+
+	display: grid;
+	grid-template-columns: [title] auto [spacer] 1fr [search] auto [user] auto;
+	align-items: center;
+	padding: 0 0 0 12px;
+
+	color: white;
+	background-color: var(--global-color-accent-100);
+
+	user-select: none;
+}
+
+header > h2
+{
+	display: inline;
+	margin: 0;
+}
+
+header > input[type="search"]
+{
+	width: 280px;
+	padding: .3em .7em;
+
+	color:white;
+	background-color: rgba(0, 0, 0, 0.3);
+	border-style: none;
+	border-radius: var(--button-root-corner-radius);
+}
+
+header > img
+{
+	width: 32px;
+	height: 32px;
+	margin: 8px;
+
+	border-radius: 50%;
+}
+
+nav
+{
+	background-color: var(--global-color-gray-20);
+
+	border-style: solid;
+	border-width: 0 var(--global-stroke-width-100) 0 0;
+	border-color: var(--global-color-gray-60);
+
+	box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+
+	user-select: none;
+}
+
+main
+{
+	display: flex;
+
+	user-select: none;
+}
+
+.cloudy
+{
+	display: flex;
+	margin: auto;
+
+	flex-direction: column;
+	align-items: center;
+}
+
+.cloudy > h2
+{
+	color: var(--global-color-accent-120);
+}
+
+</style>
+</head>
+<body>
+
+<header>
+	<h2>Home</h2>
+	<div><!-- Spacer --></div>
+	<input type="search" placeholder="Search" />
+	<img src="https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&amp;s=32" alt="User image" title="" />
+</header>
+
+<nav></nav>
+
+<main>
+
+<div class="cloudy">
+	<svg width="194" height="156" viewBox="0 0 194 156" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path d="M106.641 39.3236C137.27 39.3236 154.645 59.5974 157.172 84.0815L157.945 84.0814C177.657 84.0814 193.636 100.019 193.636 119.679C193.636 139.339 177.657 155.277 157.945 155.277H55.3363C35.6252 155.277 19.6462 139.339 19.6462 119.679C19.6462 100.019 35.6252 84.0814 55.3366 84.0814L56.1093 84.0815C58.6511 59.4365 76.0117 39.3236 106.641 39.3236ZM106.641 51.3836C86.0458 51.3836 68.0949 68.0487 68.0949 91.068C68.0949 94.7154 64.9236 97.5775 61.2923 97.5774L54.4261 97.5771C41.8881 97.5771 31.724 107.794 31.724 120.397C31.724 133 41.8881 143.217 54.4261 143.217H158.856C171.394 143.217 181.558 133 181.558 120.397C181.558 107.794 171.394 97.5771 158.856 97.5771L151.989 97.5774C148.358 97.5775 145.187 94.7154 145.187 91.068C145.187 67.7534 127.236 51.3836 106.641 51.3836ZM23.0704 79.4101C24.2613 82.2852 23.0558 85.5551 20.3735 86.9993L19.8176 87.2631L8.64542 91.9116C5.57863 93.1819 2.06271 91.7255 0.792403 88.6588C-0.39851 85.7836 0.807044 82.5138 3.48935 81.0696L4.04523 80.8057L15.2174 76.1573C18.2842 74.887 21.8001 76.3433 23.0704 79.4101ZM85.9032 32.8102L85.6084 32.9049C81.139 34.3643 76.9852 36.2979 73.1822 38.6573C66.8593 35.9821 59.5065 35.7455 52.6598 38.5814C39.0958 44.1998 32.6546 59.7502 38.273 73.3142C38.8216 74.6387 39.4649 75.8952 40.1918 77.0792C36.5245 78.3897 33.0759 80.1647 29.9154 82.3328C29.0614 80.8693 28.2977 79.3307 27.6314 77.7221C19.5786 58.2809 28.8107 35.9927 48.2519 27.9399C61.2269 22.5654 75.47 24.89 85.9032 32.8102ZM7.95073 33.6796L8.56449 33.9009L19.7721 38.6803C22.8161 39.9665 24.2762 43.4914 23.0332 46.5534C21.8732 49.4112 18.7685 50.8557 15.8848 49.9898L15.271 49.7686L4.06343 44.9892C1.01942 43.7029 -0.440641 40.178 0.802293 37.1161C1.96236 34.2582 5.06704 32.8138 7.95073 33.6796ZM43.5645 3.84034L43.8297 4.39911L48.4719 15.5444C49.7488 18.6271 48.2849 22.1613 45.2022 23.4382C42.3121 24.6353 39.0252 23.4235 37.5735 20.7273L37.3083 20.1685L32.6662 9.0232C31.3892 5.94047 32.8531 2.40629 35.9359 1.12938C38.8259 -0.0677188 42.1128 1.1441 43.5645 3.84034ZM87.2981 1.13322C90.2065 2.33789 91.6894 5.53017 90.8248 8.48394L90.6032 9.11243L85.8117 20.1116C84.521 23.2277 80.9486 24.7074 77.8325 23.4167C74.9242 22.212 73.4413 19.0197 74.3059 16.066L74.5274 15.4375L79.3189 4.43832C80.6096 1.32224 84.182 -0.157505 87.2981 1.13322Z" fill="#21212130"/>
+	</svg>
+	
+	<h2>Some handy text here</h2>
+	<button class="accent">Accent</button>
+</div>
+
+</main>
+	
+</body></html>
