@@ -1,0 +1,10 @@
+{
+	"Meta": {
+		"FluentUITokensVersion": 0
+	},
+	"Global": {
+		"Color": {
+			"Accent": { "aliasOf": "Global.Color.Red" }
+		}
+	}
+}

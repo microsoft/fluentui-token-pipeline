@@ -1,6 +1,6 @@
 "use strict"
 
-class FluentUIPreprocessor
+class FluentUIAliases
 {
 	/// Resolves all of the aliases in an entire Style Dictionary properties object, and then returns the same object
 	/// instance, modified.
@@ -186,4 +186,4 @@ class FluentUIPreprocessor
 	}
 }
 
-module.exports = new FluentUIPreprocessor()
+module.exports = new FluentUIAliases()
