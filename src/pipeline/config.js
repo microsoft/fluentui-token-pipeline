@@ -64,3 +64,5 @@ module.exports = {
 		},
 	},
 }
+
+// TODO: Set up a watcher so that this can happen automatically in the background.
