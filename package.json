@@ -4,7 +4,8 @@
 	"description": "The FluentUI design token pipeline",
 	"private": true,
 	"scripts": {
-		"build": "style-dictionary build --config ./src/pipeline/config.js"
+		"build": "gulp build",
+		"watch": "gulp watch"
 	},
 	"repository": {
 		"type": "git",
@@ -17,8 +18,12 @@
 	},
 	"homepage": "https://github.com/microsoft/fluentui-token-pipeline",
 	"dependencies": {
+		"jsonfile": "^6.0.1",
 		"lodash": "4.17.15",
 		"style-dictionary": "2.9.0",
 		"tinycolor2": "^1.4.1"
+	},
+	"devDependencies": {
+		"gulp": "^4.0.2"
 	}
 }

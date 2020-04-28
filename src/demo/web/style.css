@@ -27,3 +27,33 @@ code, pre
 {
 	font-family: Inconsolata, Consolas, SFMono-Regular, monospace;
 }
+
+p, h1, h2
+{
+	margin-block-start: 1em;
+	margin-block-end: 1em;
+}
+
+h1
+{
+	font-family: var(--header-font-family);
+	font-size: var(--header-font-size);
+	font-weight: var(--header-font-weight);
+	line-height: var(--header-font-lineheight);
+}
+
+h2
+{
+	font-family: var(--subheader-font-family);
+	font-size: var(--subheader-font-size);
+	font-weight: var(--subheader-font-weight);
+	line-height: var(--subheader-font-lineheight);
+}
+
+input
+{
+	font-family: var(--body-font-family, "Comic Sans MS");
+	font-size: var(--body-font-size, 24px);
+	font-weight: var(--body-font-weight, 400);
+	line-height: var(--body-font-lineheight, 32px);
+}

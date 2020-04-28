@@ -1,6 +1,7 @@
 "use strict"
 
 const _ = require("lodash")
+const jsonfile = require("jsonfile")
 
 const FluentUIAliases = require("./fluentui-aliases")
 require("./fluentui-shared")
@@ -14,11 +15,11 @@ require("./fluentui-winui")
 // ------------------------------------------------------------
 
 /*
-	List at least one input JSON file, relative to config.js, not the root of the repo.
+	List at least one input JSON file, relative to the root of the repo.
 
 	To see the pipeline merge multiple JSON files together, try adding "../tokens/example-red-accent.json" to the array.
 */
-const inputTokenFiles = ["../tokens/fluentui.json"]
+const inputTokenFiles = ["src/tokens/fluentui.json"]
 
 /*
 	Specify the path to where output files should be generated, relative to the root of the repo.
@@ -29,7 +30,7 @@ const outputPath = "./build/"
 // ------------------------------------------------------------
 
 const tokens = {}
-inputTokenFiles.forEach((inputFile) => _.merge(tokens, require(inputFile)))
+inputTokenFiles.forEach((inputFile) => _.merge(tokens, jsonfile.readFileSync(inputFile)))
 
 module.exports = {
 	properties: FluentUIAliases.resolveAliases(tokens),
@@ -77,5 +78,3 @@ module.exports = {
 		},
 	},
 }
-
-// TODO: Set up a watcher so that this can happen automatically in the background.
