@@ -48,7 +48,8 @@ module.exports = {
 
 		ios: {
 			transformGroup: 'fluentui/swift',
-			buildPath: "..//..//Word/Word/Common/Styles/",
+			// buildPath to change files directly in fluentUI-tokens-demo iOS app ..//fluentUI-tokens-demo/FluentUITokensDemo/Common/Styles/
+			buildPath: outputPath,
 			files: [
 				{ destination: 'FluentUITokens.swift', format: 'ios-swift/class.swift', className: 'FluentUITokens' },
 				{ destination: 'FluentUIColorTokens.swift', format: 'ios-swift/class.swift', className: 'FluentUIColorTokens', filter: 'isColor' },
