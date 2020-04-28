@@ -16,6 +16,8 @@ You can change the source tokens used for producing output in `src/tokens/fluent
 
 To build the pipeline and produce the output files, just run `npm run build`. That's it!
 
+You can use `npm run watch` instead to automatically re-run the pipeline whenever you change the source tokens file `fluentui.json`.
+
 ## Verifying that it works
 
 Open one of the pages in `src/demo/web/` in a browser after building to see some of the tokens used in code.
