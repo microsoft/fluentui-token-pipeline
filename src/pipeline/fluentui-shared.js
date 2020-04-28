@@ -67,3 +67,33 @@ StyleDictionary.registerTransform({
 		return sdAttributes
 	},
 })
+
+// Currently used below custom filters to separate colors, fonts and sizes into a different file.
+StyleDictionary.registerFilter({
+	name: 'isColor',
+	matcher: function (prop)
+	{
+		// var result = false
+		// for (var index = 0; index < prop.path.length; index++) {
+		// 	result = result || prop.path[index] == 'Color'
+		// }
+		return new Set(prop.path).has("Color")
+	}
+})
+
+StyleDictionary.registerFilter({
+	name: 'isSize',
+	matcher: function (prop)
+	{
+		let propSet = new Set(prop.path)
+		return propSet.has("Width") || propSet.has("Padding") || propSet.has("Radius")
+	}
+})
+
+StyleDictionary.registerFilter({
+	name: 'isFont',
+	matcher: function (prop)
+	{
+		return new Set(prop.path).has("Font")
+	}
+})

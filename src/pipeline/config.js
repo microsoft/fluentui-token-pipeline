@@ -7,6 +7,7 @@ const FluentUIAliases = require("./fluentui-aliases")
 require("./fluentui-shared")
 require("./fluentui-css")
 require("./fluentui-html")
+require("./fluentui-ios")
 require("./fluentui-winui")
 
 // ------------------------------------------------------------
@@ -44,6 +45,18 @@ module.exports = {
 			transformGroup: "fluentui/html",
 			buildPath: outputPath,
 			files: [{ destination: "reference/fluentuitokens.html", format: "fluentui/html/reference" }],
+		},
+
+		ios: {
+			transformGroup: 'fluentui/swift',
+			// buildPath to change files directly in fluentUI-tokens-demo iOS app ..//fluentUI-tokens-demo/FluentUITokensDemo/Common/Styles/
+			buildPath: outputPath,
+			files: [
+				{ destination: 'FluentUITokens.swift', format: 'ios-swift/class.swift', className: 'FluentUITokens' },
+				{ destination: 'FluentUIColorTokens.swift', format: 'ios-swift/class.swift', className: 'FluentUIColorTokens', filter: 'isColor' },
+				{ destination: 'FluentUISizeTokens.swift', format: 'ios-swift/class.swift', className: 'FluentUISizeTokens', filter: 'isSize' },
+				{ destination: 'FluentUIFontTokens.swift', format: 'ios-swift/class.swift', className: 'FluentUIFontTokens', filter: 'isFont' },
+			],
 		},
 
 		css: {
