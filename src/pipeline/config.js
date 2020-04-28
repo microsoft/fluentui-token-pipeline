@@ -48,12 +48,12 @@ module.exports = {
 
 		ios: {
 			transformGroup: 'fluentui/swift',
-			buildPath: outputPath,
+			buildPath: "..//..//Word/Word/Common/Styles/",
 			files: [
-				{ destination: 'ios/FluentUITokens.swift', format: 'ios-swift/class.swift', className: 'FluentUITokens' },
-				{ destination: 'ios/FluentUIColorTokens.swift', format: 'ios-swift/class.swift', className: 'FluentUIColorTokens', filter: 'isColor' },
-				{ destination: 'ios/FluentUISizeTokens.swift', format: 'ios-swift/class.swift', className: 'FluentUISizeTokens', filter: 'isSize' },
-				{ destination: 'ios/FluentUIFontTokens.swift', format: 'ios-swift/class.swift', className: 'FluentUIFontTokens', filter: 'isFont' },
+				{ destination: 'FluentUITokens.swift', format: 'ios-swift/class.swift', className: 'FluentUITokens' },
+				{ destination: 'FluentUIColorTokens.swift', format: 'ios-swift/class.swift', className: 'FluentUIColorTokens', filter: 'isColor' },
+				{ destination: 'FluentUISizeTokens.swift', format: 'ios-swift/class.swift', className: 'FluentUISizeTokens', filter: 'isSize' },
+				{ destination: 'FluentUIFontTokens.swift', format: 'ios-swift/class.swift', className: 'FluentUIFontTokens', filter: 'isFont' },
 			],
 		},
 

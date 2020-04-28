@@ -378,5 +378,12 @@
 			"Layout": { "aliasOf": "Set.ControlWide.Layout" },
 			"Corner": { "aliasOf": "Set.Control.Corner" }
 		}
-	}
+	},
+	"Header": {
+		"Root": {
+			"Fill": {
+				"Color": { "aliasOf":"Global.Color.Accent" }
+				}
+			}
+		}
 }
