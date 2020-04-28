@@ -2,6 +2,8 @@
 
 The FluentUI token pipeline produces source code for the FluentUI libraries. **It is currently a proof-of-concept.**
 
+Documentation on how our tokens are named, organized, and used is still in progress. For now, just contact the feature team with questions.
+
 ## Setting up
 
 After cloning the repo, run `npm install` once to install dependencies.
@@ -21,6 +23,9 @@ You can use `npm run watch` instead to automatically re-run the pipeline wheneve
 ## Verifying that it works
 
 Open one of the pages in `src/demo/web/` in a browser after building to see some of the tokens used in code.
+
+* [Sample app](src/demo/web/app-demo.html)
+* [Button styles](src/demo/web/buttons-demo.html)
 
 ## Contributing
 
