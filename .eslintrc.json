@@ -12,13 +12,19 @@
 	"rules": {
 		"brace-style": ["warn", "allman"],
 		"block-spacing": ["warn", "always"],
-		"comma-dangle": ["warn", "always-multiline"],
+		"comma-dangle": ["warn", {
+			"arrays": "only-multiline",
+			"objects": "only-multiline",
+			"imports": "only-multiline",
+			"exports": "only-multiline",
+			"functions": "never"
+		}],
 		"comma-style": ["warn", "last"],
 		"dot-notation": "warn",
 		"eqeqeq": ["error", "always"],
 		"func-call-spacing": ["warn", "never"],
 		"indent": ["error", "tab", { "SwitchCase": 1 }],
-		"lines-between-class-members": ["error", "always", { "exceptAfterSingleLine": true }],
+		"lines-between-class-members": ["warn", "always", { "exceptAfterSingleLine": true }],
 		"no-cond-assign": ["error", "always"],
 		"no-console": "off",
 		"no-multi-spaces": "warn",
