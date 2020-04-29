@@ -48,14 +48,14 @@ module.exports = {
 		},
 
 		ios: {
-			transformGroup: 'fluentui/swift',
+			transformGroup: "fluentui/swift",
 			// buildPath to change files directly in fluentUI-tokens-demo iOS app: "../fluentUI-tokens-demo/FluentUITokensDemo/Common/Styles/"
 			buildPath: `${outputPath}/ios/`,
 			files: [
-				{ destination: 'FluentUITokens.swift', format: 'ios-swift/class.swift', className: 'FluentUITokens' },
-				{ destination: 'FluentUIColorTokens.swift', format: 'ios-swift/class.swift', className: 'FluentUIColorTokens', filter: 'isColor' },
-				{ destination: 'FluentUISizeTokens.swift', format: 'ios-swift/class.swift', className: 'FluentUISizeTokens', filter: 'isSize' },
-				{ destination: 'FluentUIFontTokens.swift', format: 'ios-swift/class.swift', className: 'FluentUIFontTokens', filter: 'isFont' },
+				{ destination: "FluentUITokens.swift", format: "ios-swift/class.swift", className: "FluentUITokens" },
+				{ destination: "FluentUIColorTokens.swift", format: "ios-swift/class.swift", className: "FluentUIColorTokens", filter: "isColor" },
+				{ destination: "FluentUISizeTokens.swift", format: "ios-swift/class.swift", className: "FluentUISizeTokens", filter: "isSize" },
+				{ destination: "FluentUIFontTokens.swift", format: "ios-swift/class.swift", className: "FluentUIFontTokens", filter: "isFont" },
 			],
 		},
 

@@ -26,7 +26,8 @@ class FluentUIAliases
 							else
 								resolveSubtree(prop)
 						}
-					} else if (!("value" in prop))
+					}
+					else if (!("value" in prop))
 					{
 						// This is another subtree, so continue recursion into it. 
 						resolveSubtree(prop)
@@ -142,7 +143,7 @@ class FluentUIAliases
 		else
 		{
 			// The target isn't a value, alias, or set, so it must be metadata or something else that we don't need to copy.
-			console.log(`Skipping from target: ${targetPath}, because we're not sure what ${JSON.stringify(subpropOnTarget)} is`)
+			console.log(`Skipping from target: ${targetPath}, because we're not sure what ${JSON.stringify(target)} is`)
 		}
 	}
 

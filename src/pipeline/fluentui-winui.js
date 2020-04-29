@@ -25,18 +25,17 @@ const Utils = require("./utils")
 	be a single mapping dictionary of Fluent token name to WinUI token name that exists only in this pipeline.
 */
 
-const getNameForWinUI = (path, prefix) =>
-	_.upperFirst(_.camelCase(Utils.getModifiedPathForNaming(path, prefix).join(' ')))
+const getNameForWinUI = (path, prefix) => _.upperFirst(_.camelCase(Utils.getModifiedPathForNaming(path, prefix).join(" ")))
 
 StyleDictionary.registerTransform({
-	name: 'fluentui/name/pascal',
-	type: 'name',
+	name: "fluentui/name/pascal",
+	type: "name",
 	transformer: (prop, options) => getNameForWinUI(prop.path, options.prefix),
 })
 
 StyleDictionary.registerTransform({
-	name: 'fluentui/alias/winui',
-	type: 'attribute',
+	name: "fluentui/alias/winui",
+	type: "attribute",
 	matcher: (prop) => "resolvedAliasPath" in prop,
 	transformer: (prop, options) =>
 	{
@@ -45,21 +44,21 @@ StyleDictionary.registerTransform({
 })
 
 const winuiInvalidFontFamilies = new Set([
-	'serif',
-	'sans-serif',
-	'monospace',
-	'cursive',
-	'fantasy',
-	'system-ui',
-	'emoji',
-	'math',
-	'fangsong',
+	"serif",
+	"sans-serif",
+	"monospace",
+	"cursive",
+	"fantasy",
+	"system-ui",
+	"emoji",
+	"math",
+	"fangsong",
 ])
 
 StyleDictionary.registerTransform({
-	name: 'fluentui/font/winui',
-	type: 'value',
-	matcher: (prop) => prop.attributes.category === 'font',
+	name: "fluentui/font/winui",
+	type: "value",
+	matcher: (prop) => prop.attributes.category === "font",
 	transformer: (prop, options) =>
 	{
 		/*
@@ -69,26 +68,26 @@ StyleDictionary.registerTransform({
 				-->
 			Segoe UI, Roboto, Helvetica Neue, Helvetica, Arial
 		*/
-		const transformedList = prop.value.split(',').map((family) =>
+		const transformedList = prop.value.split(",").map((family) =>
 		{
 			const trimmed = family.trim()
-			const minusDoubleQuotes = trimmed.startsWith('"') && trimmed.endsWith('"') ? trimmed.substring(1, trimmed.length - 1) : trimmed
+			const minusDoubleQuotes = trimmed.startsWith("\"") && trimmed.endsWith("\"") ? trimmed.substring(1, trimmed.length - 1) : trimmed
 			return minusDoubleQuotes.startsWith("'") && minusDoubleQuotes.endsWith("'")
 				? minusDoubleQuotes.substring(1, minusDoubleQuotes.length - 1)
 				: minusDoubleQuotes
 		})
 		if (transformedList.length === 0)
-			return ''
+			return ""
 		if (winuiInvalidFontFamilies.has(transformedList[transformedList.length - 1]))
 			transformedList.pop()
-		return transformedList.join(', ')
+		return transformedList.join(", ")
 	},
 })
 
 StyleDictionary.registerTransform({
-	name: 'fluentui/size/winui',
-	type: 'value',
-	matcher: (prop) => prop.attributes.category === 'size',
+	name: "fluentui/size/winui",
+	type: "value",
+	matcher: (prop) => prop.attributes.category === "size",
 	transformer: (prop, options) =>
 	{
 		/*
@@ -105,12 +104,12 @@ StyleDictionary.registerTransform({
 			are not supported.
 		*/
 		const value = prop.value
-		if (typeof value === 'number')
+		if (typeof value === "number")
 			return value.toString()
-		else if (value.includes('/'))
+		else if (value.includes("/"))
 			console.warn(`Size values with a slash are not currently supported: "${value}".`)
 		else if (Array.isArray(value) && value.length === 4)
-			return prop.attributes.xamlType !== 'CornerRadius'
+			return prop.attributes.xamlType !== "CornerRadius"
 				? `${value[3]}, ${value[0]}, ${value[1]}, ${value[2]}`
 				: `${value[0]}, ${value[1]}, ${value[2]}, ${value[3]}`
 		else
@@ -119,27 +118,27 @@ StyleDictionary.registerTransform({
 })
 
 StyleDictionary.registerTransform({
-	name: 'fluentui/color/winui',
-	type: 'value',
-	matcher: (prop) => prop.attributes.category === 'color',
+	name: "fluentui/color/winui",
+	type: "value",
+	matcher: (prop) => prop.attributes.category === "color",
 	transformer: (prop, options) =>
 	{
 		/*
 			Transforms a valid CSS color value into a string for Windows.Foundation.Color.
 		*/
-		if (prop.value === 'transparent') return 'Transparent'
+		if (prop.value === "transparent") return "Transparent"
 		const str = Color(prop.value).toHex8()
 		return `#${str.slice(6)}${str.slice(0, 6)}`
 	},
 })
 
 StyleDictionary.registerTransformGroup({
-	name: 'fluentui/winui',
-	transforms: ['fluentui/attribute', 'fluentui/name/pascal', 'fluentui/alias/winui', 'fluentui/size/winui', 'fluentui/font/winui', 'fluentui/color/winui'],
+	name: "fluentui/winui",
+	transforms: ["fluentui/attribute", "fluentui/name/pascal", "fluentui/alias/winui", "fluentui/size/winui", "fluentui/font/winui", "fluentui/color/winui"],
 })
 
 StyleDictionary.registerFormat({
-	name: 'fluentui/xaml/res',
+	name: "fluentui/xaml/res",
 	formatter: (dictionary, config) =>
 	{
 		return `<ResourceDictionary
@@ -152,17 +151,17 @@ StyleDictionary.registerFormat({
 	-->
 
 ${dictionary.allProperties.map((prop) =>
+	{
+		if (prop.attributes.aliasResourceName)	
 		{
-			if (prop.attributes.aliasResourceName)	
-			{
-				return `	<StaticResource x:Key="${prop.name}" ResourceKey="${prop.attributes.aliasResourceName}" />`
-			}
-			else
-			{
-				const xamlType = prop.attributes.xamlType || 'x:String'
-				return `	<${xamlType} x:Key="${prop.name}">${Utils.escapeXml(prop.value)}</${xamlType}>`
-			}
-		}).join('\n')}
+			return `	<StaticResource x:Key="${prop.name}" ResourceKey="${prop.attributes.aliasResourceName}" />`
+		}
+		else
+		{
+			const xamlType = prop.attributes.xamlType || "x:String"
+			return `	<${xamlType} x:Key="${prop.name}">${Utils.escapeXml(prop.value)}</${xamlType}>`
+		}
+	}).join("\n")}
 
 </ResourceDictionary>`
 	},

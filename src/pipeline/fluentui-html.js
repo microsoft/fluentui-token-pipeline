@@ -1,7 +1,6 @@
 "use strict"
 
 const StyleDictionary = require("style-dictionary")
-const _ = require("lodash")
 
 const Utils = require("./utils")
 
@@ -61,7 +60,7 @@ const getHTMLForToken = (prop) =>
 }
 
 StyleDictionary.registerFormat({
-	name: 'fluentui/html/reference',
+	name: "fluentui/html/reference",
 	formatter: (dictionary, config) =>
 	{
 		const sortedProps = Utils.sortPropertiesForReadability(dictionary.allProperties)
@@ -241,5 +240,6 @@ h3
 
 ${list}
 
-</body></html>`},
+</body></html>`
+	},
 })

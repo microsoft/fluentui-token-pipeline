@@ -1,32 +1,31 @@
 "use strict"
 
 const StyleDictionary = require("style-dictionary")
-const _ = require("lodash")
 
 const Utils = require("./utils")
 
 const getNameForCss = (path, prefix) =>
 	Utils.getModifiedPathForNaming(path, prefix)
-		.join('-')
+		.join("-")
 		.toLowerCase()
 
 StyleDictionary.registerTransform({
-	name: 'fluentui/name/kebab',
-	type: 'name',
+	name: "fluentui/name/kebab",
+	type: "name",
 	transformer: (prop, options) => getNameForCss(prop.path, options.prefix),
 })
 
 StyleDictionary.registerTransform({
-	name: 'fluentui/alias/css',
-	type: 'value',
+	name: "fluentui/alias/css",
+	type: "value",
 	matcher: (prop) => "resolvedAliasPath" in prop,
 	transformer: (prop, options) => `var(--${getNameForCss(prop.resolvedAliasPath.split("."), options.prefix)})`,
 })
 
 StyleDictionary.registerTransform({
-	name: 'fluentui/size/css',
-	type: 'value',
-	matcher: (prop) => prop.attributes.category === 'size',
+	name: "fluentui/size/css",
+	type: "value",
+	matcher: (prop) => prop.attributes.category === "size",
 	transformer: (prop, options) =>
 	{
 		/*
@@ -42,7 +41,7 @@ StyleDictionary.registerTransform({
 			100px 200px 300px 400px
 		*/
 		const value = prop.value
-		if (typeof value === 'number')
+		if (typeof value === "number")
 			return `${value}px`
 		else if (Array.isArray(value) && value.length === 4)
 			return `${value[0]}px ${value[1]}px ${value[2]}px ${value[3]}px`
@@ -52,11 +51,11 @@ StyleDictionary.registerTransform({
 })
 
 StyleDictionary.registerTransformGroup({
-	name: 'fluentui/css',
-	transforms: ['fluentui/attribute', 'fluentui/name/kebab', 'fluentui/alias/css', 'time/seconds', 'fluentui/size/css', 'color/css'],
+	name: "fluentui/css",
+	transforms: ["fluentui/attribute", "fluentui/name/kebab", "fluentui/alias/css", "time/seconds", "fluentui/size/css", "color/css"],
 })
 
 StyleDictionary.registerTransformGroup({
-	name: 'fluentui/cssflat',
-	transforms: ['fluentui/attribute', 'fluentui/name/kebab', 'time/seconds', 'fluentui/size/css', 'color/css'],
+	name: "fluentui/cssflat",
+	transforms: ["fluentui/attribute", "fluentui/name/kebab", "time/seconds", "fluentui/size/css", "color/css"],
 })

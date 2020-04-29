@@ -1,0 +1,31 @@
+{
+	"extends": "eslint:recommended",
+	"ignorePatterns": ["node_modules/"],
+	"env": {
+		"browser": true,
+		"node": true,
+		"es2017": true
+	},
+	"parserOptions": {
+		"sourceType": "module"
+	},
+	"rules": {
+		"brace-style": ["warn", "allman"],
+		"block-spacing": ["warn", "always"],
+		"comma-dangle": ["warn", "always-multiline"],
+		"comma-style": ["warn", "last"],
+		"eqeqeq": ["error", "always"],
+		"func-call-spacing": ["warn", "never"],
+		"indent": ["error", "tab", { "SwitchCase": 1 }],
+		"no-cond-assign": ["error", "always"],
+		"no-console": "off",
+		"no-prototype-builtins": "off",
+		"no-unused-vars": ["warn", { "vars": "all", "args": "none", "argsIgnorePattern": "^_", "ignoreRestSiblings": false }],
+		"no-var": "error",
+		"prefer-const": "warn",
+		"quotes": ["warn", "double", { "avoidEscape": true, "allowTemplateLiterals": true }],
+		"semi": ["warn", "never"],
+		"space-infix-ops": "error",
+		"yoda": ["warn", "never"]
+	}
+}
