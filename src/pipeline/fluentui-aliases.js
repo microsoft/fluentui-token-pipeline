@@ -62,7 +62,7 @@ class FluentUIAliases
 		}
 
 		// Let's find what the alias is targeting. It could be a single token, or a whole set.
-		const target = this._findPropByPath(prop.aliasOf, properties)
+		const target = FluentUIAliases._findPropByPath(prop.aliasOf, properties)
 		if (target === null)
 		{
 			console.error(`ERROR: Invalid aliasOf: ${JSON.stringify(prop.aliasOf)}. That token doesn't exist.`)
@@ -179,7 +179,7 @@ class FluentUIAliases
 			if (!("aliasOf" in current)) return false
 			traversed.push(current)
 
-			current = this._findPropByPath(current.aliasOf, properties)
+			current = FluentUIAliases._findPropByPath(current.aliasOf, properties)
 			if (current === null) return false
 			if (traversed.includes(current)) return true
 		}

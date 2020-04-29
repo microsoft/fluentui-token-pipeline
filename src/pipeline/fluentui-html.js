@@ -116,6 +116,7 @@ StyleDictionary.registerFormat({
 		if (previousProp) list += "</div>\n\n"
 
 		// Finally, plug that all into the template page and return.
+		const timestamp = new Date()
 		return `<!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -236,7 +237,7 @@ h3
 
 <h1>FluentUI style reference</h1>
 
-<p>Generated on <time datetime="2020-04-20 16:20">${new Date().toUTCString()}</time></p>
+<p>Generated on <time datetime="${timestamp.toISOString()}">${timestamp.toUTCString()}</time></p>
 
 ${list}
 

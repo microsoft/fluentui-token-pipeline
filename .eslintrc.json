@@ -12,7 +12,6 @@
 	"rules": {
 		"brace-style": ["warn", "allman"],
 		"block-spacing": ["warn", "always"],
-		"class-methods-use-this": "warn",
 		"comma-dangle": ["warn", "always-multiline"],
 		"comma-style": ["warn", "last"],
 		"dot-notation": "warn",

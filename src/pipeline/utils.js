@@ -11,14 +11,14 @@ const escapedCharacters =
 class Utils
 {
 	/// Escapes a string for use in XML output.
-	static escapeXml(text)
+	escapeXml(text)
 	{
 		return (typeof text === "string" ? text : text.toString()).replace(charactersToEscape, (char) => escapedCharacters[char])
 	}
 
 	/// Strip off "Set" if present, and prepend the prefix if specified.
 	/// Only makes a copy of the array if necessary; otherwise, it just returns the original array.
-	static getModifiedPathForNaming(path, prefix)
+	getModifiedPathForNaming(path, prefix)
 	{
 		const isSet = path[0] === "Set"
 		if (isSet || prefix)
@@ -37,7 +37,7 @@ class Utils
 	/// Groups a FLAT array of properties (dictionary.allProperties) into Global, Set, and Control
 	/// tokens, and then sorts them alphabetically within those groups.
 	/// Mutates the original array and then returns it.
-	static sortPropertiesForReadability(dictionary)
+	sortPropertiesForReadability(dictionary)
 	{
 		dictionary.sort((a, b) =>
 		{
