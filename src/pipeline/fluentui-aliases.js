@@ -149,7 +149,7 @@ class FluentUIAliases
 
 	/// Given a path string ("Global.Color.Blue") and a properties dictionary, returns the property at that path.
 	/// Returns null if the target can't be found.
-	_findPropByPath(path, properties)
+	static _findPropByPath(path, properties)
 	{
 		const targetPathParts = path.trim().split(".")
 		if (targetPathParts.length === 0) return null

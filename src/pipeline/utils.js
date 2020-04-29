@@ -1,28 +1,26 @@
 "use strict"
 
-const _ = require("lodash")
-
-const charactersToEscape = /([\<\>\&])/g
+const charactersToEscape = /([<>&])/g
 const escapedCharacters =
 {
-	'<': '&lt;',
-	'>': '&gt;',
-	'&': '&amp;',
+	"<": "&lt;",
+	">": "&gt;",
+	"&": "&amp;",
 }
 
 class Utils
 {
 	/// Escapes a string for use in XML output.
-	escapeXml(text)
+	static escapeXml(text)
 	{
-		return (typeof text === 'string' ? text : text.toString()).replace(charactersToEscape, (char) => escapedCharacters[char])
+		return (typeof text === "string" ? text : text.toString()).replace(charactersToEscape, (char) => escapedCharacters[char])
 	}
 
 	/// Strip off "Set" if present, and prepend the prefix if specified.
 	/// Only makes a copy of the array if necessary; otherwise, it just returns the original array.
-	getModifiedPathForNaming(path, prefix)
+	static getModifiedPathForNaming(path, prefix)
 	{
-		const isSet = path[0] === 'Set'
+		const isSet = path[0] === "Set"
 		if (isSet || prefix)
 		{
 			if (prefix)
@@ -39,7 +37,7 @@ class Utils
 	/// Groups a FLAT array of properties (dictionary.allProperties) into Global, Set, and Control
 	/// tokens, and then sorts them alphabetically within those groups.
 	/// Mutates the original array and then returns it.
-	sortPropertiesForReadability(dictionary)
+	static sortPropertiesForReadability(dictionary)
 	{
 		dictionary.sort((a, b) =>
 		{

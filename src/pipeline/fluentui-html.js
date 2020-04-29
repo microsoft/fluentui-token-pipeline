@@ -29,7 +29,7 @@ StyleDictionary.registerTransformGroup({
 
 const getHTMLForToken = (prop) =>
 {
-	const name = prop.name
+	const tokenName = prop.name
 	const alias = prop.attributes.aliasResourceName || ""
 	const value = Utils.escapeXml(prop.value)
 	let swatch
@@ -52,7 +52,7 @@ const getHTMLForToken = (prop) =>
 	}
 
 	return `	${swatch}
-	<div class="name">${name}</div>
+	<div class="name">${tokenName}</div>
 	<div class="value">${alias}</div>
 	<div class="finalvalue">${value}</div>
 
