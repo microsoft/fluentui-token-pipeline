@@ -48,7 +48,7 @@ const getHTMLForToken = (prop) =>
 			break
 
 		default:
-			swatch = `<div class="swatch"></div>`
+			swatch = `<div class="unknown swatch">&bull;</div>`
 	}
 
 	return `	${swatch}
@@ -200,6 +200,12 @@ h3
 
 	white-space: nowrap;
 	text-overflow: ellipsis;
+}
+
+.tokentable > .unknown.swatch
+{
+	color: #c0c0c0;
+	text-align: center;
 }
 
 .tokentable > .color.swatch
