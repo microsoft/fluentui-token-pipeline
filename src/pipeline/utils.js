@@ -8,6 +8,16 @@ const escapedCharacters =
 	"&": "&amp;",
 }
 
+const orderOfInteractionStates =
+{
+	"Rest": 1,
+	"Hover": 2,
+	"Press": 3,
+	"Disabled": 4,
+
+	length: 4,
+}
+
 class Utils
 {
 	/// Escapes a string for use in XML output.
@@ -49,6 +59,21 @@ class Utils
 
 			if (categoryA === "Set" && categoryB !== "Set") return -1
 			else if (categoryB === "Set" && categoryA !== "Set") return 1
+
+			// For tokens that differ only by interaction state, sort them in a more natural order than alphabetically.
+			if (a.path.length === b.path.length)
+			{
+				for (let i = 0; i < a.path.length; i++)
+				{
+					if (i === a.path.length - 1)
+					{
+						const interactionIndexA = orderOfInteractionStates[a.path[a.path.length - 1]] || orderOfInteractionStates.length
+						const interactionIndexB = orderOfInteractionStates[b.path[b.path.length - 1]] || orderOfInteractionStates.length
+						if (interactionIndexA !== interactionIndexB) return interactionIndexA - interactionIndexB
+					}
+					if (a.path[i] !== b.path[i]) break
+				}
+			}
 
 			if (a.name < b.name) return -1
 			else if (a.name > b.name) return 1
