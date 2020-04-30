@@ -15,6 +15,7 @@
 	"javascript.format.placeOpenBraceOnNewLineForControlBlocks": true,
 	"javascript.format.semicolons": "remove",
 	"javascript.preferences.quoteStyle": "double",
+	"liveServer.settings.root": "/build/reference/fluentuitokens.html",
 	"typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": false,
 	"typescript.format.placeOpenBraceOnNewLineForControlBlocks": true,
 	"typescript.format.placeOpenBraceOnNewLineForFunctions": true,
