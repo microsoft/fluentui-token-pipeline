@@ -3,7 +3,7 @@ const Gulp = require("gulp")
 
 const build = (callback) =>
 {
-	const StyleDictionary = require('style-dictionary').extend("./src/pipeline/config.js")
+	const StyleDictionary = require("style-dictionary").extend("./src/pipeline/config.js")
 	StyleDictionary.buildAllPlatforms()
 
 	callback()
@@ -27,7 +27,7 @@ const buildCli = (callback) =>
 
 const watch = (callback) =>
 {
-	Gulp.watch(["src/tokens/**", "./src/pipeline/config.js"], buildCli)
+	Gulp.watch(["src/tokens/**", "./src/pipeline/*.js"], buildCli)
 
 	callback()
 }
