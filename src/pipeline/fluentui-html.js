@@ -202,6 +202,11 @@ h3
 	text-overflow: ellipsis;
 }
 
+.tokentable > .swatch
+{
+	user-select: none;
+}
+
 .tokentable > .unknown.swatch
 {
 	color: #c0c0c0;
