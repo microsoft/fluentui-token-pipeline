@@ -60,16 +60,27 @@ class Utils
 			if (categoryA === "Set" && categoryB !== "Set") return -1
 			else if (categoryB === "Set" && categoryA !== "Set") return 1
 
-			// For tokens that differ only by interaction state, sort them in a more natural order than alphabetically.
 			if (a.path.length === b.path.length)
 			{
 				for (let i = 0; i < a.path.length; i++)
 				{
 					if (i === a.path.length - 1)
 					{
-						const interactionIndexA = orderOfInteractionStates[a.path[a.path.length - 1]] || orderOfInteractionStates.length
-						const interactionIndexB = orderOfInteractionStates[b.path[b.path.length - 1]] || orderOfInteractionStates.length
+						const finalA = a.path[a.path.length - 1]
+						const finalB = b.path[b.path.length - 1]
+
+						// For tokens that differ only by interaction state, sort them in a more natural order than alphabetically.
+						const interactionIndexA = orderOfInteractionStates[finalA] || orderOfInteractionStates.length
+						const interactionIndexB = orderOfInteractionStates[finalB] || orderOfInteractionStates.length
 						if (interactionIndexA !== interactionIndexB) return interactionIndexA - interactionIndexB
+
+						// For tokens that differ only by a numeric index, sort them numerically.
+						const indexA = parseInt(finalA, 10)
+						if (!isNaN(indexA))
+						{
+							const indexB = parseInt(finalB, 10)
+							if (!isNaN(indexB)) return indexA - indexB
+						}
 					}
 					if (a.path[i] !== b.path[i]) break
 				}
