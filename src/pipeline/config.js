@@ -4,6 +4,7 @@ const _ = require("lodash")
 const jsonfile = require("jsonfile")
 
 const FluentUIAliases = require("./fluentui-aliases")
+const FluentUIColorRamps = require("./fluentui-color-ramp")
 require("./fluentui-shared")
 require("./fluentui-css")
 require("./fluentui-html")
@@ -33,7 +34,8 @@ const tokens = {}
 inputTokenFiles.forEach((inputFile) => _.merge(tokens, jsonfile.readFileSync(inputFile)))
 
 module.exports = {
-	properties: FluentUIAliases.resolveAliases(tokens),
+	properties: FluentUIAliases.resolveAliases(FluentUIColorRamps.buildColorRamps(tokens)),
+
 	platforms: {
 		debug: {
 			transformGroup: "js",
