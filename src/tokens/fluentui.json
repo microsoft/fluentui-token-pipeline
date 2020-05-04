@@ -107,6 +107,26 @@
 				"Radius": { "aliasOf": "Global.Corner.Radius.100" }
 			}
 		},
+		"Square": {
+			"Corner": {
+				"Radius": { "aliasOf": "Global.Corner.Radius.0" }
+			}
+		},
+		"Surface": {
+			"Corner": {
+				"Radius": { "aliasOf": "Global.Corner.Radius.200" }
+			}
+		},
+		"Illustration": {
+			"Corner": {
+				"Radius": { "aliasOf": "Global.Corner.Radius.200" }
+			}
+		},
+		"Round": {
+			"Corner": {
+				"Radius": { "aliasOf": "Global.Corner.Radius.9999" }
+			}
+		},
 		"Neutral": {
 			"Fill": {
 				"Color": {
