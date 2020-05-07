@@ -31,11 +31,11 @@ StyleDictionary.registerTransform({
 		/*
 			Transforms an array of top/right/bottom/left values into UIEdgeInsets(top: CGFloat, left: CGFloat, bottom: CGFloat, right: CGFloat).
 			Single values are also allowed. All numbers are interpreted as pixels.
-	
+
 			100
 				-->
 			100.0
-	
+
 			[ 100, 200, 300, 400 ]
 				-->
 			UIEdgeInsets(top: 100.0, left: 400.0, bottom: 300.0, right: 200.0)

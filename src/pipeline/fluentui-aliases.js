@@ -29,7 +29,7 @@ class FluentUIAliases
 					}
 					else if (!("value" in prop))
 					{
-						// This is another subtree, so continue recursion into it. 
+						// This is another subtree, so continue recursion into it.
 						resolveSubtree(prop)
 					}
 				}

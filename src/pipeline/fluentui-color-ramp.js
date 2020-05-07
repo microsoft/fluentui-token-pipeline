@@ -9,7 +9,7 @@ class FluentUIColorRamps
 			"Orange": { "buildRampFrom": "#ff8c00" }
 		...with a ramp of colors using that original color as index 100.
 			"Orange" : { "100": { value: "#ff8c00" }, "20": { ... }, "120": { ... } }
-		
+
 		The formula used for this ramp is arbitrary and this is a proof-of-concept.
 		Currently not intended for use outside of demos.
 	*/

@@ -3,8 +3,8 @@
 	"ignorePatterns": ["node_modules/"],
 	"env": {
 		"browser": true,
-		"node": true,
-		"es2017": true
+		"es2017": true,
+		"node": true
 	},
 	"parserOptions": {
 		"sourceType": "module"
@@ -30,13 +30,17 @@
 		"no-multi-spaces": "warn",
 		"no-prototype-builtins": "off",
 		"no-shadow": ["error", { "builtinGlobals": true }],
+		"no-trailing-spaces": "warn",
 		"no-unused-vars": ["warn", { "vars": "all", "args": "none", "argsIgnorePattern": "^_", "ignoreRestSiblings": false }],
 		"no-var": "error",
+		"object-curly-spacing": ["warn", "always"],
+		"padded-blocks": ["warn", "never"],
 		"prefer-const": "warn",
 		"prefer-rest-params": "warn",
 		"quotes": ["warn", "double", { "avoidEscape": true, "allowTemplateLiterals": true }],
 		"semi": ["warn", "never"],
 		"space-infix-ops": "error",
+		"spaced-comment": ["warn", "always", { "markers": ["/"] }],
 		"yoda": ["warn", "never"]
 	}
 }

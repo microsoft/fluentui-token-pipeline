@@ -1,7 +1,7 @@
 {
 	"editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
-    },
+		"source.fixAll.eslint": true
+	},
 	"editor.insertSpaces": false,
 	"eslint.format.enable": true,
 	"eslint.lintTask.enable": true,
@@ -20,14 +20,22 @@
 	"typescript.format.placeOpenBraceOnNewLineForFunctions": true,
 	"typescript.format.semicolons": "remove",
 	"typescript.preferences.quoteStyle": "double",
-	"[javascript]": {
-		"editor.formatOnSave": false,
-		"editor.formatOnType": true,
-		"editor.defaultFormatter": "vscode.typescript-language-features"
-	},
 	"[typescript]": {
 		"editor.formatOnSave": false,
 		"editor.formatOnType": true,
-		"editor.defaultFormatter": "vscode.typescript-language-features"
+		"editor.defaultFormatter": "dbaeumer.vscode-eslint"
+	},
+	"[javascript]": {
+		"editor.formatOnSave": false,
+		"editor.formatOnType": true,
+		"editor.defaultFormatter": "dbaeumer.vscode-eslint"
+	},
+	"[json]": {
+		"editor.formatOnSave": false,
+		"editor.formatOnType": true
+	},
+	"[jsonc]": {
+		"editor.formatOnSave": false,
+		"editor.formatOnType": true
 	}
 }

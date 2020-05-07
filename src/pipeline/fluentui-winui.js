@@ -110,7 +110,7 @@ StyleDictionary.registerTransform({
 				Demo hack: WinUI handles excessively large corner radii differently from other platforms: they will cause elements to become
 				as round as possible within their bounding box, producing an oval.  In contrast, CSS will make the short edge of a rectangle
 				with a very large corner radius circular, and leave the rest of the longer edge a straight line, producing a pill shape.
-					
+
 				To work around this, we just clamp large numbers to produce the intended visual result for this demo.  One would need
 				to either (1) write a value converter that dynamically adjusts a radius using an element's actual width and height, (2) add
 				a new property to the platform to describe how to interpret CornerRadius, or (3) get the WinComp handoff visual and
@@ -171,7 +171,7 @@ StyleDictionary.registerFormat({
 
 ${dictionary.allProperties.map((prop) =>
 	{
-		if (prop.attributes.aliasResourceName)	
+		if (prop.attributes.aliasResourceName)
 		{
 			return `	<StaticResource x:Key="${prop.name}" ResourceKey="${prop.attributes.aliasResourceName}" />`
 		}
