@@ -40,7 +40,14 @@
 		"quotes": ["warn", "double", { "avoidEscape": true, "allowTemplateLiterals": true }],
 		"semi": ["warn", "never"],
 		"space-infix-ops": "error",
-		"spaced-comment": ["warn", "always", { "markers": ["/"] }],
+		"spaced-comment": ["warn", "always", {
+			"line": {
+				"markers": ["/"]
+			},
+			"block": {
+				"balanced": true
+			}
+		}],
 		"yoda": ["warn", "never"]
 	}
 }
