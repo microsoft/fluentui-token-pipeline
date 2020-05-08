@@ -18,7 +18,7 @@ require("./fluentui-winui")
 /*
 	List at least one input JSON file, relative to the root of the repo.
 
-	To see the pipeline merge multiple JSON files together, try adding "../tokens/example-red-accent.json" to the array.
+	To see the pipeline merge multiple JSON files together, try adding "src/tokens/example-red-accent.json" to the array.
 */
 const inputTokenFiles = ["src/tokens/fluentui.json"]
 

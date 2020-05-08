@@ -404,11 +404,39 @@
 			"Corner": { "aliasOf": "Set.Control.Corner" }
 		}
 	},
+	"Slider": {
+		"Thumb": {
+			"Fill": {
+				"Color": { "aliasOf": "Set.TempAccentBkg.Fill.Color" }
+			},
+			"Stroke": {
+				"Color": { "aliasOf": "Set.HCOutline.Stroke.Color" },
+				"Width": { "aliasOf": "Set.HCOutline.Stroke.Width" }
+			},
+			"Layout": {
+				"Width": { "value": 20 },
+				"Height": { "value": 20 }
+			},
+			"Corner": { "aliasOf": "Set.Round.Corner" }
+		},
+		"Track": {
+			"Fill": {
+				"Color": { "Empty": { "aliasOf": "Set.Neutral.Fill.Color" }, "Full": { "aliasOf": "Set.TempAccentBkg.Fill.Color" } }
+			},
+			"Layout": { "Height": { "value": 2 } }
+		},
+		"Ticks": {
+			"Fill": {
+				"Color": { "aliasOf": "Set.Neutral.Fill.Color" }
+			},
+			"Layout": { "Height": { "value": 4 } }
+		}
+	},
 	"Header": {
 		"Root": {
 			"Fill": {
 				"Color": { "aliasOf":"Global.Color.Accent" }
-				}
 			}
 		}
+	}
 }
