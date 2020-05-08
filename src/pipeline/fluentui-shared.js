@@ -15,6 +15,10 @@ const getSDAttributes = (category, attribute) =>
 	}
 	if (attribute === "Color") return { category: "color", xamlType: "SolidColorBrush" }
 	if (attribute === "Padding") return { category: "size", xamlType: "Thickness" }
+	if (category === "Layout")
+	{
+		if (attribute === "Width" || attribute === "Height") return { category: "size", xamlType: "x:Double" }
+	}
 	if (category === "Font")
 	{
 		if (attribute === "Family") return { category: "font", xamlType: "FontFamily" }

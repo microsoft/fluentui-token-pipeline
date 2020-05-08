@@ -27,6 +27,8 @@ const Utils = require("./utils")
 
 const getNameForWinUI = (path, prefix) => _.upperFirst(_.camelCase(Utils.getModifiedPathForNaming(path, prefix).join(" ")))
 
+// TODO: This causes "HCOutline" to convert to "HcOutline".  Fix that.
+
 StyleDictionary.registerTransform({
 	name: "fluentui/name/pascal",
 	type: "name",
