@@ -87,6 +87,9 @@ StyleDictionary.registerFormat({
 
 			if (thisProp.path[0] === "Set" && (!previousProp || thisProp.path[1] !== previousProp.path[1]))
 			{
+				// TODO: This puts out things like "Set-Neutral" even if the tokens inside all follow the format
+				// "Set-Neutral-Fill-Color-_____". Add some code to look ahead and find the longest set name
+				// that still matches all tokens in the group.
 				header = (header || "") + `<h2>Set-${thisProp.path[1]}</h2>\n\n`
 			}
 			else if (thisProp.path[0] !== "Global" && thisProp.path[0] !== "Set" && (!previousProp || thisProp.path[0] !== previousProp.path[0]))
