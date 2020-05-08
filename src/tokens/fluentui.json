@@ -404,6 +404,45 @@
 			"Corner": { "aliasOf": "Set.Control.Corner" }
 		}
 	},
+	"CheckBox": {
+		"Text": {
+			"Font": { "aliasOf": "Set.Body.Font" },
+			"Fill": {
+				"Color": {
+					"aliasOf": "Set.NeutralPrimary.Fill.Color",
+					"Selected": { "aliasOf": "Set.NeutralPrimary.Fill.Color" },
+					"Indeterminate": { "aliasOf": "Set.NeutralPrimary.Fill.Color" }
+				}
+			}
+		},
+		"Check": {
+			"Fill": {
+				"Color": {
+					"aliasOf": "Set.TempOutlineText.Fill.Color",
+					"Selected": { "aliasOf": "Set.TempAccentText.Fill.Color" },
+					"Indeterminate": { "aliasOf": "Set.TempAccentText.Fill.Color" }
+				}
+			}
+		},
+		"Box": {
+			"Fill": {
+				"Color": {
+					"aliasOf": "Set.TempOutlineBkg.Fill.Color",
+					"Selected": { "aliasOf": "Set.TempAccentBkg.Fill.Color" },
+					"Indeterminate": { "aliasOf": "Set.TempAccentBkg.Fill.Color" }
+				}
+			},
+			"Stroke": {
+				"Color": {
+					"aliasOf": "Set.TempOutlineBorder.Stroke.Color",
+					"Selected": { "aliasOf": "Set.TempTransparentBorder.Stroke.Color" },
+					"Indeterminate": { "aliasOf": "Set.TempTransparentBorder.Stroke.Color" }
+				},
+				"Width": { "aliasOf": "Set.TempOutlineBorder.Stroke.Width" }
+			},
+			"Corner": { "aliasOf": "Set.Control.Corner" }
+		}
+	},
 	"Slider": {
 		"Thumb": {
 			"Fill": {
