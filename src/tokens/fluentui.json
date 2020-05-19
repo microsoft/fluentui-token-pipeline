@@ -4,6 +4,11 @@
 	},
 	"Global": {
 		"Color": {
+			"SurfaceBase": { "value": "#ffffff"},
+			"AccentBase": { "value": "#0078d4"},
+			"AccentError": { "value": "#c6300f"},
+			"GlyphBase": { "value": "#000000" },
+			"GlyphOnAccentBase": { "value": "#ffffff" },
 			"Red": {
 				"20": { "value": "#f7dadb" },
 				"40": { "value": "#edb1b2" },
@@ -125,6 +130,81 @@
 		"Round": {
 			"Corner": {
 				"Radius": { "aliasOf": "Global.Corner.Radius.9999" }
+			}
+		},
+		"DialogSurface": {
+			"Fill": {
+				"Color": { "value": "Surface1" }
+			}
+		},
+		"FlyoutSurface": {
+			"Fill": {
+				"Color": { "value": "Surface1" }
+			}
+		},
+		"CardSurface": {
+			"Fill": {
+				"Color": { "value": "Surface1" }
+			}
+		},
+		"CardSurfaceAlt": {
+			"Fill": {
+				"Color": { "value": "Surface1Alt" }
+			}
+		},
+		"Surface1": {
+			"Fill": {
+				"Color": {
+					"Rest": { "aliasOf": "Global.Color.SurfaceBase" },
+					"Hover": { "aliasOf": "Global.Color.SurfaceBase" },
+					"Press": { "aliasOf": "Global.Color.SurfaceBase" },
+					"Disabled": { "aliasOf": "Global.Color.SurfaceBase" },
+					"IntendedFor": "Surface"
+				}
+			}
+		},
+		"Surface1Alt": {
+			"Fill": {
+				"Color": {
+					"Rest": { "value": "#fafafa" },
+					"Hover": { "value": "#fafafa" },
+					"Press": { "value": "#fafafa" },
+					"Disabled": { "value": "#fafafa" },
+					"IntendedFor": "Surface"
+				}
+			}
+		},
+		"Surface2": {
+			"Fill": {
+				"Color": {
+					"Rest": { "value": "#f2f2f2" },
+					"Hover": { "value": "#f2f2f2" },
+					"Press": { "value": "#f2f2f2" },
+					"Disabled": { "value": "#f2f2f2" },
+					"IntendedFor": "Surface"
+				}
+			}
+		},
+		"Surface3": {
+			"Fill": {
+				"Color": {
+					"Rest": { "value": "#eaeaea" },
+					"Hover": { "value": "#eaeaea" },
+					"Press": { "value": "#eaeaea" },
+					"Disabled": { "value": "#eaeaea" },
+					"IntendedFor": "Surface"
+				}
+			}
+		},
+		"Surface4": {
+			"Fill": {
+				"Color": {
+					"Rest": { "value": "#e2e2e2" },
+					"Hover": { "value": "#e2e2e2" },
+					"Press": { "value": "#e2e2e2" },
+					"Disabled": { "value": "#e2e2e2" },
+					"IntendedFor": "Surface"
+				}
 			}
 		},
 		"Neutral": {
