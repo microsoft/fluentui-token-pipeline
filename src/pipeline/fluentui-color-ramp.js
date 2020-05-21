@@ -11,6 +11,7 @@ class FluentUIColorRamps
 			"Orange" : { "100": { value: "#ff8c00" }, "20": { ... }, "120": { ... } }
 
 		The formula used for this ramp is arbitrary and this is a proof-of-concept.
+		RAMPS GENERATED WITH THIS DO NOT MATCH OUR CURRENT THINKING OF COLOR.
 		Currently not intended for use outside of demos.
 	*/
 	buildColorRamps(properties)
