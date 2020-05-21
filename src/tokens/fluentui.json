@@ -874,7 +874,7 @@
 		"Check": {
 			"Fill": {
 				"Color": {
-					"aliasOf": "Set.OutlineActionControl.Fill.Color",
+					"aliasOf": "Set.ControlForeground.Fill.Color",
 					"Selected": { "aliasOf": "Set.OnAccentControlForeground.Fill.Color" },
 					"Indeterminate": { "aliasOf": "Set.OnAccentControlForeground.Fill.Color" }
 				}
@@ -903,11 +903,11 @@
 	"Slider": {
 		"Thumb": {
 			"Fill": {
-				"Color": { "aliasOf": "Set.OutlineActionControl.Fill.Color" }
+				"Color": { "aliasOf": "Set.AccentActionControl.Fill.Color" }
 			},
 			"Stroke": {
-				"Color": { "aliasOf": "Set.OutlineActionControl.Stroke.Color" },
-				"Width": { "aliasOf": "Set.OutlineActionControl.Stroke.Width" }
+				"Color": { "aliasOf": "Set.AccentActionControl.Stroke.Color" },
+				"Width": { "aliasOf": "Set.AccentActionControl.Stroke.Width" }
 			},
 			"Layout": {
 				"Width": { "value": 20 },
@@ -917,7 +917,7 @@
 		},
 		"Track": {
 			"Fill": {
-				"Color": { "Empty": { "aliasOf": "Set.ActionControl.Fill.Color" }, "Full": { "aliasOf": "Set.OutlineActionControl.Fill.Color" } }
+				"Color": { "Empty": { "aliasOf": "Set.ActionControl.Fill.Color" }, "Full": { "aliasOf": "Set.AccentActionControl.Fill.Color" } }
 			},
 			"Layout": { "Height": { "value": 2 } }
 		},
