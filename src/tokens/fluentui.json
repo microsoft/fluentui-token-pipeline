@@ -611,6 +611,90 @@
 				"Width": { "aliasOf": "Global.Stroke.Width.100" }
 			}
 		},
+		"InputControl": {
+			"Fill": {
+				"Color": {
+					"Rest": { "aliasOf": "Global.Color.Neutral.5" },
+					"Hover": { "aliasOf": "Global.Color.Neutral.6" },
+					"Press": { "aliasOf": "Global.Color.Neutral.6" },
+					"Disabled": { "aliasOf": "Global.Color.Neutral.3" },
+					"IntendedFor": "Control"
+				}
+			},
+			"Stroke": {
+				"Color": {
+					"Rest": { "value": "transparent" },
+					"Hover": { "value": "transparent" },
+					"Press": { "value": "transparent" },
+					"Disabled": { "value": "transparent" },
+					"IntendedFor": "Control"
+				},
+				"Width": { "aliasOf": "Global.Stroke.Width.100" }
+			}
+		},
+		"InputControlFocused": {
+			"Fill": {
+				"Color": {
+					"Rest": { "aliasOf": "Global.Color.Neutral.6" },
+					"Hover": { "aliasOf": "Global.Color.Neutral.5" },
+					"Press": { "aliasOf": "Global.Color.Neutral.5" },
+					"Disabled": { "aliasOf": "Global.Color.Neutral.3" },
+					"IntendedFor": "Control"
+				}
+			},
+			"Stroke": {
+				"Color": {
+					"Rest": { "value": "transparent" },
+					"Hover": { "value": "transparent" },
+					"Press": { "value": "transparent" },
+					"Disabled": { "value": "transparent" },
+					"IntendedFor": "Control"
+				},
+				"Width": { "aliasOf": "Global.Stroke.Width.100" }
+			}
+		},
+		"OutlineInputControl": {
+			"Fill": {
+				"Color": {
+					"Rest": { "value": "transparent" },
+					"Hover": { "value": "transparent" },
+					"Press": { "value": "transparent" },
+					"Disabled": { "value": "transparent" },
+					"IntendedFor": "Control"
+				}
+			},
+			"Stroke": {
+				"Color": {
+					"Rest": { "aliasOf": "Global.Color.Neutral.13" },
+					"Hover": { "aliasOf": "Global.Color.Neutral.21" },
+					"Press": { "aliasOf": "Global.Color.Neutral.21" },
+					"Disabled": { "aliasOf": "Global.Color.Neutral.9" },
+					"IntendedFor": "Control"
+				},
+				"Width": { "aliasOf": "Global.Stroke.Width.100" }
+			}
+		},
+		"OutlineInputControlFocused": {
+			"Fill": {
+				"Color": {
+					"Rest": { "value": "transparent" },
+					"Hover": { "value": "transparent" },
+					"Press": { "value": "transparent" },
+					"Disabled": { "value": "transparent" },
+					"IntendedFor": "Control"
+				}
+			},
+			"Stroke": {
+				"Color": {
+					"Rest": { "aliasOf": "Global.Color.Neutral.21" },
+					"Hover": { "aliasOf": "Global.Color.Neutral.13" },
+					"Press": { "aliasOf": "Global.Color.Neutral.13" },
+					"Disabled": { "aliasOf": "Global.Color.Neutral.9" },
+					"IntendedFor": "Control"
+				},
+				"Width": { "aliasOf": "Global.Stroke.Width.100" }
+			}
+		},
 
 		"Foreground": {
 			"Fill": {
