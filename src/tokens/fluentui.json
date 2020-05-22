@@ -847,6 +847,28 @@
 			}
 		},
 
+		"GripControl": {
+			"Fill": {
+				"Color": {
+					"Rest": { "aliasOf": "Global.Color.Neutral.54" },
+					"Hover": { "aliasOf": "Global.Color.Neutral.56" },
+					"Press": { "aliasOf": "Global.Color.Neutral.52" },
+					"Disabled": { "aliasOf": "Global.Color.Neutral.3" },
+					"IntendedFor": "Control"
+				}
+			},
+			"Stroke": {
+				"Color": {
+					"Rest": { "value": "transparent" },
+					"Hover": { "value": "transparent" },
+					"Press": { "value": "transparent" },
+					"Disabled": { "value": "transparent" },
+					"IntendedFor": "Control"
+				},
+				"Width": { "aliasOf": "Global.Stroke.Width.0" }
+			}
+		},
+
 		"Foreground": {
 			"Fill": {
 				"Color": {
