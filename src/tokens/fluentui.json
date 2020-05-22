@@ -207,6 +207,7 @@
 		},
 		"Stroke": {
 			"Width": {
+				"0": { "value": 0 },
 				"100": { "value": 1 }
 			}
 		},
@@ -611,6 +612,7 @@
 				"Width": { "aliasOf": "Global.Stroke.Width.100" }
 			}
 		},
+
 		"InputControl": {
 			"Fill": {
 				"Color": {
@@ -693,6 +695,70 @@
 					"IntendedFor": "Control"
 				},
 				"Width": { "aliasOf": "Global.Stroke.Width.100" }
+			}
+		},
+
+		"ListItem": {
+			"Fill": {
+				"Color": {
+					"Rest": { "value": "transparent" },
+					"Hover": { "aliasOf": "Global.Color.Neutral.4" },
+					"Press": { "aliasOf": "Global.Color.Neutral.5" },
+					"Disabled": { "value": "transparent" },
+					"IntendedFor": "Control"
+				}
+			},
+			"Stroke": {
+				"Color": {
+					"Rest": { "value": "transparent" },
+					"Hover": { "value": "transparent" },
+					"Press": { "value": "transparent" },
+					"Disabled": { "value": "transparent" },
+					"IntendedFor": "Control"
+				},
+				"Width": { "aliasOf": "Global.Stroke.Width.100" }
+			}
+		},
+		"ListItemSelected": {
+			"Fill": {
+				"Color": {
+					"Rest": { "aliasOf": "Global.Color.Neutral.4" },
+					"Hover": { "aliasOf": "Global.Color.Neutral.4" },
+					"Press": { "aliasOf": "Global.Color.Neutral.5" },
+					"Disabled": { "value": "transparent" },
+					"IntendedFor": "Control"
+				}
+			},
+			"Stroke": {
+				"Color": {
+					"Rest": { "value": "transparent" },
+					"Hover": { "value": "transparent" },
+					"Press": { "value": "transparent" },
+					"Disabled": { "value": "transparent" },
+					"IntendedFor": "Control"
+				},
+				"Width": { "aliasOf": "Global.Stroke.Width.100" }
+			}
+		},
+		"ListItemSelectedIndicator": {
+			"Fill": {
+				"Color": {
+					"Rest": { "aliasOf": "Global.Color.Accent.60" },
+					"Hover": { "aliasOf": "Global.Color.Accent.62" },
+					"Press": { "aliasOf": "Global.Color.Accent.48" },
+					"Disabled": { "aliasOf": "Global.Color.Neutral.5" },
+					"IntendedFor": "Control"
+				}
+			},
+			"Stroke": {
+				"Color": {
+					"Rest": { "value": "transparent" },
+					"Hover": { "value": "transparent" },
+					"Press": { "value": "transparent" },
+					"Disabled": { "value": "transparent" },
+					"IntendedFor": "Control"
+				},
+				"Width": { "aliasOf": "Global.Stroke.Width.0" }
 			}
 		},
 
