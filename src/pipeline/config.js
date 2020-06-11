@@ -5,6 +5,7 @@ const jsonfile = require("jsonfile")
 
 const FluentUIAliases = require("./fluentui-aliases")
 const FluentUIColorRamps = require("./fluentui-color-ramp")
+const FluentUIComputed = require("./fluentui-computed")
 require("./fluentui-shared")
 require("./fluentui-css")
 require("./fluentui-html")
@@ -30,11 +31,14 @@ const outputPath = "build"
 
 // ------------------------------------------------------------
 
-const tokens = {}
+let tokens = {}
 inputTokenFiles.forEach((inputFile) => _.merge(tokens, jsonfile.readFileSync(inputFile)))
+tokens = FluentUIColorRamps.buildColorRamps(tokens)
+tokens = FluentUIComputed.resolveComputedTokens(tokens)
+tokens = FluentUIAliases.resolveAliases()
 
 module.exports = {
-	properties: FluentUIAliases.resolveAliases(FluentUIColorRamps.buildColorRamps(tokens)),
+	properties: tokens,
 
 	platforms: {
 		debug: {
