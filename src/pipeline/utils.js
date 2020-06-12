@@ -94,5 +94,31 @@ class Utils
 		})
 		return dictionary
 	}
+
+	/// For each property in the Style Dictionary properties object or a subtree, call a specific callback function.
+	forEachRecursive(subtree, callbackfn, options)
+	{
+		if (!subtree || !callbackfn)
+			throw new Error("Usage: forEachRecursive(subtree, callbackfn, options?)")
+		const requiredChild = options && options.requiredChild
+
+		for (const key in subtree)
+		{
+			if (!subtree.hasOwnProperty(key)) continue
+			const prop = subtree[key]
+			if (typeof prop !== "object") continue
+
+			if (!requiredChild || requiredChild in prop)
+			{
+				// Either we aren't looking for a specific type of child, or this is indeed a child prop of the type we're looking for.
+				callbackfn(prop, key, subtree)
+			}
+			else if (!("value" in prop || "aliasOf" in prop || "computed" in prop))
+			{
+				// This is another subtree, and it isn't one of the known types, so continue recursion into it.
+				this.forEachRecursive(prop, callbackfn, options)
+			}
+		}
+	}
 }
 module.exports = new Utils

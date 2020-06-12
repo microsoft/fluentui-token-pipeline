@@ -1,5 +1,7 @@
 "use strict"
 
+const Utils = require("./utils")
+
 class FluentUIAliases
 {
 	/// Resolves all of the aliases in an entire Style Dictionary properties object, and then returns the same object
@@ -8,34 +10,17 @@ class FluentUIAliases
 	{
 		// Okay, buckle in, cupcake: we're gonna traverse this whole properties tree and find every alias token in the bunch.
 		// (Note that we're only looking for FluentUI aliases, not Style Dictionary aliases.)
-		const resolveSubtree = (subtree) =>
+		const resolver = (prop, key) =>
 		{
-			for (const key in subtree)
+			if (this._resolveAlias(prop, properties))
 			{
-				if (!subtree.hasOwnProperty(key)) continue
-				const prop = subtree[key]
-				if (typeof prop === "object")
-				{
-					if ("aliasOf" in prop)
-					{
-						// This is an alias. Resolve it, and then recurse into it, because the alias target itself may contain aliases.
-						if (this._resolveAlias(prop, properties))
-						{
-							if ("aliasOf" in prop)
-								console.error(`_resolveAlias failed to resolve ${key} -- skipping to prevent infinite recursion.`)
-							else
-								resolveSubtree(prop)
-						}
-					}
-					else if (!("value" in prop))
-					{
-						// This is another subtree, so continue recursion into it.
-						resolveSubtree(prop)
-					}
-				}
+				if ("aliasOf" in prop)
+					console.error(`_resolveAlias failed to resolve ${key} -- skipping to prevent infinite recursion.`)
+				else
+					Utils.forEachRecursive(prop, resolver, { requiredChild: "aliasOf" })
 			}
 		}
-		resolveSubtree(properties)
+		Utils.forEachRecursive(properties, resolver, { requiredChild: "aliasOf" })
 
 		// Then, we just return the same object that was passed in, but modified.
 		return properties
