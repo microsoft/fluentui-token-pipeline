@@ -2,6 +2,7 @@
 
 const Color = require("tinycolor2")
 const FluentUIAliases = require("./fluentui-aliases")
+const Utils = require("./utils")
 
 class FluentUIComputed
 {
@@ -9,10 +10,12 @@ class FluentUIComputed
 	/// instance, modified.
 	resolveComputedTokens(properties)
 	{
-		// TODO: Recurse (for now, just look up the specific property we care about)
-		const accentTintProp = FluentUIAliases.findPropByPath("Global.Color.AccentTint", properties)
-		if (accentTintProp)
-			FluentUIComputed._resolveComputed(accentTintProp, properties)
+		// Look through the whole tree for "computed" nodes, and resolve each one.
+		Utils.forEachRecursive(
+			properties,
+			(prop) => FluentUIComputed._resolveComputed(prop, properties),
+			{ requiredChild: "computed" }
+		)
 
 		// Then, we just return the same object that was passed in, but modified.
 		return properties
@@ -86,7 +89,9 @@ class FluentUIComputed
 		// Hooray, looks like it's all valid. Compute a value for this token.
 		const newColor = originalColor.clone()
 		newColor.setAlpha(newOpacity)
+		delete prop.computed
 		prop.value = newColor.toRgbString()
+		prop.wasComputed = true
 		return prop
 	}
 }
