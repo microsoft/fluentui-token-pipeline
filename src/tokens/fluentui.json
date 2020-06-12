@@ -6,6 +6,8 @@
 		"Color": {
 			"SurfaceBase": { "aliasOf": "Global.Color.Neutral.1"},
 			"AccentBase": { "aliasOf": "Global.Color.Blue.60"},
+			"AccentTint": { "computed": { "color": "Global.Color.AccentBase", "opacity": 0.05 } },
+			"AccentTintAlias": { "aliasOf": "Global.Color.AccentTint"},
 			"AccentError": { "value": "#c6300f"},
 			"GlyphBase": { "aliasOf": "Global.Color.Neutral.94"},
 			"GlyphOnAccentBase": { "aliasOf": "Global.Color.Neutral.1"},
