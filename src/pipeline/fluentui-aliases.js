@@ -62,7 +62,7 @@ class FluentUIAliases
 		}
 
 		// Let's find what the alias is targeting. It could be a single token, or a whole set.
-		const target = FluentUIAliases._findPropByPath(prop.aliasOf, properties)
+		const target = this.findPropByPath(prop.aliasOf, properties)
 		if (target === null)
 		{
 			console.error(`ERROR: Invalid aliasOf: ${JSON.stringify(prop.aliasOf)}. That token doesn't exist.`)
@@ -70,7 +70,7 @@ class FluentUIAliases
 			return null
 		}
 
-		if (this._hasCircularReferences(prop, target, properties))
+		if (this.hasCircularReferences(prop, target, properties))
 		{
 			console.error(`ERROR: Invalid aliasOf: ${JSON.stringify(prop.aliasOf)} is in a chain of circular references.`)
 			prop.value = `<ERROR: circular reference involving ${JSON.stringify(prop.aliasOf)}>`
@@ -148,7 +148,7 @@ class FluentUIAliases
 
 	/// Given a path string ("Global.Color.Blue") and a properties dictionary, returns the property at that path.
 	/// Returns null if the target can't be found.
-	static _findPropByPath(path, properties)
+	findPropByPath(path, properties)
 	{
 		const targetPathParts = path.trim().split(".")
 		if (targetPathParts.length === 0) return null
@@ -164,7 +164,7 @@ class FluentUIAliases
 	}
 
 	/// Returns true if there are circular references in a chain of aliases.
-	_hasCircularReferences(original, target, properties)
+	hasCircularReferences(original, target, properties)
 	{
 		// Do a couple of quick checks before doing any expensive work.
 		if (original === target) return true
@@ -178,7 +178,7 @@ class FluentUIAliases
 			if (!("aliasOf" in current)) return false
 			traversed.push(current)
 
-			current = FluentUIAliases._findPropByPath(current.aliasOf, properties)
+			current = FluentUIAliases.findPropByPath(current.aliasOf, properties)
 			if (current === null) return false
 			if (traversed.includes(current)) return true
 		}

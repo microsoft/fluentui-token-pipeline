@@ -34,7 +34,7 @@ const outputPath = "build"
 let tokens = {}
 inputTokenFiles.forEach((inputFile) => _.merge(tokens, jsonfile.readFileSync(inputFile)))
 tokens = FluentUIColorRamps.buildColorRamps(tokens)
-tokens = FluentUIAliases.resolveAliases()
+tokens = FluentUIAliases.resolveAliases(tokens)
 tokens = FluentUIComputed.resolveComputedTokens(tokens)
 
 module.exports = {
