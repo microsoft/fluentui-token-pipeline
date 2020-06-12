@@ -1,5 +1,6 @@
 "use strict"
 
+const Color = require("tinycolor2")
 const FluentUIAliases = require("./fluentui-aliases")
 
 class FluentUIComputed
@@ -11,7 +12,7 @@ class FluentUIComputed
 		// TODO: Recurse (for now, just look up the specific property we care about)
 		const accentTintProp = FluentUIAliases.findPropByPath("Global.Color.AccentTint", properties)
 		if (accentTintProp)
-			FluentUIComputed._resolveComputed(accentTintProp)
+			FluentUIComputed._resolveComputed(accentTintProp, properties)
 
 		// Then, we just return the same object that was passed in, but modified.
 		return properties
@@ -56,8 +57,37 @@ class FluentUIComputed
 
 	static _resolveColorComputation(prop, properties)
 	{
-		// NYI
-		console.log(`NYI: compute token ${JSON.stringify(prop)}`)
+		// First, validate the inputs.
+		const originalColorToken = FluentUIAliases.findPropByPath(prop.computed.color, properties)
+		if (!originalColorToken)
+		{
+			console.error(`ERROR: Couldn't find the token "${prop.computed.color}" used in a computed property.`)
+			prop.value = "<ERROR: Missing input token>"
+			return null
+		}
+
+		const originalColorString = originalColorToken.value
+		if (!originalColorString)
+		{
+			console.error(`ERROR: The token "${prop.computed.color}" used in a computed property didn't have a value.`)
+			prop.value = "<ERROR: Missing input token value>"
+			return null
+		}
+		const originalColor = new Color(originalColorString)
+
+		const newOpacity = parseFloat(prop.computed.opacity)
+		if (isNaN(newOpacity))
+		{
+			console.error(`ERROR: Invalid opacity value ${JSON.stringify(newOpacity)} used in a computed property.`)
+			prop.value = "<ERROR: invalid opacity>"
+			return null
+		}
+
+		// Hooray, looks like it's all valid. Compute a value for this token.
+		const newColor = originalColor.clone()
+		newColor.setAlpha(newOpacity)
+		prop.value = newColor.toRgbString()
+		return prop
 	}
 }
 
