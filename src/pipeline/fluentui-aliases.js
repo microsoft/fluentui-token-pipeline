@@ -100,6 +100,12 @@ class FluentUIAliases
 				// target = { aliasOf: "targetoftarget" }
 				this._resolveAlias(target, properties)
 			}
+			else if ("computed" in target)
+			{
+				// The alias target is a computed token, which will be resolved later.
+				// Nothing ever changes the contents of a "computed" node so we don't bother making a deep copy.
+				prop.computed = target.computed
+			}
 			else
 			{
 				// The alias target is a set, so we need to iterate through keys.
