@@ -30,7 +30,7 @@ StyleDictionary.registerTransformGroup({
 const getHTMLForToken = (prop) =>
 {
 	const tokenName = prop.name
-	const alias = prop.attributes.aliasResourceName || ""
+	const alias = prop.wasComputed ? "<em>(computed)</em>" : (prop.attributes.aliasResourceName || "")
 	const value = Utils.escapeXml(prop.value)
 	let swatch
 
