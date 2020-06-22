@@ -4,12 +4,6 @@ const Color = require("tinycolor2")
 const FluentUIAliases = require("./fluentui-aliases")
 const Utils = require("./utils")
 
-/*
-	Examples of valid computed tokens:
-
-	"AccentTint": { "computed": { "color": "Global.Color.AccentBase", "opacity": 0.05 } },
-	"AccentTintAlias": { "aliasOf": "Global.Color.AccentTint"},
-*/
 
 class FluentUIComputed
 {
