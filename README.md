@@ -188,14 +188,14 @@ Stroke widths and radii can be specified as a single value or as an array in the
 
 Font families are specified as in CSS, with fallbacks. You can include a generic font family such as `monospace` or `serif` at the end, and the pipeline will remove it for non-web platforms.
 
-* `Segoe UI`
-* `"Segoe UI", "Helvetica Neue", "Comic Sans MS", Arial, sans-serif`
+* `"Segoe UI"`
+* `"\"Segoe UI\", \"Helvetica Neue\", 'Comic Sans MS', Arial, sans-serif"`
 
 ### Font sizes
 
 Font sizes are specifed in device-independent pixels (not points) **without units**.
 
-* 15
+* `15`
 * <strike>**not** `"15px"`</strike>
 
 ### Font weights
@@ -209,6 +209,6 @@ Font weights are specified in standard weight units, integers 100-900.
 
 Element widths and heights are specifed as independent properties in device-independent pixels (not points) **without units**.
 
-* 80
+* `80`
 * <strike>**not** `"80px"`</strike>
 * <strike>**not** `"1024 768"`</strike>
