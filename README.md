@@ -67,11 +67,13 @@ After building once, it can sometimes be helpful to refer to [`build/reference/f
 The full name of a token is just a list of all of its parents in the JSON and its lowest-level name, separated by dots. For example:
 
 ```js
+{
 	"Global": {
 		"Color": {
 			"Mauve": { "value": "#e0b0ff" }
 		}
 	}
+}
 ```
 
 The full name of that token is `Global.Color.Mauve`. (While the JSON always uses dots to separate the name, it's also often written with hyphens, such as `Global-Color-Mauve`.)
