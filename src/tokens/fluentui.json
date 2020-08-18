@@ -4,11 +4,11 @@
 	},
 	"Global": {
 		"Color": {
-			"SurfaceBase": { "aliasOf": "Global.Color.Neutral.1"},
-			"AccentBase": { "aliasOf": "Global.Color.Blue.60"},
-			"AccentError": { "value": "#c6300f"},
-			"GlyphBase": { "aliasOf": "Global.Color.Neutral.94"},
-			"GlyphOnAccentBase": { "aliasOf": "Global.Color.Neutral.1"},
+			"SurfaceBase": { "aliasOf": "Global.Color.Neutral.1" },
+			"AccentBase": { "aliasOf": "Global.Color.Blue.60" },
+			"AccentError": { "value": "#c6300f" },
+			"GlyphBase": { "aliasOf": "Global.Color.Neutral.94" },
+			"GlyphOnAccentBase": { "aliasOf": "Global.Color.Neutral.1" },
 			"Blue": {
 				"1": { "value": "#ffffff" },
 				"2": { "value": "#fbfdfe" },
