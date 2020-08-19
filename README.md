@@ -163,7 +163,7 @@ Unlike regular alias tokens, these computations can't be preserved in the output
 
 ## Value types
 
-Values in `fluentuitokens.json` are stored in a format very similar to CSS web standards, and then converted to the proper format and syntax for each platform that the pipeline exports to.
+Values in `fluentuitokens.json` are stored in a universal format very similar to CSS web standards, and then converted to the proper format and syntax for each platform that the pipeline exports to.
 
 The pipeline infers the data type from the token's full name, *not* its value. So, **it's important to follow the naming scheme of existing tokens in the pipeline**. You can see the code that handles this in [`fluentui-shared.js`](src/pipeline/fluentui-shared.js).
 
@@ -209,7 +209,7 @@ Font weights are specified in standard weight units, integers 100-900.
 
 ### Widths and heights
 
-Element widths and heights are specifed as independent properties in device-independent pixels (not points) **without units**.
+Element widths and heights are specifed as independent properties in device-independent pixels **without units**.
 
 * `80`
 * <strike>**not** `"80px"`</strike>
