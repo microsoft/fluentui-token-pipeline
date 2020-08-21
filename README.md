@@ -7,7 +7,8 @@ It's currently a functional prototype, and is expected to undergo significant ch
 ## Setting up
 
 1. Install [Node.js](https://nodejs.org/).
-2. After cloning the repo, run `npm install` once to install dependencies.
+2. Run `npm install` once to install dependencies.
+3. Install the recommended ESLint extension in Visual Studio Code (if you're using that as your editor).
 
 ## Configuring the pipeline (optional)
 
