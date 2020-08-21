@@ -2,7 +2,7 @@
 
 The FluentUI token pipeline produces source code for eventual use in the FluentUI libraries.
 
-It's currently a functional prototype, and is expected to undergo significant changes before production use, if at all. Not all features shown at Build 2020 are currently available for testing.
+It's currently a functional prototype, and is expected to undergo significant changes before production use, if at all. The actual token values are also just examples at this stage, and they do not represent an evolution of Microsoft's design system. Not all features shown at Build 2020 are currently available for testing.
 
 ## Setting up
 
