@@ -1,16 +1,19 @@
 # FluentUI token pipeline
 
-The FluentUI token pipeline produces source code for the FluentUI libraries. It's currently a functional prototype.
+The FluentUI token pipeline produces source code for eventual use in the FluentUI libraries.
+
+It's currently a functional prototype, and is expected to undergo significant changes before production use, if at all. Not all features shown at Build 2020 are currently available for testing.
 
 ## Setting up
 
-After cloning the repo, run `npm install` once to install dependencies.
+1. Install [Node.js](https://nodejs.org/).
+2. After cloning the repo, run `npm install` once to install dependencies.
 
 ## Configuring the pipeline (optional)
 
 You can change the source tokens used for producing output in `src/tokens/fluentui.json`, or configure the pipeline to use a different location in `src/pipeline/config.js`. The pipeline will output files to the `build` folder; you can configure that in `config.js` as well.
 
-*For more information about `config.js`, see the [style-dictionary](https://amzn.github.io/style-dictionary/) documentation: the FluentUI token pipeline uses `style-dictionary` for its configuration.*
+*For more information about `config.js`, see the [style-dictionary](https://amzn.github.io/style-dictionary/) documentation: the FluentUI token pipeline currently uses `style-dictionary` for its configuration.*
 
 ## Building the pipeline
 
@@ -41,11 +44,17 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
 contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 
+## Trademarks
+
+This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft trademarks or logos is subject to and must follow Microsoft's [Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general). Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship. Any use of third-party trademarks or logos are subject to those third-party's policies.
+
+---
+
 # Pipeline format reference
 
 ## About design tokens
 
-This readme assumes that you're familiar with the general concept of design tokens. If not, get in touch with us, and we can try to point you to something that will help you get started.
+This readme assumes that you're familiar with the general concept of design tokens.
 
 But let's get clear on the naming system that we have for different types of tokens:
 
