@@ -1,7 +1,7 @@
 {
 	"name": "fluentui-token-pipeline",
 	"version": "0.1.0",
-	"description": "The FluentUI design token pipeline",
+	"description": "The Fluent UI design token pipeline",
 	"private": true,
 	"scripts": {
 		"build": "gulp build",

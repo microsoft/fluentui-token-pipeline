@@ -35,7 +35,7 @@ StyleDictionary.registerTransform({
 	{
 		/*
 			Transforms all properties to add appropriate category and xamlType fields.
-			(FluentUI token names use a different structure than the Category-Type-Item structure recommended
+			(Fluent UI token names use a different structure than the Category-Type-Item structure recommended
 			by style-dictionary, so the built-in attribute/cti transform will not work.)
 		*/
 		let sdAttributes

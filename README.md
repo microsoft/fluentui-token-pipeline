@@ -1,6 +1,6 @@
-# FluentUI token pipeline
+# Fluent UI token pipeline
 
-The FluentUI token pipeline produces source code for eventual use in the FluentUI libraries.
+The Fluent UI token pipeline produces source code for eventual use in the Fluent UI libraries.
 
 It's currently a functional prototype, and is expected to undergo significant changes before production use, if at all. The actual token values are also just examples at this stage, and they do not represent an evolution of Microsoft's design system. Not all features shown at Build 2020 are currently available for testing.
 
@@ -14,7 +14,7 @@ It's currently a functional prototype, and is expected to undergo significant ch
 
 You can change the source tokens used for producing output in `src/tokens/fluentui.json`, or configure the pipeline to use a different location in `src/pipeline/config.js`. The pipeline will output files to the `build` folder; you can configure that in `config.js` as well.
 
-*For more information about `config.js`, see the [style-dictionary](https://amzn.github.io/style-dictionary/) documentation: the FluentUI token pipeline currently uses `style-dictionary` for its configuration.*
+*For more information about `config.js`, see the [style-dictionary](https://amzn.github.io/style-dictionary/) documentation: the Fluent UI token pipeline currently uses `style-dictionary` for its configuration.*
 
 ## Building the pipeline
 
@@ -71,7 +71,7 @@ After building once, it can sometimes be helpful to refer to [`build/reference/f
 **The organization and naming of the tokens in `fluentuitokens.json` is intentional, and affects how they are processed and exported.** So, it's useful to know the basics of that organization.
 
 * Global tokens go in the `Global` node. Tokens under `Global` should all contain raw values and not refer to any other token, with few exceptions. (One reasonable exception might be that if we wanted to treat "Accent" as a color and put it next to other colors such as blue and red, but *define* the Accent colors as identical to the blue colors, for example.)
-* Alias tokens and sets go in the `Set` node. (More on what that means momentarily.) Tokens under `Set` should never have a distinct value, and instead should be defined based on other tokens. Sets don't have to be explicitly defined as a set—they're just how we refer to any grouping of alias tokens. `Set.MyFavoriteColors` is just a way of saying  "all of the tokens defined under 'MyFavoriteColors'."
+* Alias tokens and sets go in the `Set` node. (More on what that means momentarily.) Tokens under `Set` should never have a distinct value, and instead should be defined based on other tokens. Sets don't have to be explicitly defined as a set—they're just how we refer to any grouping of alias tokens. `Set.MyFavoriteColors` is just a way of saying "all of the tokens defined under 'MyFavoriteColors'."
 * Control tokens go outside of those two top-level nodes. They should be defined based on alias tokens and sets, and occasionally global tokens.
 
 The full name of a token is just a list of all of its parents in the JSON and its lowest-level name, separated by dots. For example:

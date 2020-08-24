@@ -9,7 +9,7 @@ class FluentUIAliases
 	resolveAliases(properties)
 	{
 		// Okay, buckle in, cupcake: we're gonna traverse this whole properties tree and find every alias token in the bunch.
-		// (Note that we're only looking for FluentUI aliases, not Style Dictionary aliases.)
+		// (Note that we're only looking for Fluent UI aliases, not Style Dictionary aliases.)
 		const resolver = (prop, key) =>
 		{
 			if (this._resolveAlias(prop, properties))
@@ -67,8 +67,6 @@ class FluentUIAliases
 
 		// Return the resolved property to indicate that we successfully resolved the alias.
 		return target
-
-		// TODO: Allow users to perform math, such as "tokenZ = tokenX * tokenY - 1", or color manipulation.
 	}
 
 	/// Deep-clones a target property's contents onto an alias property. Values already existing on the alias property are not overwritten.

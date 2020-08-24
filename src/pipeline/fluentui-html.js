@@ -124,7 +124,7 @@ StyleDictionary.registerFormat({
 <html lang="en-us">
 <head>
 <meta charset="utf-8" />
-<title>FluentUI style reference</title>
+<title>Fluent UI style reference</title>
 <style type="text/css">
 *, *::before, *::after
 {
@@ -249,7 +249,7 @@ h3
 </head>
 <body>
 
-<h1>FluentUI style reference</h1>
+<h1>Fluent UI style reference</h1>
 
 <p>Generated on <time datetime="${timestamp.toISOString()}">${timestamp.toUTCString()}</time></p>
 
