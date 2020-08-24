@@ -19,7 +19,7 @@
 	"homepage": "https://github.com/microsoft/fluentui-token-pipeline",
 	"dependencies": {
 		"jsonfile": "^6.0.1",
-		"lodash": "4.17.15",
+		"lodash": "4.17.20",
 		"style-dictionary": "2.9.0",
 		"tinycolor2": "^1.4.1"
 	},
