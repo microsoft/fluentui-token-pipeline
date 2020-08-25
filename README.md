@@ -159,6 +159,8 @@ Then, you can apply all four of those state colors to a single control later on 
 
 That's exactly the same as specifying that `Button.Root.Fill.Color.Rest` is equal to `Set.ActionControl.Fill.Color.Rest` and so on, but it's a lot easier to work with, and helps avoid mistakes.
 
+Conceptually, you can think of tokens as files and sets as folders. When you look at a directory listing, the last portion of each file path is the filename—or token name. The parts before that are just an organizational scheme and don't mean much on their own. When you use `aliasOf` a single token, that's just like making a shortcut to a single file. You can also use `aliasOf` a group of tokens the same way you would make a shortcut to a whole folder.
+
 ## Computed tokens
 
 You may also want to define a token as a *computation* based on another token and some adjustment. Currently, only opacity adjustments are supported.

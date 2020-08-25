@@ -6,28 +6,7 @@ const _ = require("lodash")
 
 const Utils = require("./utils")
 
-/*
-	TODO: Annotate certain tokens with a "winuiKey" attribute that overrides the generated prop name so you
-	can remove one layer of aliasing between the control tokens here and the legacy tokens defined in WinUI.
-
-	{control.neutralButton.border.width} = { value: 1 }
-	<x:Double x:Key="AliasControlNeutralButtonBorderWidth">1</x:Double>
-	<StaticResource x:Key="ButtonBorderThemeThickness" ResourceKey="AliasControlNeutralButtonBorderWidth" />
-
-		-->
-
-	{control.neutralButton.border.width} = { value: 1, attributes: { xamlName: "ButtonBorderThemeThickness" } }
-	<x:Double x:Key="ButtonBorderThemeThickness">1</x:Double>
-	...and no XAML resource for AliasControlNeutralButtonBorderWidth defined at all.
-
-	Note that this assumes that there's some kind of "master" Fluent JSON that gets merged with updates from the
-	plugin and website, or otherwise those sources would need to replicate the same. Alternately, there could just
-	be a single mapping dictionary of Fluent token name to WinUI token name that exists only in this pipeline.
-*/
-
 const getNameForWinUI = (path, prefix) => _.upperFirst(_.camelCase(Utils.getModifiedPathForNaming(path, prefix).join(" ")))
-
-// TODO: This causes "HCOutline" to convert to "HcOutline". Fix that.
 
 StyleDictionary.registerTransform({
 	name: "fluentui/name/pascal",
