@@ -80,7 +80,10 @@ module.exports = {
 		winui: {
 			transformGroup: "fluentui/winui",
 			buildPath: `${outputPath}/winui/`,
-			files: [{ destination: "FluentUITokens.xaml", format: "fluentui/xaml/res" }],
+			files: [
+				{ destination: "FluentUITokens.xaml", format: "fluentui/xaml/res" },
+				{ destination: "FluentUITokensThemed.xaml", format: "fluentui/xaml/res/themed" },
+			],
 		},
 	},
 }
