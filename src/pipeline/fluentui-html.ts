@@ -1,4 +1,3 @@
-// @ts-ignore
 import StyleDictionary from "style-dictionary"
 
 import Utils from "./utils"

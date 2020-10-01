@@ -1,4 +1,3 @@
-// @ts-ignore
 import StyleDictionary from "style-dictionary"
 import Color from "tinycolor2"
 import _ from "lodash"

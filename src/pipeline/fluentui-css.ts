@@ -1,4 +1,3 @@
-// @ts-ignore
 import StyleDictionary from "style-dictionary"
 
 import Utils from "./utils"
@@ -44,7 +43,7 @@ StyleDictionary.registerTransform({
 			return `${value}px`
 		else if (Array.isArray(value) && value.length === 4)
 			return `${value[0]}px ${value[1]}px ${value[2]}px ${value[3]}px`
-		
+
 		console.warn(`Unrecognized size value: "${value}". Use a single number or an array [top, right, bottom, left].`)
 		return value
 	},
