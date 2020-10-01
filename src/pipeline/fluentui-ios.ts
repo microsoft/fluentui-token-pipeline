@@ -1,13 +1,12 @@
-"use strict"
+// @ts-ignore
+import StyleDictionary from "style-dictionary"
+import _ from "lodash"
 
-const StyleDictionary = require("style-dictionary")
-const _ = require("lodash")
-
-const Utils = require("./utils")
+import Utils from "./utils"
 
 const getNameForSwift = (path, prefix) => _.camelCase(Utils.getModifiedPathForNaming(path, prefix).join(" "))
 
-const getCGFloatFromNumber = (value) => parseFloat(value, 10).toFixed(1)
+const getCGFloatFromNumber = (value) => parseFloat(value).toFixed(1)
 
 StyleDictionary.registerTransform({
 	name: "fluentui/name/swift",
@@ -45,8 +44,9 @@ StyleDictionary.registerTransform({
 			return `${getCGFloatFromNumber(value)}`
 		else if (Array.isArray(value) && value.length === 4)
 			return `UIEdgeInsets(top: ${getCGFloatFromNumber(value[0])}, left: ${getCGFloatFromNumber(value[3])}, bottom: ${getCGFloatFromNumber(value[2])}, right: ${getCGFloatFromNumber(value[1])})`
-		else
-			console.warn(`Unrecognized size value: "${value}". Use a single number or an array [top, right, bottom, left].`)
+
+		console.warn(`Unrecognized size value: "${value}". Use a single number or an array [top, right, bottom, left].`)
+		return value
 	},
 })
 

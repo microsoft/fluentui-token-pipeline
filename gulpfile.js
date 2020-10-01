@@ -1,17 +1,25 @@
-const { execSync } = require("child_process")
+const { exec } = require("child_process")
 const Gulp = require("gulp")
+const TypeScript = require("gulp-typescript")
+
+const typescriptProject = TypeScript.createProject("tsconfig.json")
+const typescript = () => Gulp
+	.src("src/pipeline/**/*.ts")
+	.pipe(typescriptProject())
+	.pipe(Gulp.dest("build/pipeline"))
+typescript.displayName = "Compile TypeScript"
 
 const build = (callback) =>
 {
-	const StyleDictionary = require("style-dictionary").extend("./src/pipeline/config.js")
+	const StyleDictionary = require("style-dictionary").extend("./build/pipeline/config.js")
 	StyleDictionary.buildAllPlatforms()
 
 	callback()
 }
+build.displayName = "Build all platforms"
 
-const buildCli = (callback) =>
-{
-	execSync("npx style-dictionary build --config ./src/pipeline/config.js", { windowsHide: true }, (error, stdout, stderr) =>
+const buildCli = () =>
+	exec("npx style-dictionary build --config ./build/pipeline/config.js", { windowsHide: true }, (error, stdout, stderr) =>
 	{
 		if (error)
 		{
@@ -21,18 +29,16 @@ const buildCli = (callback) =>
 		console.log(stdout)
 		console.error(stderr)
 	})
+buildCli.displayName = "Build all platforms (changes were noticed)"
 
-	callback()
-}
-
-const watch = (callback) =>
+const watch = () =>
 {
-	Gulp.watch(["src/tokens/**", "./src/pipeline/*.js"], buildCli)
-
-	callback()
+	Gulp.watch(["src/tokens/**", "src/pipeline/*.ts"], Gulp.series(typescript, buildCli))
 }
+watch.displayName = "Watch for changes"
 
-exports.build = build
-exports.watch = Gulp.series(build, watch)
+exports.ts = Gulp.series(typescript)
+exports.build = Gulp.series(typescript, build)
+exports.watch = Gulp.series(typescript, build, watch)
 
-exports.default = build
+exports.default = exports.build

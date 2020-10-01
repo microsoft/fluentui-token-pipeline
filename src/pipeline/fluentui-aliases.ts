@@ -1,6 +1,4 @@
-"use strict"
-
-const Utils = require("./utils")
+import Utils from "./utils"
 
 class FluentUIAliases
 {
@@ -63,7 +61,7 @@ class FluentUIAliases
 		}
 
 		// Okay, it's a good alias! Merge this property with a deep clone of the alias target.
-		this._mergeProps(prop, target, prop.aliasOf, properties, this._mergePropsOptions)
+		this._mergeProps(prop, target, prop.aliasOf, properties, null)
 
 		// Return the resolved property to indicate that we successfully resolved the alias.
 		return target
@@ -167,7 +165,7 @@ class FluentUIAliases
 			if (!("aliasOf" in current)) return false
 			traversed.push(current)
 
-			current = FluentUIAliases.findPropByPath(current.aliasOf, properties)
+			current = this.findPropByPath(current.aliasOf, properties)
 			if (current === null) return false
 			if (traversed.includes(current)) return true
 		}
@@ -175,4 +173,4 @@ class FluentUIAliases
 	}
 }
 
-module.exports = new FluentUIAliases()
+export default new FluentUIAliases()

@@ -1,5 +1,3 @@
-"use strict"
-
 const charactersToEscape = /([<>&])/g
 const escapedCharacters =
 {
@@ -121,4 +119,4 @@ class Utils
 		}
 	}
 }
-module.exports = new Utils
+export default new Utils

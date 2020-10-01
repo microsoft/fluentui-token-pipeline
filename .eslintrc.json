@@ -1,14 +1,16 @@
 {
-	"extends": "eslint:recommended",
-	"ignorePatterns": ["node_modules/"],
+	"extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+	"ignorePatterns": ["build/", "node_modules/"],
 	"env": {
 		"browser": true,
 		"es2017": true,
 		"node": true
 	},
+	"parser": "@typescript-eslint/parser",
 	"parserOptions": {
 		"sourceType": "module"
 	},
+	"plugins": ["@typescript-eslint"],
 	"rules": {
 		"brace-style": ["warn", "allman"],
 		"block-spacing": ["warn", "always"],
@@ -31,7 +33,7 @@
 		"no-prototype-builtins": "off",
 		"no-shadow": ["error", { "builtinGlobals": true }],
 		"no-trailing-spaces": "warn",
-		"no-unused-vars": ["warn", { "vars": "all", "args": "none", "argsIgnorePattern": "^_", "ignoreRestSiblings": false }],
+		"no-unused-vars": "off",
 		"no-var": "error",
 		"object-curly-spacing": ["warn", "always"],
 		"padded-blocks": ["warn", "never"],
@@ -48,6 +50,11 @@
 				"balanced": true
 			}
 		}],
-		"yoda": ["warn", "never"]
+		"yoda": ["warn", "never"],
+		"@typescript-eslint/no-empty-interface": "off",
+		"@typescript-eslint/no-explicit-any": "off",
+		"@typescript-eslint/no-unused-vars": "off",
+		"@typescript-eslint/no-unused-vars-experimental": "warn",
+		"@typescript-eslint/no-var-requires": "off"
 	}
 }

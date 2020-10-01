@@ -1,9 +1,6 @@
-"use strict"
-
-const Color = require("tinycolor2")
-const FluentUIAliases = require("./fluentui-aliases")
-const Utils = require("./utils")
-
+import Color from "tinycolor2"
+import FluentUIAliases from "./fluentui-aliases"
+import Utils from "./utils"
 
 class FluentUIComputed
 {
@@ -97,4 +94,4 @@ class FluentUIComputed
 	}
 }
 
-module.exports = new FluentUIComputed()
+export default new FluentUIComputed

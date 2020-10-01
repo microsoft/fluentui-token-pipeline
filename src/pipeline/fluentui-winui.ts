@@ -1,10 +1,9 @@
-"use strict"
+// @ts-ignore
+import StyleDictionary from "style-dictionary"
+import Color from "tinycolor2"
+import _ from "lodash"
 
-const StyleDictionary = require("style-dictionary")
-const Color = require("tinycolor2")
-const _ = require("lodash")
-
-const Utils = require("./utils")
+import Utils from "./utils"
 
 const getNameForWinUI = (path, prefix) => _.upperFirst(_.camelCase(Utils.getModifiedPathForNaming(path, prefix).join(" ")))
 
@@ -113,6 +112,7 @@ StyleDictionary.registerTransform({
 		else
 		{
 			console.warn(`Unrecognized size value: "${value}". Use a single number or an array [top, right, bottom, left].`)
+			return value
 		}
 	},
 })

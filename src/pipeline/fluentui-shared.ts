@@ -1,6 +1,5 @@
-"use strict"
-
-const StyleDictionary = require("style-dictionary")
+// @ts-ignore
+import StyleDictionary from "style-dictionary"
 
 /// Returns a Style Dictionary attributes object or null.
 const getSDAttributes = (category, attribute) =>

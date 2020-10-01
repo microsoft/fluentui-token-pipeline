@@ -1,8 +1,7 @@
-"use strict"
+// @ts-ignore
+import StyleDictionary from "style-dictionary"
 
-const StyleDictionary = require("style-dictionary")
-
-const Utils = require("./utils")
+import Utils from "./utils"
 
 const getNameForReference = (path, prefix) => Utils.getModifiedPathForNaming(path, prefix).join("-")
 
@@ -67,11 +66,11 @@ StyleDictionary.registerFormat({
 
 		// Turn a sorted list of all tokens into HTML, and inject headers as appropriate.
 		let list = ""
-		let previousProp = null
+		let previousProp: any | null = null
 		for (const thisProp of sortedProps)
 		{
 			// See if we need to add a header first. (This logic requires the list to already be sorted.)
-			let header = null
+			let header: string | null = null
 			if (thisProp.path[0] === "Global" && (!previousProp))
 			{
 				header = "<h1>Global tokens</h1>\n\n"

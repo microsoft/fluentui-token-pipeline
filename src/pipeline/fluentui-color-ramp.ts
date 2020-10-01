@@ -1,6 +1,4 @@
-"use strict"
-
-const Color = require("tinycolor2")
+import Color from "tinycolor2"
 
 class FluentUIColorRamps
 {
@@ -45,4 +43,4 @@ class FluentUIColorRamps
 	}
 }
 
-module.exports = new FluentUIColorRamps()
+export default new FluentUIColorRamps

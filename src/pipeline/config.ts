@@ -1,16 +1,14 @@
-"use strict"
+import _ from "lodash"
+import jsonfile from "jsonfile"
 
-const _ = require("lodash")
-const jsonfile = require("jsonfile")
-
-const FluentUIAliases = require("./fluentui-aliases")
-const FluentUIColorRamps = require("./fluentui-color-ramp")
-const FluentUIComputed = require("./fluentui-computed")
-require("./fluentui-shared")
-require("./fluentui-css")
-require("./fluentui-html")
-require("./fluentui-ios")
-require("./fluentui-winui")
+import FluentUIAliases from "./fluentui-aliases"
+import FluentUIColorRamps from "./fluentui-color-ramp"
+import FluentUIComputed from "./fluentui-computed"
+import "./fluentui-shared"
+import "./fluentui-css"
+import "./fluentui-html"
+import "./fluentui-ios"
+import "./fluentui-winui"
 
 // ------------------------------------------------------------
 // Configure pipeline input and output here
