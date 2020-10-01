@@ -199,6 +199,7 @@ ${resources}
 ${resources}
 		</ResourceDictionary>
 	</ResourceDictionary.ThemeDictionaries>
+
 </ResourceDictionary>`
 	},
 })
