@@ -1,6 +1,6 @@
 import StyleDictionary from "style-dictionary"
 
-import Utils from "./utils"
+import * as Utils from "./utils"
 
 const getNameForCss = (path, prefix) =>
 	Utils.getModifiedPathForNaming(path, prefix)

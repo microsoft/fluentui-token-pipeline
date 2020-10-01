@@ -2,7 +2,7 @@ import StyleDictionary from "style-dictionary"
 import Color from "tinycolor2"
 import _ from "lodash"
 
-import Utils from "./utils"
+import * as Utils from "./utils"
 
 const getNameForWinUI = (path, prefix) => _.upperFirst(_.camelCase(Utils.getModifiedPathForNaming(path, prefix).join(" ")))
 

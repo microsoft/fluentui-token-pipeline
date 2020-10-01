@@ -4,6 +4,7 @@ import jsonfile from "jsonfile"
 import FluentUIAliases from "./fluentui-aliases"
 import FluentUIColorRamps from "./fluentui-color-ramp"
 import FluentUIComputed from "./fluentui-computed"
+import FluentUIPlatformOverrides from "./fluentui-platform-overrides"
 import "./fluentui-shared"
 import "./fluentui-css"
 import "./fluentui-html"
@@ -34,6 +35,7 @@ inputTokenFiles.forEach((inputFile) => _.merge(tokens, jsonfile.readFileSync(inp
 tokens = FluentUIColorRamps.buildColorRamps(tokens)
 tokens = FluentUIAliases.resolveAliases(tokens)
 tokens = FluentUIComputed.resolveComputedTokens(tokens)
+tokens = FluentUIPlatformOverrides.resolvePlatformOverrides(tokens)
 
 module.exports = {
 	properties: tokens,
@@ -53,7 +55,6 @@ module.exports = {
 
 		ios: {
 			transformGroup: "fluentui/swift",
-			// buildPath to change files directly in fluentUI-tokens-demo iOS app: "../fluentUI-tokens-demo/FluentUITokensDemo/Common/Styles/"
 			buildPath: `${outputPath}/ios/`,
 			files: [
 				{ destination: "FluentUITokens.swift", format: "ios-swift/class.swift", className: "FluentUITokens" },

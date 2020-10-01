@@ -1,6 +1,6 @@
 import Color from "tinycolor2"
 import FluentUIAliases from "./fluentui-aliases"
-import Utils from "./utils"
+import * as Utils from "./utils"
 
 class FluentUIComputed
 {

@@ -1,7 +1,7 @@
 import StyleDictionary from "style-dictionary"
 import _ from "lodash"
 
-import Utils from "./utils"
+import * as Utils from "./utils"
 
 const getNameForSwift = (path, prefix) => _.camelCase(Utils.getModifiedPathForNaming(path, prefix).join(" "))
 
