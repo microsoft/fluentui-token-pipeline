@@ -126,3 +126,20 @@ export const setErrorValue = (token: TokenSet | Token, error: string, descriptio
 	reportError(description);
 	(token as unknown as ValueToken).value = `<ERROR: ${error}>`
 }
+
+/// Given a path string ("Global.Color.Blue") and a properties dictionary, returns the property at that path.
+/// Returns null if the target can't be found.
+export const findPropByPath = (path: string, properties: TokenSet): Token | TokenSet | null =>
+{
+	const targetPathParts = path.trim().split(".")
+	if (targetPathParts.length === 0) return null
+
+	let target = properties
+	for (let i = 0; i < targetPathParts.length; i++)
+	{
+		const thisPart = targetPathParts[i]
+		if (!(thisPart in target)) return null
+		target = target[targetPathParts[i]]
+	}
+	return target
+}

@@ -49,4 +49,5 @@ const resolvePlatformOverride = (prop: TokenSet | Token, currentPlatform: Suppor
 	// Otherwise, apply the override.
 	const currentOverride = overrides[currentPlatform] as TokenSetChildren
 	// TODO: apply the actual override
+	console.log("TODO: Apply", currentOverride, "as an override to", prop)
 }

@@ -1,5 +1,4 @@
 import Color from "tinycolor2"
-import FluentUIAliases from "./fluentui-aliases"
 import * as Utils from "./utils"
 import { Token, TokenSet, ComputedToken, ValueToken } from "./types"
 
@@ -53,17 +52,17 @@ const isColorComputation = (prop: ComputedToken): boolean =>
 const resolveColorComputation = (prop: ComputedToken, properties: TokenSet): ValueToken | null =>
 {
 	// First, validate the inputs.
-	const originalColorToken = FluentUIAliases.findPropByPath(prop.computed.color, properties)
+	const originalColorToken = Utils.findPropByPath(prop.computed.color, properties)
 	if (!originalColorToken)
 	{
 		Utils.setErrorValue(prop, "Missing input token", `Couldn't find the token "${prop.computed.color}" used in a computed property.`)
 		return null
 	}
 
-	const originalColorString = originalColorToken.value
-	if (!originalColorString)
+	const originalColorString = (originalColorToken as ValueToken).value
+	if (!originalColorString || typeof originalColorString !== "string")
 	{
-		Utils.setErrorValue(prop, "Missing input token value", `The token "${prop.computed.color}" used in a computed property didn't have a value.`)
+		Utils.setErrorValue(prop, "Missing or invalid input token value", `The token "${prop.computed.color}" used in a computed property didn't have a string value.`)
 		return null
 	}
 	const originalColor = new Color(originalColorString)
