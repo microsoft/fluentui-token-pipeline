@@ -1,4 +1,5 @@
 import StyleDictionary from "style-dictionary"
+import * as Utils from "./utils"
 
 /// Returns a Style Dictionary attributes object or null.
 const getSDAttributes = (category, attribute) =>
@@ -53,7 +54,7 @@ StyleDictionary.registerTransform({
 		}
 
 		if (!sdAttributes)
-			console.error(`ERROR: Unable to determine data type based on token name "${prop.path.join(".")}".`)
+			Utils.reportError(`Unable to determine data type based on token name "${prop.path.join(".")}".`)
 
 		if (prop.resolvedAliasPath)
 		{

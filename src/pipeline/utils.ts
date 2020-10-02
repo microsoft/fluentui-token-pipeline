@@ -1,4 +1,4 @@
-import { Token, TokenSet } from "./types"
+import { Token, TokenSet, ValueToken } from "./types"
 
 const charactersToEscape = /([<>&])/g
 const escapedCharacters =
@@ -87,14 +87,14 @@ export const sortPropertiesForReadability = (dictionary: any[]): any[] =>
 		if (a.name < b.name) return -1
 		else if (a.name > b.name) return 1
 
-		console.error(`Somehow found two identically-named tokens! "${a.name}"`)
+		reportError(`Somehow found two identically-named tokens! "${a.name}"`)
 		return 0
 	})
 	return dictionary
 }
 
 /// For each property in the Style Dictionary properties object or a subtree, call a specific callback function.
-export const forEachRecursive = (subtree: TokenSet, callbackfn: (prop: TokenSet | Token, key: string, subtree: TokenSet) => void, options?: { requiredChild?: string }): void =>
+export const forEachRecursive = (subtree: TokenSet, callbackfn: (prop: TokenSet | Token, key: string) => void, options?: { requiredChild?: string }): void =>
 {
 	if (!subtree || !callbackfn)
 		throw new Error("Usage: forEachRecursive(subtree, callbackfn, options?)")
@@ -109,7 +109,7 @@ export const forEachRecursive = (subtree: TokenSet, callbackfn: (prop: TokenSet 
 		if (!requiredChild || requiredChild in prop)
 		{
 			// Either we aren't looking for a specific type of child, or this is indeed a child prop of the type we're looking for.
-			callbackfn(prop, key, subtree)
+			callbackfn(prop, key)
 		}
 		else if (!("value" in prop || "aliasOf" in prop || "computed" in prop))
 		{
@@ -117,4 +117,12 @@ export const forEachRecursive = (subtree: TokenSet, callbackfn: (prop: TokenSet 
 			forEachRecursive(prop, callbackfn, options)
 		}
 	}
+}
+
+export const reportError = (description: string): void => console.error(`ERROR: ${description}`)
+
+export const setErrorValue = (token: TokenSet | Token, error: string, description: string): void =>
+{
+	reportError(description);
+	(token as unknown as ValueToken).value = `<ERROR: ${error}>`
 }

@@ -13,7 +13,7 @@ class FluentUIAliases
 			if (this._resolveAlias(prop, properties))
 			{
 				if ("aliasOf" in prop)
-					console.error(`_resolveAlias failed to resolve ${key} -- skipping to prevent infinite recursion.`)
+					Utils.reportError(`_resolveAlias failed to resolve ${key} -- skipping to prevent infinite recursion.`)
 				else
 					Utils.forEachRecursive(prop, resolver, { requiredChild: "aliasOf" })
 			}
@@ -33,30 +33,27 @@ class FluentUIAliases
 			throw new Error("Method was called on a property that wasn't an alias of anything.")
 		if (typeof prop.aliasOf !== "string")
 		{
-			console.error(`ERROR: Invalid aliasOf: ${JSON.stringify(prop.aliasOf)}. The aliasOf property should be a dot-delimited path to another token to refer to, such as "Global.Color.Blue".`)
-			prop.value = "<ERROR: Invalid aliasOf syntax>"
+			Utils.setErrorValue(prop, "Invalid aliasOf syntax", `ERROR: Invalid aliasOf: ${JSON.stringify(prop.aliasOf)}. The aliasOf property should be a dot-delimited path to another token to refer to, such as "Global.Color.Blue".`)
 			return null
 		}
 
 		// You can't use aliasOf and value at the same time.
 		if ("value" in prop)
 		{
-			console.error(`ERROR: aliasOf: ${JSON.stringify(prop.aliasOf)} was used along with value ${JSON.stringify(prop.value)}, so the alias was ignored.`)
+			Utils.reportError(`aliasOf: ${JSON.stringify(prop.aliasOf)} was used along with value ${JSON.stringify(prop.value)}, so the alias was ignored.`)
 		}
 
 		// Let's find what the alias is targeting. It could be a single token, or a whole set.
 		const target = this.findPropByPath(prop.aliasOf, properties)
 		if (target === null)
 		{
-			console.error(`ERROR: Invalid aliasOf: ${JSON.stringify(prop.aliasOf)}. That token doesn't exist.`)
-			prop.value = `<ERROR: token ${JSON.stringify(prop.aliasOf)} missing>`
+			Utils.setErrorValue(prop, `token ${JSON.stringify(prop.aliasOf)} missing`, `ERROR: Invalid aliasOf: ${JSON.stringify(prop.aliasOf)}. That token doesn't exist.`)
 			return null
 		}
 
 		if (this.hasCircularReferences(prop, target, properties))
 		{
-			console.error(`ERROR: Invalid aliasOf: ${JSON.stringify(prop.aliasOf)} is in a chain of circular references.`)
-			prop.value = `<ERROR: circular reference involving ${JSON.stringify(prop.aliasOf)}>`
+			Utils.setErrorValue(prop, `circular reference involving ${JSON.stringify(prop.aliasOf)}`, `ERROR: Invalid aliasOf: ${JSON.stringify(prop.aliasOf)} is in a chain of circular references.`)
 			return null
 		}
 

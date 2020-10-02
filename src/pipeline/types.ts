@@ -57,6 +57,8 @@ export interface TokenPlatformOverrides
 	winui?: TokenSetChildren
 }
 
+export type SupportedPlatform = keyof TokenPlatformOverrides
+
 // ------------------------------------------------------------
 
 // Uncomment this and paste the contents of your token JSON to validate it:

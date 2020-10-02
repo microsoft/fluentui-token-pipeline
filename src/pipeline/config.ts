@@ -35,7 +35,7 @@ inputTokenFiles.forEach((inputFile) => _.merge(tokens, jsonfile.readFileSync(inp
 tokens = FluentUIColorRamps.buildColorRamps(tokens)
 tokens = FluentUIAliases.resolveAliases(tokens)
 tokens = resolveComputedTokens(tokens)
-tokens = resolvePlatformOverrides(tokens)
+tokens = resolvePlatformOverrides(tokens, "winui") // TODO: move this to be a per-platform transform
 
 module.exports = {
 	properties: tokens,
