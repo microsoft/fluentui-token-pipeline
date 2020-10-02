@@ -57,7 +57,7 @@ const resolveAlias = (prop: Token, properties: TokenSet): AliasToken | null =>
 	}
 
 	// Okay, it's a good alias! Merge this property with a deep clone of the alias target.
-	mergeProps(prop, target, prop.aliasOf, properties, null)
+	mergeProps(prop, target, prop.aliasOf, properties)
 
 	// Return the resolved property to indicate that we successfully resolved the alias.
 	return target as AliasToken
@@ -65,7 +65,7 @@ const resolveAlias = (prop: Token, properties: TokenSet): AliasToken | null =>
 
 /// Deep-clones a target property's contents onto an alias property. Values already existing on the alias property are not overwritten.
 /// After this method, the property will no longer be an alias.
-const mergeProps = (prop, target, targetPath, properties, options) =>
+const mergeProps = (prop: Token, target: Token | TokenSet, targetPath: string, properties: TokenSet) =>
 {
 	console.assert(
 		typeof target === "object",
@@ -73,7 +73,8 @@ const mergeProps = (prop, target, targetPath, properties, options) =>
 
 	// This property will be resolved when this method finishes, so remove the alias reference.
 	// (We save the path in resolvedAliasPath so that we can use it for output formatting.)
-	delete prop.aliasOf
+	const propAsAny = prop as any
+	delete propAsAny.aliasOf
 
 	// First of all, figure out what the target is.
 	// prop = { aliasOf: "target" }
@@ -83,20 +84,20 @@ const mergeProps = (prop, target, targetPath, properties, options) =>
 		{
 			// The alias target is a simple value. Easy!
 			// target = { value: 123 }
-			prop.value = target.value
-			prop.resolvedAliasPath = targetPath
+			propAsAny.value = target.value
+			propAsAny.resolvedAliasPath = targetPath
 		}
 		else if ("aliasOf" in target)
 		{
 			// The alias target is another alias, so it's recursion time.
 			// target = { aliasOf: "targetoftarget" }
-			resolveAlias(target, properties)
+			resolveAlias(target as AliasToken, properties)
 		}
 		else if ("computed" in target)
 		{
 			// The alias target is a computed token, which will be resolved later.
 			// Nothing ever changes the contents of a "computed" node so we don't bother making a deep copy.
-			prop.computed = target.computed
+			propAsAny.computed = target.computed
 		}
 		else
 		{
@@ -117,7 +118,7 @@ const mergeProps = (prop, target, targetPath, properties, options) =>
 				{
 					// target.key is another value or alias, so recurse.
 					prop[key] = {}
-					mergeProps(prop[key], targetProp, `${targetPath}.${key}`, properties, options)
+					mergeProps(prop[key], targetProp, `${targetPath}.${key}`, properties)
 				}
 			}
 		}
