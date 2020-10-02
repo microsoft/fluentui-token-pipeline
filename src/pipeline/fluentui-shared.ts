@@ -56,7 +56,7 @@ StyleDictionary.registerTransform({
 		if (!sdAttributes)
 			Utils.reportError(`Unable to determine data type based on token name "${prop.path.join(".")}".`)
 
-		if (prop.resolvedAliasPath)
+		if (sdAttributes && prop.resolvedAliasPath)
 		{
 			// This is an alias token, so its category is "alias", but we may still want to know what the category
 			// WOULD have been if it were a direct value, so save that in "aliasCategory".
