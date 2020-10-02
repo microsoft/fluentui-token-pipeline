@@ -3,8 +3,8 @@ import jsonfile from "jsonfile"
 
 import FluentUIAliases from "./fluentui-aliases"
 import FluentUIColorRamps from "./fluentui-color-ramp"
-import FluentUIComputed from "./fluentui-computed"
-import FluentUIPlatformOverrides from "./fluentui-platform-overrides"
+import { resolveComputedTokens } from "./fluentui-computed"
+import { resolvePlatformOverrides } from "./fluentui-platform-overrides"
 import "./fluentui-shared"
 import "./fluentui-css"
 import "./fluentui-html"
@@ -34,8 +34,8 @@ let tokens = {}
 inputTokenFiles.forEach((inputFile) => _.merge(tokens, jsonfile.readFileSync(inputFile)))
 tokens = FluentUIColorRamps.buildColorRamps(tokens)
 tokens = FluentUIAliases.resolveAliases(tokens)
-tokens = FluentUIComputed.resolveComputedTokens(tokens)
-tokens = FluentUIPlatformOverrides.resolvePlatformOverrides(tokens)
+tokens = resolveComputedTokens(tokens)
+tokens = resolvePlatformOverrides(tokens)
 
 module.exports = {
 	properties: tokens,

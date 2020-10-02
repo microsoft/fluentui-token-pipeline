@@ -1,3 +1,5 @@
+import { Token, TokenSet } from "./types"
+
 const charactersToEscape = /([<>&])/g
 const escapedCharacters =
 {
@@ -19,7 +21,7 @@ const orderOfInteractionStates =
 /// Escapes a string for use in XML output.
 export const escapeXml = (text: any): string =>
 {
-	return (typeof text === "string" ? text : text.toString()).replace(charactersToEscape, (char) => escapedCharacters[char])
+	return (typeof text === "string" ? text : text.toString()).replace(charactersToEscape, char => escapedCharacters[char])
 }
 
 /// Strip off "Set" if present, and prepend the prefix if specified.
@@ -92,7 +94,7 @@ export const sortPropertiesForReadability = (dictionary: any[]): any[] =>
 }
 
 /// For each property in the Style Dictionary properties object or a subtree, call a specific callback function.
-export const forEachRecursive = (subtree: any, callbackfn: (prop: any, key: string, subtree: any) => void, options?: { requiredChild?: string }): void =>
+export const forEachRecursive = (subtree: TokenSet, callbackfn: (prop: TokenSet | Token, key: string, subtree: TokenSet) => void, options?: { requiredChild?: string }): void =>
 {
 	if (!subtree || !callbackfn)
 		throw new Error("Usage: forEachRecursive(subtree, callbackfn, options?)")
@@ -101,7 +103,7 @@ export const forEachRecursive = (subtree: any, callbackfn: (prop: any, key: stri
 	for (const key in subtree)
 	{
 		if (!subtree.hasOwnProperty(key)) continue
-		const prop = subtree[key]
+		const prop: TokenSet | Token = subtree[key]
 		if (typeof prop !== "object") continue
 
 		if (!requiredChild || requiredChild in prop)

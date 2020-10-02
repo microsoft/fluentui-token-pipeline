@@ -1,20 +1,16 @@
 import * as Utils from "./utils"
+import { Token, TokenSet } from "./types"
 
-class FluentUIPlatformOverrides
+/// Applies all of the overrides in an entire Style Dictionary properties object, and then returns the same object
+/// instance, modified.
+export const resolvePlatformOverrides = (properties: TokenSet): TokenSet =>
 {
-	/// Applies all of the overrides in an entire Style Dictionary properties object, and then returns the same object
-	/// instance, modified.
-	resolvePlatformOverrides(properties: any): any
+	const resolver = (prop: TokenSet | Token, key: string): void =>
 	{
-		const resolver = (prop: any, key: string) =>
-		{
-			// NYI
-		}
-		Utils.forEachRecursive(properties, resolver, { requiredChild: "platform" })
-
-		// Then, we just return the same object that was passed in, but modified.
-		return properties
+		// NYI
 	}
-}
+	Utils.forEachRecursive(properties, resolver, { requiredChild: "platform" })
 
-export default new FluentUIPlatformOverrides()
+	// Then, we just return the same object that was passed in, but modified.
+	return properties
+}

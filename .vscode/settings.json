@@ -21,6 +21,7 @@
 	"typescript.format.placeOpenBraceOnNewLineForFunctions": true,
 	"typescript.format.semicolons": "remove",
 	"typescript.preferences.quoteStyle": "double",
+	"typescript.tsdk": "./node_modules/typescript/lib",
 	"[typescript]": {
 		"editor.formatOnSave": false,
 		"editor.formatOnType": true,
