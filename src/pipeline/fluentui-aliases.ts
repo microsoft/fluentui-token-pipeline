@@ -32,7 +32,7 @@ const resolveAlias = (prop: Token, properties: TokenSet): AliasToken | null =>
 		throw new Error("Method was called on a property that wasn't an alias of anything.")
 	if (typeof prop.aliasOf !== "string")
 	{
-		Utils.setErrorValue(prop, "Invalid aliasOf syntax", `ERROR: Invalid aliasOf: ${JSON.stringify(prop.aliasOf)}. The aliasOf property should be a dot-delimited path to another token to refer to, such as "Global.Color.Blue".`)
+		Utils.setErrorValue(prop, "Invalid aliasOf syntax", `Invalid aliasOf: ${JSON.stringify(prop.aliasOf)}. The aliasOf property should be a dot-delimited path to another token to refer to, such as "Global.Color.Blue".`)
 		return null
 	}
 
@@ -46,13 +46,13 @@ const resolveAlias = (prop: Token, properties: TokenSet): AliasToken | null =>
 	const target = Utils.findPropByPath(prop.aliasOf, properties)
 	if (target === null)
 	{
-		Utils.setErrorValue(prop, `token ${JSON.stringify(prop.aliasOf)} missing`, `ERROR: Invalid aliasOf: ${JSON.stringify(prop.aliasOf)}. That token doesn't exist.`)
+		Utils.setErrorValue(prop, `token ${JSON.stringify(prop.aliasOf)} missing`, `Invalid aliasOf: ${JSON.stringify(prop.aliasOf)}. That token doesn't exist.`)
 		return null
 	}
 
 	if (hasCircularReferences(prop, target, properties))
 	{
-		Utils.setErrorValue(prop, `circular reference involving ${JSON.stringify(prop.aliasOf)}`, `ERROR: Invalid aliasOf: ${JSON.stringify(prop.aliasOf)} is in a chain of circular references.`)
+		Utils.setErrorValue(prop, `circular reference involving ${JSON.stringify(prop.aliasOf)}`, `Invalid aliasOf: ${JSON.stringify(prop.aliasOf)} is in a chain of circular references.`)
 		return null
 	}
 
@@ -85,7 +85,7 @@ const mergeProps = (prop: Token, target: Token | TokenSet, targetPath: string, p
 			// The alias target is a simple value. Easy!
 			// target = { value: 123 }
 			propAsAny.value = target.value
-			propAsAny.resolvedAliasPath = targetPath
+			propAsAny.resolvedAliasPath = Utils.getTokenExportPath(target as Token, targetPath)
 		}
 		else if ("aliasOf" in target)
 		{

@@ -4,21 +4,21 @@ import _ from "lodash"
 
 import * as Utils from "./utils"
 
-const getNameForWinUI = (path, prefix) => _.upperFirst(_.camelCase(Utils.getModifiedPathForNaming(path, prefix).join(" ")))
+const nameForWinUI = path => _.upperFirst(_.camelCase(path.join(" ")))
 
 StyleDictionary.registerTransform({
 	name: "fluentui/name/pascal",
 	type: "name",
-	transformer: (prop, options) => getNameForWinUI(prop.path, options.prefix),
+	transformer: prop => nameForWinUI(Utils.getTokenExportPath(prop)),
 })
 
 StyleDictionary.registerTransform({
 	name: "fluentui/alias/winui",
 	type: "attribute",
-	matcher: (prop) => "resolvedAliasPath" in prop,
-	transformer: (prop, options) =>
+	matcher: prop => "resolvedAliasPath" in prop,
+	transformer: prop =>
 	{
-		return { aliasResourceName: getNameForWinUI(prop.resolvedAliasPath.split("."), options.prefix) }
+		return { aliasResourceName: nameForWinUI(prop.resolvedAliasPath) }
 	},
 })
 
@@ -37,8 +37,8 @@ const winuiInvalidFontFamilies = new Set([
 StyleDictionary.registerTransform({
 	name: "fluentui/font/winui",
 	type: "value",
-	matcher: (prop) => prop.attributes.category === "font",
-	transformer: (prop, options) =>
+	matcher: prop => prop.attributes.category === "font",
+	transformer: prop =>
 	{
 		/*
 			Transforms a CSS font-family string to one for Microsoft.UI.Xaml.Media.FontFamily.
@@ -66,8 +66,8 @@ StyleDictionary.registerTransform({
 StyleDictionary.registerTransform({
 	name: "fluentui/size/winui",
 	type: "value",
-	matcher: (prop) => prop.attributes.category === "size",
-	transformer: (prop, options) =>
+	matcher: prop => prop.attributes.category === "size",
+	transformer: prop =>
 	{
 		/*
 			Transforms an array of top/right/bottom/left values into a string for Microsoft.UI.Xaml.Thickness.
@@ -119,8 +119,8 @@ StyleDictionary.registerTransform({
 StyleDictionary.registerTransform({
 	name: "fluentui/color/winui",
 	type: "value",
-	matcher: (prop) => prop.attributes.category === "color",
-	transformer: (prop, options) =>
+	matcher: prop => prop.attributes.category === "color",
+	transformer: prop =>
 	{
 		/*
 			Transforms a valid CSS color value into a string for Windows.Foundation.Color.

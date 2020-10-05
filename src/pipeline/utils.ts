@@ -24,22 +24,25 @@ export const escapeXml = (text: any): string =>
 	return (typeof text === "string" ? text : text.toString()).replace(charactersToEscape, char => escapedCharacters[char])
 }
 
-/// Strip off "Set" if present, and prepend the prefix if specified.
-/// Only makes a copy of the array if necessary; otherwise, it just returns the original array.
-export const getModifiedPathForNaming = (path: string[], prefix: string | undefined): string[] =>
+/// Given a prop, returns the components of its name as an array of strings.
+/// If the prop hasn't been processed by Style Dictionary yet, you need to manually specify its path as a string.
+export const getTokenExportPath = (prop: Token, propPath?: string): string[] =>
 {
-	const isSet = path[0] === "Set"
-	if (isSet || prefix)
-	{
-		if (prefix)
-			return [prefix, ...(isSet ? path.slice(1) : path)]
-		else
-			return path.slice(1)
-	}
-	else
-	{
-		return path
-	}
+	if (typeof prop !== "object")
+		throw new Error(`Unknown input for getTokenExportPath: ${JSON.stringify(prop)}`)
+
+	// Now we have the right token and its path. Check to see if it has a name override.
+	// If it does, ignore the normal path and use that.
+	const nameOverride: string | undefined = (prop as any).fullName
+	let path: string[] = nameOverride ? [nameOverride] : (prop as any).path
+	if (!path && propPath) path = propPath.split(".")
+	if (!path)
+		throw new Error(`Path wasn't present in token OR specified for getTokenExportPath: ${JSON.stringify(prop)}`)
+
+	// Strip off "Set" if present.
+	if (path.length > 1 && path[0] === "Set") path = path.slice(1)
+
+	return path
 }
 
 /// Groups a FLAT array of properties (dictionary.allProperties) into Global, Set, and Control
@@ -127,18 +130,22 @@ export const setErrorValue = (token: TokenSet | Token, error: string, descriptio
 	(token as unknown as ValueToken).value = `<ERROR: ${error}>`
 }
 
-/// Given a path string ("Global.Color.Blue") and a properties dictionary, returns the property at that path.
-/// Returns null if the target can't be found.
-export const findPropByPath = (path: string, properties: TokenSet): Token | TokenSet | null =>
+/// Given a path string ("Global.Color.Blue") (or equivalent array) and a properties dictionary,
+/// returns the property at that path. Returns null if the target can't be found.
+export const findPropByPath = (path: string | string[], properties: TokenSet): Token | TokenSet | null =>
 {
-	const targetPathParts = path.trim().split(".")
+	const targetPathParts = typeof path === "string" ? path.trim().split(".") : path
 	if (targetPathParts.length === 0) return null
 
 	let target = properties
 	for (let i = 0; i < targetPathParts.length; i++)
 	{
 		const thisPart = targetPathParts[i]
-		if (!(thisPart in target)) return null
+		if (!(thisPart in target))
+		{
+			console.log(`Didn't find node "${thisPart}".`)
+			return null
+		}
 		target = target[targetPathParts[i]]
 	}
 	return target

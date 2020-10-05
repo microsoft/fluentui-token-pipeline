@@ -1,30 +1,29 @@
 import StyleDictionary from "style-dictionary"
 import _ from "lodash"
-
 import * as Utils from "./utils"
 
-const getNameForSwift = (path, prefix) => _.camelCase(Utils.getModifiedPathForNaming(path, prefix).join(" "))
-
-const getCGFloatFromNumber = (value) => parseFloat(value).toFixed(1)
+const nameForSwift = path => _.camelCase(path.join(" "))
 
 StyleDictionary.registerTransform({
 	name: "fluentui/name/swift",
 	type: "name",
-	transformer: (prop, options) => getNameForSwift(prop.path, options.prefix),
+	transformer: prop => nameForSwift(Utils.getTokenExportPath(prop)),
 })
 
 StyleDictionary.registerTransform({
 	name: "fluentui/alias/swift",
 	type: "value",
-	matcher: (prop) => "resolvedAliasPath" in prop,
-	transformer: (prop, options) => `${getNameForSwift(prop.resolvedAliasPath.split("."), options.prefix)}`,
+	matcher: prop => "resolvedAliasPath" in prop,
+	transformer: prop => nameForSwift(prop.resolvedAliasPath),
 })
+
+const getCGFloatFromNumber = (value) => parseFloat(value).toFixed(1)
 
 StyleDictionary.registerTransform({
 	name: "fluentui/size/swift",
 	type: "value",
-	matcher: (prop) => prop.attributes.category === "size",
-	transformer: (prop, options) =>
+	matcher: prop => prop.attributes.category === "size",
+	transformer: prop =>
 	{
 		/*
 			Transforms an array of top/right/bottom/left values into UIEdgeInsets(top: CGFloat, left: CGFloat, bottom: CGFloat, right: CGFloat).

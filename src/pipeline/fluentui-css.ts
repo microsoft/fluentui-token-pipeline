@@ -1,30 +1,26 @@
 import StyleDictionary from "style-dictionary"
-
 import * as Utils from "./utils"
 
-const getNameForCss = (path, prefix) =>
-	Utils.getModifiedPathForNaming(path, prefix)
-		.join("-")
-		.toLowerCase()
+const nameForCss = path => path.join("-").toLowerCase()
 
 StyleDictionary.registerTransform({
 	name: "fluentui/name/kebab",
 	type: "name",
-	transformer: (prop, options) => getNameForCss(prop.path, options.prefix),
+	transformer: prop => nameForCss(Utils.getTokenExportPath(prop)),
 })
 
 StyleDictionary.registerTransform({
 	name: "fluentui/alias/css",
 	type: "value",
-	matcher: (prop) => "resolvedAliasPath" in prop,
-	transformer: (prop, options) => `var(--${getNameForCss(prop.resolvedAliasPath.split("."), options.prefix)})`,
+	matcher: prop => "resolvedAliasPath" in prop,
+	transformer: prop => `var(--${nameForCss(prop.resolvedAliasPath)})`,
 })
 
 StyleDictionary.registerTransform({
 	name: "fluentui/size/css",
 	type: "value",
-	matcher: (prop) => prop.attributes.category === "size",
-	transformer: (prop, options) =>
+	matcher: prop => prop.attributes.category === "size",
+	transformer: prop =>
 	{
 		/*
 			Transforms an array of top/right/bottom/left values into a CSS margin or padding string.
