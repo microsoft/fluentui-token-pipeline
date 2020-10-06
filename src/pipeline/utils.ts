@@ -114,10 +114,11 @@ export const forEachRecursive = (subtree: TokenSet, callbackfn: (prop: TokenSet 
 			// Either we aren't looking for a specific type of child, or this is indeed a child prop of the type we're looking for.
 			callbackfn(prop, key)
 		}
-		else if (!("value" in prop || "aliasOf" in prop || "computed" in prop))
+		else
 		{
-			// This is another subtree, and it isn't one of the known types, so continue recursion into it.
-			forEachRecursive(prop, callbackfn, options)
+			// This is another subtree, so continue recursion into it. (We just know it's an object that doesn't contain the property
+			// we're looking for, so It could just be a simple value token, or it would be a value or alias AND other child nodes.)
+			forEachRecursive(prop as TokenSet, callbackfn, options)
 		}
 	}
 }
