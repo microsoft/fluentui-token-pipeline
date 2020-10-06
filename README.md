@@ -31,6 +31,10 @@ Open one of the pages in `src/demo/web/` in a browser after building to see some
 * [Sample app](src/demo/web/app-demo.html)
 * [Button styles](src/demo/web/buttons-demo.html)
 
+## Security
+
+This project generates code. The JSON files that it accepts as input are considered trustworthy, but given a malicious input, it would likely be possible to generate malicious code. Be sure to keep this in mind if you use this project with untrusted input.
+
 ## Contributing
 
 This project welcomes contributions and suggestions. Most contributions require you to agree to a
