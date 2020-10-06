@@ -218,7 +218,7 @@
 				"Medium": { "value": 4 },
 				"Large": { "value": 6 },
 				"ExtraLarge": { "value": 8 },
-				"Circle": { "value": 9999 }
+				"Circle": { "value": 9999, "platform": { "winui": { "value": 18 } } }
 			}
 		},
 		"Padding": {
