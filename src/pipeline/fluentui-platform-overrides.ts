@@ -26,13 +26,6 @@ const resolvePlatformOverride = (prop: TokenSet | Token, currentPlatform: Suppor
 		return
 	}
 
-	// You can't use platform overrides and value at the same time.
-	if ("value" in prop)
-	{
-		Utils.reportError(`A platform override was used along with value ${JSON.stringify((prop as any).value)}, so the platform override was ignored.`)
-		return
-	}
-
 	// Now, make sure there aren't any unsupported platforms in the list.
 	for (const overrideKey in overrides)
 	{
