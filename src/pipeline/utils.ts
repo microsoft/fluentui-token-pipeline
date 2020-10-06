@@ -146,7 +146,7 @@ export const findPropByPath = (path: string | string[], properties: TokenSet): T
 			console.log(`Didn't find node "${thisPart}".`)
 			return null
 		}
-		target = target[targetPathParts[i]]
+		target = target[targetPathParts[i]] as TokenSet
 	}
 	return target
 }

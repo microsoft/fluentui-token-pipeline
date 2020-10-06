@@ -10,7 +10,7 @@ export interface TokenJsonMeta
 	FluentUITokensVersion: 0
 }
 
-export type TokenSet = TokenSetChildren | TokenSetProperties
+export type TokenSet = TokenSetChildren & TokenSetProperties
 
 export interface TokenSetProperties
 {
