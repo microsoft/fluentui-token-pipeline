@@ -106,18 +106,13 @@ const mergeProps = (prop: Token, target: Token | TokenSet, targetPath: string, p
 			for (const key in target)
 			{
 				if (!target.hasOwnProperty(key)) continue
-				if (key in prop)
-				{
-					// console.log(`When merging in a set, I skipped "${key}" from the alias target because it was overridden. (This is probably expected, unless you see a lot of these.)`)
-					continue
-				}
 
 				const targetProp = target[key]
 				// targetProp = { value: 1 } or { aliasOf: "targetoftarget" } or { D1: ..., H2: ... }
 				if (typeof targetProp === "object")
 				{
 					// target.key is another value or alias, so recurse.
-					prop[key] = {}
+					if (!(key in prop)) prop[key] = {}
 					mergeProps(prop[key], targetProp, `${targetPath}.${key}`, properties)
 				}
 			}
