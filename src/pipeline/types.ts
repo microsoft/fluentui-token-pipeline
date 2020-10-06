@@ -22,19 +22,25 @@ export interface TokenSetChildren
 	[name: string]: TokenSet | Token
 }
 
-export type Token = (ValueToken | AliasToken | ComputedToken) & HasPlatformOverrides
+export type Token = ValueToken | AliasToken | ComputedToken
 
-export interface ValueToken
+export interface BaseToken
+{
+	platform?: TokenPlatformOverrides
+	fullName?: string
+}
+
+export interface ValueToken extends BaseToken
 {
 	value: string | number | boolean | number[]
 }
 
-export interface AliasToken
+export interface AliasToken extends BaseToken
 {
 	aliasOf: string
 }
 
-export interface ComputedToken
+export interface ComputedToken extends BaseToken
 {
 	computed: TokenComputation
 }
@@ -45,11 +51,6 @@ export interface TokenColorComputation
 {
 	color: string
 	opacity: number
-}
-
-export interface HasPlatformOverrides
-{
-	platform?: TokenPlatformOverrides
 }
 
 export interface TokenPlatformOverrides
