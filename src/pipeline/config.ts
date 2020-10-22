@@ -32,7 +32,6 @@ const outputPath = "build"
 
 let tokens = {}
 inputTokenFiles.forEach((inputFile) => _.merge(tokens, jsonfile.readFileSync(inputFile)))
-tokens = resolvePlatformOverrides(tokens, "winui") // TODO: move this to be a per-platform transform
 tokens = buildColorRamps(tokens)
 tokens = resolveAliases(tokens)
 tokens = resolveComputedTokens(tokens)
