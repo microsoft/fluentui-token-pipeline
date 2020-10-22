@@ -4,21 +4,21 @@ import _ from "lodash"
 
 import * as Utils from "./utils"
 
-const getNameForWinUI = (path, prefix) => _.upperFirst(_.camelCase(Utils.getModifiedPathForNaming(path, prefix).join(" ")))
+const nameForWinUI = path => _.upperFirst(_.camelCase(path.join(" ")))
 
 StyleDictionary.registerTransform({
 	name: "fluentui/name/pascal",
 	type: "name",
-	transformer: (prop, options) => getNameForWinUI(prop.path, options.prefix),
+	transformer: prop => nameForWinUI(Utils.getTokenExportPath(prop)),
 })
 
 StyleDictionary.registerTransform({
 	name: "fluentui/alias/winui",
 	type: "attribute",
-	matcher: (prop) => "resolvedAliasPath" in prop,
-	transformer: (prop, options) =>
+	matcher: prop => "resolvedAliasPath" in prop,
+	transformer: prop =>
 	{
-		return { aliasResourceName: getNameForWinUI(prop.resolvedAliasPath.split("."), options.prefix) }
+		return { aliasResourceName: nameForWinUI(prop.resolvedAliasPath) }
 	},
 })
 
@@ -37,8 +37,8 @@ const winuiInvalidFontFamilies = new Set([
 StyleDictionary.registerTransform({
 	name: "fluentui/font/winui",
 	type: "value",
-	matcher: (prop) => prop.attributes.category === "font",
-	transformer: (prop, options) =>
+	matcher: prop => prop.attributes.category === "font",
+	transformer: prop =>
 	{
 		/*
 			Transforms a CSS font-family string to one for Microsoft.UI.Xaml.Media.FontFamily.
@@ -66,8 +66,8 @@ StyleDictionary.registerTransform({
 StyleDictionary.registerTransform({
 	name: "fluentui/size/winui",
 	type: "value",
-	matcher: (prop) => prop.attributes.category === "size",
-	transformer: (prop, options) =>
+	matcher: prop => prop.attributes.category === "size",
+	transformer: prop =>
 	{
 		/*
 			Transforms an array of top/right/bottom/left values into a string for Microsoft.UI.Xaml.Thickness.
@@ -85,18 +85,7 @@ StyleDictionary.registerTransform({
 		const value = prop.value
 		if (typeof value === "number")
 		{
-			/*
-				Demo hack: WinUI handles excessively large corner radii differently from other platforms: they will cause elements to become
-				as round as possible within their bounding box, producing an oval. In contrast, CSS will make the short edge of a rectangle
-				with a very large corner radius circular, and leave the rest of the longer edge a straight line, producing a pill shape.
-
-				To work around this, we just clamp large numbers to produce the intended visual result for this demo. One would need
-				to either (1) write a value converter that dynamically adjusts a radius using an element's actual width and height, (2) add
-				a new property to the platform to describe how to interpret CornerRadius, or (3) get the WinComp handoff visual and
-				adjust it using bindings.
-			*/
-			const MaxCornerRadius = 18
-			return (prop.attributes.xamlType === "CornerRadius" && value > MaxCornerRadius) ? MaxCornerRadius.toString() : value.toString()
+			return value.toString()
 		}
 		else if (value.includes("/"))
 		{
@@ -119,8 +108,8 @@ StyleDictionary.registerTransform({
 StyleDictionary.registerTransform({
 	name: "fluentui/color/winui",
 	type: "value",
-	matcher: (prop) => prop.attributes.category === "color",
-	transformer: (prop, options) =>
+	matcher: prop => prop.attributes.category === "color",
+	transformer: prop =>
 	{
 		/*
 			Transforms a valid CSS color value into a string for Windows.Foundation.Color.

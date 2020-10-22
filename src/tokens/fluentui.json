@@ -218,7 +218,7 @@
 				"Medium": { "value": 4 },
 				"Large": { "value": 6 },
 				"ExtraLarge": { "value": 8 },
-				"Circle": { "value": 9999 }
+				"Circle": { "value": 9999, "platform": { "winui": { "value": 18 } } }
 			}
 		},
 		"Padding": {
@@ -1165,8 +1165,36 @@
 			"Fill": {
 				"Color": {
 					"aliasOf": "Set.ControlForeground.Fill.Color",
-					"Selected": { "aliasOf": "Set.ControlForeground.Fill.Color" },
-					"Indeterminate": { "aliasOf": "Set.ControlForeground.Fill.Color" }
+					"platform": {
+						"winui": {
+							"Rest": { "fullName": "CheckBoxForegroundUnchecked" },
+							"Hover": { "fullName": "CheckBoxForegroundUncheckedPointerOver" },
+							"Press": { "fullName": "CheckBoxForegroundUncheckedPressed" },
+							"Disabled": { "fullName": "CheckBoxForegroundUncheckedDisabled" }
+						}
+					},
+					"Selected": {
+						"aliasOf": "Set.ControlForeground.Fill.Color",
+						"platform": {
+							"winui": {
+								"Rest": { "fullName": "CheckBoxForegroundChecked" },
+								"Hover": { "fullName": "CheckBoxForegroundCheckedPointerOver" },
+								"Press": { "fullName": "CheckBoxForegroundCheckedPressed" },
+								"Disabled": { "fullName": "CheckBoxForegroundCheckedDisabled" }
+							}
+						}
+					},
+					"Indeterminate": {
+						"aliasOf": "Set.ControlForeground.Fill.Color",
+						"platform": {
+							"winui": {
+								"Rest": { "fullName": "CheckBoxForegroundIndeterminate" },
+								"Hover": { "fullName": "CheckBoxForegroundIndeterminatePointerOver" },
+								"Press": { "fullName": "CheckBoxForegroundIndeterminatePressed" },
+								"Disabled": { "fullName": "CheckBoxForegroundIndeterminateDisabled" }
+							}
+						}
+					}
 				}
 			}
 		},
@@ -1174,8 +1202,36 @@
 			"Fill": {
 				"Color": {
 					"aliasOf": "Set.ControlForeground.Fill.Color",
-					"Selected": { "aliasOf": "Set.OnAccentControlForeground.Fill.Color" },
-					"Indeterminate": { "aliasOf": "Set.OnAccentControlForeground.Fill.Color" }
+					"platform": {
+						"winui": {
+							"Rest": { "fullName": "CheckBoxCheckGlyphForegroundUnchecked" },
+							"Hover": { "fullName": "CheckBoxCheckGlyphForegroundUncheckedPointerOver" },
+							"Press": { "fullName": "CheckBoxCheckGlyphForegroundUncheckedPressed" },
+							"Disabled": { "fullName": "CheckBoxCheckGlyphForegroundUncheckedDisabled" }
+						}
+					},
+					"Selected": {
+						"aliasOf": "Set.OnAccentControlForeground.Fill.Color",
+						"platform": {
+							"winui": {
+								"Rest": { "fullName": "CheckBoxCheckGlyphForegroundChecked" },
+								"Hover": { "fullName": "CheckBoxCheckGlyphForegroundCheckedPointerOver" },
+								"Press": { "fullName": "CheckBoxCheckGlyphForegroundCheckedPressed" },
+								"Disabled": { "fullName": "CheckBoxCheckGlyphForegroundCheckedDisabled" }
+							}
+						}
+					},
+					"Indeterminate": {
+						"aliasOf": "Set.OnAccentControlForeground.Fill.Color",
+						"platform": {
+							"winui": {
+								"Rest": { "fullName": "CheckBoxCheckGlyphForegroundIndeterminate" },
+								"Hover": { "fullName": "CheckBoxCheckGlyphForegroundIndeterminatePointerOver" },
+								"Press": { "fullName": "CheckBoxCheckGlyphForegroundIndeterminatePressed" },
+								"Disabled": { "fullName": "CheckBoxCheckGlyphForegroundIndeterminateDisabled" }
+							}
+						}
+					}
 				}
 			}
 		},
@@ -1183,17 +1239,73 @@
 			"Fill": {
 				"Color": {
 					"aliasOf": "Set.OutlineActionControl.Fill.Color",
-					"Selected": { "aliasOf": "Set.AccentActionControl.Fill.Color" },
-					"Indeterminate": { "aliasOf": "Set.AccentActionControl.Fill.Color" }
+					"platform": {
+						"winui": {
+							"Rest": { "fullName": "CheckBoxCheckBackgroundFillUnchecked" },
+							"Hover": { "fullName": "CheckBoxCheckBackgroundFillUncheckedPointerOver" },
+							"Press": { "fullName": "CheckBoxCheckBackgroundFillUncheckedPressed" },
+							"Disabled": { "fullName": "CheckBoxCheckBackgroundFillUncheckedDisabled" }
+						}
+					},
+					"Selected": { "aliasOf": "Set.AccentActionControl.Fill.Color",
+						"platform": {
+							"winui": {
+								"Rest": { "fullName": "CheckBoxCheckBackgroundFillChecked" },
+								"Hover": { "fullName": "CheckBoxCheckBackgroundFillCheckedPointerOver" },
+								"Press": { "fullName": "CheckBoxCheckBackgroundFillCheckedPressed" },
+								"Disabled": { "fullName": "CheckBoxCheckBackgroundFillCheckedDisabled" }
+							}
+						} },
+					"Indeterminate": { "aliasOf": "Set.AccentActionControl.Fill.Color",
+						"platform": {
+							"winui": {
+								"Rest": { "fullName": "CheckBoxCheckBackgroundFillIndeterminate" },
+								"Hover": { "fullName": "CheckBoxCheckBackgroundFillIndeterminatePointerOver" },
+								"Press": { "fullName": "CheckBoxCheckBackgroundFillIndeterminatePressed" },
+								"Disabled": { "fullName": "CheckBoxCheckBackgroundFillIndeterminateDisabled" }
+							}
+						} }
 				}
 			},
 			"Stroke": {
 				"Color": {
 					"aliasOf": "Set.OutlineActionControl.Stroke.Color",
-					"Selected": { "aliasOf": "Set.AccentActionControl.Stroke.Color" },
-					"Indeterminate": { "aliasOf": "Set.AccentActionControl.Stroke.Color" }
+					"platform": {
+						"winui": {
+							"Rest": { "fullName": "CheckBoxCheckBackgroundStrokeUnchecked" },
+							"Hover": { "fullName": "CheckBoxCheckBackgroundStrokeUncheckedPointerOver" },
+							"Press": { "fullName": "CheckBoxCheckBackgroundStrokeUncheckedPressed" },
+							"Disabled": { "fullName": "CheckBoxCheckBackgroundStrokeUncheckedDisabled" }
+						}
+					},
+					"Selected": { "aliasOf": "Set.AccentActionControl.Stroke.Color",
+						"platform": {
+							"winui": {
+								"Rest": { "fullName": "CheckBoxCheckBackgroundStrokeChecked" },
+								"Hover": { "fullName": "CheckBoxCheckBackgroundStrokeCheckedPointerOver" },
+								"Press": { "fullName": "CheckBoxCheckBackgroundStrokeCheckedPressed" },
+								"Disabled": { "fullName": "CheckBoxCheckBackgroundStrokeCheckedDisabled" }
+							}
+						}
+					},
+					"Indeterminate": { "aliasOf": "Set.AccentActionControl.Stroke.Color",
+						"platform": {
+							"winui": {
+								"Rest": { "fullName": "CheckBoxCheckBackgroundStrokeIndeterminate" },
+								"Hover": { "fullName": "CheckBoxCheckBackgroundStrokeIndeterminatePointerOver" },
+								"Press": { "fullName": "CheckBoxCheckBackgroundStrokeIndeterminatePressed" },
+								"Disabled": { "fullName": "CheckBoxCheckBackgroundStrokeIndeterminateDisabled" }
+							}
+						}
+					}
 				},
-				"Width": { "aliasOf": "Set.OutlineActionControl.Stroke.Width" }
+				"Width": { "aliasOf": "Set.OutlineActionControl.Stroke.Width",
+					"platform": {
+						"winui": {
+							"fullName": "CheckBoxBorderThemeThickness"
+						}
+					} 
+				}
 			},
 			"Corner": { "aliasOf": "Set.Control.Corner" }
 		}

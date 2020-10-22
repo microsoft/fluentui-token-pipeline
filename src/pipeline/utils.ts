@@ -1,4 +1,4 @@
-import { Token, TokenSet } from "./types"
+import { Token, TokenSet, ValueToken } from "./types"
 
 const charactersToEscape = /([<>&])/g
 const escapedCharacters =
@@ -24,22 +24,25 @@ export const escapeXml = (text: any): string =>
 	return (typeof text === "string" ? text : text.toString()).replace(charactersToEscape, char => escapedCharacters[char])
 }
 
-/// Strip off "Set" if present, and prepend the prefix if specified.
-/// Only makes a copy of the array if necessary; otherwise, it just returns the original array.
-export const getModifiedPathForNaming = (path: string[], prefix: string | undefined): string[] =>
+/// Given a prop, returns the components of its name as an array of strings.
+/// If the prop hasn't been processed by Style Dictionary yet, you need to manually specify its path as a string.
+export const getTokenExportPath = (prop: Token, propPath?: string): string[] =>
 {
-	const isSet = path[0] === "Set"
-	if (isSet || prefix)
-	{
-		if (prefix)
-			return [prefix, ...(isSet ? path.slice(1) : path)]
-		else
-			return path.slice(1)
-	}
-	else
-	{
-		return path
-	}
+	if (typeof prop !== "object")
+		throw new Error(`Unknown input for getTokenExportPath: ${JSON.stringify(prop)}`)
+
+	// Now we have the right token and its path. Check to see if it has a name override.
+	// If it does, ignore the normal path and use that.
+	const nameOverride: string | undefined = (prop as any).fullName
+	let path: string[] = nameOverride ? [nameOverride] : (prop as any).path
+	if (!path && propPath) path = propPath.split(".")
+	if (!path)
+		throw new Error(`Path wasn't present in token OR specified for getTokenExportPath: ${JSON.stringify(prop)}`)
+
+	// Strip off "Set" if present.
+	if (path.length > 1 && path[0] === "Set") path = path.slice(1)
+
+	return path
 }
 
 /// Groups a FLAT array of properties (dictionary.allProperties) into Global, Set, and Control
@@ -87,14 +90,14 @@ export const sortPropertiesForReadability = (dictionary: any[]): any[] =>
 		if (a.name < b.name) return -1
 		else if (a.name > b.name) return 1
 
-		console.error(`Somehow found two identically-named tokens! "${a.name}"`)
+		reportError(`Somehow found two identically-named tokens! "${a.name}"`)
 		return 0
 	})
 	return dictionary
 }
 
 /// For each property in the Style Dictionary properties object or a subtree, call a specific callback function.
-export const forEachRecursive = (subtree: TokenSet, callbackfn: (prop: TokenSet | Token, key: string, subtree: TokenSet) => void, options?: { requiredChild?: string }): void =>
+export const forEachRecursive = (subtree: TokenSet, callbackfn: (prop: TokenSet | Token, key: string) => void, options?: { requiredChild?: string }): void =>
 {
 	if (!subtree || !callbackfn)
 		throw new Error("Usage: forEachRecursive(subtree, callbackfn, options?)")
@@ -109,12 +112,40 @@ export const forEachRecursive = (subtree: TokenSet, callbackfn: (prop: TokenSet 
 		if (!requiredChild || requiredChild in prop)
 		{
 			// Either we aren't looking for a specific type of child, or this is indeed a child prop of the type we're looking for.
-			callbackfn(prop, key, subtree)
+			callbackfn(prop, key)
 		}
-		else if (!("value" in prop || "aliasOf" in prop || "computed" in prop))
-		{
-			// This is another subtree, and it isn't one of the known types, so continue recursion into it.
-			forEachRecursive(prop, callbackfn, options)
-		}
+
+		// This is another subtree, so continue recursion into it. (We just know it's an object that doesn't contain the property
+		// we're looking for, so It could just be a simple value token, or it would be a value or alias AND other child nodes.)
+		forEachRecursive(prop as TokenSet, callbackfn, options)
 	}
+}
+
+export const reportError = (description: string): void => console.error(`ERROR: ${description}`)
+
+export const setErrorValue = (token: TokenSet | Token, error: string, description: string): void =>
+{
+	reportError(description);
+	(token as unknown as ValueToken).value = `<ERROR: ${error}>`
+}
+
+/// Given a path string ("Global.Color.Blue") (or equivalent array) and a properties dictionary,
+/// returns the property at that path. Returns null if the target can't be found.
+export const findPropByPath = (path: string | string[], properties: TokenSet): Token | TokenSet | null =>
+{
+	const targetPathParts = typeof path === "string" ? path.trim().split(".") : path
+	if (targetPathParts.length === 0) return null
+
+	let target = properties
+	for (let i = 0; i < targetPathParts.length; i++)
+	{
+		const thisPart = targetPathParts[i]
+		if (!(thisPart in target))
+		{
+			console.log(`Didn't find node "${thisPart}".`)
+			return null
+		}
+		target = target[targetPathParts[i]] as TokenSet
+	}
+	return target
 }

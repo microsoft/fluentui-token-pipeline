@@ -1,22 +1,21 @@
 import StyleDictionary from "style-dictionary"
-
 import * as Utils from "./utils"
 
-const getNameForReference = (path, prefix) => Utils.getModifiedPathForNaming(path, prefix).join("-")
+const nameForReference = path => path.join("-")
 
 StyleDictionary.registerTransform({
 	name: "fluentui/name/reference",
 	type: "name",
-	transformer: (prop, options) => getNameForReference(prop.path, prop.prefix),
+	transformer: prop => nameForReference(Utils.getTokenExportPath(prop)),
 })
 
 StyleDictionary.registerTransform({
 	name: "fluentui/alias/reference",
 	type: "attribute",
-	matcher: (prop) => "resolvedAliasPath" in prop,
-	transformer: (prop, options) =>
+	matcher: prop => "resolvedAliasPath" in prop,
+	transformer: prop =>
 	{
-		return { aliasResourceName: getNameForReference(prop.resolvedAliasPath.split("."), options.prefix) }
+		return { aliasResourceName: nameForReference(prop.resolvedAliasPath) }
 	},
 })
 

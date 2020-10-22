@@ -1,8 +1,8 @@
 import _ from "lodash"
 import jsonfile from "jsonfile"
 
-import FluentUIAliases from "./fluentui-aliases"
-import FluentUIColorRamps from "./fluentui-color-ramp"
+import { resolveAliases } from "./fluentui-aliases"
+import { buildColorRamps } from "./fluentui-color-ramp"
 import { resolveComputedTokens } from "./fluentui-computed"
 import { resolvePlatformOverrides } from "./fluentui-platform-overrides"
 import "./fluentui-shared"
@@ -32,10 +32,9 @@ const outputPath = "build"
 
 let tokens = {}
 inputTokenFiles.forEach((inputFile) => _.merge(tokens, jsonfile.readFileSync(inputFile)))
-tokens = FluentUIColorRamps.buildColorRamps(tokens)
-tokens = FluentUIAliases.resolveAliases(tokens)
+tokens = buildColorRamps(tokens)
+tokens = resolveAliases(tokens)
 tokens = resolveComputedTokens(tokens)
-tokens = resolvePlatformOverrides(tokens)
 
 module.exports = {
 	properties: tokens,
