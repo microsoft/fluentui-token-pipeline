@@ -4,113 +4,112 @@
 	},
 	"Global": {
 		"Color": {
-			"Blue": {
-				"0": { "value": "hsl(206, 100, 0)" },
-				"2": { "value": "hsl(206, 100, 2)" },
-				"4": { "value": "hsl(206, 100, 4)" },
-				"6": { "value": "hsl(206, 100, 6)" },
-				"8": { "value": "hsl(206, 100, 8)" },
-				"10": { "value": "hsl(206, 100, 10)" },
-				"12": { "value": "hsl(206, 100, 12)" },
-				"14": { "value": "hsl(206, 100, 14)" },
-				"16": { "value": "hsl(206, 100, 16)" },
-				"18": { "value": "hsl(206, 100, 18)" },
-				"20": { "value": "hsl(206, 100, 20)" },
-				"22": { "value": "hsl(206, 100, 22)" },
-				"24": { "value": "hsl(206, 100, 24)" },
-				"26": { "value": "hsl(206, 100, 26)" },
-				"28": { "value": "hsl(206, 100, 28)" },
-				"30": { "value": "hsl(206, 100, 30)" },
-				"32": { "value": "hsl(206, 100, 32)" },
-				"34": { "value": "hsl(206, 100, 34)" },
-				"36": { "value": "hsl(206, 100, 36)" },
-				"38": { "value": "hsl(206, 100, 38)" },
-				"40": { "value": "hsl(206, 100, 40)" },
-				"42": { "value": "hsl(206, 100, 42)" },
-				"44": { "value": "hsl(206, 100, 44)" },
-				"46": { "value": "hsl(206, 100, 46)" },
-				"48": { "value": "hsl(206, 100, 48)" },
-				"50": { "value": "hsl(206, 100, 50)" },
-				"52": { "value": "hsl(206, 100, 52)" },
-				"54": { "value": "hsl(206, 100, 54)" },
-				"56": { "value": "hsl(206, 100, 56)" },
-				"58": { "value": "hsl(206, 100, 58)" },
-				"60": { "value": "hsl(206, 100, 60)" },
-				"62": { "value": "hsl(206, 100, 62)" },
-				"64": { "value": "hsl(206, 100, 64)" },
-				"66": { "value": "hsl(206, 100, 66)" },
-				"68": { "value": "hsl(206, 100, 68)" },
-				"70": { "value": "hsl(206, 100, 70)" },
-				"72": { "value": "hsl(206, 100, 72)" },
-				"74": { "value": "hsl(206, 100, 74)" },
-				"76": { "value": "hsl(206, 100, 76)" },
-				"78": { "value": "hsl(206, 100, 78)" },
-				"80": { "value": "hsl(206, 100, 80)" },
-				"82": { "value": "hsl(206, 100, 82)" },
-				"84": { "value": "hsl(206, 100, 84)" },
-				"86": { "value": "hsl(206, 100, 86)" },
-				"88": { "value": "hsl(206, 100, 88)" },
-				"90": { "value": "hsl(206, 100, 90)" },
-				"92": { "value": "hsl(206, 100, 92)" },
-				"94": { "value": "hsl(206, 100, 94)" },
-				"96": { "value": "hsl(206, 100, 96)" },
-				"98": { "value": "hsl(206, 100, 98)" },
-				"100": { "value": "hsl(206, 100, 100)" }
+			"Brand": {
+				"0": { "value": "hsl(206, 100%, 0%)" },
+				"2": { "value": "hsl(206, 100%, 2%)" },
+				"4": { "value": "hsl(206, 100%, 4%)" },
+				"6": { "value": "hsl(206, 100%, 6%)" },
+				"8": { "value": "hsl(206, 100%, 8%)" },
+				"10": { "value": "hsl(206, 100%, 10%)" },
+				"12": { "value": "hsl(206, 100%, 12%)" },
+				"14": { "value": "hsl(206, 100%, 14%)" },
+				"16": { "value": "hsl(206, 100%, 16%)" },
+				"18": { "value": "hsl(206, 100%, 18%)" },
+				"20": { "value": "hsl(206, 100%, 20%)" },
+				"22": { "value": "hsl(206, 100%, 22%)" },
+				"24": { "value": "hsl(206, 100%, 24%)" },
+				"26": { "value": "hsl(206, 100%, 26%)" },
+				"28": { "value": "hsl(206, 100%, 28%)" },
+				"30": { "value": "hsl(206, 100%, 30%)" },
+				"32": { "value": "hsl(206, 100%, 32%)" },
+				"34": { "value": "hsl(206, 100%, 34%)" },
+				"36": { "value": "hsl(206, 100%, 36%)" },
+				"38": { "value": "hsl(206, 100%, 38%)" },
+				"40": { "value": "hsl(206, 100%, 40%)" },
+				"42": { "value": "hsl(206, 100%, 42%)" },
+				"44": { "value": "hsl(206, 100%, 44%)" },
+				"46": { "value": "hsl(206, 100%, 46%)" },
+				"48": { "value": "hsl(206, 100%, 48%)" },
+				"50": { "value": "hsl(206, 100%, 50%)" },
+				"52": { "value": "hsl(206, 100%, 52%)" },
+				"54": { "value": "hsl(206, 100%, 54%)" },
+				"56": { "value": "hsl(206, 100%, 56%)" },
+				"58": { "value": "hsl(206, 100%, 58%)" },
+				"60": { "value": "hsl(206, 100%, 60%)" },
+				"62": { "value": "hsl(206, 100%, 62%)" },
+				"64": { "value": "hsl(206, 100%, 64%)" },
+				"66": { "value": "hsl(206, 100%, 66%)" },
+				"68": { "value": "hsl(206, 100%, 68%)" },
+				"70": { "value": "hsl(206, 100%, 70%)" },
+				"72": { "value": "hsl(206, 100%, 72%)" },
+				"74": { "value": "hsl(206, 100%, 74%)" },
+				"76": { "value": "hsl(206, 100%, 76%)" },
+				"78": { "value": "hsl(206, 100%, 78%)" },
+				"80": { "value": "hsl(206, 100%, 80%)" },
+				"82": { "value": "hsl(206, 100%, 82%)" },
+				"84": { "value": "hsl(206, 100%, 84%)" },
+				"86": { "value": "hsl(206, 100%, 86%)" },
+				"88": { "value": "hsl(206, 100%, 88%)" },
+				"90": { "value": "hsl(206, 100%, 90%)" },
+				"92": { "value": "hsl(206, 100%, 92%)" },
+				"94": { "value": "hsl(206, 100%, 94%)" },
+				"96": { "value": "hsl(206, 100%, 96%)" },
+				"98": { "value": "hsl(206, 100%, 98%)" },
+				"100": { "value": "hsl(206, 100%, 100%)" }
 			},
-			"Neutral": {
-				"0": { "value": "hsl(0, 0, 0)" },
-				"2": { "value": "hsl(0, 0, 2)" },
-				"4": { "value": "hsl(0, 0, 4)" },
-				"6": { "value": "hsl(0, 0, 6)" },
-				"8": { "value": "hsl(0, 0, 8)" },
-				"10": { "value": "hsl(0, 0, 10)" },
-				"12": { "value": "hsl(0, 0, 12)" },
-				"14": { "value": "hsl(0, 0, 14)" },
-				"16": { "value": "hsl(0, 0, 16)" },
-				"18": { "value": "hsl(0, 0, 18)" },
-				"20": { "value": "hsl(0, 0, 20)" },
-				"22": { "value": "hsl(0, 0, 22)" },
-				"24": { "value": "hsl(0, 0, 24)" },
-				"26": { "value": "hsl(0, 0, 26)" },
-				"28": { "value": "hsl(0, 0, 28)" },
-				"30": { "value": "hsl(0, 0, 30)" },
-				"32": { "value": "hsl(0, 0, 32)" },
-				"34": { "value": "hsl(0, 0, 34)" },
-				"36": { "value": "hsl(0, 0, 36)" },
-				"38": { "value": "hsl(0, 0, 38)" },
-				"40": { "value": "hsl(0, 0, 40)" },
-				"42": { "value": "hsl(0, 0, 42)" },
-				"44": { "value": "hsl(0, 0, 44)" },
-				"46": { "value": "hsl(0, 0, 46)" },
-				"48": { "value": "hsl(0, 0, 48)" },
-				"50": { "value": "hsl(0, 0, 50)" },
-				"52": { "value": "hsl(0, 0, 52)" },
-				"54": { "value": "hsl(0, 0, 54)" },
-				"56": { "value": "hsl(0, 0, 56)" },
-				"58": { "value": "hsl(0, 0, 58)" },
-				"60": { "value": "hsl(0, 0, 60)" },
-				"62": { "value": "hsl(0, 0, 62)" },
-				"64": { "value": "hsl(0, 0, 64)" },
-				"66": { "value": "hsl(0, 0, 66)" },
-				"68": { "value": "hsl(0, 0, 68)" },
-				"70": { "value": "hsl(0, 0, 70)" },
-				"72": { "value": "hsl(0, 0, 72)" },
-				"74": { "value": "hsl(0, 0, 74)" },
-				"76": { "value": "hsl(0, 0, 76)" },
-				"78": { "value": "hsl(0, 0, 78)" },
-				"80": { "value": "hsl(0, 0, 80)" },
-				"82": { "value": "hsl(0, 0, 82)" },
-				"84": { "value": "hsl(0, 0, 84)" },
-				"86": { "value": "hsl(0, 0, 86)" },
-				"88": { "value": "hsl(0, 0, 88)" },
-				"90": { "value": "hsl(0, 0, 90)" },
-				"92": { "value": "hsl(0, 0, 92)" },
-				"94": { "value": "hsl(0, 0, 94)" },
-				"96": { "value": "hsl(0, 0, 96)" },
-				"98": { "value": "hsl(0, 0, 98)" },
-				"100": { "value": "hsl(0, 0, 100)" }
+			"Grey": {
+				"0": { "value": "hsl(0, 0%, 0%)" },
+				"2": { "value": "hsl(0, 0%, 2%)" },
+				"4": { "value": "hsl(0, 0%, 4%)" },
+				"6": { "value": "hsl(0, 0%, 6%)" },
+				"8": { "value": "hsl(0, 0%, 8%)" },
+				"10": { "value": "hsl(0, 0%, 10%)" },
+				"12": { "value": "hsl(0, 0%, 12%)" },
+				"14": { "value": "hsl(0, 0%, 14%)" },
+				"16": { "value": "hsl(0, 0%, 16%)" },
+				"18": { "value": "hsl(0, 0%, 18%)" },
+				"20": { "value": "hsl(0, 0%, 20%)" },
+				"22": { "value": "hsl(0, 0%, 22%)" },
+				"24": { "value": "hsl(0, 0%, 24%)" },
+				"26": { "value": "hsl(0, 0%, 26%)" },
+				"28": { "value": "hsl(0, 0%, 28%)" },
+				"30": { "value": "hsl(0, 0%, 30%)" },
+				"32": { "value": "hsl(0, 0%, 32%)" },
+				"34": { "value": "hsl(0, 0%, 34%)" },
+				"36": { "value": "hsl(0, 0%, 36%)" },
+				"38": { "value": "hsl(0, 0%, 38%)" },
+				"40": { "value": "hsl(0, 0%, 40%)" },
+				"42": { "value": "hsl(0, 0%, 42%)" },
+				"44": { "value": "hsl(0, 0%, 44%)" },
+				"46": { "value": "hsl(0, 0%, 46%)" },
+				"48": { "value": "hsl(0, 0%, 48%)" },
+				"50": { "value": "hsl(0, 0%, 50%)" },
+				"52": { "value": "hsl(0, 0%, 52%)" },
+				"54": { "value": "hsl(0, 0%, 54%)" },
+				"56": { "value": "hsl(0, 0%, 56%)" },
+				"58": { "value": "hsl(0, 0%, 58%)" },
+				"60": { "value": "hsl(0, 0%, 60%)" },
+				"62": { "value": "hsl(0, 0%, 62%)" },
+				"64": { "value": "hsl(0, 0%, 64%)" },
+				"66": { "value": "hsl(0, 0%, 66%)" },
+				"68": { "value": "hsl(0, 0%, 68%)" },
+				"70": { "value": "hsl(0, 0%, 70%)" },
+				"72": { "value": "hsl(0, 0%, 72%)" },
+				"74": { "value": "hsl(0, 0%, 74%)" },
+				"76": { "value": "hsl(0, 0%, 76%)" },
+				"78": { "value": "hsl(0, 0%, 78%)" },
+				"80": { "value": "hsl(0, 0%, 80%)" },
+				"82": { "value": "hsl(0, 0%, 82%)" },
+				"84": { "value": "hsl(0, 0%, 84%)" },
+				"86": { "value": "hsl(0, 0%, 86%)" },
+				"88": { "value": "hsl(0, 0%, 88%)" },
+				"90": { "value": "hsl(0, 0%, 90%)" },
+				"92": { "value": "hsl(0, 0%, 92%)" },
+				"94": { "value": "hsl(0, 0%, 94%)" },
+				"96": { "value": "hsl(0, 0%, 96%)" },
+				"98": { "value": "hsl(0, 0%, 98%)" },
+				"100": { "value": "hsl(0, 0%, 100%)" }
 			},
-			"Accent": { "aliasOf": "Global.Color.Blue" },
 			"White": { "value": "#ffffff" },
 			"Black": { "value": "#000000" }
 		},
@@ -277,1047 +276,92 @@
 			}
 		},
 
-		"DialogSurface": {
-			"Fill": {
-				"Color": { "aliasOf": "Set.Surface1.Fill.Color" }
-			},
-			"Stroke": {
-				"Color": { "value": "transparent" },
-				"Width": { "aliasOf": "Global.Stroke.Width.100" }
-			}
-		},
-		"FlyoutSurface": {
-			"Fill": {
-				"Color": { "aliasOf": "Set.Surface1.Fill.Color" }
-			},
-			"Stroke": {
-				"Color": { "value": "transparent" },
-				"Width": { "aliasOf": "Global.Stroke.Width.100" }
-			}
-		},
-		"CardSurface": {
-			"Fill": {
-				"Color": { "aliasOf": "Set.Surface1.Fill.Color" }
-			},
-			"Stroke": {
-				"Color": { "value": "transparent" },
-				"Width": { "aliasOf": "Global.Stroke.Width.100" }
-			}
-		},
-		"CardSurfaceAlt": {
-			"Fill": {
-				"Color": { "aliasOf": "Set.Surface1Alt.Fill.Color" }
-			},
-			"Stroke": {
-				"Color": { "value": "transparent" },
-				"Width": { "aliasOf": "Global.Stroke.Width.100" }
-			}
-		},
-		"Surface1": {
+		"NeutralForeground1": {
 			"Fill": {
 				"Color": {
-					"Rest": { "aliasOf": "Global.Color.SurfaceBase" },
-					"Hover": { "aliasOf": "Global.Color.SurfaceBase" },
-					"Press": { "aliasOf": "Global.Color.SurfaceBase" },
-					"Disabled": { "aliasOf": "Global.Color.SurfaceBase" },
-					"IntendedFor": "Surface"
+					"Rest": { "aliasOf": "Global.Color.Grey.14" },
+					"Hover": { "aliasOf": "Global.Color.Grey.14" },
+					"Pressed": { "aliasOf": "Global.Color.Grey.14" },
+					"Disabled": { "aliasOf": "Global.Color.Grey.14" }
 				}
-			},
-			"Stroke": {
-				"Color": { "value": "transparent" },
-				"Width": { "aliasOf": "Global.Stroke.Width.100" }
 			}
 		},
-		"Surface1Alt": {
+		"NeutralForeground1Selected": { "aliasOf": "Set.NeutralForeground1" },
+		"NeutralBackground1": {
 			"Fill": {
 				"Color": {
-					"Rest": { "aliasOf": "Global.Color.Neutral.3" },
-					"Hover": { "aliasOf": "Global.Color.Neutral.3" },
-					"Press": { "aliasOf": "Global.Color.Neutral.3" },
-					"Disabled": { "aliasOf": "Global.Color.Neutral.3" },
-					"IntendedFor": "Surface"
+					"Rest": { "aliasOf": "Global.Color.Grey.100" },
+					"Hover": { "aliasOf": "Global.Color.Grey.96" },
+					"Pressed": { "aliasOf": "Global.Color.Grey.88" },
+					"Disabled": { "aliasOf": "Global.Color.Grey.94" }
 				}
-			},
-			"Stroke": {
-				"Color": { "value": "transparent" },
-				"Width": { "aliasOf": "Global.Stroke.Width.100" }
 			}
 		},
-		"Surface2": {
-			"Fill": {
+		"NeutralBackground1Selected": { "aliasOf": "Set.NeutralBackground1" },
+		"NeutralStroke1": {
+			"Stroke": {
 				"Color": {
-					"Rest": { "aliasOf": "Global.Color.Neutral.6" },
-					"Hover": { "aliasOf": "Global.Color.Neutral.6" },
-					"Press": { "aliasOf": "Global.Color.Neutral.6" },
-					"Disabled": { "aliasOf": "Global.Color.Neutral.6" },
-					"IntendedFor": "Surface"
-				}
-			},
-			"Stroke": {
-				"Color": { "value": "transparent" },
+					"Rest": { "aliasOf": "Global.Color.Grey.82" },
+					"Hover": { "aliasOf": "Global.Color.Grey.78" },
+					"Pressed": { "aliasOf": "Global.Color.Grey.70" },
+					"Disabled": { "aliasOf": "Global.Color.Grey.88" }
+				},
 				"Width": { "aliasOf": "Global.Stroke.Width.100" }
 			}
 		},
-		"Surface3": {
-			"Fill": {
-				"Color": {
-					"Rest": { "aliasOf": "Global.Color.Neutral.9" },
-					"Hover": { "aliasOf": "Global.Color.Neutral.9" },
-					"Press": { "aliasOf": "Global.Color.Neutral.9" },
-					"Disabled": { "aliasOf": "Global.Color.Neutral.9" },
-					"IntendedFor": "Surface"
-				}
-			},
-			"Stroke": {
-				"Color": { "value": "transparent" },
-				"Width": { "aliasOf": "Global.Stroke.Width.100" }
-			}
-		},
-		"Surface4": {
-			"Fill": {
-				"Color": {
-					"Rest": { "aliasOf": "Global.Color.Neutral.12" },
-					"Hover": { "aliasOf": "Global.Color.Neutral.12" },
-					"Press": { "aliasOf": "Global.Color.Neutral.12" },
-					"Disabled": { "aliasOf": "Global.Color.Neutral.12" },
-					"IntendedFor": "Surface"
-				}
-			},
-			"Stroke": {
-				"Color": { "value": "transparent" },
-				"Width": { "aliasOf": "Global.Stroke.Width.100" }
-			}
-		},
+		"NeutralStroke1Selected": { "aliasOf": "Set.NeutralStroke1" },
 
-		"ControlHeaderDivider": {
+		"NeutralForeground2": {
+			"Fill": {
+				"Color": {
+					"Rest": { "aliasOf": "Global.Color.Grey.26" },
+					"Hover": { "aliasOf": "Global.Color.Grey.14" },
+					"Pressed": { "aliasOf": "Global.Color.Grey.14" },
+					"Disabled": { "aliasOf": "Global.Color.Grey.14" }
+				}
+			}
+		},
+		"NeutralForeground2Selected": { "aliasOf": "Set.NeutralForeground2" },
+		"NeutralBackground2": {
+			"Fill": {
+				"Color": {
+					"Rest": { "aliasOf": "Global.Color.Grey.98" },
+					"Hover": { "aliasOf": "Global.Color.Grey.94" },
+					"Pressed": { "aliasOf": "Global.Color.Grey.86" },
+					"Disabled": { "aliasOf": "Global.Color.Grey.94" }
+				}
+			}
+		},
+		"NeutralBackground2Selected": { "aliasOf": "Set.NeutralBackground2" },
+		"NeutralStroke2": {
 			"Stroke": {
 				"Color": {
-					"aliasOf": "Global.Color.Neutral.13",
-					"IntendedFor": "Surface"
+					"Rest": { "aliasOf": "Global.Color.Grey.88" },
+					"Hover": { "aliasOf": "Global.Color.Grey.88" },
+					"Pressed": { "aliasOf": "Global.Color.Grey.88" },
+					"Disabled": { "aliasOf": "Global.Color.Grey.88" }
 				},
 				"Width": { "aliasOf": "Global.Stroke.Width.100" }
 			}
 		},
-		"ControlListDivider": {
-			"Stroke": {
-				"Color": {
-					"aliasOf": "Global.Color.Neutral.13",
-					"IntendedFor": "Surface"
-				},
-				"Width": { "aliasOf": "Global.Stroke.Width.100" }
-			}
-		},
-		"ControlSurfaceDivider": {
-			"Stroke": {
-				"Color": {
-					"aliasOf": "Global.Color.Neutral.13",
-					"IntendedFor": "Surface"
-				},
-				"Width": { "aliasOf": "Global.Stroke.Width.100" }
-			}
-		},
+		"NeutralStroke2Selected": { "aliasOf": "Set.NeutralStroke2" }
 
-		"ActionControl": {
-			"Fill": {
-				"Color": {
-					"Rest": { "aliasOf": "Global.Color.Neutral.5" },
-					"Hover": { "aliasOf": "Global.Color.Neutral.6" },
-					"Press": { "aliasOf": "Global.Color.Neutral.4" },
-					"Disabled": { "aliasOf": "Global.Color.Neutral.3" },
-					"IntendedFor": "Control"
-				}
-			},
-			"Stroke": {
-				"Color": {
-					"Rest": { "value": "transparent" },
-					"Hover": { "value": "transparent" },
-					"Press": { "value": "transparent" },
-					"Disabled": { "value": "transparent" },
-					"IntendedFor": "Control"
-				},
-				"Width": { "aliasOf": "Global.Stroke.Width.100" }
-			}
-		},
-		"ActionControlSelected": {
-			"Fill": {
-				"Color": {
-					"Rest": { "aliasOf": "Global.Color.Neutral.9" },
-					"Hover": { "aliasOf": "Global.Color.Neutral.10" },
-					"Press": { "aliasOf": "Global.Color.Neutral.8" },
-					"Disabled": { "aliasOf": "Global.Color.Neutral.7" },
-					"IntendedFor": "Control"
-				}
-			},
-			"Stroke": {
-				"Color": {
-					"Rest": { "value": "transparent" },
-					"Hover": { "value": "transparent" },
-					"Press": { "value": "transparent" },
-					"Disabled": { "value": "transparent" },
-					"IntendedFor": "Control"
-				},
-				"Width": { "aliasOf": "Global.Stroke.Width.100" }
-			}
-		},
-		"AccentActionControl": {
-			"Fill": {
-				"Color": {
-					"Rest": { "aliasOf": "Global.Color.Accent.60" },
-					"Hover": { "aliasOf": "Global.Color.Accent.62" },
-					"Press": { "aliasOf": "Global.Color.Accent.58" },
-					"Disabled": { "aliasOf": "Global.Color.Neutral.3" },
-					"IntendedFor": "Control"
-				}
-			},
-			"Stroke": {
-				"Color": {
-					"Rest": { "value": "transparent" },
-					"Hover": { "value": "transparent" },
-					"Press": { "value": "transparent" },
-					"Disabled": { "value": "transparent" },
-					"IntendedFor": "Control"
-				},
-				"Width": { "aliasOf": "Global.Stroke.Width.100" }
-			}
-		},
-		"AccentActionControlSelected": {
-			"Fill": {
-				"Color": {
-					"Rest": { "aliasOf": "Global.Color.Accent.64" },
-					"Hover": { "aliasOf": "Global.Color.Accent.66" },
-					"Press": { "aliasOf": "Global.Color.Accent.62" },
-					"Disabled": { "aliasOf": "Global.Color.Neutral.7" },
-					"IntendedFor": "Control"
-				}
-			},
-			"Stroke": {
-				"Color": {
-					"Rest": { "value": "transparent" },
-					"Hover": { "value": "transparent" },
-					"Press": { "value": "transparent" },
-					"Disabled": { "value": "transparent" },
-					"IntendedFor": "Control"
-				},
-				"Width": { "aliasOf": "Global.Stroke.Width.100" }
-			}
-		},
-		"OutlineActionControl": {
-			"Fill": {
-				"Color": {
-					"Rest": { "value": "transparent" },
-					"Hover": { "value": "transparent" },
-					"Press": { "value": "transparent" },
-					"Disabled": { "value": "transparent" },
-					"IntendedFor": "Control"
-				}
-			},
-			"Stroke": {
-				"Color": {
-					"Rest": { "aliasOf": "Global.Color.Neutral.13" },
-					"Hover": { "aliasOf": "Global.Color.Neutral.21" },
-					"Press": { "aliasOf": "Global.Color.Neutral.29" },
-					"Disabled": { "aliasOf": "Global.Color.Neutral.9" },
-					"IntendedFor": "Control"
-				},
-				"Width": { "aliasOf": "Global.Stroke.Width.100" }
-			}
-		},
-		"OutlineActionControlSelected": {
-			"Fill": {
-				"Color": {
-					"Rest": { "aliasOf": "Global.Color.Neutral.5" },
-					"Hover": { "aliasOf": "Global.Color.Neutral.5" },
-					"Press": { "aliasOf": "Global.Color.Neutral.5" },
-					"Disabled": { "aliasOf": "Global.Color.Neutral.5" },
-					"IntendedFor": "Control"
-				}
-			},
-			"Stroke": {
-				"Color": {
-					"Rest": { "aliasOf": "Global.Color.Neutral.13" },
-					"Hover": { "aliasOf": "Global.Color.Neutral.21" },
-					"Press": { "aliasOf": "Global.Color.Neutral.29" },
-					"Disabled": { "aliasOf": "Global.Color.Neutral.9" },
-					"IntendedFor": "Control"
-				},
-				"Width": { "aliasOf": "Global.Stroke.Width.100" }
-			}
-		},
-		"TransparentActionControl": {
-			"Fill": {
-				"Color": {
-					"Rest": { "value": "transparent" },
-					"Hover": { "aliasOf": "Global.Color.Neutral.4" },
-					"Press": { "aliasOf": "Global.Color.Neutral.5" },
-					"Disabled": { "value": "transparent" },
-					"IntendedFor": "Control"
-				}
-			},
-			"Stroke": {
-				"Color": {
-					"Rest": { "value": "transparent" },
-					"Hover": { "value": "transparent" },
-					"Press": { "value": "transparent" },
-					"Disabled": { "value": "transparent" },
-					"IntendedFor": "Control"
-				},
-				"Width": { "aliasOf": "Global.Stroke.Width.100" }
-			}
-		},
-		"TransparentActionControlSelected": {
-			"Fill": {
-				"Color": {
-					"Rest": { "aliasOf": "Global.Color.Neutral.5" },
-					"Hover": { "aliasOf": "Global.Color.Neutral.8" },
-					"Press": { "aliasOf": "Global.Color.Neutral.9" },
-					"Disabled": { "aliasOf": "Global.Color.Neutral.5" },
-					"IntendedFor": "Control"
-				}
-			},
-			"Stroke": {
-				"Color": {
-					"Rest": { "value": "transparent" },
-					"Hover": { "value": "transparent" },
-					"Press": { "value": "transparent" },
-					"Disabled": { "value": "transparent" },
-					"IntendedFor": "Control"
-				},
-				"Width": { "aliasOf": "Global.Stroke.Width.100" }
-			}
-		},
-		"TintActionControl": {
-			"Fill": {
-				"Color": {
-					"Rest": { "value": "transparent" },
-					"Hover": { "computed": { "color": "Global.Color.AccentBase", "opacity": 0.05 } },
-					"Press": { "computed": { "color": "Global.Color.AccentBase", "opacity": 0.10 } },
-					"Disabled": { "value": "transparent" },
-					"IntendedFor": "Control"
-				}
-			},
-			"Stroke": {
-				"Color": {
-					"Rest": { "value": "transparent" },
-					"Hover": { "value": "transparent" },
-					"Press": { "value": "transparent" },
-					"Disabled": { "value": "transparent" },
-					"IntendedFor": "Control"
-				},
-				"Width": { "aliasOf": "Global.Stroke.Width.100" }
-			}
-		},
-		"TintActionControlSelected": {
-			"Fill": {
-				"Color": {
-					"Rest": { "computed": { "color": "Global.Color.AccentBase", "opacity": 0.20 } },
-					"Hover": { "computed": { "color": "Global.Color.AccentBase", "opacity": 0.30 } },
-					"Press": { "computed": { "color": "Global.Color.AccentBase", "opacity": 0.40 } },
-					"Disabled": { "computed": { "color": "Global.Color.AccentBase", "opacity": 0.05 } },
-					"IntendedFor": "Control"
-				}
-			},
-			"Stroke": {
-				"Color": {
-					"Rest": { "value": "transparent" },
-					"Hover": { "value": "transparent" },
-					"Press": { "value": "transparent" },
-					"Disabled": { "value": "transparent" },
-					"IntendedFor": "Control"
-				},
-				"Width": { "aliasOf": "Global.Stroke.Width.100" }
-			}
-		},
-
-		"InputControl": {
-			"Fill": {
-				"Color": {
-					"Rest": { "aliasOf": "Global.Color.Neutral.5" },
-					"Hover": { "aliasOf": "Global.Color.Neutral.6" },
-					"Press": { "aliasOf": "Global.Color.Neutral.6" },
-					"Disabled": { "aliasOf": "Global.Color.Neutral.3" },
-					"IntendedFor": "Control"
-				}
-			},
-			"Stroke": {
-				"Color": {
-					"Rest": { "value": "transparent" },
-					"Hover": { "value": "transparent" },
-					"Press": { "value": "transparent" },
-					"Disabled": { "value": "transparent" },
-					"IntendedFor": "Control"
-				},
-				"Width": { "aliasOf": "Global.Stroke.Width.100" }
-			}
-		},
-		"InputControlFocused": {
-			"Fill": {
-				"Color": {
-					"Rest": { "aliasOf": "Global.Color.Neutral.6" },
-					"Hover": { "aliasOf": "Global.Color.Neutral.5" },
-					"Press": { "aliasOf": "Global.Color.Neutral.5" },
-					"Disabled": { "aliasOf": "Global.Color.Neutral.3" },
-					"IntendedFor": "Control"
-				}
-			},
-			"Stroke": {
-				"Color": {
-					"Rest": { "value": "transparent" },
-					"Hover": { "value": "transparent" },
-					"Press": { "value": "transparent" },
-					"Disabled": { "value": "transparent" },
-					"IntendedFor": "Control"
-				},
-				"Width": { "aliasOf": "Global.Stroke.Width.100" }
-			}
-		},
-		"OutlineInputControl": {
-			"Fill": {
-				"Color": {
-					"Rest": { "value": "transparent" },
-					"Hover": { "value": "transparent" },
-					"Press": { "value": "transparent" },
-					"Disabled": { "value": "transparent" },
-					"IntendedFor": "Control"
-				}
-			},
-			"Stroke": {
-				"Color": {
-					"Rest": { "aliasOf": "Global.Color.Neutral.13" },
-					"Hover": { "aliasOf": "Global.Color.Neutral.21" },
-					"Press": { "aliasOf": "Global.Color.Neutral.21" },
-					"Disabled": { "aliasOf": "Global.Color.Neutral.9" },
-					"IntendedFor": "Control"
-				},
-				"Width": { "aliasOf": "Global.Stroke.Width.100" }
-			}
-		},
-		"OutlineInputControlFocused": {
-			"Fill": {
-				"Color": {
-					"Rest": { "value": "transparent" },
-					"Hover": { "value": "transparent" },
-					"Press": { "value": "transparent" },
-					"Disabled": { "value": "transparent" },
-					"IntendedFor": "Control"
-				}
-			},
-			"Stroke": {
-				"Color": {
-					"Rest": { "aliasOf": "Global.Color.Neutral.21" },
-					"Hover": { "aliasOf": "Global.Color.Neutral.13" },
-					"Press": { "aliasOf": "Global.Color.Neutral.13" },
-					"Disabled": { "aliasOf": "Global.Color.Neutral.9" },
-					"IntendedFor": "Control"
-				},
-				"Width": { "aliasOf": "Global.Stroke.Width.100" }
-			}
-		},
-
-		"ListItem": {
-			"Fill": {
-				"Color": {
-					"Rest": { "value": "transparent" },
-					"Hover": { "aliasOf": "Global.Color.Neutral.4" },
-					"Press": { "aliasOf": "Global.Color.Neutral.5" },
-					"Disabled": { "value": "transparent" },
-					"IntendedFor": "Control"
-				}
-			},
-			"Stroke": {
-				"Color": {
-					"Rest": { "value": "transparent" },
-					"Hover": { "value": "transparent" },
-					"Press": { "value": "transparent" },
-					"Disabled": { "value": "transparent" },
-					"IntendedFor": "Control"
-				},
-				"Width": { "aliasOf": "Global.Stroke.Width.100" }
-			}
-		},
-		"ListItemSelected": {
-			"Fill": {
-				"Color": {
-					"Rest": { "aliasOf": "Global.Color.Neutral.4" },
-					"Hover": { "aliasOf": "Global.Color.Neutral.4" },
-					"Press": { "aliasOf": "Global.Color.Neutral.5" },
-					"Disabled": { "value": "transparent" },
-					"IntendedFor": "Control"
-				}
-			},
-			"Stroke": {
-				"Color": {
-					"Rest": { "value": "transparent" },
-					"Hover": { "value": "transparent" },
-					"Press": { "value": "transparent" },
-					"Disabled": { "value": "transparent" },
-					"IntendedFor": "Control"
-				},
-				"Width": { "aliasOf": "Global.Stroke.Width.100" }
-			}
-		},
-		"ListItemSelectedIndicator": {
-			"Fill": {
-				"Color": {
-					"Rest": { "aliasOf": "Global.Color.Accent.60" },
-					"Hover": { "aliasOf": "Global.Color.Accent.62" },
-					"Press": { "aliasOf": "Global.Color.Accent.48" },
-					"Disabled": { "aliasOf": "Global.Color.Neutral.5" },
-					"IntendedFor": "Control"
-				}
-			},
-			"Stroke": {
-				"Color": {
-					"Rest": { "value": "transparent" },
-					"Hover": { "value": "transparent" },
-					"Press": { "value": "transparent" },
-					"Disabled": { "value": "transparent" },
-					"IntendedFor": "Control"
-				},
-				"Width": { "aliasOf": "Global.Stroke.Width.0" }
-			}
-		},
-
-		"RangeControlEmpty": {
-			"Fill": {
-				"Color": {
-					"Rest": { "aliasOf": "Global.Color.Neutral.5" },
-					"Hover": { "aliasOf": "Global.Color.Neutral.6" },
-					"Press": { "aliasOf": "Global.Color.Neutral.4" },
-					"Disabled": { "aliasOf": "Global.Color.Neutral.3" },
-					"IntendedFor": "Control"
-				}
-			},
-			"Stroke": {
-				"Color": {
-					"Rest": { "value": "transparent" },
-					"Hover": { "value": "transparent" },
-					"Press": { "value": "transparent" },
-					"Disabled": { "value": "transparent" },
-					"IntendedFor": "Control"
-				},
-				"Width": { "aliasOf": "Global.Stroke.Width.0" }
-			}
-		},
-		"RangeControlBuffer": {
-			"Fill": {
-				"Color": {
-					"Rest": { "aliasOf": "Global.Color.Neutral.7" },
-					"Hover": { "aliasOf": "Global.Color.Neutral.8" },
-					"Press": { "aliasOf": "Global.Color.Neutral.6" },
-					"Disabled": { "aliasOf": "Global.Color.Neutral.5" },
-					"IntendedFor": "Control"
-				}
-			},
-			"Stroke": {
-				"Color": {
-					"Rest": { "value": "transparent" },
-					"Hover": { "value": "transparent" },
-					"Press": { "value": "transparent" },
-					"Disabled": { "value": "transparent" },
-					"IntendedFor": "Control"
-				},
-				"Width": { "aliasOf": "Global.Stroke.Width.0" }
-			}
-		},
-		"RangeControlFull": {
-			"Fill": {
-				"Color": {
-					"Rest": { "aliasOf": "Global.Color.Accent.60" },
-					"Hover": { "aliasOf": "Global.Color.Accent.62" },
-					"Press": { "aliasOf": "Global.Color.Accent.48" },
-					"Disabled": { "aliasOf": "Global.Color.Neutral.5" },
-					"IntendedFor": "Control"
-				}
-			},
-			"Stroke": {
-				"Color": {
-					"Rest": { "value": "transparent" },
-					"Hover": { "value": "transparent" },
-					"Press": { "value": "transparent" },
-					"Disabled": { "value": "transparent" },
-					"IntendedFor": "Control"
-				},
-				"Width": { "aliasOf": "Global.Stroke.Width.0" }
-			}
-		},
-		"RangeControlThumb": {
-			"Fill": {
-				"Color": {
-					"Rest": { "aliasOf": "Global.Color.Accent.60" },
-					"Hover": { "aliasOf": "Global.Color.Accent.62" },
-					"Press": { "aliasOf": "Global.Color.Accent.48" },
-					"Disabled": { "aliasOf": "Global.Color.Neutral.5" },
-					"IntendedFor": "Control"
-				}
-			},
-			"Stroke": {
-				"Color": {
-					"Rest": { "value": "transparent" },
-					"Hover": { "value": "transparent" },
-					"Press": { "value": "transparent" },
-					"Disabled": { "value": "transparent" },
-					"IntendedFor": "Control"
-				},
-				"Width": { "aliasOf": "Global.Stroke.Width.0" }
-			}
-		},
-
-		"GripControl": {
-			"Fill": {
-				"Color": {
-					"Rest": { "aliasOf": "Global.Color.Neutral.54" },
-					"Hover": { "aliasOf": "Global.Color.Neutral.56" },
-					"Press": { "aliasOf": "Global.Color.Neutral.52" },
-					"Disabled": { "aliasOf": "Global.Color.Neutral.3" },
-					"IntendedFor": "Control"
-				}
-			},
-			"Stroke": {
-				"Color": {
-					"Rest": { "value": "transparent" },
-					"Hover": { "value": "transparent" },
-					"Press": { "value": "transparent" },
-					"Disabled": { "value": "transparent" },
-					"IntendedFor": "Control"
-				},
-				"Width": { "aliasOf": "Global.Stroke.Width.0" }
-			}
-		},
-
-		"Foreground": {
-			"Fill": {
-				"Color": {
-					"aliasOf": "Global.Color.Neutral.88",
-					"IntendedFor": "Foreground"
-				}
-			}
-		},
-		"ControlForeground": {
-			"Fill": {
-				"Color": {
-					"Rest": { "aliasOf": "Global.Color.Neutral.88" },
-					"Hover": { "aliasOf": "Global.Color.Neutral.88" },
-					"Press": { "aliasOf": "Global.Color.Neutral.88" },
-					"Disabled": { "aliasOf": "Global.Color.Neutral.41" },
-					"IntendedFor": "Foreground"
-				}
-			}
-		},
-		"InteractiveForeground": {
-			"Fill": {
-				"Color": {
-					"Rest": { "aliasOf": "Global.Color.Neutral.88" },
-					"Hover": { "aliasOf": "Global.Color.Neutral.71" },
-					"Press": { "aliasOf": "Global.Color.Neutral.63" },
-					"Disabled": { "aliasOf": "Global.Color.Neutral.41" },
-					"IntendedFor": "Foreground"
-				}
-			}
-		},
-		"SecondaryForeground": {
-			"Fill": {
-				"Color": {
-					"aliasOf": "Global.Color.Neutral.71",
-					"IntendedFor": "Foreground"
-				}
-			}
-		},
-		"SecondaryControlForeground": {
-			"Fill": {
-				"Color": {
-					"Rest": { "aliasOf": "Global.Color.Neutral.71" },
-					"Hover": { "aliasOf": "Global.Color.Neutral.71" },
-					"Press": { "aliasOf": "Global.Color.Neutral.71" },
-					"Disabled": { "aliasOf": "Global.Color.Neutral.41" },
-					"IntendedFor": "Foreground"
-				}
-			}
-		},
-		"SecondaryInteractiveForeground": {
-			"Fill": {
-				"Color": {
-					"Rest": { "aliasOf": "Global.Color.Neutral.71" },
-					"Hover": { "aliasOf": "Global.Color.Neutral.63" },
-					"Press": { "aliasOf": "Global.Color.Neutral.51" },
-					"Disabled": { "aliasOf": "Global.Color.Neutral.41" },
-					"IntendedFor": "Foreground"
-				}
-			}
-		},
-		"TertiaryForeground": {
-			"Fill": {
-				"Color": {
-					"aliasOf": "Global.Color.Neutral.61",
-					"IntendedFor": "Foreground"
-				}
-			}
-		},
-		"TertiaryControlForeground": {
-			"Fill": {
-				"Color": {
-					"Rest": { "aliasOf": "Global.Color.Neutral.61" },
-					"Hover": { "aliasOf": "Global.Color.Neutral.61" },
-					"Press": { "aliasOf": "Global.Color.Neutral.61" },
-					"Disabled": { "aliasOf": "Global.Color.Neutral.41" },
-					"IntendedFor": "Foreground"
-				}
-			}
-		},
-		"TertiaryInteractiveForeground": {
-			"Fill": {
-				"Color": {
-					"Rest": { "aliasOf": "Global.Color.Neutral.61" },
-					"Hover": { "aliasOf": "Global.Color.Neutral.71" },
-					"Press": { "aliasOf": "Global.Color.Neutral.51" },
-					"Disabled": { "aliasOf": "Global.Color.Neutral.41" },
-					"IntendedFor": "Foreground"
-				}
-			}
-		},
-		"AccentForeground": {
-			"Fill": {
-				"Color": {
-					"aliasOf": "Global.Color.Accent.60",
-					"IntendedFor": "Foreground"
-				}
-			}
-		},
-		"AccentControlForeground": {
-			"Fill": {
-				"Color": {
-					"Rest": { "aliasOf": "Global.Color.Accent.60" },
-					"Hover": { "aliasOf": "Global.Color.Accent.60" },
-					"Press": { "aliasOf": "Global.Color.Accent.60" },
-					"Disabled": { "aliasOf": "Global.Color.Neutral.41" },
-					"IntendedFor": "Foreground"
-				}
-			}
-		},
-		"AccentInteractiveForeground": {
-			"Fill": {
-				"Color": {
-					"Rest": { "aliasOf": "Global.Color.Accent.60" },
-					"Hover": { "aliasOf": "Global.Color.Accent.70" },
-					"Press": { "aliasOf": "Global.Color.Accent.51" },
-					"Disabled": { "aliasOf": "Global.Color.Neutral.41" },
-					"IntendedFor": "Foreground"
-				}
-			}
-		},
-
-		"OnAccentForeground": {
-			"Fill": {
-				"Color": {
-					"aliasOf": "Global.Color.GlyphOnAccentBase",
-					"IntendedFor": "Foreground"
-				}
-			}
-		},
-		"OnAccentControlForeground": {
-			"Fill": {
-				"Color": {
-					"Rest": { "aliasOf": "Global.Color.GlyphOnAccentBase" },
-					"Hover": { "aliasOf": "Global.Color.GlyphOnAccentBase" },
-					"Press": { "aliasOf": "Global.Color.GlyphOnAccentBase" },
-					"Disabled": { "aliasOf": "Global.Color.Neutral.41" },
-					"IntendedFor": "Foreground"
-				}
-			}
-		},
-		"InverseForeground": {
-			"Fill": {
-				"Color": {
-					"aliasOf": "Global.Color.GlyphOnAccentBase",
-					"IntendedFor": "Foreground"
-				}
-			}
-		},
-
-		"ControlWide": {
-			"Layout": {
-				"Padding": { "aliasOf": "Global.Padding.400" }
-			}
-		}
 	},
 
 	"Button": {
-		"Text": {
+		"Content": {
 			"Font": { "aliasOf": "Set.Body.Font" },
-			"Fill": { "Color": { "aliasOf": "Set.ControlForeground.Fill.Color", "Selected": { "aliasOf": "Set.ControlForeground.Fill.Color" } } }
+			"Fill": { "Color": { "aliasOf": "Set.NeutralForeground1.Fill.Color", "Selected": { "aliasOf": "Set.NeutralForeground1Selected.Fill.Color" } } }
 		},
-		"Root": {
-			"Fill": { "Color": { "aliasOf": "Set.ActionControl.Fill.Color", "Selected": { "aliasOf": "Set.ActionControlSelected.Fill.Color" } } },
+		"Base": {
+			"Fill": { "Color": { "aliasOf": "Set.NeutralBackground1.Fill.Color", "Selected": { "aliasOf": "Set.NeutralBackground1Selected.Fill.Color" } } },
 			"Stroke": {
-				"Color": { "aliasOf": "Set.ActionControl.Stroke.Color", "Selected": { "aliasOf": "Set.ActionControlSelected.Stroke.Color" } },
-				"Width": { "aliasOf": "Set.ActionControl.Stroke.Width", "Selected": { "aliasOf": "Set.ActionControlSelected.Stroke.Width" } }
+				"Color": { "aliasOf": "Set.NeutralStroke1.Stroke.Color", "Selected": { "aliasOf": "Set.NeutralStroke1Selected.Stroke.Color" } },
+				"Width": { "aliasOf": "Set.NeutralStroke1.Stroke.Width", "Selected": { "aliasOf": "Set.NeutralStroke1Selected.Stroke.Width" } }
 			},
-			"Layout": { "aliasOf": "Set.ControlWide.Layout" },
 			"Corner": { "aliasOf": "Set.Control.Corner" },
 			"Shadow": {}
-		},
-		"FocusInner": {},
-		"FocusOuter": {}
-	},
-	"AccentButton": {
-		"Text": {
-			"Font": { "aliasOf": "Set.Body.Font" },
-			"Fill": { "Color": { "aliasOf": "Set.OnAccentControlForeground.Fill.Color", "Selected": { "aliasOf": "Set.OnAccentControlForeground.Fill.Color" } } }
-		},
-		"Root": {
-			"Fill": {
-				"Color": { "aliasOf": "Set.AccentActionControl.Fill.Color", "Selected": { "aliasOf": "Set.AccentActionControlSelected.Fill.Color" } }
-			},
-			"Stroke": {
-				"Color": { "aliasOf": "Set.AccentActionControl.Stroke.Color", "Selected": { "aliasOf": "Set.AccentActionControlSelected.Stroke.Color" } },
-				"Width": { "aliasOf": "Set.AccentActionControl.Stroke.Width", "Selected": { "aliasOf": "Set.AccentActionControlSelected.Stroke.Width" } }
-			},
-			"Layout": { "aliasOf": "Set.ControlWide.Layout" },
-			"Corner": { "aliasOf": "Set.Control.Corner" }
-		}
-	},
-	"OutlineButton": {
-		"Text": {
-			"Font": { "aliasOf": "Set.Body.Font" },
-			"Fill": {
-				"Color": { "aliasOf": "Set.ControlForeground.Fill.Color", "Selected": { "aliasOf": "Set.ControlForeground.Fill.Color" } }
-			}
-		},
-		"Root": {
-			"Fill": {
-				"Color": { "aliasOf": "Set.OutlineActionControl.Fill.Color", "Selected": { "aliasOf": "Set.OutlineActionControlSelected.Fill.Color" } }
-			},
-			"Stroke": {
-				"Color": {
-					"aliasOf": "Set.OutlineActionControl.Stroke.Color",
-					"Selected": { "aliasOf": "Set.OutlineActionControlSelected.Stroke.Color" }
-				},
-				"Width": {
-					"aliasOf": "Set.OutlineActionControl.Stroke.Width",
-					"Selected": { "aliasOf": "Set.OutlineActionControlSelected.Stroke.Width" }
-				}
-			},
-			"Layout": { "aliasOf": "Set.ControlWide.Layout" },
-			"Corner": { "aliasOf": "Set.Control.Corner" }
-		}
-	},
-	"TransparentButton": {
-		"Text": {
-			"Font": { "aliasOf": "Set.Body.Font" },
-			"Fill": {
-				"Color": {
-					"aliasOf": "Set.ControlForeground.Fill.Color",
-					"Selected": { "aliasOf": "Set.ControlForeground.Fill.Color" }
-				}
-			}
-		},
-		"Root": {
-			"Fill": {
-				"Color": {
-					"aliasOf": "Set.TransparentActionControl.Fill.Color",
-					"Selected": { "aliasOf": "Set.TransparentActionControlSelected.Fill.Color" }
-				}
-			},
-			"Stroke": {
-				"Color": {
-					"aliasOf": "Set.TransparentActionControl.Stroke.Color",
-					"Selected": { "aliasOf": "Set.TransparentActionControlSelected.Stroke.Color" }
-				},
-				"Width": {
-					"aliasOf": "Set.TransparentActionControl.Stroke.Width",
-					"Selected": { "aliasOf": "Set.TransparentActionControlSelected.Stroke.Width" }
-				}
-			},
-			"Layout": { "aliasOf": "Set.ControlWide.Layout" },
-			"Corner": { "aliasOf": "Set.Control.Corner" }
-		}
-	},
-
-	"CheckBox": {
-		"Text": {
-			"Font": { "aliasOf": "Set.Body.Font" },
-			"Fill": {
-				"Color": {
-					"aliasOf": "Set.ControlForeground.Fill.Color",
-					"platform": {
-						"winui": {
-							"Rest": { "fullName": "CheckBoxForegroundUnchecked" },
-							"Hover": { "fullName": "CheckBoxForegroundUncheckedPointerOver" },
-							"Press": { "fullName": "CheckBoxForegroundUncheckedPressed" },
-							"Disabled": { "fullName": "CheckBoxForegroundUncheckedDisabled" }
-						}
-					},
-					"Selected": {
-						"aliasOf": "Set.ControlForeground.Fill.Color",
-						"platform": {
-							"winui": {
-								"Rest": { "fullName": "CheckBoxForegroundChecked" },
-								"Hover": { "fullName": "CheckBoxForegroundCheckedPointerOver" },
-								"Press": { "fullName": "CheckBoxForegroundCheckedPressed" },
-								"Disabled": { "fullName": "CheckBoxForegroundCheckedDisabled" }
-							}
-						}
-					},
-					"Indeterminate": {
-						"aliasOf": "Set.ControlForeground.Fill.Color",
-						"platform": {
-							"winui": {
-								"Rest": { "fullName": "CheckBoxForegroundIndeterminate" },
-								"Hover": { "fullName": "CheckBoxForegroundIndeterminatePointerOver" },
-								"Press": { "fullName": "CheckBoxForegroundIndeterminatePressed" },
-								"Disabled": { "fullName": "CheckBoxForegroundIndeterminateDisabled" }
-							}
-						}
-					}
-				}
-			}
-		},
-		"Check": {
-			"Fill": {
-				"Color": {
-					"aliasOf": "Set.ControlForeground.Fill.Color",
-					"platform": {
-						"winui": {
-							"Rest": { "fullName": "CheckBoxCheckGlyphForegroundUnchecked" },
-							"Hover": { "fullName": "CheckBoxCheckGlyphForegroundUncheckedPointerOver" },
-							"Press": { "fullName": "CheckBoxCheckGlyphForegroundUncheckedPressed" },
-							"Disabled": { "fullName": "CheckBoxCheckGlyphForegroundUncheckedDisabled" }
-						}
-					},
-					"Selected": {
-						"aliasOf": "Set.OnAccentControlForeground.Fill.Color",
-						"platform": {
-							"winui": {
-								"Rest": { "fullName": "CheckBoxCheckGlyphForegroundChecked" },
-								"Hover": { "fullName": "CheckBoxCheckGlyphForegroundCheckedPointerOver" },
-								"Press": { "fullName": "CheckBoxCheckGlyphForegroundCheckedPressed" },
-								"Disabled": { "fullName": "CheckBoxCheckGlyphForegroundCheckedDisabled" }
-							}
-						}
-					},
-					"Indeterminate": {
-						"aliasOf": "Set.OnAccentControlForeground.Fill.Color",
-						"platform": {
-							"winui": {
-								"Rest": { "fullName": "CheckBoxCheckGlyphForegroundIndeterminate" },
-								"Hover": { "fullName": "CheckBoxCheckGlyphForegroundIndeterminatePointerOver" },
-								"Press": { "fullName": "CheckBoxCheckGlyphForegroundIndeterminatePressed" },
-								"Disabled": { "fullName": "CheckBoxCheckGlyphForegroundIndeterminateDisabled" }
-							}
-						}
-					}
-				}
-			}
-		},
-		"Box": {
-			"Fill": {
-				"Color": {
-					"aliasOf": "Set.OutlineActionControl.Fill.Color",
-					"platform": {
-						"winui": {
-							"Rest": { "fullName": "CheckBoxCheckBackgroundFillUnchecked" },
-							"Hover": { "fullName": "CheckBoxCheckBackgroundFillUncheckedPointerOver" },
-							"Press": { "fullName": "CheckBoxCheckBackgroundFillUncheckedPressed" },
-							"Disabled": { "fullName": "CheckBoxCheckBackgroundFillUncheckedDisabled" }
-						}
-					},
-					"Selected": { "aliasOf": "Set.AccentActionControl.Fill.Color",
-						"platform": {
-							"winui": {
-								"Rest": { "fullName": "CheckBoxCheckBackgroundFillChecked" },
-								"Hover": { "fullName": "CheckBoxCheckBackgroundFillCheckedPointerOver" },
-								"Press": { "fullName": "CheckBoxCheckBackgroundFillCheckedPressed" },
-								"Disabled": { "fullName": "CheckBoxCheckBackgroundFillCheckedDisabled" }
-							}
-						} },
-					"Indeterminate": { "aliasOf": "Set.AccentActionControl.Fill.Color",
-						"platform": {
-							"winui": {
-								"Rest": { "fullName": "CheckBoxCheckBackgroundFillIndeterminate" },
-								"Hover": { "fullName": "CheckBoxCheckBackgroundFillIndeterminatePointerOver" },
-								"Press": { "fullName": "CheckBoxCheckBackgroundFillIndeterminatePressed" },
-								"Disabled": { "fullName": "CheckBoxCheckBackgroundFillIndeterminateDisabled" }
-							}
-						} }
-				}
-			},
-			"Stroke": {
-				"Color": {
-					"aliasOf": "Set.OutlineActionControl.Stroke.Color",
-					"platform": {
-						"winui": {
-							"Rest": { "fullName": "CheckBoxCheckBackgroundStrokeUnchecked" },
-							"Hover": { "fullName": "CheckBoxCheckBackgroundStrokeUncheckedPointerOver" },
-							"Press": { "fullName": "CheckBoxCheckBackgroundStrokeUncheckedPressed" },
-							"Disabled": { "fullName": "CheckBoxCheckBackgroundStrokeUncheckedDisabled" }
-						}
-					},
-					"Selected": { "aliasOf": "Set.AccentActionControl.Stroke.Color",
-						"platform": {
-							"winui": {
-								"Rest": { "fullName": "CheckBoxCheckBackgroundStrokeChecked" },
-								"Hover": { "fullName": "CheckBoxCheckBackgroundStrokeCheckedPointerOver" },
-								"Press": { "fullName": "CheckBoxCheckBackgroundStrokeCheckedPressed" },
-								"Disabled": { "fullName": "CheckBoxCheckBackgroundStrokeCheckedDisabled" }
-							}
-						}
-					},
-					"Indeterminate": { "aliasOf": "Set.AccentActionControl.Stroke.Color",
-						"platform": {
-							"winui": {
-								"Rest": { "fullName": "CheckBoxCheckBackgroundStrokeIndeterminate" },
-								"Hover": { "fullName": "CheckBoxCheckBackgroundStrokeIndeterminatePointerOver" },
-								"Press": { "fullName": "CheckBoxCheckBackgroundStrokeIndeterminatePressed" },
-								"Disabled": { "fullName": "CheckBoxCheckBackgroundStrokeIndeterminateDisabled" }
-							}
-						}
-					}
-				},
-				"Width": { "aliasOf": "Set.OutlineActionControl.Stroke.Width",
-					"platform": {
-						"winui": {
-							"fullName": "CheckBoxBorderThemeThickness"
-						}
-					} 
-				}
-			},
-			"Corner": { "aliasOf": "Set.Control.Corner" }
-		}
-	},
-
-	"Slider": {
-		"Thumb": {
-			"Fill": {
-				"Color": { "aliasOf": "Set.RangeControlThumb.Fill.Color" }
-			},
-			"Stroke": {
-				"Color": { "aliasOf": "Set.RangeControlThumb.Stroke.Color" },
-				"Width": { "aliasOf": "Set.RangeControlThumb.Stroke.Width" }
-			},
-			"Layout": {
-				"Width": { "value": 20 },
-				"Height": { "value": 20 }
-			},
-			"Corner": { "aliasOf": "Set.Round.Corner" }
-		},
-		"Track": {
-			"Fill": {
-				"Color": { "Empty": { "aliasOf": "Set.RangeControlEmpty.Fill.Color" }, "Full": { "aliasOf": "Set.RangeControlFull.Fill.Color" } }
-			},
-			"Layout": { "Height": { "value": 2 } }
-		},
-		"Ticks": {
-			"Fill": {
-				"Color": { "aliasOf": "Set.ActionControl.Fill.Color" }
-			},
-			"Layout": { "Height": { "value": 4 } }
-		}
-	},
-
-	"Header": {
-		"Root": {
-			"Fill": {
-				"Color": { "aliasOf":"Global.Color.AccentBase" }
-			}
 		}
 	}
+
 }
