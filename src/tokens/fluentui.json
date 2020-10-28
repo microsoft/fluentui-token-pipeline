@@ -137,7 +137,7 @@
 		"Font": {
 			"Family": {
 				"Default": { "value": "\"Segoe UI\", Roboto, \"SF Pro Text\", \"Helvetica Neue\", Helvetica, Arial, sans-serif" },
-				"Monospace": { "value": "Consolas, Courier New, monospace" },
+				"Monospace": { "value": "Consolas, \"Courier New\", monospace" },
 				"Numeric": { "value": "\"Bahnschrift\", \"Segoe UI\", Roboto, \"SF Pro Text\", \"Helvetica Neue\", Helvetica, Arial, sans-serif" }
 			},
 			"Weight": {
@@ -276,6 +276,18 @@
 			}
 		},
 
+		"Borderless": {
+			"Stroke": {
+				"Color": {
+					"Rest": { "value": "transparent" },
+					"Hover": { "value": "transparent" },
+					"Pressed": { "value": "transparent" },
+					"Disabled": { "value": "transparent" }
+				},
+				"Width": { "aliasOf": "Global.Stroke.Width.0" }
+			}
+		},
+
 		"NeutralForeground1": {
 			"Fill": {
 				"Color": {
@@ -344,7 +356,40 @@
 				"Width": { "aliasOf": "Global.Stroke.Width.100" }
 			}
 		},
-		"NeutralStroke2Selected": { "aliasOf": "Set.NeutralStroke2" }
+		"NeutralStroke2Selected": { "aliasOf": "Set.NeutralStroke2" },
+		"NeutralForegroundInverted": {
+			"Fill": {
+				"Color": {
+					"Rest": { "aliasOf": "Global.Color.White" },
+					"Hover": { "aliasOf": "Global.Color.White" },
+					"Pressed": { "aliasOf": "Global.Color.White" },
+					"Disabled": { "aliasOf": "Global.Color.White" }
+				}
+			}
+		},
+		"NeutralForegroundInvertedSelected": { "aliasOf": "Set.NeutralForegroundInverted" },
+		"NeutralForegroundInvertedAccessible": {
+			"Fill": {
+				"Color": {
+					"Rest": { "aliasOf": "Global.Color.White" },
+					"Hover": { "aliasOf": "Global.Color.White" },
+					"Pressed": { "aliasOf": "Global.Color.White" },
+					"Disabled": { "aliasOf": "Global.Color.White" }
+				}
+			}
+		},
+		"NeutralForegroundInvertedAccessibleSelected": { "aliasOf": "Set.NeutralForegroundInvertedAccessible" },
+		"BrandBackground": {
+			"Fill": {
+				"Color": {
+					"Rest": { "aliasOf": "Global.Color.Brand.42" },
+					"Hover": { "aliasOf": "Global.Color.Brand.40" },
+					"Pressed": { "aliasOf": "Global.Color.Brand.24" },
+					"Disabled": { "aliasOf": "Global.Color.Grey.94" }
+				}
+			}
+		},
+		"BrandBackgroundSelected": { "aliasOf": "Set.BrandBackground" }
 
 	},
 
@@ -353,11 +398,33 @@
 			"Font": { "aliasOf": "Set.Body.Font" },
 			"Fill": { "Color": { "aliasOf": "Set.NeutralForeground1.Fill.Color", "Selected": { "aliasOf": "Set.NeutralForeground1Selected.Fill.Color" } } }
 		},
+		"Icon": {
+			"Fill": { "Color": { "aliasOf": "Set.NeutralForeground1.Fill.Color", "Selected": { "aliasOf": "Set.NeutralForeground1Selected.Fill.Color" } } }
+		},
 		"Base": {
 			"Fill": { "Color": { "aliasOf": "Set.NeutralBackground1.Fill.Color", "Selected": { "aliasOf": "Set.NeutralBackground1Selected.Fill.Color" } } },
 			"Stroke": {
 				"Color": { "aliasOf": "Set.NeutralStroke1.Stroke.Color", "Selected": { "aliasOf": "Set.NeutralStroke1Selected.Stroke.Color" } },
 				"Width": { "aliasOf": "Set.NeutralStroke1.Stroke.Width", "Selected": { "aliasOf": "Set.NeutralStroke1Selected.Stroke.Width" } }
+			},
+			"Corner": { "aliasOf": "Set.Control.Corner" },
+			"Shadow": {}
+		}
+	},
+
+	"ButtonPrimary": {
+		"Content": {
+			"Font": { "aliasOf": "Set.Body.Font" },
+			"Fill": { "Color": { "aliasOf": "Set.NeutralForegroundInvertedAccessible.Fill.Color", "Selected": { "aliasOf": "Set.NeutralForegroundInvertedAccessibleSelected.Fill.Color" } } }
+		},
+		"Icon": {
+			"Fill": { "Color": { "aliasOf": "Set.NeutralForegroundInvertedAccessible.Fill.Color", "Selected": { "aliasOf": "Set.NeutralForegroundInvertedAccessibleSelected.Fill.Color" } } }
+		},
+		"Base": {
+			"Fill": { "Color": { "aliasOf": "Set.BrandBackground.Fill.Color", "Selected": { "aliasOf": "Set.BrandBackgroundSelected.Fill.Color" } } },
+			"Stroke": {
+				"Color": { "aliasOf": "Set.Borderless.Stroke.Color", "Selected": { "aliasOf": "Set.Borderless.Stroke.Color" } },
+				"Width": { "aliasOf": "Set.Borderless.Stroke.Width", "Selected": { "aliasOf": "Set.Borderless.Stroke.Width" } }
 			},
 			"Corner": { "aliasOf": "Set.Control.Corner" },
 			"Shadow": {}
