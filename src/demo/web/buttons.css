@@ -10,7 +10,7 @@ button
 	border-radius: var(--button-base-corner-radius);
 	outline: none;
 
-	padding: var(--button-base-layout-padding);
+	padding: var(--button-base-layout-padding, 7px 15px);
 
 	font-family: var(--button-content-font-family);
 	font-size: var(--button-content-font-size);
@@ -75,20 +75,20 @@ button[disabled]
 button.accent
 {
 	border-style: solid;
-	border-width: var(--accentbutton-base-stroke-width, 6px);
-	border-radius: var(--accentbutton-base-corner-radius);
+	border-width: var(--buttonprimary-base-stroke-width, 6px);
+	border-radius: var(--buttonprimary-base-corner-radius);
 	outline: none;
 
-	padding: var(--accentbutton-base-layout-padding);
+	padding: var(--buttonprimary-base-layout-padding, 7px 15px);
 
-	font-family: var(--accentbutton-content-font-family);
-	font-size: var(--accentbutton-content-font-size);
-	font-weight: var(--accentbutton-content-font-weight);
-	line-height: var(--accentbutton-content-font-lineheight);
+	font-family: var(--buttonprimary-content-font-family);
+	font-size: var(--buttonprimary-content-font-size);
+	font-weight: var(--buttonprimary-content-font-weight);
+	line-height: var(--buttonprimary-content-font-lineheight);
 
-	color: var(--accentbutton-content-fill-color-rest, pink);
-	background-color: var(--accentbutton-base-fill-color-rest, magenta);
-	border-color: var(--accentbutton-base-stroke-color-rest, cyan);
+	color: var(--buttonprimary-content-fill-color-rest, pink);
+	background-color: var(--buttonprimary-base-fill-color-rest, magenta);
+	border-color: var(--buttonprimary-base-stroke-color-rest, cyan);
 
 	user-select: none;
 }
@@ -99,45 +99,45 @@ button.accent:focus-visible
 }
 button.accent:hover
 {
-	color: var(--accentbutton-content-fill-color-hover, pink);
-	background-color: var(--accentbutton-base-fill-color-hover, magenta);
-	border-color: var(--accentbutton-base-stroke-color-hover, cyan);
+	color: var(--buttonprimary-content-fill-color-hover, pink);
+	background-color: var(--buttonprimary-base-fill-color-hover, magenta);
+	border-color: var(--buttonprimary-base-stroke-color-hover, cyan);
 }
 button.accent:active
 {
-	color: var(--accentbutton-content-fill-color-pressed, pink);
-	background-color: var(--accentbutton-base-fill-color-pressed, magenta);
-	border-color: var(--accentbutton-base-stroke-color-pressed, cyan);
+	color: var(--buttonprimary-content-fill-color-pressed, pink);
+	background-color: var(--buttonprimary-base-fill-color-pressed, magenta);
+	border-color: var(--buttonprimary-base-stroke-color-pressed, cyan);
 }
 button.accent[disabled]
 {
-	color: var(--accentbutton-content-fill-color-disabled, pink);
-	background-color: var(--accentbutton-base-fill-color-disabled, magenta);
-	border-color: var(--accentbutton-base-stroke-color-disabled, cyan);
+	color: var(--buttonprimary-content-fill-color-disabled, pink);
+	background-color: var(--buttonprimary-base-fill-color-disabled, magenta);
+	border-color: var(--buttonprimary-base-stroke-color-disabled, cyan);
 }
 button.accent[data-checked]
 {
-	color: var(--accentbutton-content-fill-color-selected-rest, pink);
-	background-color: var(--accentbutton-base-fill-color-selected-rest, magenta);
-	border-color: var(--accentbutton-base-stroke-color-selected-rest, cyan);
+	color: var(--buttonprimary-content-fill-color-selected-rest, pink);
+	background-color: var(--buttonprimary-base-fill-color-selected-rest, magenta);
+	border-color: var(--buttonprimary-base-stroke-color-selected-rest, cyan);
 }
 button.accent:hover
 {
-	color: var(--accentbutton-content-fill-color-selected-hover, pink);
-	background-color: var(--accentbutton-base-fill-color-selected-hover, magenta);
-	border-color: var(--accentbutton-base-stroke-color-selected-hover, cyan);
+	color: var(--buttonprimary-content-fill-color-selected-hover, pink);
+	background-color: var(--buttonprimary-base-fill-color-selected-hover, magenta);
+	border-color: var(--buttonprimary-base-stroke-color-selected-hover, cyan);
 }
 button.accent:active
 {
-	color: var(--accentbutton-content-fill-color-selected-pressed, pink);
-	background-color: var(--accentbutton-base-fill-color-selected-pressed, magenta);
-	border-color: var(--accentbutton-base-stroke-color-selected-pressed, cyan);
+	color: var(--buttonprimary-content-fill-color-selected-pressed, pink);
+	background-color: var(--buttonprimary-base-fill-color-selected-pressed, magenta);
+	border-color: var(--buttonprimary-base-stroke-color-selected-pressed, cyan);
 }
 button.accent[disabled]
 {
-	color: var(--accentbutton-content-fill-color-selected-disabled, pink);
-	background-color: var(--accentbutton-base-fill-color-selected-disabled, magenta);
-	border-color: var(--accentbutton-base-stroke-color-selected-disabled, cyan);
+	color: var(--buttonprimary-content-fill-color-selected-disabled, pink);
+	background-color: var(--buttonprimary-base-fill-color-selected-disabled, magenta);
+	border-color: var(--buttonprimary-base-stroke-color-selected-disabled, cyan);
 }
 
 
@@ -148,7 +148,7 @@ button.outline
 	border-radius: var(--outlinebutton-base-corner-radius);
 	outline: none;
 
-	padding: var(--outlinebutton-base-layout-padding);
+	padding: var(--outlinebutton-base-layout-padding, 7px 15px);
 
 	font-family: var(--outlinebutton-content-font-family);
 	font-size: var(--outlinebutton-content-font-size);
@@ -217,7 +217,7 @@ button.transparent
 	border-radius: var(--transparentbutton-base-corner-radius);
 	outline: none;
 
-	padding: var(--transparentbutton-base-layout-padding);
+	padding: var(--transparentbutton-base-layout-padding, 7px 15px);
 
 	font-family: var(--transparentbutton-content-font-family);
 	font-size: var(--transparentbutton-content-font-size);
