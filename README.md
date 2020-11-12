@@ -65,8 +65,8 @@ But let's get clear on the naming system that we have for different types of tok
 
 * At the core are your global tokens, which contain all of the different values in your design system: colors, sizes, typography, and more. They have very specific names and no particular meaning. For example, "blue #60" would be a global token, such as `Global.Color.Blue.60`.
 * Alias tokens give semantic meaning to those raw values. For example, if design dictates that a control that performs an action that is accent-colored should have a background fill color when hovered as blue #60, they might set `Set.AccentActionControl.Fill.Color.Hover` to be an *alias* of `Global.Color.Blue.60`.
-* Alias sets are just groups of alias tokens that can be reused for convenience and consistency. For example, `Set.AccentActionControl.Fill.Color` is a set that defines `.Rest`, `.Hover`, `.Press`, and `.Disabled` colors for that same part of the same type of control. Assigning something else to be an alias of that set is just a simpler way of assigning individual Rest, Hover, Press, and Disabled properties to those individual alias tokens—it's exactly equivalent.
-* Finally, controls in your UI platform of choice get their default styling values from control tokens. For example, an accent-colored button's root (background) element's fill color when hovered should be set to `AccentButton.Root.Fill.Color.Hover`.
+* Alias sets are just groups of alias tokens that can be reused for convenience and consistency. For example, `Set.AccentActionControl.Fill.Color` is a set that defines `.Rest`, `.Hover`, `.Pressed`, and `.Disabled` colors for that same part of the same type of control. Assigning something else to be an alias of that set is just a simpler way of assigning individual Rest, Hover, Press, and Disabled properties to those individual alias tokens—it's exactly equivalent.
+* Finally, controls in your UI platform of choice get their default styling values from control tokens. For example, an accent-colored button's base (background) element's fill color when hovered should be set to `AccentButton.Base.Fill.Color.Hover`.
 
 After building once, it can sometimes be helpful to refer to [`build/reference/fluentuitokens.html`](build/reference/fluentuitokens.html)—it's effectively a more human-readable version of `fluentuitokens.json` that gets built by the pipeline.
 
@@ -136,10 +136,10 @@ This is also really useful for packaging up different sets of rest, hover, press
 		"ActionControl": {
 			"Fill": {
 				"Color": {
-					"Rest": { "aliasOf": "Global.Color.Neutral.5" },
-					"Hover": { "aliasOf": "Global.Color.Neutral.6" },
-					"Press": { "aliasOf": "Global.Color.Neutral.4" },
-					"Disabled": { "aliasOf": "Global.Color.Neutral.3" }
+					"Rest": { "aliasOf": "Global.Color.Grey.5" },
+					"Hover": { "aliasOf": "Global.Color.Grey.6" },
+					"Pressed": { "aliasOf": "Global.Color.Grey.4" },
+					"Disabled": { "aliasOf": "Global.Color.Grey.3" }
 				}
 			}
 		}
@@ -152,7 +152,7 @@ Then, you can apply all four of those state colors to a single control later on 
 ```json
 {
 	"Button": {
-		"Root": {
+		"Base": {
 			"Fill": {
 				"Color": { "aliasOf": "Set.ActionControl.Fill.Color" }
 			}
@@ -161,7 +161,7 @@ Then, you can apply all four of those state colors to a single control later on 
 }
 ```
 
-That's exactly the same as specifying that `Button.Root.Fill.Color.Rest` is equal to `Set.ActionControl.Fill.Color.Rest` and so on, but it's a lot easier to work with, and helps avoid mistakes.
+That's exactly the same as specifying that `Button.Base.Fill.Color.Rest` is equal to `Set.ActionControl.Fill.Color.Rest` and so on, but it's a lot easier to work with, and helps avoid mistakes.
 
 Conceptually, you can think of tokens as files and sets as folders. When you look at a directory listing, the last portion of each file path is the filename—or token name. The parts before that are just an organizational scheme and don't mean much on their own. When you use `aliasOf` a single token, that's just like making a shortcut to a single file. You can also use `aliasOf` a group of tokens the same way you would make a shortcut to a whole folder.
 

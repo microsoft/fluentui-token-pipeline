@@ -100,7 +100,7 @@ StyleDictionary.registerFormat({
 
 			if (thisProp.path[0] !== "Global" && thisProp.path[0] !== "Set" && (!previousProp || thisProp.path[1] !== previousProp.path[1]))
 			{
-				// The H3-level headers inside of the control token tables (such as "Root" for "Button-Root-Fill-Color-Rest")
+				// The H3-level headers inside of the control token tables (such as "Base" for "Button-Base-Fill-Color-Rest")
 				// go INSIDE the table.
 				list += `<h3>${thisProp.path[1]}</h3>\n\n`
 			}

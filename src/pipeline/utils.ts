@@ -12,7 +12,7 @@ const orderOfInteractionStates =
 {
 	"Rest": 1,
 	"Hover": 2,
-	"Press": 3,
+	"Pressed": 3,
 	"Disabled": 4,
 
 	length: 4,
