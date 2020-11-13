@@ -8,6 +8,7 @@ import { resolvePlatformOverrides } from "./fluentui-platform-overrides"
 import "./fluentui-shared"
 import "./fluentui-css"
 import "./fluentui-html"
+import "./fluentui-json"
 import "./fluentui-ios"
 import "./fluentui-winui"
 
@@ -44,6 +45,12 @@ module.exports = {
 			transformGroup: "js",
 			buildPath: `${outputPath}/debug/`,
 			files: [{ destination: "fluentuitokens-debug.json", format: "json" }],
+		},
+
+		json: {
+			transformGroup: "fluentui/json/grouped",
+			buildPath: `${outputPath}/json/`,
+			files: [{ destination: "fluentuitokens-grouped.json", format: "fluentui/json/grouped" }],
 		},
 
 		reference: {
