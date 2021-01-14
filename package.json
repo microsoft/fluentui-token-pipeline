@@ -18,6 +18,8 @@
 	},
 	"homepage": "https://github.com/microsoft/fluentui-token-pipeline",
 	"dependencies": {
+		"args": "^5.0.1",
+		"esm": "^3.2.25",
 		"jsonfile": "^6.0.1",
 		"lodash": "4.17.20",
 		"style-dictionary": "2.9.0",
