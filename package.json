@@ -1,12 +1,8 @@
 {
 	"name": "fluentui-token-pipeline",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"description": "The Fluent UI design token pipeline",
 	"private": true,
-	"scripts": {
-		"build": "gulp build",
-		"watch": "gulp watch"
-	},
 	"repository": {
 		"type": "git",
 		"url": "git://github.com/microsoft/fluentui-token-pipeline.git"
@@ -40,9 +36,16 @@
 		"@typescript-eslint/parser": "^3.9.1",
 		"babel-eslint": "^10.1.0",
 		"babel-plugin-unpkg": "^1.0.0",
-		"eslint": "7.7.0",
+		"eslint": "7.16.0",
 		"gulp": "^4.0.2",
 		"gulp-typescript": "^6.0.0-alpha.1",
 		"typescript": "^4.0.3"
+	},
+	"bin": {
+		"process-tokens": "src/cli/index.js"
+	},
+	"scripts": {
+		"build": "gulp build",
+		"watch": "gulp watch"
 	}
 }
