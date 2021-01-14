@@ -45,7 +45,9 @@
 		"process-tokens": "src/cli/index.js"
 	},
 	"scripts": {
+		"prepare": "npm run build",
 		"build": "gulp build",
-		"watch": "gulp watch"
+		"watch": "gulp watch",
+		"transform": "node dist/cli/index.js"
 	}
 }
