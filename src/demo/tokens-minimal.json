@@ -1,0 +1,10 @@
+{
+	"Meta": {
+		"FluentUITokensVersion": 0
+	},
+	"Global": {
+		"Color": {
+			"Blue": { "value": "#0000ff" }
+		}
+	}
+}
