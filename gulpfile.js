@@ -12,7 +12,7 @@ const watch = () =>
 {
 	Gulp.watch(["src/**/*.ts", "src/**/*.js"], typescript)
 }
-watch.displayName = "Watch for changes"
+watch.displayName = "Watch for code changes"
 
 exports.build = Gulp.series(typescript)
 exports.watch = Gulp.series(typescript, watch)

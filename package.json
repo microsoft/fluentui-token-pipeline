@@ -42,7 +42,7 @@
 		"typescript": "^4.0.3"
 	},
 	"bin": {
-		"process-tokens": "src/cli/index.js"
+		"transform-tokens": "dist/cli/index.js"
 	},
 	"scripts": {
 		"prepare": "npm run build",
