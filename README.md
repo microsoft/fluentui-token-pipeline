@@ -26,6 +26,21 @@ You'll get details of the arguments and their usage. Here's a full usage example
 
 That will transform the tokens in one single JSON file and output them to a subfolder named `build`.
 
+### Using the CLI as a build step in another repo
+
+You can use this CLI as a build step in another repo with this in your `package.json`:
+
+```json
+	"devDependencies": {
+		"fluentui-token-pipeline": "0.2.0"
+	},
+	"scripts": {
+		"build": "transform-tokens --in tokens.json --out build"
+	}
+```
+
+Then, when you run `npm run build` in that repo, it would produce output into a `build` subfolder based on tokens defined in `tokens.json`.
+
 # Modifying the pipeline
 
 ## Setting up
