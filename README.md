@@ -18,11 +18,15 @@ You can use the pipeline as a command-line tool.
 
 Once you have the tool set up, run:
 
-	`transform-tokens`
+```console
+	transform-tokens
+```
 
 You'll get details of the arguments and their usage. Here's a full usage example:
 
-	`transform-tokens --in mytokens.json --out build`
+```console
+	transform-tokens --in mytokens.json --out build
+```
 
 That will transform the tokens in one single JSON file and output them to a subfolder named `build`.
 
@@ -93,7 +97,7 @@ The included file `src/demo/fluentui.json` is an example of most of the differen
 
 The full name of a token is just a list of all of its parents in the JSON and its lowest-level name, separated by dots. For example:
 
-```js
+```json
 {
 	"Global": {
 		"Color": {
@@ -121,7 +125,7 @@ But, importantly, a token can't have both a value *and* tokens beneath it. For e
 
 A token doesn't have to have a raw value. Instead, it can be defined as an *alias* of another token. That token could also be an alias of yet another token and so on, as long as it eventually points to something that isn't an alias. You define an alias like this:
 
-```js
+```json
 { "Global": { "Color": { "AccentBase": { "aliasOf": "Global.Color.Blue.60" } } } }
 ```
 
