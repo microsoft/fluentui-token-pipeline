@@ -1,6 +1,6 @@
 {
 	"extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
-	"ignorePatterns": ["build/", "node_modules/"],
+	"ignorePatterns": ["build/", "dist/", "node_modules/"],
 	"env": {
 		"browser": true,
 		"es2017": true,
