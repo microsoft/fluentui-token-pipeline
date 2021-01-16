@@ -19,13 +19,13 @@ You can use the pipeline as a command-line tool.
 Once you have the tool set up, run:
 
 ```console
-	transform-tokens
+transform-tokens
 ```
 
 You'll get details of the arguments and their usage. Here's a full usage example:
 
 ```console
-	transform-tokens --in mytokens.json --out build
+transform-tokens --in mytokens.json --out build
 ```
 
 That will transform the tokens in one single JSON file and output them to a subfolder named `build`.
@@ -35,12 +35,12 @@ That will transform the tokens in one single JSON file and output them to a subf
 You can use this CLI as a build step in another repo with this in your `package.json`:
 
 ```json
-	"devDependencies": {
-		"fluentui-token-pipeline": "0.2.0"
-	},
-	"scripts": {
-		"build": "transform-tokens --in tokens.json --out build"
-	}
+"devDependencies": {
+	"fluentui-token-pipeline": "0.2.0"
+},
+"scripts": {
+	"build": "transform-tokens --in tokens.json --out build"
+}
 ```
 
 Then, when you run `npm run build` in that repo, it would produce output into a `build` subfolder based on tokens defined in `tokens.json`.
