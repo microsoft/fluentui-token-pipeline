@@ -8,7 +8,7 @@
 	"files.exclude": {
 		".vs": true,
 		".vscode": true,
-		"build/pipeline": true,
+		"dist": true,
 		"node_modules": true
 	},
 	"javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": false,

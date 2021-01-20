@@ -53,12 +53,23 @@ export interface TokenColorComputation
 	opacity: number
 }
 
-export interface TokenPlatformOverrides
-{
-	winui?: TokenSetChildren
-}
+export type TokenPlatformOverrides = Partial<SupportedPlatformList<TokenSetChildren>>
 
-export type SupportedPlatform = keyof TokenPlatformOverrides
+export const SupportedPlatforms =
+{
+	debug: true,
+	json: true,
+	reference: true,
+	css: true,
+	cssflat: true,
+	ios: true,
+	winui: true,
+}
+export type SupportedPlatform = keyof typeof SupportedPlatforms
+export type SupportedPlatformList<ValueType> =
+{
+	[platform in SupportedPlatform]: ValueType
+}
 
 // ------------------------------------------------------------
 
