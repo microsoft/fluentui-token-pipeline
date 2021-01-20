@@ -119,7 +119,9 @@ const buildOnePlatform = (tokens: any, platformOverride: SupportedPlatform | nul
 {
 	require("style-dictionary").extend(
 		{
-			properties: platformOverride ? resolvePlatformOverrides(_.cloneDeep(tokens), platformOverride) : tokens,
+			// NYI: The platform overrides feature isn't finished yet, so don't enable it.
+			// properties: platformOverride ? resolvePlatformOverrides(_.cloneDeep(tokens), platformOverride) : _.cloneDeep(tokens),
+			properties: _.cloneDeep(tokens),
 			platforms: platformConfig,
 		}
 	).buildAllPlatforms()
