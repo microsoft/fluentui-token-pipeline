@@ -1,5 +1,5 @@
 import * as Utils from "./utils"
-import { Token, TokenSet, TokenPlatformOverrides, SupportedPlatform, TokenSetChildren } from "./types"
+import { Token, TokenSet, TokenPlatformOverrides, SupportedPlatform, SupportedPlatforms, TokenSetChildren } from "./types"
 
 /// Applies all of the overrides in an entire Style Dictionary properties object, and then returns the same object
 /// instance, modified.
@@ -10,8 +10,6 @@ export const resolvePlatformOverrides = (properties: TokenSet, currentPlatform: 
 	// Then, we just return the same object that was passed in, but modified.
 	return properties
 }
-
-const supportedTokenPlatformOverrides = { "winui": true }
 
 const resolvePlatformOverride = (prop: TokenSet | Token, currentPlatform: SupportedPlatform): void =>
 {
@@ -29,7 +27,7 @@ const resolvePlatformOverride = (prop: TokenSet | Token, currentPlatform: Suppor
 	// Now, make sure there aren't any unsupported platforms in the list.
 	for (const overrideKey in overrides)
 	{
-		if (!supportedTokenPlatformOverrides[overrideKey])
+		if (!SupportedPlatforms[overrideKey])
 		{
 			Utils.reportError(`A platform override for unsupported platform ${overrideKey} was ignored.`)
 			return
