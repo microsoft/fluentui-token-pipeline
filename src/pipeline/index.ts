@@ -12,7 +12,7 @@ import "./fluentui-json"
 import "./fluentui-ios"
 import "./fluentui-winui"
 
-export const buildEverything = (input: string[] | string, outputPath: string): void =>
+export const buildOutputs = (input: string[] | string, outputPath: string, platforms: string[] | undefined): void =>
 {
 	let tokens = {}
 	if (typeof input === "string") input = [input]
@@ -21,61 +21,69 @@ export const buildEverything = (input: string[] | string, outputPath: string): v
 	tokens = resolveAliases(tokens)
 	tokens = resolveComputedTokens(tokens)
 
+	const sdPlatformData: any = {}
+
+	if (!platforms || platforms.includes("debug")) sdPlatformData.debug =
+		{
+			transformGroup: "js",
+			buildPath: `${outputPath}/debug/`,
+			files: [{ destination: "fluentuitokens-debug.json", format: "json" }],
+		}
+
+	if (!platforms || platforms.includes("json")) sdPlatformData.json =
+		{
+			transformGroup: "fluentui/json/grouped",
+			buildPath: `${outputPath}/json/`,
+			files: [{ destination: "fluentuitokens-grouped.json", format: "fluentui/json/grouped" }],
+		}
+
+	if (!platforms || platforms.includes("reference")) sdPlatformData.reference =
+		{
+			transformGroup: "fluentui/html",
+			buildPath: `${outputPath}/reference/`,
+			files: [{ destination: "fluentuitokens.html", format: "fluentui/html/reference" }],
+		}
+
+	if (!platforms || platforms.includes("ios")) sdPlatformData.ios =
+		{
+			transformGroup: "fluentui/swift",
+			buildPath: `${outputPath}/ios/`,
+			files: [
+				{ destination: "FluentUITokens.swift", format: "ios-swift/class.swift", className: "FluentUITokens" },
+				{ destination: "FluentUIColorTokens.swift", format: "ios-swift/class.swift", className: "FluentUIColorTokens", filter: "isColor" },
+				{ destination: "FluentUISizeTokens.swift", format: "ios-swift/class.swift", className: "FluentUISizeTokens", filter: "isSize" },
+				{ destination: "FluentUIFontTokens.swift", format: "ios-swift/class.swift", className: "FluentUIFontTokens", filter: "isFont" },
+			],
+		}
+
+	if (!platforms || platforms.includes("css")) sdPlatformData.css =
+		{
+			transformGroup: "fluentui/css",
+			buildPath: `${outputPath}/web/`,
+			files: [{ destination: "fluentuitokens.css", format: "css/variables" }],
+		}
+
+	if (!platforms || platforms.includes("cssflat")) sdPlatformData.cssflat =
+		{
+			transformGroup: "fluentui/cssflat",
+			buildPath: `${outputPath}/web/`,
+			files: [{ destination: "fluentuitokens-flat.css", format: "css/variables" }],
+		}
+
+	if (!platforms || platforms.includes("winui")) sdPlatformData.winui =
+		{
+			transformGroup: "fluentui/winui",
+			buildPath: `${outputPath}/winui/`,
+			files: [
+				{ destination: "FluentUITokens.xaml", format: "fluentui/xaml/res" },
+				{ destination: "FluentUITokensThemed.xaml", format: "fluentui/xaml/res/themed" },
+			],
+		}
+
 	const styleDictionary = require("style-dictionary").extend(
 		{
 			properties: tokens,
-
-			platforms: {
-				debug: {
-					transformGroup: "js",
-					buildPath: `${outputPath}/debug/`,
-					files: [{ destination: "fluentuitokens-debug.json", format: "json" }],
-				},
-
-				json: {
-					transformGroup: "fluentui/json/grouped",
-					buildPath: `${outputPath}/json/`,
-					files: [{ destination: "fluentuitokens-grouped.json", format: "fluentui/json/grouped" }],
-				},
-
-				reference: {
-					transformGroup: "fluentui/html",
-					buildPath: `${outputPath}/reference/`,
-					files: [{ destination: "fluentuitokens.html", format: "fluentui/html/reference" }],
-				},
-
-				ios: {
-					transformGroup: "fluentui/swift",
-					buildPath: `${outputPath}/ios/`,
-					files: [
-						{ destination: "FluentUITokens.swift", format: "ios-swift/class.swift", className: "FluentUITokens" },
-						{ destination: "FluentUIColorTokens.swift", format: "ios-swift/class.swift", className: "FluentUIColorTokens", filter: "isColor" },
-						{ destination: "FluentUISizeTokens.swift", format: "ios-swift/class.swift", className: "FluentUISizeTokens", filter: "isSize" },
-						{ destination: "FluentUIFontTokens.swift", format: "ios-swift/class.swift", className: "FluentUIFontTokens", filter: "isFont" },
-					],
-				},
-
-				css: {
-					transformGroup: "fluentui/css",
-					buildPath: `${outputPath}/web/`,
-					files: [{ destination: "fluentuitokens.css", format: "css/variables" }],
-				},
-
-				cssflat: {
-					transformGroup: "fluentui/cssflat",
-					buildPath: `${outputPath}/web/`,
-					files: [{ destination: "fluentuitokens-flat.css", format: "css/variables" }],
-				},
-
-				winui: {
-					transformGroup: "fluentui/winui",
-					buildPath: `${outputPath}/winui/`,
-					files: [
-						{ destination: "FluentUITokens.xaml", format: "fluentui/xaml/res" },
-						{ destination: "FluentUITokensThemed.xaml", format: "fluentui/xaml/res/themed" },
-					],
-				},
-			},
+			platforms: sdPlatformData,
 		}
 	)
 
