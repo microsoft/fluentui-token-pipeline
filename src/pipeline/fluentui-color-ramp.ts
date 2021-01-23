@@ -13,7 +13,7 @@ import { TokenSet, Token } from "./types"
 */
 export const buildColorRamps = (properties: TokenSet): TokenSet =>
 {
-	if (!("Global" in properties) || !("Color" in properties.Color)) return properties
+	if (!("Global" in properties) || !("Color" in properties.Global)) return properties
 
 	const colors = (properties as any).Global.Color
 	for (const key in colors)
