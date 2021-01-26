@@ -24,12 +24,9 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 		}
 	}
 
-	let tokens = {}
+	const tokens = {}
 	if (typeof input === "string") input = [input]
 	input.forEach((inputFile) => _.merge(tokens, jsonfile.readFileSync(inputFile)))
-	tokens = buildColorRamps(tokens)
-	tokens = resolveAliases(tokens)
-	tokens = resolveComputedTokens(tokens)
 
 	if (!platforms || platforms.includes("debug")) buildOnePlatform(tokens, /* platformOverride: */ null,
 		{
@@ -115,13 +112,16 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 	)
 }
 
-const buildOnePlatform = (tokens: any, platformOverride: SupportedPlatform | null, platformConfig: any): void =>
+const buildOnePlatform = (tokens: any, platformOverride: SupportedPlatform | null, platformConfig: Record<string, unknown>): void =>
 {
+	tokens = platformOverride ? resolvePlatformOverrides(_.cloneDeep(tokens), platformOverride) : _.cloneDeep(tokens)
+	tokens = buildColorRamps(tokens)
+	tokens = resolveAliases(tokens)
+	tokens = resolveComputedTokens(tokens)
+
 	require("style-dictionary").extend(
 		{
-			// NYI: The platform overrides feature isn't finished yet, so don't enable it.
-			// properties: platformOverride ? resolvePlatformOverrides(_.cloneDeep(tokens), platformOverride) : _.cloneDeep(tokens),
-			properties: _.cloneDeep(tokens),
+			properties: tokens,
 			platforms: platformConfig,
 		}
 	).buildAllPlatforms()

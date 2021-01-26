@@ -1,0 +1,42 @@
+{
+	"Meta": {
+		"FluentUITokensVersion": 0
+	},
+	"OverrideTests": {
+		"Base": {
+			"Fill": {
+				"Color": {
+					"aliasOf": "Set.MergeMe.Fill.Color",
+					"Red": { "value": "red" },
+					"WrongName": { "value": "blue", "fullName": "OverrideTests-Base-Fill-Color-Blue" },
+					"Silver": { "fullName": "OverrideTests-Base-Fill-Color-Grey" },
+					"Magenta": { "platform": { "winui": { "fullName": "OverrideTests-Base-Fill-Color-MagentaSpecialNameForWinUIOnly" } } }
+				}
+			},
+			"Stroke": {
+				"Color": {
+					"aliasOf": "Set.PlatformOverrides.Stroke.Color"
+				}
+			}
+		}
+	},
+	"Set": {
+		"MergeMe": {
+			"Fill": {
+				"Color": {
+					"Green": { "value": "green" },
+					"Silver": { "value": "silver", "fullName": "Set-MergeMe-Fill-Color-SilverSpecialNameForSetOnly" },
+					"Magenta": { "value": "magenta" }
+				}
+			}
+		},
+		"PlatformOverrides": {
+			"Stroke": {
+				"Color": {
+					"YellowExceptPurpleInWinUI": { "value": "yellow", "platform": { "winui": { "value": "purple" } } },
+					"OrangeExceptBlackInWinUI": { "value": "orange", "platform": { "winui": { "value": "black", "fullName": "PlatformOverrides-Stroke-Color-BlackInWinUI" } } }
+				}
+			}
+		}
+	}
+}
