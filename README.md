@@ -10,7 +10,7 @@ You can use the pipeline as a command-line tool.
 
 ## Setting up
 
-1. Install [Node.js](https://nodejs.org/), and then do *one* of the following:
+Install [Node.js](https://nodejs.org/), and then do *one* of the following:
 
 * Clone this repo and build it, and then run `npm link` to install the tool globally
 * From *another* repo, add a dev dependency on `fluentui-token-pipeline`
@@ -194,11 +194,59 @@ Instead of specifying that `Hover` has a raw `value` or is an `aliasOf` another 
 
 Unlike regular alias tokens, these computations can't be preserved in the output format. For example, in CSS, that token would be specified as a single `rgba()` value instead of something involving `calc()` or JavaScript.
 
+## Name overrides
+
+By default, when a token is exported, the name of the exported variable or property is derived from the token's name using the platform's common naming conventions. For example, `Global.Color.Blue` would be exported in CSS as `--global-color-blue`, but in WinUI as `GlobalColorBlue`. It's possible to override the exported name using `fullName`. Here's an example:
+
+```json
+{
+	"Global": {
+		"Color": {
+			"Blue": { "value": "blue", "fullName": "MyBlueToken" },
+		}
+	}
+}
+```
+
+In that example, the token would be exported to CSS as `--MyBlueToken` and WinUI as `MyBlueToken`. Since naming standards differ between platforms, name overrides are most useful as a platform override, described below.
+
+Note that `fullName` only affects the token name when exported—when referring to it elsewhere in the JSON, you still use the original name. For example:
+
+```json
+"MyFavoriteColor": { "aliasOf": "Global.Color.Blue" }
+/* NOT */
+"MyFavoriteColor": { "aliasOf": "MyBlueToken" }
+```
+
+## Platform overrides
+
+Occasionally one platform might need a different value for a token than other platforms. For example, maybe on the web and on Windows your search box uses a corner radius of 4 pixels, but on iOS you use 10 pixels to match the native search box. You can use a `platform` override to accomplish that.
+
+```json
+{
+	"Search": {
+		"Corner": {
+			"Radius": {
+				"value": 4,
+				"platform": {
+					"ios": {
+						"value": 10
+					}
+				}
+			}
+		}
+	}
+```
+
+`platform` can contain any of the following: `css`, `winui`, `ios`. Then, inside that, any valid token JSON, which is merged onto to the object containing `platform`, overwriting existing values if present. In this case, the `value: 10` overwrites the `value: 4` in `Search.Corner.Radius`, so when exporting for iOS that token will have a value of 10 pixels, and on all other platforms, it will have a value of 4 pixels.
+
+There are a variety of examples of valid overrides in [`fluentui-overrides.json`](src/demo/fluentui-overrides.json).
+
 ## Value types
 
 Values in token JSON are stored in a universal format very similar to CSS web standards, and then converted to the proper format and syntax for each platform that the pipeline exports to.
 
-The pipeline infers the data type from the token's full name, *not* its value. So, **it's important to follow the naming scheme of existing tokens in the pipeline**. You can see the code that handles this in [`fluentui-shared.ts`](src/pipeline/fluentui-shared.ts).
+The pipeline infers the data type from the token's full name, *not* its value. So, **it's important to follow the naming scheme of existing tokens in the JSON**. You can see the code that handles this in [`fluentui-shared.ts`](src/pipeline/fluentui-shared.ts).
 
 Tokens can represent any of the following value types:
 
