@@ -1,3 +1,7 @@
+---
+title: Fluent UI token pipeline
+---
+
 # Fluent UI token pipeline
 
 The Fluent UI token pipeline transforms JSON files describing design tokens into source code for eventual use in the Fluent UI libraries.

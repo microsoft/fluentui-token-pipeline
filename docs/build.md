@@ -1,3 +1,7 @@
+---
+title: Modifying the pipeline
+---
+
 🏠 [Home](./)
 
 # Modifying the pipeline

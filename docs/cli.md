@@ -1,3 +1,7 @@
+---
+title: Using the pipeline CLI
+---
+
 🏠 [Home](./)
 
 # Using the pipeline CLI

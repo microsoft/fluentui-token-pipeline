@@ -1,3 +1,7 @@
+---
+title: Token JSON format reference
+---
+
 🏠 [Home](./)
 
 # Token JSON format reference

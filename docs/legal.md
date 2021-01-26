@@ -1,3 +1,7 @@
+---
+title: The legal stuff
+---
+
 🏠 [Home](./)
 
 # The legal stuff
