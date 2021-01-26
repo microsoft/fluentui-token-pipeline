@@ -1,3 +1,5 @@
+🏠 [Home](./)
+
 # Modifying the pipeline
 
 ## Setting up

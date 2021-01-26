@@ -1,3 +1,5 @@
+🏠 [Home](./)
+
 # Using the pipeline CLI
 
 You can use the pipeline as a command-line tool.

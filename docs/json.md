@@ -1,3 +1,5 @@
+🏠 [Home](./)
+
 # Token JSON format reference
 
 ## About design tokens

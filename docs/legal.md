@@ -1,3 +1,5 @@
+🏠 [Home](./)
+
 # The legal stuff
 
 ## Contributing
