@@ -1,0 +1,37 @@
+name: Continuous build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out the code from GitHub
+      uses: actions/checkout@v2
+
+    - name: Install Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+
+    - name: Build project
+      run: |
+        npm ci
+        npm run build --if-present
+        
+    - name: Run tests
+      run: |
+        npm run test --if-present
+        npm run transform
+
+    - name: Save test transform output as artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: test-output
+        path: build/
