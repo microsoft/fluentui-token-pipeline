@@ -22,7 +22,7 @@ jobs:
 
     - name: Build project
       run: |
-        npm ci
+        npm install
         npm run build --if-present
         
     - name: Run tests
