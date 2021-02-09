@@ -12,6 +12,7 @@ import "./fluentui-html"
 import "./fluentui-json"
 import "./fluentui-ios"
 import "./fluentui-winui"
+import "./transform-math" // just for testing
 
 export const buildOutputs = (input: string[] | string, outputPath: string, platforms: SupportedPlatform[] | undefined): void =>
 {
