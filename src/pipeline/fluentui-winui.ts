@@ -105,6 +105,13 @@ StyleDictionary.registerTransform({
 	},
 })
 
+const colorToWFColor = (color: string) =>
+{
+	if (color === "transparent") return "Transparent"
+	const str = Color(color).toHex8()
+	return `#${str.slice(6)}${str.slice(0, 6)}`
+}
+
 StyleDictionary.registerTransform({
 	name: "fluentui/color/winui",
 	type: "value",
@@ -113,10 +120,40 @@ StyleDictionary.registerTransform({
 	{
 		/*
 			Transforms a valid CSS color value into a string for Windows.Foundation.Color.
+
+			OR, if the property describes a gradient, it exports that gradient as the entire XAML markup for a LinearGradientBrush.
 		*/
-		if (prop.value === "transparent") return "Transparent"
-		const str = Color(prop.value).toHex8()
-		return `#${str.slice(6)}${str.slice(0, 6)}`
+		if (typeof prop.value === "string")
+		{
+			return colorToWFColor(prop.value)
+		}
+		else if (typeof prop.value === "object")
+		{
+			const startX: number = prop.value.start[0]
+			const startY: number = prop.value.start[1]
+			const endX: number = prop.value.end[0]
+			const endY: number = prop.value.end[1]
+
+			const stopsXaml = prop.value.stops.map(thisStop =>
+				`\t\t<GradientStop Offset="${thisStop.position}" Color="${colorToWFColor(thisStop.color)}" />`
+			).join("\n")
+
+			return { xaml:
+`<LinearGradientBrush x:Key="${prop.name}" ${prop.value.stopsUnits === "pixels" ? 'MappingMode="Absolute" ' : ""}StartPoint="${startX}, ${startY}" EndPoint="${endX}, ${endY}">
+	<LinearGradientBrush.RelativeTransform>
+		<RotateTransform Angle="0" CenterX="0.5" CenterY="0.5" />
+	</LinearGradientBrush.RelativeTransform>
+	<LinearGradientBrush.GradientStops>
+${stopsXaml}
+	</LinearGradientBrush.GradientStops>
+</LinearGradientBrush>`
+			}
+		}
+		else
+		{
+			console.error(`Unrecognized color value: "${prop.value}". Specify a valid CSS color or a gradient definition.`)
+			return prop.value
+		}
 	},
 })
 
@@ -134,6 +171,10 @@ const getAllResourcesAsString = (dictionary, indent) =>
 		{
 			return `${tabs}<StaticResource x:Key="${prop.name}" ResourceKey="${prop.attributes.aliasResourceName}" />`
 		}
+		else if (typeof prop.value === "object" && "xaml" in prop.value)
+		{
+			return `${tabs}${prop.value.xaml.replace(/\n/g, `\n${tabs}`)}`
+		}
 		else
 		{
 			const xamlType = prop.attributes.xamlType || "x:String"
@@ -146,7 +187,7 @@ StyleDictionary.registerFormat({
 	name: "fluentui/xaml/res",
 	formatter: (dictionary, config) =>
 	{
-		const resources = getAllResourcesAsString(dictionary, 1)
+		const resources = getAllResourcesAsString(dictionary, /* indent: */ 1)
 		return `<ResourceDictionary
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
@@ -166,7 +207,7 @@ StyleDictionary.registerFormat({
 	name: "fluentui/xaml/res/themed",
 	formatter: (dictionary, config) =>
 	{
-		const resources = getAllResourcesAsString(dictionary, 3)
+		const resources = getAllResourcesAsString(dictionary, /* indent: */ 3)
 		return `<ResourceDictionary
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
