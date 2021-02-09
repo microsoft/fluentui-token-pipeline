@@ -2,7 +2,9 @@ import StyleDictionary from "style-dictionary"
 import Color from "tinycolor2"
 import _ from "lodash"
 
+import { Gradient } from "./types"
 import * as Utils from "./utils"
+import { degrees } from "./transform-math"
 
 const nameForWinUI = path => _.upperFirst(_.camelCase(path.join(" ")))
 
@@ -129,25 +131,48 @@ StyleDictionary.registerTransform({
 		}
 		else if (typeof prop.value === "object")
 		{
-			const startX: number = prop.value.start[0]
-			const startY: number = prop.value.start[1]
-			const endX: number = prop.value.end[0]
-			const endY: number = prop.value.end[1]
+			const gradient = prop.value as Gradient
+			const x1: number = gradient.start[0]
+			const y1: number = gradient.start[1]
+			const x2: number = gradient.end[0]
+			const y2: number = gradient.end[1]
+			const isPixels = gradient.stopsUnits === "pixels"
+			const maxPosition = isPixels ? gradient.stops.reduce<number>((largest, pos) => Math.max(largest, pos.position), 0) : 1.0
 
-			const stopsXaml = prop.value.stops.map(thisStop =>
-				`\t\t<GradientStop Offset="${thisStop.position}" Color="${colorToWFColor(thisStop.color)}" />`
+			const stopsXaml = gradient.stops.map(thisStop =>
+				`\t\t<GradientStop Offset="${thisStop.position / maxPosition}" Color="${colorToWFColor(thisStop.color)}" />`
 			).join("\n")
+			// TODO: Handle colors as token references
 
-			return { xaml:
-`<LinearGradientBrush x:Key="${prop.name}" ${prop.value.stopsUnits === "pixels" ? 'MappingMode="Absolute" ' : ""}StartPoint="${startX}, ${startY}" EndPoint="${endX}, ${endY}">
+			let xaml: string
+			if (isPixels)
+			{
+				// Gradient stops in pixels are a bit more complex.
+				// MappingMode=Absolute causes the StartPoint and EndPoint values to be interpreted as pixels instead of [0-1], but
+				// GradientStop.Offset still needs to be specified as [0-1], and to get anything other than a top-down or left-to-right gradient,
+				// we need to apply a rotation.
+				const angle = 90 - degrees(Math.atan2(y2 - y1, x1 - x2))
+				xaml =
+`<LinearGradientBrush x:Key="${prop.name}" MappingMode="Absolute" StartPoint="0, 0" EndPoint="0, ${maxPosition}">
 	<LinearGradientBrush.RelativeTransform>
-		<RotateTransform Angle="0" CenterX="0.5" CenterY="0.5" />
+		<RotateTransform Angle="${angle}" CenterX="0.5" CenterY="0.5" />
 	</LinearGradientBrush.RelativeTransform>
 	<LinearGradientBrush.GradientStops>
 ${stopsXaml}
 	</LinearGradientBrush.GradientStops>
 </LinearGradientBrush>`
 			}
+			else
+			{
+				xaml =
+`<LinearGradientBrush x:Key="${prop.name}" StartPoint="${x1}, ${y1}" EndPoint="${x2}, ${y2}">
+	<LinearGradientBrush.GradientStops>
+${stopsXaml}
+	</LinearGradientBrush.GradientStops>
+</LinearGradientBrush>`
+			}
+
+			return { xaml: xaml }
 		}
 		else
 		{

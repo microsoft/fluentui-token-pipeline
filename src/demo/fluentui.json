@@ -12,6 +12,24 @@
 					{ "position": 1, "color": "#c0c0c0" }
 				]
 			}},
+			"FixedGradient": { "value": {
+				"start": [0, 1],
+				"end": [0, 0],
+				"stops": [
+					{ "position": 0, "color": "black" },
+					{ "position": 4, "color": "#c0c0c0" }
+				],
+				"stopsUnits": "pixels"
+			}},
+			"BottomRightGradient": { "value": {
+				"start": [1, 1],
+				"end": [0, 0],
+				"stops": [
+					{ "position": 0, "color": "black" },
+					{ "position": 4, "color": "#c0c0c0" }
+				],
+				"stopsUnits": "pixels"
+			}},
 			"Brand": {
 				"0": { "value": "hsl(206, 100%, 0%)" },
 				"2": { "value": "hsl(206, 100%, 2%)" },
