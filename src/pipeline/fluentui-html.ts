@@ -21,7 +21,7 @@ StyleDictionary.registerTransform({
 
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/html",
-	transforms: ["fluentui/attribute", "fluentui/name/reference", "fluentui/alias/reference"],
+	transforms: ["fluentui/attribute", "fluentui/name/reference", "fluentui/alias/reference", "fluentui/color/css"],
 })
 
 const getHTMLForToken = (prop) =>
@@ -29,17 +29,19 @@ const getHTMLForToken = (prop) =>
 	const tokenName = prop.name
 	const alias = prop.wasComputed ? "<em>(computed)</em>" : (prop.attributes.aliasResourceName || "")
 	const value = Utils.escapeXml(prop.value)
-	let swatch
+	let swatch: string
 
 	// Future: Handle other types of tokens
 
 	switch (prop.attributes.aliasCategory || prop.attributes.category)
 	{
 		case "color":
-			if (value === "transparent" || value === "rgba(0, 0, 0, 0)")
+			if (value === "transparent")
 				swatch = `<div class="transparent color swatch"></div>`
-			else if (value === "white" || value === "#ffffff")
+			else if (value === "#ffffff")
 				swatch = `<div class="color swatch" style="background-color: ${value}; border: 1px solid #dddddd;"></div>`
+			else if (value.startsWith("linear-gradient("))
+				swatch = `<div class="color swatch" style="background-image: ${value};"></div>`
 			else
 				swatch = `<div class="color swatch" style="background-color: ${value};"></div>`
 			break
