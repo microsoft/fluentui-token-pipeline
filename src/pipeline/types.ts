@@ -57,7 +57,7 @@ export interface Gradient
 {
 	start: [x: number, y: number]
 	end: [x: number, y: number]
-	stops: { position: number, color: string }[]
+	stops: ({ position: number } & ValueToken)[]
 	stopsUnits: "pixels" | undefined
 }
 

@@ -140,7 +140,7 @@ StyleDictionary.registerTransform({
 			const maxPosition = isPixels ? gradient.stops.reduce<number>((largest, pos) => Math.max(largest, pos.position), 0) : 1.0
 
 			const stopsXaml = gradient.stops.map(thisStop =>
-				`\t\t<GradientStop Offset="${thisStop.position / maxPosition}" Color="${colorToWFColor(thisStop.color)}" />`
+				`\t\t<GradientStop Offset="${thisStop.position / maxPosition}" Color="${colorToWFColor((thisStop as any).value)}" />`
 			).join("\n")
 			// TODO: Handle colors as token references
 

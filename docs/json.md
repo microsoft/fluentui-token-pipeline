@@ -199,8 +199,8 @@ A linear gradient with any number of stops. You can specify a gradient anywhere 
 	"start": [0, 0],
 	"end": [0, 1],
 	"stops": [
-		{ "position": 0, "color": "black" },
-		{ "position": 1, "color": "white" }
+		{ "position": 0, "value": "black" },
+		{ "position": 1, "aliasOf": "Global.Color.White" }
 	]
 }
 ```
@@ -211,7 +211,7 @@ A linear gradient with any number of stops. You can specify a gradient anywhere 
 	* `position`: The position (or "offset") of the stop, specified as a number whose scale depends on `stopsUnits`:
 		* `stopsUnits: undefined` (default): Between 0 and 1, where 0 is the start of the gradient and 1 is the end.
 		* `stopsUnits: "pixels"`: Greater than or equal to 0, where 0 is the start of the gradient and positive numbers are a number of pixels from the start.
-	* `color`: Any single valid color value.
+	* `value` or `aliasOf`: Any single valid color value, or an alias that resolves to a single valid color value.
 * `stopsUnits`: Determines how `stops.position` values are interpreted.
 
 If you're not used to specifying gradients with start and end points, here are the four most common values:
