@@ -47,4 +47,4 @@ Then, when you run `npm run build` in that repo, it would produce output into a 
 
 ## Security
 
-This project generates code. The JSON files that it accepts as input are considered trustworthy, but given a malicious input, it would likely be possible to generate malicious code. Be sure to keep this in mind if you use this project with untrusted input.
+This project generates code. The JSON files that it accepts as input are assumed trustworthy. Given a malicious input, it would be possible to generate malicious code through injection, so treat changes to your token JSON with the same scrutiny that you would give to code changes.

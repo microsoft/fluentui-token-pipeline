@@ -12,7 +12,7 @@ const getSDAttributes = (category, attribute) =>
 	{
 		if (attribute === "Radius") return { category: "size", xamlType: "CornerRadius" }
 	}
-	if (attribute === "Color") return { category: "color", xamlType: "SolidColorBrush" }
+	if (attribute === "Color") return { category: "color", xamlType: "SolidColorBrush" } // Can also be a LinearGradientBrush: the fluentui/xaml/res formats won't use the xamlType in that case
 	if (attribute === "Padding") return { category: "size", xamlType: "Thickness" }
 	if (category === "Layout")
 	{

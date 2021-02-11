@@ -187,8 +187,43 @@ Tokens can represent any of the following value types:
 A color, with or without an alpha channel, in CSS syntax.
 
 * `"#rrggbb"` or `"#rrggbbaa"`
-* `"rgb(255, 255, 255)"` or `"rgba(255, 255, 255, 0.5)"`
-* `"transparent"`, `"white"`, or `"black"`
+* `"rgb(255, 255, 255)"` or `"rgba(255, 255, 255, 0.5)"` or `"hsl(206, 100%, 50%)"`
+* `"transparent"` or `"white"` or `"black"`
+
+### Gradients
+
+A linear gradient with any number of stops. You can specify a gradient anywhere that you can specify a color, though not every UI platform supports them in all of the same places. (For example, CSS doesn't support gradient strokes except using `border-image` which doesn't look exactly the same and doesn't support corner radii.)
+
+```json
+{
+	"start": [0, 0],
+	"end": [0, 1],
+	"stops": [
+		{ "position": 0, "value": "black" },
+		{ "position": 1, "aliasOf": "Global.Color.White" }
+	]
+}
+```
+
+* `start` and `end`: The start and end points of the gradient, specified as numbers between 0 and 1 inclusive, as you would specify the gradient in [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/linearGradient) or [XAML](https://docs.microsoft.com/en-us/windows/winui/api/microsoft.ui.xaml.media.lineargradientbrush).
+	* See the table below if you're not familiar with specifying gradients in this way.
+* `stops`: An array of gradient stops.
+	* `position`: The position (or "offset") of the stop, specified as a number whose scale depends on `stopsUnits`:
+		* `stopsUnits: undefined` (default): Between 0 and 1, where 0 is the start of the gradient and 1 is the end.
+		* `stopsUnits: "pixels"`: Greater than or equal to 0, where 0 is the start of the gradient and positive numbers are a number of pixels from the start.
+	* `value` or `aliasOf`: Any single valid color value, or an alias that resolves to a single valid color value.
+* `stopsUnits`: Determines how `stops.position` values are interpreted.
+
+If you're not used to specifying gradients with start and end points, here are the four most common values:
+
+| Direction | CSS | `start` | `end` |
+| --- | --- | --- | --- |
+| Left to right | `to right` / `270deg` | `0, 0` | `1, 0` |
+| Right to left | `to left` / `90deg` | `1, 0` | `0, 0` |
+| Top to bottom | `to bottom` / `0deg` | `0, 0` | `0, 1` |
+| Bottom to top | `to top` / `180deg` | `0, 1` | `0, 0` |
+
+`start: [0, 0]` and `end: [0, 1]` can also be expressed as `start: [0.5, 0]` and `end: [0.5, 1]`: when one y-coordinate is 0 and the other is 1, the x-coordinates are irrelevant as long as they're the same value, and vice-versa.
 
 ### Widths, padding, and radii
 

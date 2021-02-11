@@ -32,7 +32,7 @@ export interface BaseToken
 
 export interface ValueToken extends BaseToken
 {
-	value: string | number | boolean | number[]
+	value: string | number | boolean | number[] | Gradient
 }
 
 export interface AliasToken extends BaseToken
@@ -51,6 +51,14 @@ export interface TokenColorComputation
 {
 	color: string
 	opacity: number
+}
+
+export interface Gradient
+{
+	start: [x: number, y: number]
+	end: [x: number, y: number]
+	stops: ({ position: number } & ValueToken)[]
+	stopsUnits: "pixels" | undefined
 }
 
 export type TokenPlatformOverrides = Partial<SupportedPlatformList<TokenSetChildren>>
