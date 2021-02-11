@@ -4,40 +4,6 @@
 	},
 	"Global": {
 		"Color": {
-			"ARegularGradient": { "value": {
-				"start": [0, 1],
-				"end": [0, 0],
-				"stops": [
-					{ "position": 0, "value": "black" },
-					{ "position": 1, "value": "#c0c0c0" }
-				]
-			}},
-			"AFixedGradient": { "value": {
-				"start": [0, 1],
-				"end": [0, 0],
-				"stops": [
-					{ "position": 0, "value": "black" },
-					{ "position": 4, "value": "#c0c0c0" }
-				],
-				"stopsUnits": "pixels"
-			}},
-			"ABottomRightFixedGradient": { "value": {
-				"start": [1, 1],
-				"end": [0, 0],
-				"stops": [
-					{ "position": 0, "value": "black" },
-					{ "position": 4, "value": "#c0c0c0" }
-				],
-				"stopsUnits": "pixels"
-			}},
-			"ATokenGradient": { "value": {
-				"start": [0, 0],
-				"end": [0, 1],
-				"stops": [
-					{ "position": 0, "aliasOf": "Global.Color.Brand.80" },
-					{ "position": 1, "aliasOf": "Global.Color.Brand.50" }
-				]
-			}},
 			"Brand": {
 				"0": { "value": "hsl(206, 100%, 0%)" },
 				"2": { "value": "hsl(206, 100%, 2%)" },
