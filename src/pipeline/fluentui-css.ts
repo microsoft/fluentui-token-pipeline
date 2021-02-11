@@ -59,9 +59,8 @@ const colorTokenToHexColor = (token: ValueToken, flat: boolean) =>
 {
 	if (!flat && "resolvedAliasPath" in token)
 		return `var(--${nameForCss((token as any).resolvedAliasPath)})`
-
-	const color = (token as any).value
-	return colorToHexColor(color)
+	else
+		return colorToHexColor(token.value as string)
 }
 
 /**
