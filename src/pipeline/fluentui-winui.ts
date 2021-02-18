@@ -6,7 +6,7 @@ import { Gradient, ValueToken } from "./types"
 import * as Utils from "./utils"
 import { degrees } from "./transform-math"
 
-const nameForWinUI = path => _.upperFirst(_.camelCase(path.join(" ")))
+const nameForWinUI = (path: string[]): string => path.map(word => word[0].toUpperCase() + word.substr(1)).join("")
 
 StyleDictionary.registerTransform({
 	name: "fluentui/name/pascal",
