@@ -197,9 +197,29 @@ ${stopsXaml}
 	},
 })
 
+StyleDictionary.registerTransform({
+	name: "fluentui/strokealignment/winui",
+	type: "value",
+	matcher: prop => prop.attributes.category === "strokeAlignment",
+	transformer: prop =>
+	{
+		/*
+			Transforms a Figma stroke alignment into a WinUI BackgroundSizing enum value.
+		*/
+		switch (prop.value.toLowerCase())
+		{
+			case "inner": return "OuterBorderEdge"
+			case "outer": return "InnerBorderEdge"
+			default:
+				console.error(`Unrecognized stroke alignment: "${prop.value}". Specify "inner" or "outer".`)
+				return prop.value
+		}
+	},
+})
+
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/winui",
-	transforms: ["fluentui/attribute", "fluentui/name/pascal", "fluentui/alias/winui", "fluentui/size/winui", "fluentui/font/winui", "fluentui/color/winui"],
+	transforms: ["fluentui/attribute", "fluentui/name/pascal", "fluentui/alias/winui", "fluentui/size/winui", "fluentui/font/winui", "fluentui/color/winui", "fluentui/strokealignment/winui"],
 })
 
 const getAllResourcesAsString = (dictionary, indent) =>

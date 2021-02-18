@@ -7,6 +7,7 @@ const getSDAttributes = (category, attribute) =>
 	if (category === "Stroke")
 	{
 		if (attribute === "Width") return { category: "size", xamlType: "Thickness" }
+		if (attribute === "Alignment") return { category: "strokeAlignment", xamlType: "BackgroundSizing" }
 	}
 	if (category === "Corner")
 	{
@@ -68,15 +69,10 @@ StyleDictionary.registerTransform({
 	},
 })
 
-// Currently used below custom filters to separate colors, fonts and sizes into a different file.
 StyleDictionary.registerFilter({
 	name: "isColor",
 	matcher: function (prop)
 	{
-		// var result = false
-		// for (var index = 0; index < prop.path.length; index++) {
-		// 	result = result || prop.path[index] == 'Color'
-		// }
 		return new Set(prop.path).has("Color")
 	},
 })

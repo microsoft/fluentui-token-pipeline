@@ -132,12 +132,32 @@ StyleDictionary.registerTransform({
 	transformer: prop => transformColor(prop, /* flat: */ true)
 })
 
+StyleDictionary.registerTransform({
+	name: "fluentui/strokealignment/css",
+	type: "value",
+	matcher: prop => prop.attributes.category === "strokeAlignment",
+	transformer: prop =>
+	{
+		/*
+			Transforms a Figma stroke alignment into a CSS background-clip enum value.
+		*/
+		switch (prop.value.toLowerCase())
+		{
+			case "inner": return "border-box"
+			case "outer": return "padding-box"
+			default:
+				console.error(`Unrecognized stroke alignment: "${prop.value}". Specify "inner" or "outer".`)
+				return prop.value
+		}
+	},
+})
+
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/css",
-	transforms: ["fluentui/attribute", "fluentui/name/kebab", "fluentui/alias/css", "time/seconds", "fluentui/size/css", "fluentui/color/css"],
+	transforms: ["fluentui/attribute", "fluentui/name/kebab", "fluentui/alias/css", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css"],
 })
 
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/cssflat",
-	transforms: ["fluentui/attribute", "fluentui/name/kebab", "time/seconds", "fluentui/size/css", "fluentui/color/cssflat"],
+	transforms: ["fluentui/attribute", "fluentui/name/kebab", "time/seconds", "fluentui/size/css", "fluentui/color/cssflat", "fluentui/strokealignment/css"],
 })

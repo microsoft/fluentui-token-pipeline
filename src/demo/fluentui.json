@@ -290,7 +290,8 @@
 					"Pressed": { "value": "transparent" },
 					"Disabled": { "value": "transparent" }
 				},
-				"Width": { "aliasOf": "Global.Stroke.Width.0" }
+				"Width": { "aliasOf": "Global.Stroke.Width.0" },
+				"Alignment": { "value": "inner" }
 			}
 		},
 		"TransparentBackground": {

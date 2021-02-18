@@ -262,3 +262,17 @@ Element widths and heights are specifed as independent properties in device-inde
 * `80`
 * <strike>**not** `"80px"`</strike>
 * <strike>**not** `"1024 768"`</strike>
+
+### Stroke alignments
+
+Stroke alignments are specified as either inner or outer. They translate to the `background-clip` property in CSS and the `BackgroundSizing` property in WinUI, and they're used for specifying how to draw a partially-transparent border.
+
+* `"inner"`: The stroke is drawn inside the edge of the control on top of the control's fill. Best for most situations.
+* `"outer"`: The stroke is drawn outside the control's fill on top of the content behind the control.
+
+| Stroke alignment | CSS | WinUI |
+| --- | --- | --- |
+| `"inner"` | `background-clip: border-box` | `BackgroundSizing="OuterBorderEdge"` |
+| `"outer"` | `background-clip: padding-box` | `BackgroundSizing="InnerBorderEdge"` |
+
+Note that stroke alignment doesn't actually affect the sizing of the element, and is different from `border-box` in CSS. It's also intentional that, for example, `"inner"` specifies `OuterBorderEdge` in WinUI: the token value represents the stroke, but the UI platform property represents the fill, so the terminology is roughly reversed.
