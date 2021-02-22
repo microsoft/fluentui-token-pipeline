@@ -7,7 +7,7 @@
 		"esModuleInterop": true,
 		"experimentalDecorators": true,
 		"lib": [ "ES2017", "dom" ],
-		"module": "ES6",
+		"module": "CommonJS",
 		"moduleResolution": "node",
 		"noEmit": false,
 		"noEmitOnError": true,
@@ -19,6 +19,7 @@
 		"removeComments": true,
 		"rootDir": "./src",
 		"skipLibCheck": true,
+		"sourceMap": true,
 		"strictNullChecks": true,
 		"target": "ESNext"
 	},
