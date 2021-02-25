@@ -12,7 +12,6 @@ import "./fluentui-html"
 import "./fluentui-json"
 import "./fluentui-ios"
 import "./fluentui-winui"
-import "./transform-math" // just for testing
 
 export const buildOutputs = (input: string[] | string, outputPath: string, platforms: SupportedPlatform[] | undefined): void =>
 {
@@ -35,7 +34,7 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 			{
 				transformGroup: "js",
 				buildPath: `${outputPath}/debug/`,
-				files: [{ destination: "fluentuitokens-debug.json", format: "json" }],
+				files: [{ destination: "tokens-debug.json", format: "json" }],
 			}
 		}
 	)
@@ -46,7 +45,10 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 			{
 				transformGroup: "fluentui/json/grouped",
 				buildPath: `${outputPath}/json/`,
-				files: [{ destination: "fluentuitokens-grouped.json", format: "fluentui/json/grouped" }],
+				files: [
+					{ destination: "tokens-aliases.json", format: "fluentui/json/grouped", filter: "isAlias" },
+					{ destination: "tokens-controls.json", format: "fluentui/json/grouped", filter: "isControl" },
+				],
 			}
 		}
 	)
@@ -57,7 +59,7 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 			{
 				transformGroup: "fluentui/html",
 				buildPath: `${outputPath}/reference/`,
-				files: [{ destination: "fluentuitokens.html", format: "fluentui/html/reference" }],
+				files: [{ destination: "index.html", format: "fluentui/html/reference" }],
 			}
 		}
 	)
@@ -69,10 +71,10 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 				transformGroup: "fluentui/swift",
 				buildPath: `${outputPath}/ios/`,
 				files: [
-					{ destination: "FluentUITokens.swift", format: "ios-swift/class.swift", className: "FluentUITokens" },
-					{ destination: "FluentUIColorTokens.swift", format: "ios-swift/class.swift", className: "FluentUIColorTokens", filter: "isColor" },
-					{ destination: "FluentUISizeTokens.swift", format: "ios-swift/class.swift", className: "FluentUISizeTokens", filter: "isSize" },
-					{ destination: "FluentUIFontTokens.swift", format: "ios-swift/class.swift", className: "FluentUIFontTokens", filter: "isFont" },
+					{ destination: "Tokens.swift", format: "ios-swift/class.swift", className: "Tokens" },
+					{ destination: "ColorTokens.swift", format: "ios-swift/class.swift", className: "ColorTokens", filter: "isColor" },
+					{ destination: "SizeTokens.swift", format: "ios-swift/class.swift", className: "SizeTokens", filter: "isSize" },
+					{ destination: "FontTokens.swift", format: "ios-swift/class.swift", className: "FontTokens", filter: "isFont" },
 				],
 			}
 		}
@@ -86,13 +88,13 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 				{
 					transformGroup: "fluentui/css",
 					buildPath: `${outputPath}/web/`,
-					files: [{ destination: "fluentuitokens.css", format: "css/variables" }],
+					files: [{ destination: "tokens.css", format: "css/variables" }],
 				},
 				cssflat:
 				{
 					transformGroup: "fluentui/cssflat",
 					buildPath: `${outputPath}/web/`,
-					files: [{ destination: "fluentuitokens-flat.css", format: "css/variables" }],
+					files: [{ destination: "tokens-flat.css", format: "css/variables" }],
 				}
 			}
 		)
@@ -105,8 +107,8 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 				transformGroup: "fluentui/winui",
 				buildPath: `${outputPath}/winui/`,
 				files: [
-					{ destination: "FluentUITokens.xaml", format: "fluentui/xaml/res" },
-					{ destination: "FluentUITokensThemed.xaml", format: "fluentui/xaml/res/themed" },
+					{ destination: "Tokens.xaml", format: "fluentui/xaml/res" },
+					{ destination: "ThemedTokens.xaml", format: "fluentui/xaml/res/themed" },
 				],
 			}
 		}

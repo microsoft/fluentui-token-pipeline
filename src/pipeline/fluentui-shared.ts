@@ -69,6 +69,28 @@ StyleDictionary.registerTransform({
 	},
 })
 
+StyleDictionary.registerTransform({
+	name: "fluentui/alias/flatten",
+	type: "attribute",
+	matcher: prop => "aliasCategory" in prop.attributes,
+	transformer: (prop, options) =>({ category: prop.attributes.aliasCategory }),
+})
+
+StyleDictionary.registerFilter({
+	name: "isAlias",
+	matcher: prop => prop.path[0] === "Set",
+})
+
+StyleDictionary.registerFilter({
+	name: "isControl",
+	matcher: prop =>
+	{
+		const rootName = prop.path[0]
+		return rootName !== "Global" && rootName !== "Set"
+	},
+})
+
+// This is only for the Build demo iOS export. Don't use it in new code.
 StyleDictionary.registerFilter({
 	name: "isColor",
 	matcher: function (prop)
@@ -77,6 +99,7 @@ StyleDictionary.registerFilter({
 	},
 })
 
+// This is only for the Build demo iOS export. Don't use it in new code.
 StyleDictionary.registerFilter({
 	name: "isSize",
 	matcher: function (prop)
@@ -86,6 +109,7 @@ StyleDictionary.registerFilter({
 	},
 })
 
+// This is only for the Build demo iOS export. Don't use it in new code.
 StyleDictionary.registerFilter({
 	name: "isFont",
 	matcher: function (prop)

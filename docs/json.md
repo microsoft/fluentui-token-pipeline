@@ -17,7 +17,7 @@ But let's get clear on the naming system that we have for different types of tok
 * Alias sets are just groups of alias tokens that can be reused for convenience and consistency. For example, `Set.AccentActionControl.Fill.Color` is a set that defines `.Rest`, `.Hover`, `.Pressed`, and `.Disabled` colors for that same part of the same type of control. Assigning something else to be an alias of that set is just a simpler way of assigning individual Rest, Hover, Press, and Disabled properties to those individual alias tokens—it's exactly equivalent.
 * Finally, controls in your UI platform of choice get their default styling values from control mappings, also known as control tokens. For example, an accent-colored button's base (background) element's fill color when hovered should be set to `AccentButton.Base.Fill.Color.Hover`.
 
-After transforming once, it can sometimes be helpful to refer to [`build/reference/fluentuitokens.html`](build/reference/fluentuitokens.html)—it's effectively a more human-readable version of your token JSON that gets built by the pipeline.
+After transforming once, it can sometimes be helpful to refer to [`build/reference/index.html`](build/reference/index.html)—it's effectively a more human-readable version of your token JSON that gets built by the pipeline.
 
 ## Token organization
 

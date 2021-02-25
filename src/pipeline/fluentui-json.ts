@@ -1,7 +1,6 @@
 import StyleDictionary from "style-dictionary"
 import _ from "lodash"
 
-import { TokenSet } from "./types"
 import * as Utils from "./utils"
 
 // This name is only used for sorting; we don't use it in output.
@@ -15,7 +14,7 @@ StyleDictionary.registerTransform({
 
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/json/grouped",
-	transforms: ["fluentui/attribute", "fluentui/name/json/grouped"],
+	transforms: ["fluentui/attribute", "fluentui/name/json/grouped", "fluentui/alias/flatten", "fluentui/color/css"],
 })
 
 StyleDictionary.registerFormat({
@@ -26,22 +25,33 @@ StyleDictionary.registerFormat({
 		const sortedProps = Utils.sortPropertiesForReadability(dictionary.allProperties)
 		const tokens: any = {}
 		let previousProp: any | null = null
+		let previousPropRoot: string | null = null
 		let thisOutputObject: any | null = null
 		for (const thisProp of sortedProps)
 		{
-			if (thisProp.path[0] === "Global" || thisProp.path[0] === "Set") continue
-
-			if (!previousProp || thisProp.path[0] !== previousProp.path[0])
+			let rootName = _.camelCase(thisProp.path[0])
+			let meaningfulPathStart = 1
+			if (rootName === "set" && thisProp.path.length > 1)
 			{
-				const controlName = _.camelCase(thisProp.path[0])
-				tokens[controlName] = thisOutputObject = tokens[controlName] || {}
+				meaningfulPathStart = 2
+				rootName = _.camelCase(thisProp.path[1])
+			}
+			if (thisProp.path.length > 2 && thisProp.path[1] === "Base")
+			{
+				meaningfulPathStart = 2
+			}
+			meaningfulPathStart = Math.min(meaningfulPathStart, thisProp.path.length - 1)
+
+			if (!previousProp || rootName !== previousPropRoot)
+			{
+				tokens[rootName] = thisOutputObject = tokens[rootName] || {}
 			}
 
-			const meaningfulPathStart = (thisProp.path.length > 2 && thisProp.path[1] === "Base") ? 2 : 1
 			const exportName = _.camelCase(thisProp.path.slice(meaningfulPathStart).join(" "))
 			thisOutputObject[exportName] = thisProp.value
 
 			previousProp = thisProp
+			previousPropRoot = rootName
 		}
 
 		return JSON.stringify(tokens, /* replacer: */ undefined, /* space: */ "\t")

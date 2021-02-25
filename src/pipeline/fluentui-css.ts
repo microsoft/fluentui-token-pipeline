@@ -55,13 +55,7 @@ const colorToHexColor = (color: string) =>
 	return Color(color).toHexString()
 }
 
-const colorTokenToHexColor = (token: ValueToken, flat: boolean) =>
-{
-	if (!flat && "resolvedAliasPath" in token)
-		return `var(--${nameForCss((token as any).resolvedAliasPath)})`
-	else
-		return colorToHexColor(token.value as string)
-}
+const colorTokenToHexColor = (token: ValueToken) => colorToHexColor(token.value as string)
 
 /**
 	Takes an angle of the start of a gradient and transforms it into the format required by CSS linear-gradient().
@@ -83,53 +77,44 @@ const cssAngle = (deg: number) =>
 
 const percent = (float: number) => `${(float * 100)}%`
 
-const transformColor = (prop: any, flat: boolean): any =>
-{
-	/*
-		Normalizes valid CSS color values for output.
-
-		OR, if the property describes a gradient, it exports that gradient as a linear-gradient() CSS function.
-	*/
-	if (typeof prop.value === "string")
-	{
-		return colorToHexColor(prop.value)
-	}
-	else if (typeof prop.value === "object")
-	{
-		const gradient = prop.value as Gradient
-		const x1: number = gradient.start[0]
-		const y1: number = gradient.start[1]
-		const x2: number = gradient.end[0]
-		const y2: number = gradient.end[1]
-		const isPixels = gradient.stopsUnits === "pixels"
-		const isRegularTwoStop = !isPixels && gradient.stops.length === 2 && gradient.stops[0].position === 0 && gradient.stops[1].position === 1
-
-		const stopsText = gradient.stops.map(thisStop =>
-			`${colorTokenToHexColor(thisStop, flat)}${isRegularTwoStop ? "" : ` ${isPixels ? `${thisStop.position}px` : percent(thisStop.position)}`}`
-		).join(", ")
-
-		const angleText = cssAngle(90 - degrees(Math.atan2(y2 - y1, x1 - x2)))
-		return `linear-gradient(${angleText}, ${stopsText})`
-	}
-	else
-	{
-		console.error(`Unrecognized color value: "${prop.value}". Specify a valid CSS color or a gradient definition.`)
-		return prop.value
-	}
-}
-
 StyleDictionary.registerTransform({
 	name: "fluentui/color/css",
 	type: "value",
 	matcher: prop => prop.attributes.category === "color",
-	transformer: prop => transformColor(prop, /* flat: */ false)
-})
+	transformer: prop =>
+	{
+		/*
+			Normalizes valid CSS color values for output.
 
-StyleDictionary.registerTransform({
-	name: "fluentui/color/cssflat",
-	type: "value",
-	matcher: prop => prop.attributes.category === "color",
-	transformer: prop => transformColor(prop, /* flat: */ true)
+			OR, if the property describes a gradient, it exports that gradient as a linear-gradient() CSS function.
+		*/
+		if (typeof prop.value === "string")
+		{
+			return colorToHexColor(prop.value)
+		}
+		else if (typeof prop.value === "object")
+		{
+			const gradient = prop.value as Gradient
+			const x1: number = gradient.start[0]
+			const y1: number = gradient.start[1]
+			const x2: number = gradient.end[0]
+			const y2: number = gradient.end[1]
+			const isPixels = gradient.stopsUnits === "pixels"
+			const isRegularTwoStop = !isPixels && gradient.stops.length === 2 && gradient.stops[0].position === 0 && gradient.stops[1].position === 1
+
+			const stopsText = gradient.stops.map(thisStop =>
+				`${colorTokenToHexColor(thisStop)}${isRegularTwoStop ? "" : ` ${isPixels ? `${thisStop.position}px` : percent(thisStop.position)}`}`
+			).join(", ")
+
+			const angleText = cssAngle(90 - degrees(Math.atan2(y2 - y1, x1 - x2)))
+			return `linear-gradient(${angleText}, ${stopsText})`
+		}
+		else
+		{
+			console.error(`Unrecognized color value: "${prop.value}". Specify a valid CSS color or a gradient definition.`)
+			return prop.value
+		}
+	}
 })
 
 StyleDictionary.registerTransform({
@@ -159,5 +144,5 @@ StyleDictionary.registerTransformGroup({
 
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/cssflat",
-	transforms: ["fluentui/attribute", "fluentui/name/kebab", "time/seconds", "fluentui/size/css", "fluentui/color/cssflat", "fluentui/strokealignment/css"],
+	transforms: ["fluentui/attribute", "fluentui/name/kebab", "fluentui/alias/flatten", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css"],
 })

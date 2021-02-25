@@ -10,13 +10,6 @@ StyleDictionary.registerTransform({
 	transformer: prop => nameForSwift(Utils.getTokenExportPath(prop)),
 })
 
-StyleDictionary.registerTransform({
-	name: "fluentui/alias/swift",
-	type: "value",
-	matcher: prop => "resolvedAliasPath" in prop,
-	transformer: prop => nameForSwift(prop.resolvedAliasPath),
-})
-
 const getCGFloatFromNumber = (value) => parseFloat(value).toFixed(1)
 
 StyleDictionary.registerTransform({
@@ -50,5 +43,5 @@ StyleDictionary.registerTransform({
 
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/swift",
-	transforms: ["fluentui/attribute", "fluentui/name/swift", "fluentui/alias/swift", "time/seconds", "fluentui/size/swift", "font/swift/literal", "color/UIColorSwift"],
+	transforms: ["fluentui/attribute", "fluentui/name/swift", "fluentui/alias/flatten", "time/seconds", "fluentui/size/swift", "font/swift/literal", "color/UIColorSwift"],
 })
