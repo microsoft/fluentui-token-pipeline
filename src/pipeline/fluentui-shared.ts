@@ -13,7 +13,8 @@ const getSDAttributes = (category, attribute) =>
 	{
 		if (attribute === "Radius") return { category: "size", xamlType: "CornerRadius" }
 	}
-	if (attribute === "Color") return { category: "color", xamlType: "SolidColorBrush" } // Can also be a LinearGradientBrush: the fluentui/xaml/res formats won't use the xamlType in that case
+	// Color is a special case: you can skip the word before it (Fill or Stroke) in case your color sets are more general and not specific to fills or strokes.
+	if (category === "Color" || attribute === "Color") return { category: "color", xamlType: "SolidColorBrush" } // Can also be a LinearGradientBrush: the fluentui/xaml/res formats won't use the xamlType in that case
 	if (attribute === "Padding") return { category: "size", xamlType: "Thickness" }
 	if (category === "Layout")
 	{
