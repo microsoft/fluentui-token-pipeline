@@ -24,3 +24,5 @@ Open one of the pages in `src/demo/web/` in a browser after transforming to see 
 
 * **Sample app:** `src/demo/web/app-demo.html`
 * **Button styles:** `src/demo/web/buttons-demo.html`
+
+If you want to test the `transform-tokens` CLI tool directly, use `npm link`.

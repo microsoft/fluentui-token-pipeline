@@ -13,8 +13,7 @@ You can use the pipeline as a command-line tool.
 Install [Node.js](https://nodejs.org/), and then do *one* of the following:
 
 * Clone this repo and build it, and then run `npm link` to install the tool globally
-* From *another* repo, add a dev dependency on `fluentui-token-pipeline`
-	* **Important:** This package is currently not published on NPM, so this won't work yet without some `npm link` usage
+* From *another* repo, add a dev dependency on `@fluentui/token-pipeline`
 
 Once you have the tool set up, run:
 
@@ -36,7 +35,7 @@ You can use this CLI as a build step in another repo with this in your `package.
 
 ```json
 "devDependencies": {
-	"fluentui-token-pipeline": "0.2.0"
+	"@fluentui/token-pipeline": "0.3.3"
 },
 "scripts": {
 	"build": "transform-tokens --in tokens.json --out build"

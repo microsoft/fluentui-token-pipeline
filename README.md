@@ -6,7 +6,7 @@ It's currently a functional prototype, and is expected to undergo significant ch
 
 * **[Documentation site](https://microsoft.github.io/fluentui-token-pipeline/)**
 * [Source code on GitHub](https://github.com/microsoft/fluentui-token-pipeline)
-* *not available on NPM yet*
+* [`@fluentui/token-pipeline` on NPM](https://www.npmjs.com/package/@fluentui/token-pipeline)
 
 ---
 

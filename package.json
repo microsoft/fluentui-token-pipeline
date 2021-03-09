@@ -1,8 +1,7 @@
 {
-	"name": "fluentui-token-pipeline",
-	"version": "0.3.2",
+	"name": "@fluentui/token-pipeline",
+	"version": "0.3.3",
 	"description": "The Fluent UI design token pipeline",
-	"private": true,
 	"repository": {
 		"type": "git",
 		"url": "git://github.com/microsoft/fluentui-token-pipeline.git"
@@ -12,7 +11,7 @@
 	"bugs": {
 		"url": "https://github.com/microsoft/fluentui-token-pipeline/issues"
 	},
-	"homepage": "https://github.com/microsoft/fluentui-token-pipeline",
+	"homepage": "https://microsoft.github.io/fluentui-token-pipeline",
 	"dependencies": {
 		"args": "^5.0.1",
 		"esm": "^3.2.25",
@@ -43,8 +42,16 @@
 	"bin": {
 		"transform-tokens": "dist/cli/index.js"
 	},
+	"files": [
+		"*.md",
+		"dist/**/*"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
 	"scripts": {
 		"prepare": "npm run build",
+		"prepublish": "npm run build",
 		"build": "gulp build",
 		"watch": "gulp watch",
 		"transform": "node dist/cli --in src/demo/fluentui.json --out build"

@@ -6,7 +6,7 @@ title: Fluent UI token pipeline
 
 The Fluent UI token pipeline transforms JSON files describing design tokens into source code for eventual use in the Fluent UI libraries.
 
-It's currently a functional prototype, and is expected to undergo significant changes before production use, if at all. The actual token values are also just examples at this stage, and they do not represent an evolution of Microsoft's design system. Not all features shown at Build 2020 are currently available for testing.
+It's currently a functional prototype, and may undergo significant changes before production use, if at all. The actual token values in the `src/demo` folder are just examples, and they do not represent an evolution of Microsoft's design systems.
 
 # The docs
 
@@ -14,3 +14,7 @@ It's currently a functional prototype, and is expected to undergo significant ch
 * [Getting started: building the pipeline](build.md)
 * [Token JSON format reference](json.md)
 * [The legal stuff](legal.md)
+
+# Other links
+
+* [`@fluentui/token-pipeline` on NPM](https://www.npmjs.com/package/@fluentui/token-pipeline)
