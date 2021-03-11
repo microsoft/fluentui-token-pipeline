@@ -11,7 +11,7 @@ Example script to convert a text file of token names into JSON mappings
 */
 
 const inputFilename = "src/demo/winui-mappings.txt"
-const outputFilename = "build/winui-mappings.json"
+const outputFilename = "src/demo/winui-mappings.json"
 // 0 is column A, 1 is column B, and so on
 const winuiNameColumn = 0
 const tokenNameColumn = 2

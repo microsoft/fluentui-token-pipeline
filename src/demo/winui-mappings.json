@@ -1,0 +1,1819 @@
+{
+	"Meta": {
+		"FluentUITokensVersion": 0
+	},
+	"ButtonPrimary": {
+		"Base": {
+			"Fill": {
+				"Color": {
+					"Rest": {
+						"platform": {
+							"winui": {
+								"fullName": "AccentButtonBackground"
+							}
+						}
+					},
+					"Disabled": {
+						"platform": {
+							"winui": {
+								"fullName": "AccentButtonBackgroundDisabled"
+							}
+						}
+					},
+					"Hover": {
+						"platform": {
+							"winui": {
+								"fullName": "AccentButtonBackgroundPointerOver"
+							}
+						}
+					},
+					"Pressed": {
+						"platform": {
+							"winui": {
+								"fullName": "AccentButtonBackgroundPressed"
+							}
+						}
+					}
+				}
+			},
+			"Stroke": {
+				"Color": {
+					"Rest": {
+						"platform": {
+							"winui": {
+								"fullName": "AccentButtonBorderBrush"
+							}
+						}
+					},
+					"Disabled": {
+						"platform": {
+							"winui": {
+								"fullName": "AccentButtonBorderBrushDisabled"
+							}
+						}
+					},
+					"Hover": {
+						"platform": {
+							"winui": {
+								"fullName": "AccentButtonBorderBrushPointerOver"
+							}
+						}
+					},
+					"Pressed": {
+						"platform": {
+							"winui": {
+								"fullName": "AccentButtonBorderBrushPressed"
+							}
+						}
+					}
+				}
+			}
+		},
+		"Text": {
+			"Fill": {
+				"Color": {
+					"Rest": {
+						"platform": {
+							"winui": {
+								"fullName": "AccentButtonForeground"
+							}
+						}
+					},
+					"Disabled": {
+						"platform": {
+							"winui": {
+								"fullName": "AccentButtonForegroundDisabled"
+							}
+						}
+					},
+					"Hover": {
+						"platform": {
+							"winui": {
+								"fullName": "AccentButtonForegroundPointerOver"
+							}
+						}
+					},
+					"Pressed": {
+						"platform": {
+							"winui": {
+								"fullName": "AccentButtonForegroundPressed"
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"AppBarButton": {
+		"Base": {
+			"Fill": {
+				"Color": {
+					"Rest": {
+						"platform": {
+							"winui": {
+								"fullName": "AppBarButtonBackgroundPressed"
+							}
+						}
+					}
+				}
+			},
+			"Stroke": {
+				"Fill": {
+					"Color": {
+						"Rest": {
+							"platform": {
+								"winui": {
+									"fullName": "AppBarButtonBorderBrush"
+								}
+							}
+						},
+						"Disabled": {
+							"platform": {
+								"winui": {
+									"fullName": "AppBarButtonBorderBrushDisabled"
+								}
+							}
+						},
+						"Hover": {
+							"platform": {
+								"winui": {
+									"fullName": "AppBarButtonBorderBrushPointerOver"
+								}
+							}
+						},
+						"Pressed": {
+							"platform": {
+								"winui": {
+									"fullName": "AppBarButtonBorderBrushPressed"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"Text": {
+			"Fill": {
+				"Color": {
+					"Rest": {
+						"platform": {
+							"winui": {
+								"fullName": "AppBarButtonForeground"
+							}
+						}
+					},
+					"Disabled": {
+						"platform": {
+							"winui": {
+								"fullName": "AppBarButtonForegroundDisabled"
+							}
+						}
+					},
+					"Hover": {
+						"platform": {
+							"winui": {
+								"fullName": "AppBarButtonForegroundPointerOver"
+							}
+						}
+					},
+					"Pressed": {
+						"platform": {
+							"winui": {
+								"fullName": "AppBarButtonForegroundPressed"
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"AppBarToggleButton": {
+		"Base": {
+			"Fill": {
+				"Color": {
+					"Rest": {
+						"platform": {
+							"winui": {
+								"fullName": "AppBarToggleButtonBackground"
+							}
+						}
+					},
+					"Selected": {
+						"Rest": {
+							"platform": {
+								"winui": {
+									"fullName": "AppBarToggleButtonBackgroundChecked"
+								}
+							}
+						},
+						"Disabled": {
+							"platform": {
+								"winui": {
+									"fullName": "AppBarToggleButtonBackgroundCheckedDisabled"
+								}
+							}
+						},
+						"Hover": {
+							"platform": {
+								"winui": {
+									"fullName": "AppBarToggleButtonBackgroundCheckedPointerOver"
+								}
+							}
+						},
+						"Pressed": {
+							"platform": {
+								"winui": {
+									"fullName": "AppBarToggleButtonBackgroundCheckedPressed"
+								}
+							}
+						}
+					},
+					"Disabled": {
+						"platform": {
+							"winui": {
+								"fullName": "AppBarToggleButtonBackgroundDisabled"
+							}
+						}
+					}
+				}
+			},
+			"Stroke": {
+				"Color": {
+					"Rest": {
+						"platform": {
+							"winui": {
+								"fullName": "AppBarToggleButtonBorderBrush"
+							}
+						}
+					},
+					"Selected": {
+						"Rest": {
+							"platform": {
+								"winui": {
+									"fullName": "AppBarToggleButtonBorderBrushChecked"
+								}
+							}
+						},
+						"Disabled": {
+							"platform": {
+								"winui": {
+									"fullName": "AppBarToggleButtonBorderBrushCheckedDisabled"
+								}
+							}
+						},
+						"Hover": {
+							"platform": {
+								"winui": {
+									"fullName": "AppBarToggleButtonBorderBrushCheckedPointerOver"
+								}
+							}
+						},
+						"Pressed": {
+							"platform": {
+								"winui": {
+									"fullName": "AppBarToggleButtonBorderBrushCheckedPressed"
+								}
+							}
+						}
+					},
+					"Disabled": {
+						"platform": {
+							"winui": {
+								"fullName": "AppBarToggleButtonBorderBrushDisabled"
+							}
+						}
+					},
+					"Hover": {
+						"platform": {
+							"winui": {
+								"fullName": "AppBarToggleButtonBorderBrushPointerOver"
+							}
+						}
+					},
+					"Pressed": {
+						"platform": {
+							"winui": {
+								"fullName": "AppBarToggleButtonBorderBrushPressed"
+							}
+						}
+					}
+				}
+			}
+		},
+		"Check": {
+			"Fill": {
+				"Color": {
+					"Rest": {
+						"platform": {
+							"winui": {
+								"fullName": "AppBarToggleButtonCheckGlyphForeground"
+							}
+						}
+					},
+					"Selected": {
+						"Rest": {
+							"platform": {
+								"winui": {
+									"fullName": "AppBarToggleButtonCheckGlyphForegroundChecked"
+								}
+							}
+						},
+						"Disabled": {
+							"platform": {
+								"winui": {
+									"fullName": "AppBarToggleButtonCheckGlyphForegroundCheckedDisabled"
+								}
+							}
+						},
+						"Hover": {
+							"platform": {
+								"winui": {
+									"fullName": "AppBarToggleButtonCheckGlyphForegroundCheckedPointerOver"
+								}
+							}
+						},
+						"Pressed": {
+							"platform": {
+								"winui": {
+									"fullName": "AppBarToggleButtonCheckGlyphForegroundCheckedPressed"
+								}
+							}
+						}
+					},
+					"Disabled": {
+						"platform": {
+							"winui": {
+								"fullName": "AppBarToggleButtonCheckGlyphForegroundDisabled"
+							}
+						}
+					},
+					"Hover": {
+						"platform": {
+							"winui": {
+								"fullName": "AppBarToggleButtonCheckGlyphForegroundPointerOver"
+							}
+						}
+					},
+					"Pressed": {
+						"platform": {
+							"winui": {
+								"fullName": "AppBarToggleButtonCheckGlyphForegroundPressed"
+							}
+						}
+					}
+				}
+			}
+		},
+		"Text": {
+			"Fill": {
+				"Color": {
+					"Rest": {
+						"platform": {
+							"winui": {
+								"fullName": "AppBarToggleButtonForeground"
+							}
+						}
+					},
+					"Selected": {
+						"Rest": {
+							"platform": {
+								"winui": {
+									"fullName": "AppBarToggleButtonForegroundChecked"
+								}
+							}
+						},
+						"Disabled": {
+							"platform": {
+								"winui": {
+									"fullName": "AppBarToggleButtonForegroundCheckedDisabled"
+								}
+							}
+						},
+						"Hover": {
+							"platform": {
+								"winui": {
+									"fullName": "AppBarToggleButtonForegroundCheckedPointerOver"
+								}
+							}
+						},
+						"Pressed": {
+							"platform": {
+								"winui": {
+									"fullName": "AppBarToggleButtonForegroundCheckedPressed"
+								}
+							}
+						}
+					},
+					"Disabled": {
+						"platform": {
+							"winui": {
+								"fullName": "AppBarToggleButtonForegroundDisabled"
+							}
+						}
+					},
+					"Hover": {
+						"platform": {
+							"winui": {
+								"fullName": "AppBarToggleButtonForegroundPointerOver"
+							}
+						}
+					},
+					"Pressed": {
+						"platform": {
+							"winui": {
+								"fullName": "AppBarToggleButtonForegroundPressed"
+							}
+						}
+					}
+				}
+			}
+		},
+		"Chevron": {
+			"Fill": {
+				"Color": {
+					"Selected": {
+						"Disabled": {
+							"platform": {
+								"winui": {
+									"fullName": "AppBarToggleButtonOverflowLabelForegroundCheckedDisabled"
+								}
+							}
+						},
+						"Hover": {
+							"platform": {
+								"winui": {
+									"fullName": "AppBarToggleButtonOverflowLabelForegroundCheckedPointerOver"
+								}
+							}
+						},
+						"Pressed": {
+							"platform": {
+								"winui": {
+									"fullName": "AppBarToggleButtonOverflowLabelForegroundCheckedPressed"
+								}
+							}
+						}
+					},
+					"Disabled": {
+						"platform": {
+							"winui": {
+								"fullName": "AppBarToggleButtonOverflowLabelForegroundDisabled"
+							}
+						}
+					},
+					"Hover": {
+						"platform": {
+							"winui": {
+								"fullName": "AppBarToggleButtonOverflowLabelForegroundPointerOver"
+							}
+						}
+					},
+					"Pressed": {
+						"platform": {
+							"winui": {
+								"fullName": "AppBarToggleButtonOverflowLabelForegroundPressed"
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"Button": {
+		"Base": {
+			"Fill": {
+				"Color": {
+					"Rest": {
+						"platform": {
+							"winui": {
+								"fullName": "ButtonBackground"
+							}
+						}
+					},
+					"Disabled": {
+						"platform": {
+							"winui": {
+								"fullName": "ButtonBackgroundDisabled"
+							}
+						}
+					},
+					"Hover": {
+						"platform": {
+							"winui": {
+								"fullName": "ButtonBackgroundPointerOver"
+							}
+						}
+					},
+					"Pressed": {
+						"platform": {
+							"winui": {
+								"fullName": "ButtonBackgroundPressed"
+							}
+						}
+					}
+				}
+			},
+			"Stroke": {
+				"Color": {
+					"Rest": {
+						"platform": {
+							"winui": {
+								"fullName": "ButtonBorderBrush"
+							}
+						}
+					},
+					"Disabled": {
+						"platform": {
+							"winui": {
+								"fullName": "ButtonBorderBrushDisabled"
+							}
+						}
+					},
+					"Hover": {
+						"platform": {
+							"winui": {
+								"fullName": "ButtonBorderBrushPointerOver"
+							}
+						}
+					},
+					"Pressed": {
+						"platform": {
+							"winui": {
+								"fullName": "ButtonBorderBrushPressed"
+							}
+						}
+					}
+				}
+			}
+		},
+		"Text": {
+			"Fill": {
+				"Color": {
+					"Rest": {
+						"platform": {
+							"winui": {
+								"fullName": "ButtonForeground"
+							}
+						}
+					},
+					"Disabled": {
+						"platform": {
+							"winui": {
+								"fullName": "ButtonForegroundDisabled"
+							}
+						}
+					},
+					"Hover": {
+						"platform": {
+							"winui": {
+								"fullName": "ButtonForegroundPointerOver"
+							}
+						}
+					},
+					"Pressed": {
+						"platform": {
+							"winui": {
+								"fullName": "ButtonForegroundPressed"
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"CheckBox": {
+		"Base": {
+			"Fill": {
+				"Color": {
+					"Selected": {
+						"Rest": {
+							"platform": {
+								"winui": {
+									"fullName": "CheckBoxCheckBackgroundFillChecked"
+								}
+							}
+						},
+						"Disabled": {
+							"platform": {
+								"winui": {
+									"fullName": "CheckBoxCheckBackgroundFillCheckedDisabled"
+								}
+							}
+						},
+						"Hover": {
+							"platform": {
+								"winui": {
+									"fullName": "CheckBoxCheckBackgroundFillCheckedPointerOver"
+								}
+							}
+						},
+						"Pressed": {
+							"platform": {
+								"winui": {
+									"fullName": "CheckBoxCheckBackgroundFillCheckedPressed"
+								}
+							}
+						}
+					},
+					"Indeterminate": {
+						"Rest": {
+							"platform": {
+								"winui": {
+									"fullName": "CheckBoxCheckBackgroundFillIndeterminate"
+								}
+							}
+						},
+						"Disabled": {
+							"platform": {
+								"winui": {
+									"fullName": "CheckBoxCheckBackgroundFillIndeterminateDisabled"
+								}
+							}
+						},
+						"Hover": {
+							"platform": {
+								"winui": {
+									"fullName": "CheckBoxCheckBackgroundFillIndeterminatePointerOver"
+								}
+							}
+						},
+						"Pressed": {
+							"platform": {
+								"winui": {
+									"fullName": "CheckBoxCheckBackgroundFillIndeterminatePressed"
+								}
+							}
+						}
+					},
+					"Rest": {
+						"platform": {
+							"winui": {
+								"fullName": "CheckBoxCheckBackgroundFillUnchecked"
+							}
+						}
+					},
+					"Disabled": {
+						"platform": {
+							"winui": {
+								"fullName": "CheckBoxCheckBackgroundFillUncheckedDisabled"
+							}
+						}
+					},
+					"Hover": {
+						"platform": {
+							"winui": {
+								"fullName": "CheckBoxCheckBackgroundFillUncheckedPointerOver"
+							}
+						}
+					},
+					"Pressed": {
+						"platform": {
+							"winui": {
+								"fullName": "CheckBoxCheckBackgroundFillUncheckedPressed"
+							}
+						}
+					}
+				}
+			},
+			"Stroke": {
+				"Color": {
+					"Selected": {
+						"Rest": {
+							"platform": {
+								"winui": {
+									"fullName": "CheckBoxCheckBackgroundStrokeChecked"
+								}
+							}
+						},
+						"Disabled": {
+							"platform": {
+								"winui": {
+									"fullName": "CheckBoxCheckBackgroundStrokeCheckedDisabled"
+								}
+							}
+						},
+						"Hover": {
+							"platform": {
+								"winui": {
+									"fullName": "CheckBoxCheckBackgroundStrokeCheckedPointerOver"
+								}
+							}
+						},
+						"Pressed": {
+							"platform": {
+								"winui": {
+									"fullName": "CheckBoxCheckBackgroundStrokeCheckedPressed"
+								}
+							}
+						}
+					},
+					"Indeterminate": {
+						"Rest": {
+							"platform": {
+								"winui": {
+									"fullName": "CheckBoxCheckBackgroundStrokeIndeterminate"
+								}
+							}
+						},
+						"Disabled": {
+							"platform": {
+								"winui": {
+									"fullName": "CheckBoxCheckBackgroundStrokeIndeterminateDisabled"
+								}
+							}
+						},
+						"Hover": {
+							"platform": {
+								"winui": {
+									"fullName": "CheckBoxCheckBackgroundStrokeIndeterminatePointerOver"
+								}
+							}
+						},
+						"Pressed": {
+							"platform": {
+								"winui": {
+									"fullName": "CheckBoxCheckBackgroundStrokeIndeterminatePressed"
+								}
+							}
+						}
+					},
+					"Rest": {
+						"platform": {
+							"winui": {
+								"fullName": "CheckBoxCheckBackgroundStrokeUnchecked"
+							}
+						}
+					},
+					"Disabled": {
+						"platform": {
+							"winui": {
+								"fullName": "CheckBoxCheckBackgroundStrokeUncheckedDisabled"
+							}
+						}
+					},
+					"Hover": {
+						"platform": {
+							"winui": {
+								"fullName": "CheckBoxCheckBackgroundStrokeUncheckedPointerOver"
+							}
+						}
+					},
+					"Pressed": {
+						"platform": {
+							"winui": {
+								"fullName": "CheckBoxCheckBackgroundStrokeUncheckedPressed"
+							}
+						}
+					}
+				}
+			}
+		},
+		"Check": {
+			"Fill": {
+				"Color": {
+					"Selected": {
+						"Rest": {
+							"platform": {
+								"winui": {
+									"fullName": "CheckBoxCheckGlyphForegroundChecked"
+								}
+							}
+						},
+						"Disabled": {
+							"platform": {
+								"winui": {
+									"fullName": "CheckBoxCheckGlyphForegroundCheckedDisabled"
+								}
+							}
+						},
+						"Hover": {
+							"platform": {
+								"winui": {
+									"fullName": "CheckBoxCheckGlyphForegroundCheckedPointerOver"
+								}
+							}
+						},
+						"Pressed": {
+							"platform": {
+								"winui": {
+									"fullName": "CheckBoxCheckGlyphForegroundCheckedPressed"
+								}
+							}
+						}
+					},
+					"Indeterminate": {
+						"Rest": {
+							"platform": {
+								"winui": {
+									"fullName": "CheckBoxCheckGlyphForegroundIndeterminate"
+								}
+							}
+						},
+						"Disabled": {
+							"platform": {
+								"winui": {
+									"fullName": "CheckBoxCheckGlyphForegroundIndeterminateDisabled"
+								}
+							}
+						},
+						"Hover": {
+							"platform": {
+								"winui": {
+									"fullName": "CheckBoxCheckGlyphForegroundIndeterminatePointerOver"
+								}
+							}
+						},
+						"Pressed": {
+							"platform": {
+								"winui": {
+									"fullName": "CheckBoxCheckGlyphForegroundIndeterminatePressed"
+								}
+							}
+						}
+					},
+					"Rest": {
+						"platform": {
+							"winui": {
+								"fullName": "CheckBoxCheckGlyphForegroundUnchecked"
+							}
+						}
+					},
+					"Disabled": {
+						"platform": {
+							"winui": {
+								"fullName": "CheckBoxCheckGlyphForegroundUncheckedDisabled"
+							}
+						}
+					},
+					"Hover": {
+						"platform": {
+							"winui": {
+								"fullName": "CheckBoxCheckGlyphForegroundUncheckedPointerOver"
+							}
+						}
+					},
+					"Pressed": {
+						"platform": {
+							"winui": {
+								"fullName": "CheckBoxCheckGlyphForegroundUncheckedPressed"
+							}
+						}
+					}
+				}
+			}
+		},
+		"Text": {
+			"Fill": {
+				"Color": {
+					"Selected": {
+						"Rest": {
+							"platform": {
+								"winui": {
+									"fullName": "CheckBoxForegroundChecked"
+								}
+							}
+						},
+						"Disabled": {
+							"platform": {
+								"winui": {
+									"fullName": "CheckBoxForegroundCheckedDisabled"
+								}
+							}
+						},
+						"Hover": {
+							"platform": {
+								"winui": {
+									"fullName": "CheckBoxForegroundCheckedPointerOver"
+								}
+							}
+						},
+						"Pressed": {
+							"platform": {
+								"winui": {
+									"fullName": "CheckBoxForegroundCheckedPressed"
+								}
+							}
+						}
+					},
+					"Intermediate": {
+						"Rest": {
+							"platform": {
+								"winui": {
+									"fullName": "CheckBoxForegroundIndeterminate"
+								}
+							}
+						},
+						"Disabled": {
+							"platform": {
+								"winui": {
+									"fullName": "CheckBoxForegroundIndeterminateDisabled"
+								}
+							}
+						},
+						"Hover": {
+							"platform": {
+								"winui": {
+									"fullName": "CheckBoxForegroundIndeterminatePointerOver"
+								}
+							}
+						},
+						"Pressed": {
+							"platform": {
+								"winui": {
+									"fullName": "CheckBoxForegroundIndeterminatePressed"
+								}
+							}
+						}
+					},
+					"Rest": {
+						"platform": {
+							"winui": {
+								"fullName": "CheckBoxForegroundUnchecked"
+							}
+						}
+					},
+					"Disabled": {
+						"platform": {
+							"winui": {
+								"fullName": "CheckBoxForegroundUncheckedDisabled"
+							}
+						}
+					},
+					"Hover": {
+						"platform": {
+							"winui": {
+								"fullName": "CheckBoxForegroundUncheckedPointerOver"
+							}
+						}
+					},
+					"Pressed": {
+						"platform": {
+							"winui": {
+								"fullName": "CheckBoxForegroundUncheckedPressed"
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"Slider": {
+		"Base": {
+			"Fill": {
+				"Color": {
+					"Rest": {
+						"platform": {
+							"winui": {
+								"fullName": "SliderContainerBackground"
+							}
+						}
+					},
+					"Disabled": {
+						"platform": {
+							"winui": {
+								"fullName": "SliderContainerBackgroundDisabled"
+							}
+						}
+					},
+					"Hover": {
+						"platform": {
+							"winui": {
+								"fullName": "SliderContainerBackgroundPointerOver"
+							}
+						}
+					},
+					"Pressed": {
+						"platform": {
+							"winui": {
+								"fullName": "SliderContainerBackgroundPressed"
+							}
+						}
+					}
+				}
+			}
+		},
+		"Text": {
+			"Fill": {
+				"Color": {
+					"Rest": {
+						"platform": {
+							"winui": {
+								"fullName": "SliderHeaderForeground"
+							}
+						}
+					},
+					"Disabled": {
+						"platform": {
+							"winui": {
+								"fullName": "SliderHeaderForegroundDisabled"
+							}
+						}
+					}
+				}
+			}
+		},
+		"InnerTick": {
+			"Fill": {
+				"Color": {
+					"Rest": {
+						"platform": {
+							"winui": {
+								"fullName": "SliderInlineTickBarFill"
+							}
+						}
+					}
+				}
+			}
+		},
+		"Thumb": {
+			"Fill": {
+				"Color": {
+					"Rest": {
+						"platform": {
+							"winui": {
+								"fullName": "SliderThumbBackground"
+							}
+						}
+					},
+					"Disabled": {
+						"platform": {
+							"winui": {
+								"fullName": "SliderThumbBackgroundDisabled"
+							}
+						}
+					},
+					"Hover": {
+						"platform": {
+							"winui": {
+								"fullName": "SliderThumbBackgroundPointerOver"
+							}
+						}
+					},
+					"Pressed": {
+						"platform": {
+							"winui": {
+								"fullName": "SliderThumbBackgroundPressed"
+							}
+						}
+					}
+				}
+			}
+		},
+		"Track": {
+			"Fill": {
+				"Color": {
+					"Rest": {
+						"platform": {
+							"winui": {
+								"fullName": "SliderTrackFill"
+							}
+						}
+					},
+					"Disabled": {
+						"platform": {
+							"winui": {
+								"fullName": "SliderTrackFillDisabled"
+							}
+						}
+					},
+					"Hover": {
+						"platform": {
+							"winui": {
+								"fullName": "SliderTrackFillPointerOver"
+							}
+						}
+					},
+					"Pressed": {
+						"platform": {
+							"winui": {
+								"fullName": "SliderTrackFillPressed"
+							}
+						}
+					}
+				}
+			}
+		},
+		"TrackFull": {
+			"Fill": {
+				"Color": {
+					"Rest": {
+						"platform": {
+							"winui": {
+								"fullName": "SliderTrackValueFill"
+							}
+						}
+					},
+					"Disabled": {
+						"platform": {
+							"winui": {
+								"fullName": "SliderTrackValueFillDisabled"
+							}
+						}
+					},
+					"Hover": {
+						"platform": {
+							"winui": {
+								"fullName": "SliderTrackValueFillPointerOver"
+							}
+						}
+					},
+					"Pressed": {
+						"platform": {
+							"winui": {
+								"fullName": "SliderTrackValueFillPressed"
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"SplitButton": {
+		"Base": {
+			"Fill": {
+				"Color": {
+					"Rest": {
+						"platform": {
+							"winui": {
+								"fullName": "SplitButtonBackground"
+							}
+						}
+					},
+					"Selected": {
+						"Rest": {
+							"platform": {
+								"winui": {
+									"fullName": "SplitButtonBackgroundChecked"
+								}
+							}
+						},
+						"Disabled": {
+							"platform": {
+								"winui": {
+									"fullName": "SplitButtonBackgroundCheckedDisabled"
+								}
+							}
+						},
+						"Hover": {
+							"platform": {
+								"winui": {
+									"fullName": "SplitButtonBackgroundCheckedPointerOver"
+								}
+							}
+						},
+						"Pressed": {
+							"platform": {
+								"winui": {
+									"fullName": "SplitButtonBackgroundCheckedPressed"
+								}
+							}
+						}
+					},
+					"Disabled": {
+						"platform": {
+							"winui": {
+								"fullName": "SplitButtonBackgroundDisabled"
+							}
+						}
+					},
+					"Hover": {
+						"platform": {
+							"winui": {
+								"fullName": "SplitButtonBackgroundPointerOver"
+							}
+						}
+					},
+					"Pressed": {
+						"platform": {
+							"winui": {
+								"fullName": "SplitButtonBackgroundPressed"
+							}
+						}
+					}
+				}
+			},
+			"Stroke": {
+				"Color": {
+					"Rest": {
+						"platform": {
+							"winui": {
+								"fullName": "SplitButtonBorderBrush"
+							}
+						}
+					},
+					"Selected": {
+						"Rest": {
+							"platform": {
+								"winui": {
+									"fullName": "SplitButtonBorderBrushChecked"
+								}
+							}
+						},
+						"Disabled": {
+							"platform": {
+								"winui": {
+									"fullName": "SplitButtonBorderBrushCheckedDisabled"
+								}
+							}
+						},
+						"Hover": {
+							"platform": {
+								"winui": {
+									"fullName": "SplitButtonBorderBrushCheckedPointerOver"
+								}
+							}
+						},
+						"Pressed": {
+							"platform": {
+								"winui": {
+									"fullName": "SplitButtonBorderBrushCheckedPressed"
+								}
+							}
+						}
+					},
+					"Disabled": {
+						"platform": {
+							"winui": {
+								"fullName": "SplitButtonBorderBrushDisabled"
+							}
+						}
+					},
+					"Hover": {
+						"platform": {
+							"winui": {
+								"fullName": "SplitButtonBorderBrushPointerOver"
+							}
+						}
+					},
+					"Pressed": {
+						"platform": {
+							"winui": {
+								"fullName": "SplitButtonBorderBrushPressed"
+							}
+						}
+					}
+				}
+			}
+		},
+		"Text": {
+			"Fill": {
+				"Color": {
+					"Rest": {
+						"platform": {
+							"winui": {
+								"fullName": "SplitButtonForeground"
+							}
+						}
+					},
+					"Selected": {
+						"Rest": {
+							"platform": {
+								"winui": {
+									"fullName": "SplitButtonForegroundChecked"
+								}
+							}
+						},
+						"Disabled": {
+							"platform": {
+								"winui": {
+									"fullName": "SplitButtonForegroundCheckedDisabled"
+								}
+							}
+						},
+						"Hover": {
+							"platform": {
+								"winui": {
+									"fullName": "SplitButtonForegroundCheckedPointerOver"
+								}
+							}
+						},
+						"Pressed": {
+							"platform": {
+								"winui": {
+									"fullName": "SplitButtonForegroundCheckedPressed"
+								}
+							}
+						}
+					},
+					"Disabled": {
+						"platform": {
+							"winui": {
+								"fullName": "SplitButtonForegroundDisabled"
+							}
+						}
+					},
+					"Hover": {
+						"platform": {
+							"winui": {
+								"fullName": "SplitButtonForegroundPointerOver"
+							}
+						}
+					},
+					"Pressed": {
+						"platform": {
+							"winui": {
+								"fullName": "SplitButtonForegroundPressed"
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"ToggleButton": {
+		"Base": {
+			"Fill": {
+				"Color": {
+					"Rest": {
+						"platform": {
+							"winui": {
+								"fullName": "ToggleButtonBackground"
+							}
+						}
+					},
+					"Selected": {
+						"Rest": {
+							"platform": {
+								"winui": {
+									"fullName": "ToggleButtonBackgroundChecked"
+								}
+							}
+						},
+						"Disabled": {
+							"platform": {
+								"winui": {
+									"fullName": "ToggleButtonBackgroundCheckedDisabled"
+								}
+							}
+						},
+						"Hover": {
+							"platform": {
+								"winui": {
+									"fullName": "ToggleButtonBackgroundCheckedPointerOver"
+								}
+							}
+						},
+						"Pressed": {
+							"platform": {
+								"winui": {
+									"fullName": "ToggleButtonBackgroundCheckedPressed"
+								}
+							}
+						}
+					},
+					"Disabled": {
+						"platform": {
+							"winui": {
+								"fullName": "ToggleButtonBackgroundDisabled"
+							}
+						}
+					},
+					"Indeterminate": {
+						"Rest": {
+							"platform": {
+								"winui": {
+									"fullName": "ToggleButtonBackgroundIndeterminate"
+								}
+							}
+						},
+						"Disabled": {
+							"platform": {
+								"winui": {
+									"fullName": "ToggleButtonBackgroundIndeterminateDisabled"
+								}
+							}
+						},
+						"Hover": {
+							"platform": {
+								"winui": {
+									"fullName": "ToggleButtonBackgroundIndeterminatePointerOver"
+								}
+							}
+						},
+						"Pressed": {
+							"platform": {
+								"winui": {
+									"fullName": "ToggleButtonBackgroundIndeterminatePressed"
+								}
+							}
+						}
+					},
+					"Hover": {
+						"platform": {
+							"winui": {
+								"fullName": "ToggleButtonBackgroundPointerOver"
+							}
+						}
+					},
+					"Pressed": {
+						"platform": {
+							"winui": {
+								"fullName": "ToggleButtonBackgroundPressed"
+							}
+						}
+					}
+				}
+			},
+			"Stroke": {
+				"Color": {
+					"Rest": {
+						"platform": {
+							"winui": {
+								"fullName": "ToggleButtonBorderBrush"
+							}
+						}
+					},
+					"Selected": {
+						"Rest": {
+							"platform": {
+								"winui": {
+									"fullName": "ToggleButtonBorderBrushChecked"
+								}
+							}
+						},
+						"Disabled": {
+							"platform": {
+								"winui": {
+									"fullName": "ToggleButtonBorderBrushCheckedDisabled"
+								}
+							}
+						},
+						"Hover": {
+							"platform": {
+								"winui": {
+									"fullName": "ToggleButtonBorderBrushCheckedPointerOver"
+								}
+							}
+						},
+						"Pressed": {
+							"platform": {
+								"winui": {
+									"fullName": "ToggleButtonBorderBrushCheckedPressed"
+								}
+							}
+						}
+					},
+					"Disabled": {
+						"platform": {
+							"winui": {
+								"fullName": "ToggleButtonBorderBrushDisabled"
+							}
+						}
+					},
+					"Indeterminate": {
+						"Rest": {
+							"platform": {
+								"winui": {
+									"fullName": "ToggleButtonBorderBrushIndeterminate"
+								}
+							}
+						},
+						"Disabled": {
+							"platform": {
+								"winui": {
+									"fullName": "ToggleButtonBorderBrushIndeterminateDisabled"
+								}
+							}
+						},
+						"Hover": {
+							"platform": {
+								"winui": {
+									"fullName": "ToggleButtonBorderBrushIndeterminatePointerOver"
+								}
+							}
+						},
+						"Pressed": {
+							"platform": {
+								"winui": {
+									"fullName": "ToggleButtonBorderBrushIndeterminatePressed"
+								}
+							}
+						}
+					},
+					"Hover": {
+						"platform": {
+							"winui": {
+								"fullName": "ToggleButtonBorderBrushPointerOver"
+							}
+						}
+					},
+					"Pressed": {
+						"platform": {
+							"winui": {
+								"fullName": "ToggleButtonBorderBrushPressed"
+							}
+						}
+					}
+				}
+			}
+		},
+		"Text": {
+			"Fill": {
+				"Color": {
+					"Rest": {
+						"platform": {
+							"winui": {
+								"fullName": "ToggleButtonForeground"
+							}
+						}
+					},
+					"Selected": {
+						"Rest": {
+							"platform": {
+								"winui": {
+									"fullName": "ToggleButtonForegroundChecked"
+								}
+							}
+						},
+						"Disabled": {
+							"platform": {
+								"winui": {
+									"fullName": "ToggleButtonForegroundCheckedDisabled"
+								}
+							}
+						},
+						"Hover": {
+							"platform": {
+								"winui": {
+									"fullName": "ToggleButtonForegroundCheckedPointerOver"
+								}
+							}
+						},
+						"Pressed": {
+							"platform": {
+								"winui": {
+									"fullName": "ToggleButtonForegroundCheckedPressed"
+								}
+							}
+						}
+					},
+					"Disabled": {
+						"platform": {
+							"winui": {
+								"fullName": "ToggleButtonForegroundDisabled"
+							}
+						}
+					},
+					"Indeterminate": {
+						"Rest": {
+							"platform": {
+								"winui": {
+									"fullName": "ToggleButtonForegroundIndeterminate"
+								}
+							}
+						},
+						"Disabled": {
+							"platform": {
+								"winui": {
+									"fullName": "ToggleButtonForegroundIndeterminateDisabled"
+								}
+							}
+						},
+						"Hover": {
+							"platform": {
+								"winui": {
+									"fullName": "ToggleButtonForegroundIndeterminatePointerOver"
+								}
+							}
+						},
+						"Pressed": {
+							"platform": {
+								"winui": {
+									"fullName": "ToggleButtonForegroundIndeterminatePressed"
+								}
+							}
+						}
+					},
+					"Hover": {
+						"platform": {
+							"winui": {
+								"fullName": "ToggleButtonForegroundPointerOver"
+							}
+						}
+					},
+					"Pressed": {
+						"platform": {
+							"winui": {
+								"fullName": "ToggleButtonForegroundPressed"
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"ToggleSwitch": {
+		"Text": {
+			"Fill": {
+				"Color": {
+					"Rest": {
+						"platform": {
+							"winui": {
+								"fullName": "ToggleSwitchContentForeground"
+							}
+						}
+					},
+					"Disabled": {
+						"platform": {
+							"winui": {
+								"fullName": "ToggleSwitchContentForegroundDisabled"
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"Toggle": {
+		"Base": {
+			"Fill": {
+				"Color": {
+					"Rest": {
+						"platform": {
+							"winui": {
+								"fullName": "ToggleSwitchFillOff"
+							}
+						}
+					},
+					"Disabled": {
+						"platform": {
+							"winui": {
+								"fullName": "ToggleSwitchFillOffDisabled"
+							}
+						}
+					},
+					"Hover": {
+						"platform": {
+							"winui": {
+								"fullName": "ToggleSwitchFillOffPointerOver"
+							}
+						}
+					},
+					"Pressed": {
+						"platform": {
+							"winui": {
+								"fullName": "ToggleSwitchFillOffPressed"
+							}
+						}
+					},
+					"Selected": {
+						"Rest": {
+							"platform": {
+								"winui": {
+									"fullName": "ToggleSwitchFillOn"
+								}
+							}
+						},
+						"Disabled": {
+							"platform": {
+								"winui": {
+									"fullName": "ToggleSwitchFillOnDisabled"
+								}
+							}
+						},
+						"Hover": {
+							"platform": {
+								"winui": {
+									"fullName": "ToggleSwitchFillOnPointerOver"
+								}
+							}
+						},
+						"Pressed": {
+							"platform": {
+								"winui": {
+									"fullName": "ToggleSwitchFillOnPressed"
+								}
+							}
+						}
+					}
+				}
+			},
+			"Stroke": {
+				"Color": {
+					"Rest": {
+						"platform": {
+							"winui": {
+								"fullName": "ToggleSwitchStrokeOff"
+							}
+						}
+					},
+					"Disabled": {
+						"platform": {
+							"winui": {
+								"fullName": "ToggleSwitchStrokeOffDisabled"
+							}
+						}
+					},
+					"Hover": {
+						"platform": {
+							"winui": {
+								"fullName": "ToggleSwitchStrokeOffPointerOver"
+							}
+						}
+					},
+					"Pressed": {
+						"platform": {
+							"winui": {
+								"fullName": "ToggleSwitchStrokeOffPressed"
+							}
+						}
+					},
+					"Selected": {
+						"Rest": {
+							"platform": {
+								"winui": {
+									"fullName": "ToggleSwitchStrokeOn"
+								}
+							}
+						},
+						"Disabled": {
+							"platform": {
+								"winui": {
+									"fullName": "ToggleSwitchStrokeOnDisabled"
+								}
+							}
+						},
+						"Hover": {
+							"platform": {
+								"winui": {
+									"fullName": "ToggleSwitchStrokeOnPointerOver"
+								}
+							}
+						},
+						"Pressed": {
+							"platform": {
+								"winui": {
+									"fullName": "ToggleSwitchStrokeOnPressed"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"Thumb": {
+			"Fill": {
+				"Color": {
+					"Rest": {
+						"platform": {
+							"winui": {
+								"fullName": "ToggleSwitchThumbFillOff"
+							}
+						}
+					},
+					"Disabled": {
+						"platform": {
+							"winui": {
+								"fullName": "ToggleSwitchThumbFillOffDisabled"
+							}
+						}
+					},
+					"Hover": {
+						"platform": {
+							"winui": {
+								"fullName": "ToggleSwitchThumbFillOffPointerOver"
+							}
+						}
+					},
+					"Pressed": {
+						"platform": {
+							"winui": {
+								"fullName": "ToggleSwitchThumbFillOffPressed"
+							}
+						}
+					},
+					"Selected": {
+						"Rest": {
+							"platform": {
+								"winui": {
+									"fullName": "ToggleSwitchThumbFillOn"
+								}
+							}
+						},
+						"Disabled": {
+							"platform": {
+								"winui": {
+									"fullName": "ToggleSwitchThumbFillOnDisabled"
+								}
+							}
+						},
+						"Hover": {
+							"platform": {
+								"winui": {
+									"fullName": "ToggleSwitchThumbFillOnPointerOver"
+								}
+							}
+						},
+						"Pressed": {
+							"platform": {
+								"winui": {
+									"fullName": "ToggleSwitchThumbFillOnPressed"
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
