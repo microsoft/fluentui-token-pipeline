@@ -34,7 +34,11 @@ export interface TokenGenerationProperties
 	value: string
 }
 
-export type TokenGenerationType = "lightness0to100by2"
+export const TokenGenerationTypes =
+{
+	lightness0to100by2: true,
+}
+export type TokenGenerationType = keyof typeof TokenGenerationTypes
 
 export type Token = ValueToken | AliasToken | ComputedToken
 
