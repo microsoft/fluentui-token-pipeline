@@ -8,7 +8,7 @@
 				"generate": { "type": "lightness0to100by2", "value": "hsl(206, 100%, 50%)" }
 			},
 			"Grey": {
-				"generate": { "type": "lightness0to100by2", "value": "hsl(0, 0%, 50%)" }
+				"generate": { "type": "lightness0to100by2", "value": "grey" }
 			},
 			"White": { "value": "#ffffff" },
 			"Black": { "value": "#000000" }
