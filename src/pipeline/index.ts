@@ -3,7 +3,7 @@ import jsonfile from "jsonfile"
 
 import { SupportedPlatform, SupportedPlatforms } from "./types"
 import { resolveAliases } from "./fluentui-aliases"
-import { buildColorRamps } from "./fluentui-color-ramp"
+import { resolveGeneratedSets } from "./fluentui-generate"
 import { resolveComputedTokens } from "./fluentui-computed"
 import { resolvePlatformOverrides } from "./fluentui-platform-overrides"
 import "./fluentui-shared"
@@ -118,7 +118,7 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 const buildOnePlatform = (tokens: any, platformOverride: SupportedPlatform | null, platformConfig: Record<string, unknown>): void =>
 {
 	tokens = platformOverride ? resolvePlatformOverrides(_.cloneDeep(tokens), platformOverride) : _.cloneDeep(tokens)
-	tokens = buildColorRamps(tokens)
+	tokens = resolveGeneratedSets(tokens)
 	tokens = resolveAliases(tokens)
 	tokens = resolveComputedTokens(tokens)
 

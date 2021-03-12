@@ -17,10 +17,10 @@ const resolvePlatformOverride = (prop: TokenSet | Token, currentPlatform: Suppor
 	if (typeof prop !== "object" || !("platform" in prop))
 		throw new Error("Method was called on a property that wasn't a platform override node.")
 	const overrides = prop.platform as TokenPlatformOverrides
-	delete (prop as any).platform
+	delete prop.platform
 	if (typeof overrides !== "object")
 	{
-		Utils.setErrorValue(prop, "Invalid platform override syntax", `Invalid platform override: ${JSON.stringify(prop.platform)}. The platform property should be an object like this: "platform": { "winui": { "property": "value" } }.`)
+		Utils.setErrorValue(prop, "Invalid platform override syntax", `Invalid platform override: ${JSON.stringify(overrides)}. The platform property should be an object like this: "platform": { "winui": { "property": "value" } }.`)
 		return
 	}
 
