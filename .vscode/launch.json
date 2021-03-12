@@ -9,7 +9,7 @@
 			"skipFiles": [
 				"<node_internals>/**"
 			],
-			"program": "${workspaceFolder}\\dist\\cli",
+			"program": "${workspaceFolder}/dist/cli",
 			"args": ["--in", "src/demo/fluentui.json", "--out", "build"],
 			"preLaunchTask": "build",
 			"outFiles": [
