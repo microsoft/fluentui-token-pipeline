@@ -225,6 +225,43 @@ If you're not used to specifying gradients with start and end points, here are t
 
 `start: [0, 0]` and `end: [0, 1]` can also be expressed as `start: [0.5, 0]` and `end: [0.5, 1]`: when one y-coordinate is 0 and the other is 1, the x-coordinates are irrelevant as long as they're the same value, and vice-versa.
 
+### Color ramps
+
+You can also specify an entire color ramp from a single base color value. Instead of:
+
+```json
+{
+	"Color": {
+		"Grey": {
+			"0": { "value": "#000000" },
+			"2": { "value": "#050505" },
+			"4": { "value": "#0a0a0a" },
+			"100": { "value": "#ffffff" },
+		}
+	}
+}
+```
+
+...you can just specify a base color and a color ramp algorithm:
+
+```json
+{
+	"Color": {
+		"Grey": {
+			"generate": { "type": "lightness0to100by2", "value": "#808080" }
+		}
+	}
+}
+```
+
+These color ramp algorithms are supported:
+
+| `type` | Description |
+| --- | --- |
+| `lightness0to100by2` | Produces a color ramp with values `0`, `2`, `4`, ... `100`, where each color differs only by HSL lightness value. `0` will be black, `100` will be white, and the values in-between will be different shades of the base color.
+
+**Important:** `value` must be a single color, not a gradient or alias of another token.
+
 ### Widths, padding, and radii
 
 Stroke widths and radii can be specified as a single value or as an array in the same order that CSS specifies. They're specified as device-independent pixels **without units**.

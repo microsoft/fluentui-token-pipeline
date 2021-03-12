@@ -10,10 +10,11 @@ export interface TokenJsonMeta
 	FluentUITokensVersion: 0
 }
 
-export type TokenSet = TokenSetChildren & TokenSetProperties
+export type TokenSet = (TokenSetChildren & TokenSetProperties) | TokenGeneratedSet
 
 export interface TokenSetProperties
 {
+	/** @deprecated */
 	IntendedFor?: string
 }
 
@@ -21,6 +22,23 @@ export interface TokenSetChildren
 {
 	[name: string]: TokenSet | Token
 }
+
+export interface TokenGeneratedSet
+{
+	generate: TokenGenerationProperties
+}
+
+export interface TokenGenerationProperties
+{
+	type: TokenGenerationType
+	value: string
+}
+
+export const TokenGenerationTypes =
+{
+	lightness0to100by2: true,
+}
+export type TokenGenerationType = keyof typeof TokenGenerationTypes
 
 export type Token = ValueToken | AliasToken | ComputedToken
 
