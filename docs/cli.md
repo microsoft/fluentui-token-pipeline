@@ -29,6 +29,14 @@ transform-tokens --in tokens.json --out build
 
 That will transform the tokens in one single JSON file and output them to a subfolder named `build`.
 
+### Using NPX
+
+Alternatively, if you prefer, you can use `npx` to use the pipeline without any repos at all. Replace `transform-tokens` in the command with `npx @fluentui/token-pipeline`:
+
+```console
+npx @fluentui/token-pipeline --in tokens.json --out build
+```
+
 ### Using the CLI as a build step in another repo
 
 You can use this CLI as a build step in another repo with this in your `package.json`:
