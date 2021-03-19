@@ -37,6 +37,7 @@ export interface TokenGenerationProperties
 export const TokenGenerationTypes =
 {
 	lightness0to100by2: true,
+	fluentsharedcolors: true,
 }
 export type TokenGenerationType = keyof typeof TokenGenerationTypes
 

@@ -24,6 +24,6 @@
 		"target": "ESNext"
 	},
 	"include": [
-		"**/*.ts"
+		"src/**/*.ts"
 	]
 }

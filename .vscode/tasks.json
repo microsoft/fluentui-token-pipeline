@@ -11,6 +11,22 @@
 			},
 			"problemMatcher": [],
 			"detail": "Build the pipeline"
+		},
+		{
+			"label": "watch",
+			"type": "npm",
+			"script": "watch",
+			"group": "build",
+			"problemMatcher": [],
+			"detail": "Build the pipeline and watch for changes"
+		},
+		{
+			"label": "inc",
+			"type": "npm",
+			"script": "inc",
+			"group": "build",
+			"problemMatcher": [],
+			"detail": "Build the pipeline, incremental"
 		}
 	]
 }

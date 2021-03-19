@@ -1,5 +1,5 @@
 import Color from "tinycolor2"
-import { TokenSet, Token, TokenGenerationProperties, TokenGenerationTypes } from "./types"
+import { TokenSet, Token, TokenGenerationProperties, TokenGenerationTypes, ValueToken } from "./types"
 import * as Utils from "./utils"
 
 /// Creates all of the generated token sets in an entire Style Dictionary properties object, and then returns the same object
@@ -45,6 +45,8 @@ const resolveGenerated = (prop: Token | TokenSet): void =>
 	{
 		case "lightness0to100by2":
 			return createLightness0to100by2Ramp(prop, value)
+		case "fluentsharedcolors":
+			return createSharedColorRamp(prop, value)
 		default:
 			throw new Error(`Unknown token set generation type in TokenGenerationTypes: ${JSON.stringify(type)}`)
 	}
@@ -56,4 +58,56 @@ const createLightness0to100by2Ramp = (prop: TokenSet, value: string): void =>
 
 	for (let i = 0; i <= 100; i += 2)
 		prop[i.toString()] = { value: Color.fromRatio({ ...hsl, l: i / 100 }).toHexString() }
+}
+
+const createSharedColorRamp = (prop: TokenSet, value: string): void =>
+{
+	const baseColor = new Color(value)
+	const lum = baseColor.getLuminance()
+	const hsv = baseColor.toHsv()
+
+	const updated = prop as any
+	if (lum > 0)
+	{
+		updated.Shade50 = darken(hsv, .84)
+		updated.Shade40 = darken(hsv, .7)
+		updated.Shade30 = darken(hsv, .44)
+		updated.Shade20 = darken(hsv, .24)
+		updated.Shade10 = darken(hsv, .1)
+	}
+	updated.Primary = { value: baseColor.toHexString() }
+	if (lum < 0)
+	{
+		updated.Tint10 = lighten(hsv, .12)
+		updated.Tint20 = lighten(hsv, .24)
+		updated.Tint30 = lighten(hsv, .4)
+		updated.Tint40 = lighten(hsv, .7)
+		updated.Tint50 = lighten(hsv, .84)
+		updated.Tint60 = lighten(hsv, .96)
+	}
+}
+
+const lighten = (color: Color.ColorFormats.HSVA, factor: number): ValueToken =>
+{
+	return { value: Color.fromRatio({
+		h: color.h,
+		s: clamp(color.s * (1 - factor)),
+		v: clamp(color.v + (1 - color.v) * factor),
+		a: color.a,
+	}).toHexString() }
+}
+
+const darken = (color: Color.ColorFormats.HSVA, factor: number): ValueToken =>
+{
+	return { value: Color.fromRatio({
+		h: color.h,
+		s: color.s,
+		v: clamp(color.v * (1 - factor)),
+		a: color.a,
+	}).toHexString() }
+}
+
+const clamp = (value: number): number =>
+{
+	return value < 0 ? 0 : value > 1 ? 1 : value
 }

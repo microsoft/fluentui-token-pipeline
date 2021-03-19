@@ -11,7 +11,7 @@
 			],
 			"program": "${workspaceFolder}/dist/cli",
 			"args": ["--in", "src/demo/fluentui.json", "--out", "build"],
-			"preLaunchTask": "build",
+			"preLaunchTask": "inc",
 			"outFiles": [
 				"${workspaceFolder}/dist/**/*.js"
 			],
