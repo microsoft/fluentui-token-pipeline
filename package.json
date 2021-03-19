@@ -51,7 +51,7 @@
 		"prepare": "npm run build",
 		"prepublish": "npm run build",
 		"build": "tsc",
-		"inc": "tsc --incremental",
+		"inc": "tsc --incremental --tsBuildInfoFile .tsbuildinfo",
 		"watch": "tsc --watch",
 		"transform": "node dist/cli --in src/demo/fluentui.json --out build"
 	}

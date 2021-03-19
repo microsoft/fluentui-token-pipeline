@@ -21,8 +21,7 @@
 		"skipLibCheck": true,
 		"sourceMap": true,
 		"strictNullChecks": true,
-		"target": "ESNext",
-		"tsBuildInfoFile": ".tsbuildinfo"
+		"target": "ESNext"
 	},
 	"include": [
 		"src/**/*.ts"
