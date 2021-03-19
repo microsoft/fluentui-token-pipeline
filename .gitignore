@@ -1,6 +1,7 @@
 # Built files
 build
 dist
+.tsbuildinfo
 
 # Dependencies
 node_modules
