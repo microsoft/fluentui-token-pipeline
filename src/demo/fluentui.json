@@ -74,10 +74,7 @@
 			"Anchor": { "generate": { "type": "fluentsharedcolors", "value": "#394146" } },
 			"Charcoal": { "generate": { "type": "fluentsharedcolors", "value": "#750b1c"  }},
 			"White": { "value": "#ffffff" },
-			"Black": { "value": "#000000" },
-			"Hyperlink": {"value": "#FFFF00"},
-			"Disabled": {"value": "#3FF23F"},
-			"Selected": {"value": "#1AEBFF"}
+			"Black": { "value": "#000000" }
 		},
 		"Stroke": {
 			"Width": {
