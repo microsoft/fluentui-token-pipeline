@@ -285,9 +285,6 @@ ${resources}
 		<ResourceDictionary x:Key="Light">
 ${resources}
 		</ResourceDictionary>
-		<ResourceDictionary x:Key="HighContrast">
-${resources}
-		</ResourceDictionary>
 	</ResourceDictionary.ThemeDictionaries>
 
 </ResourceDictionary>`
