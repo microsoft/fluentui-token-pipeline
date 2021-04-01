@@ -105,9 +105,11 @@ Good question! Ultimately that's going to come down to you and your designers. W
 Many of the pipeline's output formats strip all hierarchy from the tokens, so all that's left are the raw values. But it's also possible that you want to *keep* that hierarchy. Take a look at `build/web/tokens.css`: that file turns all tokens into CSS variables, and many of them refer to other variables. Using the example of `Button.Icon.Fill.Color.Rest`, `tokens.css` produces the following:
 
 ```css
---button-icon-fill-color-rest: var(--neutralforeground1-fill-color-rest);
---neutralforeground1-fill-color-rest: var(--global-color-grey-14);
---global-color-grey-14: #242424;
+:root {
+  --button-icon-fill-color-rest: var(--neutralforeground1-fill-color-rest);
+  --neutralforeground1-fill-color-rest: var(--global-color-grey-14);
+  --global-color-grey-14: #242424;
+}
 ```
 
 There's also a `tokens-flat.css` file in the same folder that uses `#242424` directly for all three variables.
