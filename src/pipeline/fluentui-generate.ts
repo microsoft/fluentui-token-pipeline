@@ -76,7 +76,7 @@ const createSharedColorRamp = (prop: TokenSet, value: string): void =>
 		updated.Shade10 = darken(hsv, .1)
 	}
 	updated.Primary = { value: baseColor.toHexString() }
-	if (lum < 0)
+	if (lum < 1)
 	{
 		updated.Tint10 = lighten(hsv, .12)
 		updated.Tint20 = lighten(hsv, .24)
