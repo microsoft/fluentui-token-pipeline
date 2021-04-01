@@ -13,6 +13,7 @@ It's currently a functional prototype, and may undergo significant changes befor
 * [Getting started: using the CLI](cli.md) (including as a build step in another repo)
 * [Getting started: building the pipeline](build.md)
 * [Token JSON format reference](json.md)
+* [Integrating with your UI library](integration.md)
 * [The legal stuff](legal.md)
 
 # Other links
