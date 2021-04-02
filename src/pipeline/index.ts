@@ -51,15 +51,6 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 					{ destination: "tokens-controls.json", format: "fluentui/json/grouped", filter: "isControl" },
 				],
 			},
-			react:
-			{
-				transformGroup: "fluentui/react",
-				buildPath: `${outputPath}/react-theme/src/`,
-				files: [
-					{ destination: "utils/colors.ts", format: "fluentui/react/colors" },
-					{ destination: "global/borderRadius.ts", format: "fluentui/react/colors" },
-				],
-			}
 		}
 	)
 
@@ -85,6 +76,20 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 					{ destination: "ColorTokens.swift", format: "ios-swift/class.swift", className: "ColorTokens", filter: "isColor" },
 					{ destination: "SizeTokens.swift", format: "ios-swift/class.swift", className: "SizeTokens", filter: "isSize" },
 					{ destination: "FontTokens.swift", format: "ios-swift/class.swift", className: "FontTokens", filter: "isFont" },
+				],
+			}
+		}
+	)
+
+	if (!platforms || platforms.includes("react")) buildOnePlatform(tokens, "css",
+		{
+			react:
+			{
+				transformGroup: "fluentui/react",
+				buildPath: `${outputPath}/react-theme/src/`,
+				files: [
+					{ destination: "utils/colors.ts", format: "fluentui/react/colors" },
+					{ destination: "global/borderRadius.ts", format: "fluentui/react/radii" },
 				],
 			}
 		}

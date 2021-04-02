@@ -1,7 +1,3 @@
-// TODO: Output new versions of:
-// https://github.com/microsoft/fluentui/blob/master/packages/react-theme/src/utils/light/colors.ts
-// https://github.com/microsoft/fluentui/blob/master/packages/react-theme/src/global/borderRadius.ts
-
 import StyleDictionary from "style-dictionary"
 import _ from "lodash"
 
@@ -10,7 +6,7 @@ import * as Utils from "./utils"
 
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/react",
-	transforms: ["fluentui/attribute", "fluentui/name/json/grouped", "fluentui/alias/flatten", "fluentui/color/css"],
+	transforms: ["fluentui/attribute", "fluentui/name/json/grouped", "fluentui/alias/flatten", "fluentui/size/css", "fluentui/color/css"],
 })
 
 StyleDictionary.registerFormat({
@@ -213,6 +209,26 @@ export const sharedColorTokens: Record<keyof GlobalSharedColors, SharedColorToke
   platinum: createSharedColorTokens(sharedColors.platinum),
   anchor: createSharedColorTokens(sharedColors.anchor),
   charcoal: createSharedColorTokens(sharedColors.charcoal),
+};
+`)
+	},
+})
+
+StyleDictionary.registerFormat({
+	name: "fluentui/react/radii",
+	formatter: (dictionary, config) =>
+	{
+		const c = (path: string) => JSON.stringify((Utils.findPropByPath(path, dictionary.properties.Global) as ValueToken).value)
+
+		return (`import { BorderRadius } from '../types';
+
+export const borderRadius: BorderRadius = {
+  none: '0',
+  small: ${c("Corner.Radius.Small")},
+  medium: ${c("Corner.Radius.Medium")},
+  large: ${c("Corner.Radius.Large")},
+  xLarge: ${c("Corner.Radius.ExtraLarge")},
+  circular: '50%',
 };
 `)
 	},

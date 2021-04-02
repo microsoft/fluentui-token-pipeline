@@ -89,6 +89,7 @@ export const SupportedPlatforms =
 	reference: true,
 	css: true,
 	cssflat: true,
+	react: true,
 	ios: true,
 	winui: true,
 }
