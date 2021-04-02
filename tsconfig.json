@@ -6,7 +6,7 @@
 		"baseUrl": "./node_modules",
 		"esModuleInterop": true,
 		"experimentalDecorators": true,
-		"lib": [ "ES2017", "dom" ],
+		"lib": [ "ES2019", "dom" ],
 		"module": "CommonJS",
 		"moduleResolution": "node",
 		"noEmit": false,
