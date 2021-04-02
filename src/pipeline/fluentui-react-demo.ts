@@ -223,7 +223,7 @@ StyleDictionary.registerFormat({
 		return (`import { BorderRadius } from '../types';
 
 export const borderRadius: BorderRadius = {
-  none: '0',
+  none: ${c("Corner.Radius.None")},
   small: ${c("Corner.Radius.Small")},
   medium: ${c("Corner.Radius.Medium")},
   large: ${c("Corner.Radius.Large")},
