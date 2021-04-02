@@ -12,6 +12,7 @@ import "./fluentui-html"
 import "./fluentui-json"
 import "./fluentui-ios"
 import "./fluentui-winui"
+import "./fluentui-react-demo"
 
 export const buildOutputs = (input: string[] | string, outputPath: string, platforms: SupportedPlatform[] | undefined): void =>
 {
@@ -48,6 +49,15 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 				files: [
 					{ destination: "tokens-aliases.json", format: "fluentui/json/grouped", filter: "isAlias" },
 					{ destination: "tokens-controls.json", format: "fluentui/json/grouped", filter: "isControl" },
+				],
+			},
+			react:
+			{
+				transformGroup: "fluentui/react",
+				buildPath: `${outputPath}/react-theme/src/`,
+				files: [
+					{ destination: "utils/colors.ts", format: "fluentui/react/colors" },
+					{ destination: "global/borderRadius.ts", format: "fluentui/react/colors" },
 				],
 			}
 		}
