@@ -88,7 +88,7 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 				transformGroup: "fluentui/react",
 				buildPath: `${outputPath}/react-theme/src/`,
 				files: [
-					{ destination: "utils/colors.ts", format: "fluentui/react/colors/alias" },
+					{ destination: "utils/light/colors.ts", format: "fluentui/react/colors/alias" },
 					{ destination: "global/colors.ts", format: "fluentui/react/colors/global" },
 					{ destination: "global/borderRadius.ts", format: "fluentui/react/radii" },
 				],
