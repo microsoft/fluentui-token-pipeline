@@ -1,4 +1,5 @@
 {
+	"$schema": "https://raw.githubusercontent.com/microsoft/fluentui-token-pipeline/docs/token.schema.json",
 	"Meta": {
 		"FluentUITokensVersion": 0
 	},
