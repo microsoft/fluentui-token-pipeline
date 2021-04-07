@@ -1,4 +1,8 @@
 {
+	"$schema": "../../docs/token.schema.json",
+	"Meta": {
+		"FluentUITokensVersion": 0
+	},
 	"Global": {
 		"Unit": {
 			"0": { "value": 0 },
@@ -19,6 +23,9 @@
 			"2000": { "value": 80 },
 			"2400": { "value": 96 },
 			"3200": { "value": 128 }
+		},
+		"ComputedColors": {
+			"TranslucentAccent": { "computed": { "color": "Global.Color.AccentBase", "opacity": 0.05 } }
 		}
 	}
 }

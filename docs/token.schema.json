@@ -45,6 +45,7 @@
 		"Token": {
 			"oneOf": [
 				{ "$ref": "#/definitions/ValueToken" },
+				{ "$ref": "#/definitions/ComputedToken" },
 				{ "$ref": "#/definitions/Alias" }
 			]
 		},
@@ -156,6 +157,35 @@
 			"type": "number"
 		},
 
+		"ComputedToken": {
+			"title": "Computed token",
+			"description": "A token with its value computed from another token's value.",
+			"type": "object",
+			"properties": {
+				"computed": {
+					"anyOf": [
+						{ "$ref": "#/definitions/OpacityComputation" }
+					]
+				},
+				"platform": { "$ref": "#/definitions/PlatformOverrides" },
+				"fullName": { "$ref": "#/definitions/NameOverride" }
+			},
+			"required": [ "computed" ],
+			"additionalProperties": false
+		},
+
+		"OpacityComputation": {
+			"title": "Opacity computed token",
+			"description": "A color token with its value computed by changing the opacity of another color token.",
+			"type": "object",
+			"properties": {
+				"color": { "title": "Base color token name", "description": "The name of the token to use as a base color.", "type": "string" },
+				"opacity": { "title": "Opacity", "description": "The new opacity to be applied to the base color, 0-1. The base color's opacity is ignored if present.", "type": "number", "minimum": 0, "maximum": 1 }
+			},
+			"required": [ "color", "opacity" ],
+			"additionalProperties": false
+		},
+		
 		"GeneratedTokenSet": {
 			"title": "Generated token set",
 			"description": "A token set generated algorithmically.",
@@ -193,7 +223,12 @@
 			"title": "Platform overrides",
 			"description": "One or more sets of overrides that each apply to a specific platform.",
 			"type": "object",
-			"NYI": "PLATFORM OVERRIDES NODE"
+			"properties": {
+				"css": { "type": "object" },
+				"ios": { "type": "object" },
+				"winui": { "type": "object" }
+			},
+			"additionalProperties": false
 		},
 
 		"NameOverride": {
