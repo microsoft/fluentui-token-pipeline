@@ -1,5 +1,4 @@
 {
-	"$schema": "../../docs/token.schema.json",
 	"Meta": {
 		"FluentUITokensVersion": 0
 	},

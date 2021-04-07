@@ -221,7 +221,7 @@
 
 		"PlatformOverrides": {
 			"title": "Platform overrides",
-			"description": "One or more sets of overrides that each apply to a specific platform.",
+			"description": "One or more sets of overrides that each apply to a specific platform.\n\nNote that use of platform overrides in complex situations, especially when used in multiple JSON files that are merged together, can produce JSON that cannot be validated by this schema, even though the pipeline can still process that JSON successfully.",
 			"type": "object",
 			"properties": {
 				"css": { "type": "object" },
