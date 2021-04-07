@@ -45,7 +45,7 @@
 		"Token": {
 			"oneOf": [
 				{ "$ref": "#/definitions/ValueToken" },
-				{ "$ref": "#/definitions/AliasToken" }
+				{ "$ref": "#/definitions/Alias" }
 			]
 		},
 
@@ -68,20 +68,22 @@
 			"additionalProperties": false
 		},
 
-		"AliasToken": {
-			"title": "Alias token",
-			"description": "A token that gets its value from another token.",
+		"Alias": {
+			"title": "Alias",
+			"description": "An alias token that gets its value from another token, or a reference to another token set.",
 			"type": "object",
 			"properties": {
 				"aliasOf": {
-					"description": "The name of the other token that this token is an alias of, separated by dots. (For example, \"Global.Color.Blue\".)",
+					"title": "Alias target",
+					"description": "A name of another token or token set, separated by dots. (For example, the token name \"Global.Color.Blue\" would make this an alias token, or the token set name \"Global.Color\" would make this a set alias.)",
 					"type": "string"
 				},
 				"platform": { "$ref": "#/definitions/PlatformOverrides" },
 				"fullName": { "$ref": "#/definitions/NameOverride" }
 			},
 			"required": [ "aliasOf" ],
-			"additionalProperties": false
+			"propertyNames": { "pattern": "^[A-Za-z0-9]+$" },
+			"additionalProperties": { "$ref": "#/definitions/TokenSetChild" }
 		},
 
 		"Gradient": {
@@ -142,7 +144,7 @@
 			"type": "object",
 			"properties": {
 				"position": { "$ref": "#/definitions/GradientStopPosition" },
-				"aliasOf": { "title": "Gradient stop alias", "description": "The name of a color token that this gradient stop gets its color from.", "type": "string" }
+				"aliasOf": { "title": "Gradient stop alias", "description": "The name of a color token that this gradient stop gets its color from. (Not a token set, or any type of token other than a solid color.)", "type": "string" }
 			},
 			"required": [ "position", "aliasOf" ],
 			"additionalProperties": false
