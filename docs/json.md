@@ -330,3 +330,9 @@ Token JSON files should start with the following:
 
 * The `$schema` property tells your text editor where to find the schema for token JSON, which will help you validate your tokens before running them through the pipeline.
 * The `Meta.FluentUITokensVersion` property indicates that your token JSON was created for use with this version of the pipeline and could be used in the future for compatibility.
+
+### Validation errors in Visual Studio Code
+
+With `$schema` at the top of your JSON, Visual Studio Code will automatically validate your token JSON files as you type. Be aware that, due to the complexity and flexibility of this format, the actual *errors* reported by Visual Studio Code can be very misleading. For example, if you mistype `value` as `valeu`, VSCode will report that you're missing the required property `aliasOf`. Use the validation to help find errors, but take the error text with a grain of salt.
+
+In particular, VSCode's ability to validate platform overrides is limited, especially if you intend on combining multiple JSON files. Errors reported in complex platform override scenarios may be false positives.
