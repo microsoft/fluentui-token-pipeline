@@ -321,7 +321,7 @@ Token JSON files should start with the following:
 
 ```json
 {
-	"$schema": "https://raw.githubusercontent.com/microsoft/fluentui-token-pipeline/docs/token.schema.json",
+	"$schema": "https://raw.githubusercontent.com/microsoft/fluentui-token-pipeline/main/docs/token.schema.json",
 	"Meta": {
 		"FluentUITokensVersion": 0
 	}

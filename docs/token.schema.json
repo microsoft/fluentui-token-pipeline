@@ -1,6 +1,6 @@
 {
 	"$schema": "https://json-schema.org/draft/2020-12/schema",
-	"$id": "https://raw.githubusercontent.com/microsoft/fluentui-token-pipeline/docs/token.schema.json",
+	"$id": "https://raw.githubusercontent.com/microsoft/fluentui-token-pipeline/main/docs/token.schema.json",
 	"title": "Fluent UI token JSON",
 	"description": "A set of tokens for the Fluent UI token pipeline.",
 	"type": "object",
