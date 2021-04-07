@@ -415,8 +415,7 @@
 				"Width": { "aliasOf": "Set.NeutralStroke1.Stroke.Width", "Selected": { "aliasOf": "Set.NeutralStroke1Selected.Stroke.Width" } }
 			},
 			"Corner": { "aliasOf": "Set.Control.Corner" },
-			"Layout": { "Padding": { "value": [ 7, 15, 7, 15 ] } },
-			"Shadow": {}
+			"Layout": { "Padding": { "value": [ 7, 15, 7, 15 ] } }
 		}
 	},
 
@@ -435,8 +434,7 @@
 				"Width": { "aliasOf": "Set.Borderless.Stroke.Width", "Selected": { "aliasOf": "Set.Borderless.Stroke.Width" } }
 			},
 			"Corner": { "aliasOf": "Set.Control.Corner" },
-			"Layout": { "Padding": { "value": [ 7, 15, 7, 15 ] } },
-			"Shadow": {}
+			"Layout": { "Padding": { "value": [ 7, 15, 7, 15 ] } }
 		}
 	},
 
@@ -455,8 +453,7 @@
 				"Width": { "aliasOf": "Set.NeutralStroke1.Stroke.Width", "Selected": { "aliasOf": "Set.NeutralStroke1.Stroke.Width" } }
 			},
 			"Corner": { "aliasOf": "Set.Control.Corner" },
-			"Layout": { "Padding": { "value": [7, 15, 7, 15] } },
-			"Shadow": {}
+			"Layout": { "Padding": { "value": [7, 15, 7, 15] } }
 		}
 	},
 
@@ -475,8 +472,7 @@
 				"Width": { "aliasOf": "Set.Borderless.Stroke.Width", "Selected": { "aliasOf": "Set.Borderless.Stroke.Width" } }
 			},
 			"Corner": { "aliasOf": "Set.Control.Corner" },
-			"Layout": { "Padding": { "value": [ 7, 15, 7, 15 ] } },
-			"Shadow": {}
+			"Layout": { "Padding": { "value": [ 7, 15, 7, 15 ] } }
 		}
 	},
 
