@@ -314,3 +314,19 @@ Stroke alignments are specified as either inner or outer. They translate to the 
 | `"outer"` | `background-clip: padding-box` | `BackgroundSizing="InnerBorderEdge"` |
 
 Note that stroke alignment doesn't actually affect the sizing of the element, and is different from `border-box` in CSS. It's also intentional that, for example, `"inner"` specifies `OuterBorderEdge` in WinUI: the token value represents the stroke, but the UI platform property represents the fill, so the terminology is roughly reversed.
+
+## Versioning and validation
+
+Token JSON files should start with the following:
+
+```json
+{
+	"$schema": "https://raw.githubusercontent.com/microsoft/fluentui-token-pipeline/docs/token.schema.json",
+	"Meta": {
+		"FluentUITokensVersion": 0
+	}
+}
+```
+
+* The `$schema` property tells your text editor where to find the schema for token JSON, which will help you validate your tokens before running them through the pipeline.
+* The `Meta.FluentUITokensVersion` property indicates that your token JSON was created for use with this version of the pipeline and could be used in the future for compatibility.
