@@ -37,7 +37,8 @@
 		"TokenSetChild": {
 			"oneOf": [
 				{ "$ref": "#/definitions/Token" },
-				{ "$ref": "#/definitions/TokenSet" }
+				{ "$ref": "#/definitions/TokenSet" },
+				{ "$ref": "#/definitions/GeneratedTokenSet" }
 			]
 		},
 
@@ -151,6 +152,39 @@
 			"title": "Gradient stop position",
 			"description": "The position of this gradient stop, typically 0-1. If stopsUnits is \"pixels\", then the position is instead a number of pixels from the start point of the gradient.",
 			"type": "number"
+		},
+
+		"GeneratedTokenSet": {
+			"title": "Generated token set",
+			"description": "A token set generated algorithmically.",
+			"type": "object",
+			"properties": {
+				"generate": { "$ref": "#/definitions/ColorTokenGeneration" }
+			},
+			"required": "generate",
+			"additionalProperties": false
+		},
+
+		"ColorTokenGeneration": {
+			"title": "Generated color tokens",
+			"description": "Instructions for generating a set of color tokens.",
+			"type": "object",
+			"properties": {
+				"type": { "$ref": "#/definitions/TokenGenerationType" },
+				"value": { "title": "Base color", "description": "The base color from which to generate a set of colors.", "type": "string" }
+			},
+			"required": [ "type", "value" ],
+			"additionalProperties": false
+		},
+
+		"TokenGenerationType": {
+			"title": "Token generation algorithm",
+			"description": "The color token generation algorithm to use for this set. See the documentation for details on what tokens each algorithm generates.",
+			"type": "string",
+			"enum": [
+				"lightness0to100by2",
+				"fluentsharedcolors"
+			]
 		},
 
 		"PlatformOverrides": {
