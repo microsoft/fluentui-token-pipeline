@@ -7,21 +7,21 @@
 		"Color": {
 			"Brand": {
 				"Shade": {
-					"60": {"value": "#092c47"},
-					"50": {"value": "#043862"},
-					"40": {"value": "#004578"},
-					"30": {"value": "#004c87"},
-					"20": {"value": "#005a9e"},
-					"10": {"value": "#106ebe"}
+					"60": { "value": "#092c47" },
+					"50": { "value": "#043862" },
+					"40": { "value": "#004578" },
+					"30": { "value": "#004c87" },
+					"20": { "value": "#005a9e" },
+					"10": { "value": "#106ebe" }
 				},
-				"Primary": {"value": "#106ebe"},
-				"Tint":{
-					"10": {"value": "#2899f5"},
-					"20": {"value": "#3aa0f3"},
-					"30": {"value": "#6cb8f6"},
-					"40": {"value": "#c7e0f4"},
-					"50": {"value": "#deecf9"},
-					"60": {"value": "#eff6fc"}
+				"Primary": { "value": "#106ebe" },
+				"Tint": {
+					"10": { "value": "#2899f5" },
+					"20": { "value": "#3aa0f3" },
+					"30": { "value": "#6cb8f6" },
+					"40": { "value": "#c7e0f4" },
+					"50": { "value": "#deecf9" },
+					"60": { "value": "#eff6fc" }
 				}
 			},
 			"Grey": { "generate": { "type": "lightness0to100by2", "value": "grey" } },

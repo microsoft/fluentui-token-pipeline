@@ -26,34 +26,26 @@
 
 	"definitions": {
 
-		"Token": {
-			"oneOf": [
-				{ "$ref": "#/definitions/ValueToken" },
-				{ "$ref": "#/definitions/AliasToken" }
-			],
-			"properties": {
-				"platform": { "$ref": "#/definitions/PlatformOverrides" },
-				"fullName": {
-					"description": "A name override for export only. For example, \"MyTokenNameForExport\". Aliases will will refer to this token by its canonical name.",
-					"type": "string"
-				}
-			},
-			"additionalProperties": false
-		},
-
 		"TokenSet": {
 			"title": "Token set",
 			"description": "A set of tokens.",
 			"type": "object",
-			"propertyNames": {
-				"pattern": "^[A-Za-z0-9]+$"
-			},
-			"additionalProperties": {
-				"oneOf": [
-					{ "$ref": "#/definitions/Token" },
-					{ "$ref": "#/definitions/TokenSet" }
-				]
-			}
+			"propertyNames": { "pattern": "^[A-Za-z0-9]+$" },
+			"additionalProperties": { "$ref": "#/definitions/TokenSetChild" }
+		},
+
+		"TokenSetChild": {
+			"oneOf": [
+				{ "$ref": "#/definitions/Token" },
+				{ "$ref": "#/definitions/TokenSet" }
+			]
+		},
+
+		"Token": {
+			"oneOf": [
+				{ "$ref": "#/definitions/ValueToken" },
+				{ "$ref": "#/definitions/AliasToken" }
+			]
 		},
 
 		"ValueToken": {
@@ -63,63 +55,13 @@
 			"properties": {
 				"value": {
 					"anyOf": [
-						{ "type": [ "string", "number", "boolean" ] },
-						{ "type": "array", "items": { "type": "number" } },
-						{
-							"title": "Linear gradient",
-							"description": "A linear gradient value.",
-							"type": "object",
-							"properties": {
-								"start": {
-									"description": "The start point of the linear gradient as [x, y] where x and y are numbers 0-1.",
-									"type": "array",
-									"items": { "type": "number", "minimum": 0, "maximum": 1 },
-									"minItems": 2,
-									"maxItems": 2
-								},
-								"end": {
-									"description": "The end point of the linear gradient as [x, y] where x and y are numbers 0-1.",
-									"type": "array",
-									"items": { "type": "number", "minimum": 0, "maximum": 1 },
-									"minItems": 2,
-									"maxItems": 2
-								},
-								"stops": {
-									"description": "A collection of gradient stops.",
-									"type": "array",
-									"items": {
-										"allOf": [
-											{
-												"type": "object",
-												"properties": {
-													"position": {
-														"description": "The position of this gradient stop, typically 0-1. If stopsUnits is \"pixels\", then the position is instead a number of pixels from the start point of the gradient.",
-														"type": "number"
-													}
-												},
-												"required": "position"
-											},
-											{
-												"anyOf": [
-													{ "$ref": "#/definitions/ValueToken" },
-													{ "$ref": "#/definitions/AliasToken" }
-												]
-											}
-										]
-									},
-									"minItems": 2
-								},
-								"stopsUnits": {
-									"description": "The units to use to interpret the stop positions. Leave off to specify relative units 0-1, or specify \"pixels\" to specify pixels from the start point of the gradient.",
-									"type": "string",
-									"enum": [ "pixels" ]
-								}
-							},
-							"required": [ "start", "end", "stops" ],
-							"additionalProperties": false
-						}
+						{ "title": "Token value", "description": "See the documentation for what is allowed for each type of token.", "type": [ "string", "number", "boolean" ] },
+						{ "title": "Token array value", "description": "See the documentation for what is allowed for each type of token.", "type": "array", "items": { "type": "number" } },
+						{ "$ref": "#/definitions/Gradient" }
 					]
-				}
+				},
+				"platform": { "$ref": "#/definitions/PlatformOverrides" },
+				"fullName": { "$ref": "#/definitions/NameOverride" }
 			},
 			"required": [ "value" ],
 			"additionalProperties": false
@@ -133,18 +75,95 @@
 				"aliasOf": {
 					"description": "The name of the other token that this token is an alias of, separated by dots. (For example, \"Global.Color.Blue\".)",
 					"type": "string"
-				}
+				},
+				"platform": { "$ref": "#/definitions/PlatformOverrides" },
+				"fullName": { "$ref": "#/definitions/NameOverride" }
 			},
 			"required": [ "aliasOf" ],
 			"additionalProperties": false
+		},
+
+		"Gradient": {
+			"title": "Linear gradient",
+			"description": "A linear gradient value.",
+			"type": "object",
+			"properties": {
+				"start": {
+					"description": "The start point of the linear gradient as [x, y] where x and y are numbers 0-1.",
+					"type": "array",
+					"items": { "type": "number", "minimum": 0, "maximum": 1 },
+					"minItems": 2,
+					"maxItems": 2
+				},
+				"end": {
+					"description": "The end point of the linear gradient as [x, y] where x and y are numbers 0-1.",
+					"type": "array",
+					"items": { "type": "number", "minimum": 0, "maximum": 1 },
+					"minItems": 2,
+					"maxItems": 2
+				},
+				"stops": {
+					"description": "A collection of gradient stops.",
+					"type": "array",
+					"items": { "$ref": "#/definitions/GradientStop" },
+					"minItems": 2
+				},
+				"stopsUnits": {
+					"description": "The units to use to interpret the stop positions. Leave off to specify relative units 0-1, or specify \"pixels\" to specify pixels from the start point of the gradient.",
+					"type": "string",
+					"enum": [ "pixels" ]
+				}
+			},
+			"required": [ "start", "end", "stops" ],
+			"additionalProperties": false
+		},
+
+		"GradientStop": {
+			"title": "Gradient stop",
+			"description": "A single stop in a gradient.",
+			"oneOf": [
+				{ "$ref": "#/definitions/ValueGradientStop" },
+				{ "$ref": "#/definitions/AliasGradientStop" }
+			]
+		},
+
+		"ValueGradientStop": {
+			"type": "object",
+			"properties": {
+				"position": { "$ref": "#/definitions/GradientStopPosition" },
+				"value": { "title": "Gradient stop value", "description": "A color value for this gradient stop.", "type": "string" }
+			},
+			"required": [ "position", "value" ],
+			"additionalProperties": false
+		},
+
+		"AliasGradientStop": {
+			"type": "object",
+			"properties": {
+				"position": { "$ref": "#/definitions/GradientStopPosition" },
+				"aliasOf": { "title": "Gradient stop alias", "description": "The name of a color token that this gradient stop gets its color from.", "type": "string" }
+			},
+			"required": [ "position", "aliasOf" ],
+			"additionalProperties": false
+		},
+
+		"GradientStopPosition": {
+			"title": "Gradient stop position",
+			"description": "The position of this gradient stop, typically 0-1. If stopsUnits is \"pixels\", then the position is instead a number of pixels from the start point of the gradient.",
+			"type": "number"
 		},
 
 		"PlatformOverrides": {
 			"title": "Platform overrides",
 			"description": "One or more sets of overrides that each apply to a specific platform.",
 			"type": "object",
-			"NYI": "PLATFORM OVERRIDES NODE",
-			"additionalProperties": false
+			"NYI": "PLATFORM OVERRIDES NODE"
+		},
+
+		"NameOverride": {
+			"title": "Name override",
+			"description": "A name override for export only. For example, \"MyTokenNameForExport\". Aliases will will refer to this token by its canonical name.",
+			"type": "string"
 		}
 
 	}
