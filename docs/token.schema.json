@@ -1,0 +1,151 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://raw.githubusercontent.com/microsoft/fluentui-token-pipeline/docs/token.schema.json",
+	"title": "Fluent UI token JSON",
+	"description": "A set of tokens for the Fluent UI token pipeline.",
+	"type": "object",
+
+	"properties": {
+		"$schema": { "type": "string" },
+		"Meta": {
+			"description": "Information about this token JSON",
+			"type": "object",
+			"properties": {
+				"FluentUITokensVersion": {
+					"description": "The version of the Fluent UI token JSON spec this file adheres to.",
+					"type": "integer",
+					"minimum": 0,
+					"maximum": 0
+				}
+			},
+			"required": [ "FluentUITokensVersion" ]
+		}
+	},
+	"required": [ "Meta" ],
+	"additionalProperties": { "$ref": "#/definitions/TokenSet" },
+
+	"definitions": {
+
+		"Token": {
+			"oneOf": [
+				{ "$ref": "#/definitions/ValueToken" },
+				{ "$ref": "#/definitions/AliasToken" }
+			],
+			"properties": {
+				"platform": { "$ref": "#/definitions/PlatformOverrides" },
+				"fullName": {
+					"description": "A name override for export only. For example, \"MyTokenNameForExport\". Aliases will will refer to this token by its canonical name.",
+					"type": "string"
+				}
+			},
+			"additionalProperties": false
+		},
+
+		"TokenSet": {
+			"title": "Token set",
+			"description": "A set of tokens.",
+			"type": "object",
+			"propertyNames": {
+				"pattern": "^[A-Za-z0-9]+$"
+			},
+			"additionalProperties": {
+				"oneOf": [
+					{ "$ref": "#/definitions/Token" },
+					{ "$ref": "#/definitions/TokenSet" }
+				]
+			}
+		},
+
+		"ValueToken": {
+			"title": "Value token",
+			"description": "A token with a discrete value.",
+			"type": "object",
+			"properties": {
+				"value": {
+					"anyOf": [
+						{ "type": [ "string", "number", "boolean" ] },
+						{ "type": "array", "items": { "type": "number" } },
+						{
+							"title": "Linear gradient",
+							"description": "A linear gradient value.",
+							"type": "object",
+							"properties": {
+								"start": {
+									"description": "The start point of the linear gradient as [x, y] where x and y are numbers 0-1.",
+									"type": "array",
+									"items": { "type": "number", "minimum": 0, "maximum": 1 },
+									"minItems": 2,
+									"maxItems": 2
+								},
+								"end": {
+									"description": "The end point of the linear gradient as [x, y] where x and y are numbers 0-1.",
+									"type": "array",
+									"items": { "type": "number", "minimum": 0, "maximum": 1 },
+									"minItems": 2,
+									"maxItems": 2
+								},
+								"stops": {
+									"description": "A collection of gradient stops.",
+									"type": "array",
+									"items": {
+										"allOf": [
+											{
+												"type": "object",
+												"properties": {
+													"position": {
+														"description": "The position of this gradient stop, typically 0-1. If stopsUnits is \"pixels\", then the position is instead a number of pixels from the start point of the gradient.",
+														"type": "number"
+													}
+												},
+												"required": "position"
+											},
+											{
+												"anyOf": [
+													{ "$ref": "#/definitions/ValueToken" },
+													{ "$ref": "#/definitions/AliasToken" }
+												]
+											}
+										]
+									},
+									"minItems": 2
+								},
+								"stopsUnits": {
+									"description": "The units to use to interpret the stop positions. Leave off to specify relative units 0-1, or specify \"pixels\" to specify pixels from the start point of the gradient.",
+									"type": "string",
+									"enum": [ "pixels" ]
+								}
+							},
+							"required": [ "start", "end", "stops" ],
+							"additionalProperties": false
+						}
+					]
+				}
+			},
+			"required": [ "value" ],
+			"additionalProperties": false
+		},
+
+		"AliasToken": {
+			"title": "Alias token",
+			"description": "A token that gets its value from another token.",
+			"type": "object",
+			"properties": {
+				"aliasOf": {
+					"description": "The name of the other token that this token is an alias of, separated by dots. (For example, \"Global.Color.Blue\".)",
+					"type": "string"
+				}
+			},
+			"required": [ "aliasOf" ],
+			"additionalProperties": false
+		},
+
+		"PlatformOverrides": {
+			"title": "Platform overrides",
+			"description": "One or more sets of overrides that each apply to a specific platform.",
+			"type": "object",
+			"NYI": "PLATFORM OVERRIDES NODE",
+			"additionalProperties": false
+		}
+
+	}
+}
