@@ -189,6 +189,7 @@ A color, with or without an alpha channel, in CSS syntax.
 * `"#rrggbb"` or `"#rrggbbaa"`
 * `"rgb(255, 255, 255)"` or `"rgba(255, 255, 255, 0.5)"` or `"hsl(206, 100%, 50%)"`
 * `"transparent"` or `"white"` or `"black"`
+* [High contrast system colors](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#system_colors): `"Canvas"`, `"CanvasText"`, `"LinkText"`, `"GrayText"`, `"Highlight"`, `"HighlightText"`, `"ButtonFace"`, or `"ButtonText"`
 
 ### Gradients
 

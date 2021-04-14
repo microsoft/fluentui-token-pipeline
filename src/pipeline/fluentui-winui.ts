@@ -109,9 +109,25 @@ StyleDictionary.registerTransform({
 
 const colorToWFColor = (color: string) =>
 {
-	if (color === "transparent") return "Transparent"
-	const str = Color(color).toHex8()
-	return `#${str.slice(6)}${str.slice(0, 6)}`
+	switch (color.toLowerCase())
+	{
+		case "transparent": return "Transparent"
+
+		case "canvas": return "SystemColorWindowColor"
+		case "canvastext": return "SystemColorWindowTextColor"
+		case "linktext": return "SystemColorHotlightColor"
+		case "graytext": return "SystemColorGrayTextColor"
+		case "highlight": return "SystemColorHighlightColor"
+		case "highlighttext": return "SystemColorHighlightTextColor"
+		case "buttonface": return "SystemColorButtonFaceColor"
+		case "buttontext": return "SystemColorButtonTextColor"
+
+		default:
+		{
+			const str = Color(color).toHex8()
+			return `#${str.slice(6)}${str.slice(0, 6)}`
+		}
+	}
 }
 
 const colorTokenToWFColor = (token: ValueToken) =>
@@ -143,7 +159,11 @@ StyleDictionary.registerTransform({
 		*/
 		if (typeof prop.value === "string")
 		{
-			return colorToWFColor(prop.value)
+			const xamlValue = colorToWFColor(prop.value)
+			if (xamlValue.toLowerCase().startsWith("systemcolor"))
+				return { xaml: `<StaticResource x:Key="${prop.name}" ResourceKey="${prop.value}" />` }
+			else
+				return xamlValue
 		}
 		else if (typeof prop.value === "object")
 		{
