@@ -26,12 +26,20 @@ StyleDictionary.registerFormat({
 		const tokens: any = {}
 		let previousProp: any | null = null
 		let previousPropRoot: string | null = null
+		let previousPropSubgroup: string | null = null
 		let thisOutputObject: any | null = null
 		for (const thisProp of sortedProps)
 		{
 			let rootName = _.camelCase(thisProp.path[0])
+			let subgroupName: string | null = null
 			let meaningfulPathStart = 1
-			if (rootName === "set" && thisProp.path.length > 1)
+			if (rootName === "global" && thisProp.path.length > 3)
+			{
+				meaningfulPathStart = 3
+				rootName = _.camelCase(thisProp.path[1])
+				subgroupName = _.camelCase(thisProp.path[2])
+			}
+			else if ((rootName === "set" || rootName === "global") && thisProp.path.length > 2)
 			{
 				meaningfulPathStart = 2
 				rootName = _.camelCase(thisProp.path[1])
@@ -42,9 +50,11 @@ StyleDictionary.registerFormat({
 			}
 			meaningfulPathStart = Math.min(meaningfulPathStart, thisProp.path.length - 1)
 
-			if (!previousProp || rootName !== previousPropRoot)
+			if (!previousProp || rootName !== previousPropRoot || subgroupName !== previousPropSubgroup)
 			{
 				tokens[rootName] = thisOutputObject = tokens[rootName] || {}
+				if (subgroupName && !(subgroupName in thisOutputObject))
+					thisOutputObject = thisOutputObject[subgroupName] = {}
 			}
 
 			const exportName = _.camelCase(thisProp.path.slice(meaningfulPathStart).join(" "))
@@ -52,6 +62,7 @@ StyleDictionary.registerFormat({
 
 			previousProp = thisProp
 			previousPropRoot = rootName
+			previousPropSubgroup = subgroupName
 		}
 
 		return JSON.stringify(tokens, /* replacer: */ undefined, /* space: */ "\t")

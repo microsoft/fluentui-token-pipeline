@@ -46,6 +46,7 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 				transformGroup: "fluentui/json/grouped",
 				buildPath: `${outputPath}/json/`,
 				files: [
+					{ destination: "tokens-global.json", format: "fluentui/json/grouped", filter: "isGlobal" },
 					{ destination: "tokens-aliases.json", format: "fluentui/json/grouped", filter: "isAlias" },
 					{ destination: "tokens-controls.json", format: "fluentui/json/grouped", filter: "isControl" },
 				],
