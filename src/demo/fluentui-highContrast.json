@@ -1,0 +1,651 @@
+{
+  "Meta": {
+    "FluentUITokensVersion": 0
+  },
+  "Set": {
+    "Neutral": {
+      "NeutralForeground1": {
+        "Fill": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.hcCanvasText"
+            }
+          }
+        }
+      },
+      "NeutralForeground2": {
+        "Fill": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.hcCanvasText"
+            },
+            "Hover": {
+              "aliasOf": "Global.Color.hcHighlightText"
+            },
+            "Pressed": {
+              "aliasOf": "Global.Color.hcHighlightText"
+            },
+            "Selected": {
+              "aliasOf": "Global.Color.hcHighlightText"
+            },
+            "BrandHover": {
+              "aliasOf": "Global.Color.hcHighlightText"
+            },
+            "BrandPressed": {
+              "aliasOf": "Global.Color.hcHighlightText"
+            },
+            "BrandSelected": {
+              "aliasOf": "Global.Color.hcHighlightText"
+            }
+          }
+        }
+      },
+      "NeutralForeground3": {
+        "Fill": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.hcCanvasText"
+            },
+            "Hover": {
+              "aliasOf": "Global.Color.hcHighlightText"
+            },
+            "Pressed": {
+              "aliasOf": "Global.Color.hcHighlightText"
+            },
+            "Selected": {
+              "aliasOf": "Global.Color.hcHighlightText"
+            },
+            "BrandHover": {
+              "aliasOf": "Global.Color.hcHighlightText"
+            },
+            "BrandPressed": {
+              "aliasOf": "Global.Color.hcHighlightText"
+            },
+            "BrandSelected": {
+              "aliasOf": "Global.Color.hcHighlightText"
+            }
+          }
+        }
+      },
+      "NeutralForeground4": {
+        "Fill": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.hcCanvasText"
+            }
+          }
+        }
+      },
+      "NeutralForegroundDisabled": {
+        "Fill": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.hcDisabled"
+            }
+          }
+        }
+      },
+      "Brand.ForegroundLink": {
+        "Fill": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.hcHyperlink"
+            },
+            "Hover": {
+              "aliasOf": "Global.Color.hcHyperlink"
+            },
+            "Pressed": {
+              "aliasOf": "Global.Color.hcHyperlink"
+            },
+            "Selected": {
+              "aliasOf": "Global.Color.hcHyperlink"
+            }
+          }
+        }
+      },
+      "CompoundBrand.Foreground1": {
+        "Fill": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.hcHighlight"
+            },
+            "Hover": {
+              "aliasOf": "Global.Color.hcHighlight"
+            },
+            "Pressed": {
+              "aliasOf": "Global.Color.hcHighlight"
+            }
+          }
+        }
+      },
+      "Brand.Foreground1": {
+        "Fill": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.hcCanvasText"
+            }
+          }
+        }
+      },
+      "Brand.Foreground2": {
+        "Fill": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.hcButtonText"
+            }
+          }
+        }
+      },
+      "NeutralForegroundInverted": {
+        "Fill": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.hcCanvasText"
+            }
+          }
+        }
+      },
+      "NeutralForegroundInvertedAccessible": {
+        "Fill": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.hcButtonText"
+            }
+          }
+        }
+      },
+      "NeutralForegroundInvertedLink": {
+        "Fill": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.hcHyperlink"
+            },
+            "Hover": {
+              "aliasOf": "Global.Color.hcHyperlink"
+            },
+            "Pressed": {
+              "aliasOf": "Global.Color.hcHyperlink"
+            },
+            "Selected": {
+              "aliasOf": "Global.Color.hcHyperlink"
+            }
+          }
+        }
+      },
+      "NeutralBackground1": {
+        "Fill": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.hcCanvas"
+            },
+            "Hover": {
+              "aliasOf": "Global.Color.hcHighlight"
+            },
+            "Pressed": {
+              "aliasOf": "Global.Color.hcHighlight"
+            },
+            "Selected": {
+              "aliasOf": "Global.Color.hcHighlight"
+            }
+          }
+        }
+      },
+      "NeutralBackground2": {
+        "Fill": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.hcCanvas"
+            },
+            "Hover": {
+              "aliasOf": "Global.Color.hcHighlight"
+            },
+            "Pressed": {
+              "aliasOf": "Global.Color.hcHighlight"
+            },
+            "Selected": {
+              "aliasOf": "Global.Color.hcHighlight"
+            }
+          }
+        }
+      },
+      "NeutralBackground3": {
+        "Fill": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.hcCanvas"
+            },
+            "Hover": {
+              "aliasOf": "Global.Color.hcHighlight"
+            },
+            "Pressed": {
+              "aliasOf": "Global.Color.hcHighlight"
+            },
+            "Selected": {
+              "aliasOf": "Global.Color.hcHighlight"
+            }
+          }
+        }
+      },
+      "NeutralBackground4": {
+        "Fill": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.hcCanvas"
+            },
+            "Hover": {
+              "aliasOf": "Global.Color.hcHighlight"
+            },
+            "Pressed": {
+              "aliasOf": "Global.Color.hcHighlight"
+            },
+            "Selected": {
+              "aliasOf": "Global.Color.hcHighlight"
+            }
+          }
+        }
+      },
+      "NeutralBackground5": {
+        "Fill": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.hcCanvas"
+            },
+            "Hover": {
+              "aliasOf": "Global.Color.hcHighlight"
+            },
+            "Pressed": {
+              "aliasOf": "Global.Color.hcHighlight"
+            },
+            "Selected": {
+              "aliasOf": "Global.Color.hcHighlight"
+            }
+          }
+        }
+      },
+      "NeutralBackground6": {
+        "Fill": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.hcCanvas"
+            }
+          }
+        }
+      },
+      "SubtleBackground": {
+        "Fill": {
+          "Color": {
+            "Rest": {
+              "value": "transparent"
+            },
+            "Hover": {
+              "aliasOf": "Global.Color.hcHighlight"
+            },
+            "Pressed": {
+              "aliasOf": "Global.Color.hcHighlight"
+            },
+            "Selected": {
+              "aliasOf": "Global.Color.hcHighlight"
+            }
+          }
+        }
+      },
+      "TransparentBackground": {
+        "Fill": {
+          "Color": {
+            "Rest": {
+              "value": "transparent"
+            },
+            "Hover": {
+              "aliasOf": "Global.Color.hcHighlight"
+            },
+            "Pressed": {
+              "aliasOf": "Global.Color.hcHighlight"
+            },
+            "Selected": {
+              "aliasOf": "Global.Color.hcHighlight"
+            }
+          }
+        }
+      },
+      "NeutralBackgroundDisabled": {
+        "Fill": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.hcCanvas"
+            }
+          }
+        }
+      },
+      "Brand.Background": {
+        "Fill": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.hcButtonFace"
+            },
+            "Hover": {
+              "aliasOf": "Global.Color.hcHighlight"
+            },
+            "Pressed": {
+              "aliasOf": "Global.Color.hcHighlight"
+            },
+            "Selected": {
+              "aliasOf": "Global.Color.hcHighlight"
+            }
+          }
+        }
+      },
+      "CompoundBrand.Background": {
+        "Fill": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.hcHighlight"
+            },
+            "Hover": {
+              "aliasOf": "Global.Color.hcHighlight"
+            },
+            "Pressed": {
+              "aliasOf": "Global.Color.hcHighlight"
+            }
+          }
+        }
+      },
+      "Brand.BackgroundStatic": {
+        "Fill": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.hcCanvas"
+            }
+          }
+        }
+      },
+      "Brand.Background2": {
+        "Fill": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.hcButtonFace"
+            }
+          }
+        }
+      },
+      "NeutralStrokeAccessible": {
+        "Stroke": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.hcCanvasText"
+            },
+            "Hover": {
+              "aliasOf": "Global.Color.hcHighlight"
+            },
+            "Pressed": {
+              "aliasOf": "Global.Color.hcHighlight"
+            },
+            "Selected": {
+              "aliasOf": "Global.Color.hcHighlight"
+            }
+          }
+        }
+      },
+      "NeutralStroke1": {
+        "Stroke": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.hcCanvasText"
+            },
+            "Hover": {
+              "aliasOf": "Global.Color.hcHighlight"
+            },
+            "Pressed": {
+              "aliasOf": "Global.Color.hcHighlight"
+            },
+            "Selected": {
+              "aliasOf": "Global.Color.hcHighlight"
+            }
+          }
+        }
+      },
+      "NeutralStroke2": {
+        "Stroke": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.hcCanvasText"
+            }
+          }
+        }
+      },
+      "NeutralStroke3": {
+        "Stroke": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.hcCanvasText"
+            }
+          }
+        }
+      },
+      "Brand.Stroke1": {
+        "Stroke": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.hcCanvasText"
+            }
+          }
+        }
+      },
+      "Brand.Stroke2": {
+        "Stroke": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.hcCanvas"
+            }
+          }
+        }
+      },
+      "CompoundBrand.Stroke": {
+        "Stroke": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.hcHighlight"
+            },
+            "Hover": {
+              "aliasOf": "Global.Color.hcHighlight"
+            },
+            "Pressed": {
+              "aliasOf": "Global.Color.hcHighlight"
+            }
+          }
+        }
+      },
+      "NeutralStrokeDisabled": {
+        "Stroke": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.hcDisabled"
+            }
+          }
+        }
+      },
+      "StrokeAccessible": {
+        "Stroke": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.hcCanvasText"
+            }
+          }
+        }
+      },
+      "StrokeAccessibleInteractive": {
+        "Stroke": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.hcHighlight"
+            }
+          }
+        }
+      },
+      "StrokeAccessibleDisabled": {
+        "Stroke": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.hcDisabled"
+            }
+          }
+        }
+      },
+      "StrokeFocus1": {
+        "Stroke": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.hcCanvas"
+            }
+          }
+        }
+      },
+      "StrokeFocus2": {
+        "Stroke": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.hcHighlight"
+            }
+          }
+        }
+      },
+      "NeutralShadowAmbient": {
+        "Fill": {
+          "Color": {
+            "Rest": {
+              "value": "rgba(0,0,0,0.24)"
+            }
+          }
+        }
+      },
+      "NeutralShadowKey": {
+        "Fill": {
+          "Color": {
+            "Rest": {
+              "value": "rgba(0,0,0,0.28)"
+            }
+          }
+        }
+      },
+      "NeutralShadowAmbientLighter": {
+        "Fill": {
+          "Color": {
+            "Rest": {
+              "value": "rgba(0,0,0,0.12)"
+            }
+          }
+        }
+      },
+      "NeutralShadowKeyLighter": {
+        "Fill": {
+          "Color": {
+            "Rest": {
+              "value": "rgba(0,0,0,0.14)"
+            }
+          }
+        }
+      },
+      "NeutralShadowAmbientDarker": {
+        "Fill": {
+          "Color": {
+            "Rest": {
+              "value": "rgba(0,0,0,0.40)"
+            }
+          }
+        }
+      },
+      "NeutralShadowKeyDarker": {
+        "Fill": {
+          "Color": {
+            "Rest": {
+              "value": "rgba(0,0,0,0.48)"
+            }
+          }
+        }
+      },
+      "Brand.ShadowAmbient": {
+        "Fill": {
+          "Color": {
+            "Rest": {
+              "value": "rgba(0,0,0,0.30)"
+            }
+          }
+        }
+      },
+      "Brand.ShadowKey": {
+        "Fill": {
+          "Color": {
+            "Rest": {
+              "value": "rgba(0,0,0,0.25)"
+            }
+          }
+        }
+      }
+    },
+    "generate": {
+      "type": "fluentsharedalias",
+      "value": {
+        "aliasOf": {
+          "Background1": "Global.Color.$COLOR.Shade40",
+          "Background2": "Global.Color.$COLOR.Shade30",
+          "Background3": "Global.Color.$COLOR.Primary",
+          "Foreground1": "Global.Color.$COLOR.Tint30",
+          "Foreground2": "Global.Color.$COLOR.Tint40",
+          "Foreground3": "Global.Color.$COLOR.Tint20",
+          "BorderActive": "Global.Color.$COLOR.Tint30",
+          "Border2": "Global.Color.$COLOR.Tint20"
+        },
+        "forColors": [
+          "DarkRed",
+          "Burgundy",
+          "Cranberry",
+          "Red",
+          "DarkOrange",
+          "Bronze",
+          "Pumpkin",
+          "Orange",
+          "Peach",
+          "Marigold",
+          "Yellow",
+          "Gold",
+          "Brass",
+          "Brown",
+          "DarkBrown",
+          "Lime",
+          "Forest",
+          "Seafoam",
+          "LightGreen",
+          "Green",
+          "DarkGreen",
+          "LightTeal",
+          "Teal",
+          "DarkTeal",
+          "Cyan",
+          "Steel",
+          "LightBlue",
+          "Blue",
+          "RoyalBlue",
+          "DarkBlue",
+          "Cornflower",
+          "Navy",
+          "Lavender",
+          "Purple",
+          "DarkPurple",
+          "Orchid",
+          "Grape",
+          "Berry",
+          "Lilac",
+          "Pink",
+          "HotPink",
+          "Magenta",
+          "Plum",
+          "Beige",
+          "Mink",
+          "Silver",
+          "Platinum",
+          "Anchor",
+          "Charcoal"
+        ]
+      }
+    }
+  }
+}
