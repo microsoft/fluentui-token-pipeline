@@ -91,6 +91,7 @@ export const SupportedPlatforms =
 	cssflat: true,
 	ios: true,
 	winui: true,
+	react: true,
 }
 export type SupportedPlatform = keyof typeof SupportedPlatforms
 export type SupportedPlatformList<ValueType> =
