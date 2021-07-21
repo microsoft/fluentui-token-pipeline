@@ -140,7 +140,7 @@
         "Fill": {
           "Color": {
             "Rest": {
-              "aliasOf": "Global.Color.hcCanvasText"
+              "aliasOf": "Global.Color.hcCanvas"
             }
           }
         }

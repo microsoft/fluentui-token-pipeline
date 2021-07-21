@@ -71,7 +71,7 @@
 				"Fill": {
 					"Color": {
 						"Rest": {
-							"aliasOf": "Global.Color.Grey.50"
+							"aliasOf": "Global.Color.Grey.44"
 						}
 					}
 				}
