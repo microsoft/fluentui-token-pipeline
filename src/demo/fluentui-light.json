@@ -145,7 +145,7 @@
 					}
 				}
 			},
-			"NeutralForegroundInvertedAccessible": {
+			"NeutralForegroundOnBrand": {
 				"Fill": {
 					"Color": {
 						"Rest": {
@@ -271,6 +271,15 @@
 					}
 				}
 			},
+			"NeutralBackgroundInverted": {
+				"Fill": {
+					"Color": {
+						"Rest": {
+							"aliasOf": "Global.Color.Grey.38"
+						}
+					}
+				}
+			},
 			"SubtleBackground": {
 				"Fill": {
 					"Color": {
@@ -312,6 +321,24 @@
 					"Color": {
 						"Rest": {
 							"aliasOf": "Global.Color.Grey.94"
+						}
+					}
+				}
+			},
+			"NeutralStencil1": {
+				"Fill": {
+					"Color": {
+						"Rest": {
+							"aliasOf": "Global.Color.Grey.90"
+						}
+					}
+				}
+			},
+			"NeutralStencil2": {
+				"Fill": {
+					"Color": {
+						"Rest": {
+							"aliasOf": "Global.Color.Grey.98"
 						}
 					}
 				}
