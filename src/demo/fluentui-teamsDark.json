@@ -464,7 +464,7 @@
           }
         }
       },
-      "StrokeAccessible": {
+      "TransparentStroke": {
         "Stroke": {
           "Color": {
             "Rest": {
@@ -473,7 +473,7 @@
           }
         }
       },
-      "StrokeAccessibleInteractive": {
+      "TransparentStrokeInteractive": {
         "Stroke": {
           "Color": {
             "Rest": {
@@ -482,7 +482,7 @@
           }
         }
       },
-      "StrokeAccessibleDisabled": {
+      "TransparentStrokeDisabled": {
         "Stroke": {
           "Color": {
             "Rest": {
