@@ -12,6 +12,7 @@ import "./fluentui-html"
 import "./fluentui-json"
 import "./fluentui-ios"
 import "./fluentui-react"
+import "./fluentui-reactnative"
 import "./fluentui-winui"
 
 export const buildOutputs = (input: string[] | string, outputPath: string, platforms: SupportedPlatform[] | undefined): void =>
@@ -47,6 +48,7 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 				transformGroup: "fluentui/json/grouped",
 				buildPath: `${outputPath}/json/`,
 				files: [
+					{ destination: "tokens-global.json", format: "fluentui/json/grouped", filter: "isGlobal" },
 					{ destination: "tokens-aliases.json", format: "fluentui/json/grouped", filter: "isAlias" },
 					{ destination: "tokens-controls.json", format: "fluentui/json/grouped", filter: "isControl" },
 				],
@@ -100,6 +102,21 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 			}
 		)
 	}
+
+	if (!platforms || platforms.includes("reactnative")) buildOnePlatform(tokens, /* platformOverride: */ null,
+		{
+			reactnative:
+			{
+				transformGroup: "fluentui/reactnative",
+				buildPath: `${outputPath}/reactnative/`,
+				files: [
+					{ destination: "tokens-global.json", format: "fluentui/json/grouped", filter: "isGlobal" },
+					{ destination: "tokens-aliases.json", format: "fluentui/json/grouped", filter: "isAlias" },
+					{ destination: "tokens-controls.json", format: "fluentui/json/grouped", filter: "isControl" },
+				],
+			}
+		}
+	)
 
 	if (!platforms || platforms.includes("winui")) buildOnePlatform(tokens, "winui",
 		{

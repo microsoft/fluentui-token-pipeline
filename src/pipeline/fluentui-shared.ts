@@ -83,6 +83,11 @@ StyleDictionary.registerFilter({
 })
 
 StyleDictionary.registerFilter({
+	name: "isGlobal",
+	matcher: prop => prop.path[0] === "Global",
+})
+
+StyleDictionary.registerFilter({
 	name: "isControl",
 	matcher: prop =>
 	{

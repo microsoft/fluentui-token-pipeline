@@ -14,7 +14,7 @@
 					"20": { "value": "#005a9e" },
 					"10": { "value": "#106ebe" }
 				},
-				"Primary": { "value": "#106ebe" },
+				"Primary": { "value": "#0078d4" },
 				"Tint": {
 					"10": { "value": "#2899f5" },
 					"20": { "value": "#3aa0f3" },
@@ -83,7 +83,7 @@
 			"Silver": { "generate": { "type": "fluentsharedcolors", "value": "#859599" } },
 			"Platinum": { "generate": { "type": "fluentsharedcolors", "value": "#69797e" } },
 			"Anchor": { "generate": { "type": "fluentsharedcolors", "value": "#394146" } },
-			"Charcoal": { "generate": { "type": "fluentsharedcolors", "value": "#750b1c"  }},
+			"Charcoal": { "generate": { "type": "fluentsharedcolors", "value": "#393939"  }},
 			"White": { "value": "#ffffff" },
 			"Black": { "value": "#000000" }
 		},
