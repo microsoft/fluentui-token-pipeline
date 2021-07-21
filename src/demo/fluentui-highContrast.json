@@ -85,7 +85,7 @@
           }
         }
       },
-      "Brand.ForegroundLink": {
+      "BrandForegroundLink": {
         "Fill": {
           "Color": {
             "Rest": {
@@ -103,7 +103,7 @@
           }
         }
       },
-      "CompoundBrand.Foreground1": {
+      "CompoundBrandForeground1": {
         "Fill": {
           "Color": {
             "Rest": {
@@ -118,7 +118,7 @@
           }
         }
       },
-      "Brand.Foreground1": {
+      "BrandForeground1": {
         "Fill": {
           "Color": {
             "Rest": {
@@ -127,7 +127,7 @@
           }
         }
       },
-      "Brand.Foreground2": {
+      "BrandForeground2": {
         "Fill": {
           "Color": {
             "Rest": {
@@ -316,7 +316,7 @@
           }
         }
       },
-      "Brand.Background": {
+      "BrandBackground": {
         "Fill": {
           "Color": {
             "Rest": {
@@ -334,7 +334,7 @@
           }
         }
       },
-      "CompoundBrand.Background": {
+      "CompoundBrandBackground": {
         "Fill": {
           "Color": {
             "Rest": {
@@ -349,7 +349,7 @@
           }
         }
       },
-      "Brand.BackgroundStatic": {
+      "BrandBackgroundStatic": {
         "Fill": {
           "Color": {
             "Rest": {
@@ -358,7 +358,7 @@
           }
         }
       },
-      "Brand.Background2": {
+      "BrandBackground2": {
         "Fill": {
           "Color": {
             "Rest": {
@@ -421,7 +421,7 @@
           }
         }
       },
-      "Brand.Stroke1": {
+      "BrandStroke1": {
         "Stroke": {
           "Color": {
             "Rest": {
@@ -430,7 +430,7 @@
           }
         }
       },
-      "Brand.Stroke2": {
+      "BrandStroke2": {
         "Stroke": {
           "Color": {
             "Rest": {
@@ -439,7 +439,7 @@
           }
         }
       },
-      "CompoundBrand.Stroke": {
+      "CompoundBrandStroke": {
         "Stroke": {
           "Color": {
             "Rest": {
@@ -562,7 +562,7 @@
           }
         }
       },
-      "Brand.ShadowAmbient": {
+      "BrandShadowAmbient": {
         "Fill": {
           "Color": {
             "Rest": {
@@ -571,7 +571,7 @@
           }
         }
       },
-      "Brand.ShadowKey": {
+      "BrandShadowKey": {
         "Fill": {
           "Color": {
             "Rest": {
