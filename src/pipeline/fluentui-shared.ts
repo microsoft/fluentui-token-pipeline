@@ -26,6 +26,10 @@ const getSDAttributes = (category, attribute) =>
 		if (attribute === "Size" || attribute === "LineHeight") return { category: "size", xamlType: "x:Double" }
 		if (attribute === "Weight") return { category: "fontWeight", xamlType: "x:Double" }
 	}
+	if (category === "Shadow" || attribute === "Shadow")
+	{
+		return { category: "shadow", xamlType: "none" } // WinUI uses Z-axis translation and doesn't support this kind of shadow natively
+	}
 	return null
 }
 

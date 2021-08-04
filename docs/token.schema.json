@@ -50,6 +50,13 @@
 			]
 		},
 
+		"TokenOrAlias": {
+			"oneOf": [
+				{ "$ref": "#/definitions/ValueToken" },
+				{ "$ref": "#/definitions/Alias" }
+			]
+		},
+
 		"ValueToken": {
 			"title": "Value token",
 			"description": "A token with a discrete value.",
@@ -59,7 +66,8 @@
 					"anyOf": [
 						{ "title": "Token value", "description": "See the documentation for what is allowed for each type of token.", "type": [ "string", "number", "boolean" ] },
 						{ "title": "Token array value", "description": "See the documentation for what is allowed for each type of token.", "type": "array", "items": { "type": "number" } },
-						{ "$ref": "#/definitions/Gradient" }
+						{ "$ref": "#/definitions/Gradient" },
+						{ "$ref": "#/definitions/ShadowList" }
 					]
 				},
 				"platform": { "$ref": "#/definitions/PlatformOverrides" },
@@ -217,6 +225,27 @@
 				"lightness0to100by2",
 				"fluentsharedcolors"
 			]
+		},
+
+		"ShadowList": {
+			"title": "Shadows",
+			"description": "An array of shadows.",
+			"type": "array",
+			"items": { "$ref": "#/definitions/Shadow" }
+		},
+
+		"Shadow": {
+			"title": "Shadow",
+			"description": "A single shadow.",
+			"type": "object",
+			"properties": {
+				"x": { "title": "X offset", "description": "The shadow's X offset.", "type": "number" },
+				"y": { "title": "Y offset", "description": "The shadow's Y offset.", "type": "number" },
+				"blur": { "title": "Blur amount", "description": "The shadow's blur amount, in pixels.", "type": "number", "minimum": 0 },
+				"color": { "title": "Color", "description": "The shadow's color (either as value or aliasOf).", "type": "object" }
+			},
+			"required": ["x", "y", "blur", "color"],
+			"additionalProperties": false
 		},
 
 		"PlatformOverrides": {

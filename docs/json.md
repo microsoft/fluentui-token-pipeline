@@ -302,6 +302,23 @@ Element widths and heights are specifed as independent properties in device-inde
 * <strike>**not** `"80px"`</strike>
 * <strike>**not** `"1024 768"`</strike>
 
+### Shadows
+
+Shadows are specified as an array of individual shadows, each with their own offsets, sizes, and colors (including opacity).
+
+```json
+[
+	{ "x": 0, "y": 0, "blur": 2, "color": { "value": "#00000022" }},
+	{ "x": 0, "y": 1, "blur": 2, "color": { "aliasOf": "Global.Color.ShadowKey" }}
+]
+```
+
+X- and Y-offsets and the blur amount are specified in device-independent pixels **without units**, and correspond to the values you would use for the CSS `box-shadow` property (even if your platform defines shadows in a slightly different way, such as SwiftUI, which uses different values for blur amounts). The color of the darkest point of the shadow can be specified either with `value` or `aliasOf`. You will probably want to use a color with an alpha value less than 1. Each shadow can have a single color, not a gradient.
+
+You can specify any number of shadows for an element, which will be applied in the same manner as the CSS `box-shadow` property.
+
+Not all platforms support shadows defined in this way. For example, WinUI `ThemeShadow` defines shadows based on a Z-axis offset rather than explicit X- and Y-offsets and a blur amount. In unsupported platforms, these tokens are not exported.
+
 ### Stroke alignments
 
 Stroke alignments are specified as either inner or outer. They translate to the `background-clip` property in CSS and the `BackgroundSizing` property in WinUI, and they're used for specifying how to draw a partially-transparent border.

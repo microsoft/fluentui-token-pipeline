@@ -49,13 +49,14 @@ StyleDictionary.registerTransform({
 	},
 })
 
-const colorToHexColor = (color: string) =>
+export const colorToHexColor = (color: string): string =>
 {
-	if (color === "transparent") return "transparent"
-	return Color(color).toHexString()
+	if (color.toLowerCase() === "transparent") return "transparent"
+	const tinycolor = Color(color)
+	return tinycolor.getAlpha() < 1 ? tinycolor.toHex8String() : tinycolor.toHexString()
 }
 
-const colorTokenToHexColor = (token: ValueToken) => colorToHexColor(token.value as string)
+export const colorTokenToHexColor = (token: ValueToken): string => colorToHexColor(token.value as string)
 
 /**
 	Takes an angle of the start of a gradient and transforms it into the format required by CSS linear-gradient().
@@ -137,12 +138,25 @@ StyleDictionary.registerTransform({
 	},
 })
 
+StyleDictionary.registerTransform({
+	name: "fluentui/shadow/css",
+	type: "value",
+	matcher: prop => prop.attributes.category === "shadow",
+	transformer: prop =>
+	{
+		/*
+			Transforms shadow properties into a CSS box-shadow property.
+		*/
+		return prop.value.map(shadow => `${shadow.x}px ${shadow.y}px ${shadow.blur}px ${colorTokenToHexColor(shadow.color)}`).join(", ")
+	},
+})
+
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/css",
-	transforms: ["fluentui/attribute", "fluentui/name/kebab", "fluentui/alias/css", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css"],
+	transforms: ["fluentui/attribute", "fluentui/name/kebab", "fluentui/alias/css", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/shadow/css"],
 })
 
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/cssflat",
-	transforms: ["fluentui/attribute", "fluentui/name/kebab", "fluentui/alias/flatten", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css"],
+	transforms: ["fluentui/attribute", "fluentui/name/kebab", "fluentui/alias/flatten", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/shadow/css"],
 })

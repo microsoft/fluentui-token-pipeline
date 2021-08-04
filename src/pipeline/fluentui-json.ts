@@ -2,6 +2,7 @@ import StyleDictionary from "style-dictionary"
 import _ from "lodash"
 
 import * as Utils from "./utils"
+import { colorTokenToHexColor } from "./fluentui-css"
 
 // This name is only used for sorting; we don't use it in output.
 const nameForGroupedJson = path => path.join("")
@@ -12,9 +13,19 @@ StyleDictionary.registerTransform({
 	transformer: prop => nameForGroupedJson(Utils.getTokenExportPath(prop)),
 })
 
+StyleDictionary.registerTransform({
+	name: "fluentui/shadow/json",
+	type: "value",
+	matcher: prop => prop.attributes.category === "shadow",
+	transformer: prop =>
+	{
+		return prop.value.map(shadow => ({ ...shadow, color: colorTokenToHexColor(shadow.color) }))
+	},
+})
+
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/json/grouped",
-	transforms: ["fluentui/attribute", "fluentui/name/json/grouped", "fluentui/alias/flatten", "fluentui/color/css"],
+	transforms: ["fluentui/attribute", "fluentui/name/json/grouped", "fluentui/alias/flatten", "fluentui/color/css", "fluentui/shadow/json"],
 })
 
 StyleDictionary.registerFormat({
