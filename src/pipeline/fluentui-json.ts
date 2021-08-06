@@ -5,7 +5,7 @@ import * as Utils from "./utils"
 import { colorTokenToHexColor } from "./fluentui-css"
 
 // This name is only used for sorting; we don't use it in output.
-const nameForGroupedJson = path => path.join("")
+const nameForGroupedJson = path => path.join(".")
 
 StyleDictionary.registerTransform({
 	name: "fluentui/name/json/grouped",
