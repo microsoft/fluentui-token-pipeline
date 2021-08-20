@@ -51,9 +51,28 @@ StyleDictionary.registerTransform({
 
 export const colorToHexColor = (color: string): string =>
 {
-	if (color.toLowerCase() === "transparent") return "transparent"
+	const specialColor: string | undefined = specialColorNames[color.toLowerCase()]
+	if (specialColor) return specialColor
 	const tinycolor = Color(color)
+	if (!tinycolor.isValid()) console.warn(`Unsupported color value: "${color}".`)
 	return tinycolor.getAlpha() < 1 ? tinycolor.toHex8String() : tinycolor.toHexString()
+}
+
+const specialColorNames: Record<string, string> =
+{
+	// Common transparent color shortcut
+	"transparent": "transparent",
+	// Fully-supported high contrast colors
+	"canvas": "Canvas",
+	"canvastext": "CanvasText",
+	"linktext": "LinkText",
+	"graytext": "GrayText",
+	"highlight": "Highlight",
+	"highlighttext": "HighlightText",
+	"buttonface": "ButtonFace",
+	"buttontext": "ButtonText",
+	// Other web-only forced colors not included:
+	// https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#system_colors
 }
 
 export const colorTokenToHexColor = (token: ValueToken): string => colorToHexColor(token.value as string)
