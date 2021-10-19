@@ -130,7 +130,7 @@ StyleDictionary.registerFormat({
 	name: "react/colors/alias",
 	formatter: (dictionary, config) =>
 	{
-		const colors: any = {}
+		const colors: any = {neutral: {}}
 		dictionary.allProperties.forEach(prop =>
 		{
 			_.setWith(colors, prop.name, prop, Object)
