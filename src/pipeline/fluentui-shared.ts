@@ -56,7 +56,9 @@ StyleDictionary.registerTransform({
 		}
 		else
 		{
-			sdAttributes = getSDAttributes(prop.path[2], prop.path[3])
+			sdAttributes = prop.path[prop.path.length - 2] === 'Color'
+				? getSDAttributes(prop.path[prop.path.length - 3], prop.path[prop.path.length - 2])
+				: getSDAttributes(prop.path[2], prop.path[3])
 		}
 
 		if (!sdAttributes)
