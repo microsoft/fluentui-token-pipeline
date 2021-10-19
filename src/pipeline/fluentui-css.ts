@@ -49,13 +49,33 @@ StyleDictionary.registerTransform({
 	},
 })
 
-const colorToHexColor = (color: string) =>
+export const colorToHexColor = (color: string): string =>
 {
-	if (color === "transparent") return "transparent"
-	return Color(color).toHexString()
+	const specialColor: string | undefined = specialColorNames[color.toLowerCase()]
+	if (specialColor) return specialColor
+	const tinycolor = Color(color)
+	if (!tinycolor.isValid()) console.warn(`Unsupported color value: "${color}".`)
+	return tinycolor.getAlpha() < 1 ? tinycolor.toHex8String() : tinycolor.toHexString()
 }
 
-const colorTokenToHexColor = (token: ValueToken) => colorToHexColor(token.value as string)
+const specialColorNames: Record<string, string> =
+{
+	// Common transparent color shortcut
+	"transparent": "transparent",
+	// Fully-supported high contrast colors
+	"canvas": "Canvas",
+	"canvastext": "CanvasText",
+	"linktext": "LinkText",
+	"graytext": "GrayText",
+	"highlight": "Highlight",
+	"highlighttext": "HighlightText",
+	"buttonface": "ButtonFace",
+	"buttontext": "ButtonText",
+	// Other web-only forced colors not included:
+	// https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#system_colors
+}
+
+export const colorTokenToHexColor = (token: ValueToken): string => colorToHexColor(token.value as string)
 
 /**
 	Takes an angle of the start of a gradient and transforms it into the format required by CSS linear-gradient().
@@ -137,12 +157,25 @@ StyleDictionary.registerTransform({
 	},
 })
 
+StyleDictionary.registerTransform({
+	name: "fluentui/shadow/css",
+	type: "value",
+	matcher: prop => prop.attributes.category === "shadow",
+	transformer: prop =>
+	{
+		/*
+			Transforms shadow properties into a CSS box-shadow property.
+		*/
+		return prop.value.map(shadow => `${shadow.x}px ${shadow.y}px ${shadow.blur}px ${colorTokenToHexColor(shadow.color)}`).join(", ")
+	},
+})
+
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/css",
-	transforms: ["fluentui/attribute", "fluentui/name/kebab", "fluentui/alias/css", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css"],
+	transforms: ["fluentui/attribute", "fluentui/name/kebab", "fluentui/alias/css", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/shadow/css"],
 })
 
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/cssflat",
-	transforms: ["fluentui/attribute", "fluentui/name/kebab", "fluentui/alias/flatten", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css"],
+	transforms: ["fluentui/attribute", "fluentui/name/kebab", "fluentui/alias/flatten", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/shadow/css"],
 })

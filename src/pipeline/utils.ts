@@ -55,44 +55,52 @@ export const sortPropertiesForReadability = (dictionary: any[]): any[] =>
 		const categoryA = a.path[0]
 		const categoryB = b.path[0]
 
+		// Global tokens before everything else.
 		if (categoryA === "Global" && categoryB !== "Global") return -1
 		else if (categoryB === "Global" && categoryA !== "Global") return 1
 
+		// Alias sets before everything else except Global tokens.
 		if (categoryA === "Set" && categoryB !== "Set") return -1
 		else if (categoryB === "Set" && categoryA !== "Set") return 1
 
-		if (a.path.length === b.path.length)
+		// Check each path segment except the last one in order.
+		const minLength = Math.min(a.path.length, b.path.length)
+		for (let i = 0; i < minLength; i++)
 		{
-			for (let i = 0; i < a.path.length; i++)
+			// For the last path segment only, use special sorting rules if the paths are the
+			// same length and all previous segments were equal.
+			if (i === minLength - 1 && a.path.length === b.path.length)
 			{
-				if (i === a.path.length - 1)
+				const finalA = a.path[i]
+				const finalB = b.path[i]
+
+				// For tokens that differ only by interaction state, sort them in a more natural order than alphabetically.
+				const interactionIndexA = orderOfInteractionStates[finalA] || orderOfInteractionStates.length + 1
+				const interactionIndexB = orderOfInteractionStates[finalB] || orderOfInteractionStates.length + 1
+				if (interactionIndexA !== interactionIndexB) return interactionIndexA - interactionIndexB
+
+				// For tokens that differ only by a numeric index, sort them numerically.
+				const indexA = parseInt(finalA, 10)
+				if (!isNaN(indexA))
 				{
-					const finalA = a.path[a.path.length - 1]
-					const finalB = b.path[b.path.length - 1]
-
-					// For tokens that differ only by interaction state, sort them in a more natural order than alphabetically.
-					const interactionIndexA = orderOfInteractionStates[finalA] || orderOfInteractionStates.length
-					const interactionIndexB = orderOfInteractionStates[finalB] || orderOfInteractionStates.length
-					if (interactionIndexA !== interactionIndexB) return interactionIndexA - interactionIndexB
-
-					// For tokens that differ only by a numeric index, sort them numerically.
-					const indexA = parseInt(finalA, 10)
-					if (!isNaN(indexA))
-					{
-						const indexB = parseInt(finalB, 10)
-						if (!isNaN(indexB)) return indexA - indexB
-					}
+					const indexB = parseInt(finalB, 10)
+					if (!isNaN(indexB)) return indexA - indexB
 				}
-				if (a.path[i] !== b.path[i]) break
 			}
+
+			// Otherwise sort alphabetically.
+			if (a.path[i] < b.path[i]) return -1
+			else if (a.path[i] > b.path[i]) return 1
 		}
 
-		if (a.name < b.name) return -1
-		else if (a.name > b.name) return 1
+		// Sort shorter tokens first.
+		if (a.path.length < b.path.length) return -1
+		else if (a.path.length > b.path.length) return 1
 
 		reportError(`Somehow found two identically-named tokens! "${a.name}"`)
 		return 0
 	})
+
 	return dictionary
 }
 

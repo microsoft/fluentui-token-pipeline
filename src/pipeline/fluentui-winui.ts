@@ -245,7 +245,7 @@ StyleDictionary.registerTransformGroup({
 const getAllResourcesAsString = (dictionary, indent) =>
 {
 	const tabs = "\t".repeat(indent)
-	return dictionary.allProperties.map((prop) =>
+	return dictionary.allProperties.filter(prop => prop.attributes.xamlType !== "none").map((prop) =>
 	{
 		if (prop.attributes.aliasResourceName)
 		{
