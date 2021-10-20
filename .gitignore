@@ -16,3 +16,5 @@ Thumbs.db
 # Lockfiles
 package-deps.json
 
+# IDE
+.idea/

@@ -24,11 +24,12 @@ jobs:
       run: |
         npm install
         npm run build --if-present
-        
+
     - name: Run tests
       run: |
         npm run test --if-present
         npm run transform
+        npm run transform-light
 
     - name: Save test transform output as artifact
       uses: actions/upload-artifact@v2

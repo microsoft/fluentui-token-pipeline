@@ -11,6 +11,7 @@ import "./fluentui-css"
 import "./fluentui-html"
 import "./fluentui-json"
 import "./fluentui-ios"
+import "./fluentui-react"
 import "./fluentui-reactnative"
 import "./fluentui-winui"
 
@@ -130,6 +131,21 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 			}
 		}
 	)
+
+	if (!platforms || platforms.includes("react")) buildOnePlatform(tokens, null,
+		{
+			react:
+				{
+					transformGroup: "fluentui/react",
+					buildPath: `${outputPath}/react/`,
+					files: [
+						{ destination: "global-colors.ts", format: "react/colors/global", filter: "isGlobalColor" },
+						{ destination: "alias-colors.ts", format: "react/colors/alias", filter: "isAliasColor" },
+					],
+				}
+		}
+	)
+
 }
 
 const buildOnePlatform = (tokens: any, platformOverride: SupportedPlatform | null, platformConfig: Record<string, unknown>): void =>
