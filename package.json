@@ -54,6 +54,6 @@
 		"inc": "tsc --incremental --tsBuildInfoFile .tsbuildinfo",
 		"watch": "tsc --watch",
 		"transform": "node dist/cli --in src/demo/fluentui.json --out build",
-		"transform-light": "node dist/cli --in src/demo/fluentui-global.json --in src/demo/fluentui-light.json --out build"
+		"transform-light": "node dist/cli --in src/demo/fluentui-global.json --in src/demo/fluentui-light.json --out build/light"
 	}
 }
