@@ -9,6 +9,15 @@
 					"Color": {
 						"Rest": {
 							"aliasOf": "Global.Color.Grey.14"
+						},
+						"Hover": {
+							"aliasOf": "Global.Color.Grey.14"
+						},
+						"Pressed": {
+							"aliasOf": "Global.Color.Grey.14"
+						},
+						"Selected": {
+							"aliasOf": "Global.Color.Grey.14"
 						}
 					}
 				}

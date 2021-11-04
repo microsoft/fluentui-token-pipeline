@@ -9,6 +9,15 @@
           "Color": {
             "Rest": {
               "aliasOf": "Global.Color.hcCanvasText"
+            },
+            "Hover": {
+              "aliasOf": "Global.Color.hcHighlightText"
+            },
+            "Pressed": {
+              "aliasOf": "Global.Color.hcHighlightText"
+            },
+            "Selected": {
+              "aliasOf": "Global.Color.hcHighlightText"
             }
           }
         }
