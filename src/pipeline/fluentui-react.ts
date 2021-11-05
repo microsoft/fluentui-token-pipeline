@@ -48,7 +48,6 @@ StyleDictionary.registerTransform({
 			return `var(--global-palette-${aliasPath[2]}-${aliasPath[3]})`
 		}
 
-
 		return `var(--${aliasPath.join("-")})`
 	},
 })
@@ -84,8 +83,17 @@ StyleDictionary.registerTransform({
 
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/react",
-	transforms: ["fluentui/name/kebab", "fluentui/react/aliasCssVariable", "fluentui/react/globalColorName", "fluentui/react/aliasColorName"],
+	transforms: [
+		"fluentui/name/kebab",
+		"fluentui/react/aliasCssVariable",
+		"fluentui/react/globalColorName",
+		"fluentui/react/aliasColorName",
+	],
 })
+
+const globalColorTypes = {
+	"grey": "Record<Greys, string>"
+}
 
 StyleDictionary.registerFormat({
 	name: "react/colors/global",
@@ -97,18 +105,12 @@ StyleDictionary.registerFormat({
 			_.setWith(colors, prop.name, prop.value, Object)
 		})
 
-		const brand = colors.brand ? {
-			...(_.mapKeys(colors.brand.shade, (v, k) => `shade${k}`)),
-			primary: colors.brand.primary,
-			...(_.mapKeys(colors.brand.tint, (v, k) => `tint${k}`)),
-		} : {}
+		// No brand
 		delete colors.brand
 
 		const sharedColorNames: string[] = []
 		return [
-			"import { GlobalSharedColors, ColorVariants, BrandVariants } from '../../types';",
-			"",
-			`export const brand: BrandVariants = ${JSON.stringify(brand, null, 2)}`,
+			"import type { GlobalSharedColors, ColorVariants, Greys } from '../types';",
 			"",
 			...Object.keys(colors).map(colorName =>
 			{
@@ -117,36 +119,83 @@ StyleDictionary.registerFormat({
 					sharedColorNames.push(colorName)
 					return `const ${colorName}: ColorVariants = ${JSON.stringify(colors[colorName], null, 2)}`
 				}
-				return `export const ${colorName} = ${JSON.stringify(colors[colorName], null, 2)}`
+				const type = globalColorTypes[colorName] ? `: ${globalColorTypes[colorName]}` : ""
+				return `export const ${colorName}${type} = ${JSON.stringify(colors[colorName], null, 2)}`
 			}),
 			`export const sharedColors: GlobalSharedColors = {
 ${sharedColorNames.join(",\n")}
 }`
 		].join("\n\n")
-	}
+	},
 })
+
+const firstCharToLowerCase = (input: string): string =>
+{
+	return input[0].toLowerCase() + input.slice(1)
+}
+
+const firstCharToUpperCase = (input: string): string =>
+{
+	return input[0].toUpperCase() + input.slice(1)
+}
+
+const aliasPathToGlobalImport = (resolvedAliasPath: string[], imports: Set<string>): string =>
+{
+	if (resolvedAliasPath.length < 3 || resolvedAliasPath[0] !== "Global" || resolvedAliasPath[1] !== "Color")
+	{
+		throw new Error(`Unexpected resolved alias path ${resolvedAliasPath.join(".")}`)
+	}
+
+	const exportName = firstCharToLowerCase(resolvedAliasPath[2])
+
+	switch (exportName)
+	{
+		case "brand":
+			return `brand.${resolvedAliasPath[3].toLowerCase()}${resolvedAliasPath[4] || ""}`
+		case "grey":
+			imports.add(exportName)
+			return `grey[${resolvedAliasPath[3]}]`
+		default:
+			if (resolvedAliasPath.length !== 3)
+			{
+				throw new Error(`Unexpected resolved color alias path ${resolvedAliasPath.join(".")}`)
+			}
+			imports.add(exportName)
+			return exportName
+	}
+}
 
 StyleDictionary.registerFormat({
 	name: "react/colors/alias",
 	formatter: (dictionary, config) =>
 	{
-		const colors: any = {neutral: {}}
+		const colors: any = { neutral: {} }
 		dictionary.allProperties.forEach(prop =>
 		{
 			_.setWith(colors, prop.name, prop, Object)
 		})
 
-		return [
-			"import { GlobalSharedColors, NeutralColorTokens, SharedColorTokens } from '../types';",
-			"",
-			"export const neutralColorTokens: NeutralColorTokens = {",
-			...Object.keys(colors.neutral).map(colorName =>
-			{
-				const prop = colors.neutral[colorName]
+		const imports = new Set<string>()
 
-				return `\t${colorName}: '${prop.value}', // ${prop.original.value} ${prop.resolvedAliasPath && prop.resolvedAliasPath.join(".")}`
-			}),
-			"};",
+		const colorTokens = Object.keys(colors.neutral).map(colorName =>
+		{
+			const prop = colors.neutral[colorName]
+			const value = prop.resolvedAliasPath
+				? aliasPathToGlobalImport(prop.resolvedAliasPath, imports)
+				: `'${prop.value}'`
+
+			return `\tcolor${firstCharToUpperCase(colorName)}: ${value}, // ${prop.original.value} ${
+				prop.resolvedAliasPath && prop.resolvedAliasPath.join(".")
+			}`
+		})
+
+		return [
+			`import { ${Array.from(imports).sort().join(", ")}, sharedColors } from '../global/colors';`,
+			"import type { BrandVariants, GlobalSharedColors, ColorTokens, ColorPaletteTokens } from '../types';",
+			"",
+			"export const generateColorTokens = (brand: BrandVariants): ColorTokens => ({",
+			...colorTokens,
+			"});",
 		].join("\n")
 	},
 })
