@@ -55,6 +55,18 @@
 					"value": "grey"
 				}
 			},
+			"WhiteAlpha": {
+				"generate": {
+					"type": "alpha5to90",
+					"value": "white"
+				}
+			},
+			"BlackAlpha": {
+				"generate": {
+					"type": "alpha5to90",
+					"value": "black"
+				}
+			},
 			"White": {
 				"value": "#ffffff"
 			},

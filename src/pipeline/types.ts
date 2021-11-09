@@ -38,6 +38,7 @@ export const TokenGenerationTypes =
 {
 	lightness0to100by2: true,
 	fluentsharedcolors: true,
+	alpha5to90: true,
 }
 export type TokenGenerationType = keyof typeof TokenGenerationTypes
 

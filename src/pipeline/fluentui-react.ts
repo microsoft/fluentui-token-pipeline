@@ -92,7 +92,9 @@ StyleDictionary.registerTransformGroup({
 })
 
 const globalColorTypes = {
-	"grey": "Record<Greys, string>"
+	"grey": "Record<Greys, string>",
+	"whiteAlpha": "Record<AlphaColors, string>",
+	"blackAlpha": "Record<AlphaColors, string>",
 }
 
 StyleDictionary.registerFormat({
@@ -110,7 +112,7 @@ StyleDictionary.registerFormat({
 
 		const sharedColorNames: string[] = []
 		return [
-			"import type { GlobalSharedColors, ColorVariants, Greys } from '../types';",
+			"import type { GlobalSharedColors, ColorVariants, Greys, AlphaColors } from '../types';",
 			"",
 			...Object.keys(colors).map(colorName =>
 			{

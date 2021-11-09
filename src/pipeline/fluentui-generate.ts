@@ -47,6 +47,9 @@ const resolveGenerated = (prop: Token | TokenSet): void =>
 			return createLightness0to100by2Ramp(prop, value)
 		case "fluentsharedcolors":
 			return createSharedColorRamp(prop, value)
+		case "alpha5to90":
+			return createAlpha5to90Ramp(prop, value)
+
 		default:
 			throw new Error(`Unknown token set generation type in TokenGenerationTypes: ${JSON.stringify(type)}`)
 	}
@@ -110,4 +113,16 @@ const darken = (color: Color.ColorFormats.HSVA, factor: number): ValueToken =>
 const clamp = (value: number): number =>
 {
 	return value < 0 ? 0 : value > 1 ? 1 : value
+}
+
+const createAlpha5to90Ramp = (prop: TokenSet, value: string): void =>
+{
+	const alphas = [5, 10, 20, 30, 40, 50, 60, 70, 80, 90]
+	const rgba = new Color(value)
+
+	for (const alpha of alphas)
+	{
+		rgba.setAlpha(alpha / 100)
+		prop[alpha] = { value: rgba.toRgbString() }
+	}
 }
