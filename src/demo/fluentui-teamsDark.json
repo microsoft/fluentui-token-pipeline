@@ -95,6 +95,15 @@
           }
         }
       },
+			"NeutralForegroundInvertedDisabled": {
+				"Fill": {
+					"Color": {
+						"Rest": {
+							"aliasOf": "Global.Color.WhiteAlpha.40"
+            }
+          }
+        }
+      },
       "BrandForegroundLink": {
         "Fill": {
           "Color": {
@@ -151,6 +160,15 @@
           "Color": {
             "Rest": {
               "aliasOf": "Global.Color.White"
+						},
+						"Hover": {
+							"aliasOf": "Global.Color.White"
+						},
+						"Pressed": {
+							"aliasOf": "Global.Color.White"
+						},
+						"Selected": {
+							"aliasOf": "Global.Color.White"
             }
           }
         }
@@ -178,6 +196,39 @@
             },
             "Selected": {
               "aliasOf": "Global.Color.White"
+            }
+          }
+        }
+      },
+      "BrandForegroundInverted": {
+        "Fill": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.Brand.Tint.20"
+            },
+            "Hover": {
+              "aliasOf": "Global.Color.Brand.Tint.30"
+            },
+            "Pressed": {
+              "aliasOf": "Global.Color.Brand.Tint.20"
+            }
+          }
+        }
+      },
+      "BrandForegroundOnLight": {
+        "Fill": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.Brand.Primary"
+            },
+            "Hover": {
+              "aliasOf": "Global.Color.Brand.Shade.10"
+            },
+            "Pressed": {
+              "aliasOf": "Global.Color.Brand.Shade.30"
+            },
+            "Selected": {
+              "aliasOf": "Global.Color.Brand.Shade.20"
             }
           }
         }
@@ -285,7 +336,7 @@
         "Fill": {
           "Color": {
             "Rest": {
-              "aliasOf": "Global.Color.White"
+              "aliasOf": "Global.Color.Grey.24"
             }
           }
         }
@@ -304,6 +355,33 @@
             },
             "Selected": {
               "aliasOf": "Global.Color.Grey.20"
+            },
+            "LightAlphaHover": {
+              "aliasOf": "Global.Color.WhiteAlpha.10"
+            },
+            "LightAlphaPressed": {
+              "aliasOf": "Global.Color.WhiteAlpha.5"
+            },
+            "LightAlphaSelected": {
+              "value": "transparent"
+						}
+					}
+				}
+			},
+			"SubtleBackgroundInverted": {
+				"Fill": {
+					"Color": {
+						"Rest": {
+							"value": "transparent"
+						},
+						"Hover": {
+							"aliasOf": "Global.Color.BlackAlpha.10"
+						},
+						"Pressed": {
+							"aliasOf": "Global.Color.BlackAlpha.30"
+						},
+						"Selected": {
+							"aliasOf": "Global.Color.BlackAlpha.20"
             }
           }
         }
@@ -331,6 +409,15 @@
           "Color": {
             "Rest": {
               "aliasOf": "Global.Color.Grey.8"
+            }
+          }
+        }
+      },
+      "NeutralBackgroundInvertedDisabled": {
+        "Fill": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.WhiteAlpha.10"
             }
           }
         }
@@ -371,7 +458,7 @@
           }
         }
       },
-      "CompoundBrandBackground": {
+      "CompoundBrandBackground1": {
         "Fill": {
           "Color": {
             "Rest": {
@@ -400,6 +487,24 @@
           "Color": {
             "Rest": {
               "aliasOf": "Global.Color.Brand.Shade.40"
+            }
+          }
+        }
+      },
+      "BrandBackgroundInverted": {
+        "Fill": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.White"
+            },
+            "Hover": {
+              "aliasOf": "Global.Color.Brand.Tint.60"
+            },
+            "Pressed": {
+              "aliasOf": "Global.Color.Brand.Tint.40"
+            },
+            "Selected": {
+              "aliasOf": "Global.Color.Brand.Tint.50"
             }
           }
         }
@@ -458,6 +563,33 @@
           }
         }
       },
+      "NeutralStrokeOnBrand": {
+        "Stroke": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.Grey.16"
+            }
+          }
+        }
+      },
+      "NeutralStrokeOnBrand2": {
+        "Stroke": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.White"
+            },
+            "Hover": {
+              "aliasOf": "Global.Color.White"
+            },
+            "Pressed": {
+              "aliasOf": "Global.Color.White"
+            },
+            "Selected": {
+              "aliasOf": "Global.Color.White"
+            }
+          }
+        }
+      },
       "BrandStroke1": {
         "Stroke": {
           "Color": {
@@ -496,6 +628,15 @@
           "Color": {
             "Rest": {
               "aliasOf": "Global.Color.Grey.26"
+            }
+          }
+        }
+      },
+      "NeutralStrokeInvertedDisabled": {
+        "Stroke": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.WhiteAlpha.40"
             }
           }
         }
