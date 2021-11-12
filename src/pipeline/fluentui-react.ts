@@ -150,21 +150,26 @@ const aliasPathToGlobalImport = (resolvedAliasPath: string[], imports: Set<strin
 
 	const exportName = firstCharToLowerCase(resolvedAliasPath[2])
 
-	switch (exportName)
+	// brand.shade10
+	if (exportName === "brand")
 	{
-		case "brand":
-			return `brand.${resolvedAliasPath[3].toLowerCase()}${resolvedAliasPath[4] || ""}`
-		case "grey":
-			imports.add(exportName)
-			return `grey[${resolvedAliasPath[3]}]`
-		default:
-			if (resolvedAliasPath.length !== 3)
-			{
-				throw new Error(`Unexpected resolved color alias path ${resolvedAliasPath.join(".")}`)
-			}
-			imports.add(exportName)
-			return exportName
+		return `brand.${resolvedAliasPath[3].toLowerCase()}${resolvedAliasPath[4] || ""}`
 	}
+
+	// grey[14]
+	if (resolvedAliasPath.length === 4)
+	{
+		imports.add(exportName)
+		return `${exportName}[${resolvedAliasPath[3]}]`
+	}
+
+	if (resolvedAliasPath.length !== 3)
+	{
+		throw new Error(`Unexpected resolved color alias path ${resolvedAliasPath.join(".")}`)
+	}
+
+	imports.add(exportName)
+	return exportName
 }
 
 StyleDictionary.registerFormat({
