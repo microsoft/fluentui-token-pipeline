@@ -27,16 +27,6 @@ StyleDictionary.registerTransform({
 	transformer: prop =>
 	{
 		const aliasPath = prop.resolvedAliasPath.map(_.camelCase)
-		// var(--global-color-brand-shade-60) -> var(--global-palette-brand-shade60)
-		//              ^^^^^            ^                    ^^^^^^^
-		if (aliasPath.length === 5
-			&& aliasPath[0] === "global"
-			&& aliasPath[1] === "color"
-			&& aliasPath[2] === "brand"
-		)
-		{
-			return `var(--global-palette-brand-${aliasPath[3]}${aliasPath[4]})`
-		}
 
 		// var(--global-color-grey-94) -> var(--global-palette-grey-94)
 		//              ^^^^^                          ^^^^^^^
@@ -150,12 +140,6 @@ const aliasPathToGlobalImport = (resolvedAliasPath: string[], imports: Set<strin
 
 	const exportName = firstCharToLowerCase(resolvedAliasPath[2])
 
-	// brand.shade10
-	if (exportName === "brand")
-	{
-		return `brand.${resolvedAliasPath[3].toLowerCase()}${resolvedAliasPath[4] || ""}`
-	}
-
 	// grey[14]
 	if (resolvedAliasPath.length === 4)
 	{
@@ -197,7 +181,7 @@ StyleDictionary.registerFormat({
 		})
 
 		return [
-			`import { ${Array.from(imports).sort().join(", ")}, sharedColors } from '../global/colors';`,
+			`import { ${Array.from(imports).filter(i => i !== "brand").sort().join(", ")}, sharedColors } from '../global/colors';`,
 			"import type { BrandVariants, GlobalSharedColors, ColorTokens, ColorPaletteTokens } from '../types';",
 			"",
 			"export const generateColorTokens = (brand: BrandVariants): ColorTokens => ({",
