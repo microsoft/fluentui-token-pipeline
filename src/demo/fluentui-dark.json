@@ -38,13 +38,13 @@
               "aliasOf": "Global.Color.White"
             },
             "BrandHover": {
-              "aliasOf": "Global.Color.Brand.Tint.20"
+              "aliasOf": "Global.Color.Brand.100"
             },
             "BrandPressed": {
-              "aliasOf": "Global.Color.Brand.Tint.10"
+              "aliasOf": "Global.Color.Brand.90"
             },
             "BrandSelected": {
-              "aliasOf": "Global.Color.Brand.Tint.20"
+              "aliasOf": "Global.Color.Brand.100"
             }
           }
         }
@@ -65,13 +65,13 @@
               "aliasOf": "Global.Color.Grey.84"
             },
             "BrandHover": {
-              "aliasOf": "Global.Color.Brand.Tint.20"
+              "aliasOf": "Global.Color.Brand.100"
             },
             "BrandPressed": {
-              "aliasOf": "Global.Color.Brand.Tint.10"
+              "aliasOf": "Global.Color.Brand.90"
             },
             "BrandSelected": {
-              "aliasOf": "Global.Color.Brand.Tint.20"
+              "aliasOf": "Global.Color.Brand.100"
             }
           }
         }
@@ -107,16 +107,16 @@
         "Fill": {
           "Color": {
             "Rest": {
-              "aliasOf": "Global.Color.Brand.Tint.10"
+              "aliasOf": "Global.Color.Brand.90"
             },
             "Hover": {
-              "aliasOf": "Global.Color.Brand.Tint.30"
+              "aliasOf": "Global.Color.Brand.110"
             },
             "Pressed": {
-              "aliasOf": "Global.Color.Brand.Tint.20"
+              "aliasOf": "Global.Color.Brand.100"
             },
             "Selected": {
-              "aliasOf": "Global.Color.Brand.Tint.10"
+              "aliasOf": "Global.Color.Brand.90"
             }
           }
         }
@@ -125,13 +125,13 @@
         "Fill": {
           "Color": {
             "Rest": {
-              "aliasOf": "Global.Color.Brand.Tint.10"
+              "aliasOf": "Global.Color.Brand.90"
             },
             "Hover": {
-              "aliasOf": "Global.Color.Brand.Tint.20"
+              "aliasOf": "Global.Color.Brand.100"
             },
             "Pressed": {
-              "aliasOf": "Global.Color.Brand.Primary"
+              "aliasOf": "Global.Color.Brand.80"
             }
           }
         }
@@ -140,7 +140,7 @@
         "Fill": {
           "Color": {
             "Rest": {
-              "aliasOf": "Global.Color.Brand.Tint.20"
+              "aliasOf": "Global.Color.Brand.100"
             }
           }
         }
@@ -149,7 +149,7 @@
         "Fill": {
           "Color": {
             "Rest": {
-              "aliasOf": "Global.Color.Brand.Tint.30"
+              "aliasOf": "Global.Color.Brand.110"
             }
           }
         }
@@ -203,13 +203,13 @@
 				"Fill": {
 					"Color": {
 						"Rest": {
-							"aliasOf": "Global.Color.Brand.Tint.20"
+							"aliasOf": "Global.Color.Brand.100"
 						},
 						"Hover": {
-							"aliasOf": "Global.Color.Brand.Tint.30"
+							"aliasOf": "Global.Color.Brand.110"
 						},
 						"Pressed": {
-							"aliasOf": "Global.Color.Brand.Tint.20"
+							"aliasOf": "Global.Color.Brand.100"
 						}
 					}
 				}
@@ -218,16 +218,16 @@
 				"Fill": {
 					"Color": {
 						"Rest": {
-							"aliasOf": "Global.Color.Brand.Primary"
+							"aliasOf": "Global.Color.Brand.80"
 						},
 						"Hover": {
-							"aliasOf": "Global.Color.Brand.Shade.10"
+							"aliasOf": "Global.Color.Brand.70"
 						},
 						"Pressed": {
-							"aliasOf": "Global.Color.Brand.Shade.30"
+							"aliasOf": "Global.Color.Brand.50"
 						},
 						"Selected": {
-							"aliasOf": "Global.Color.Brand.Shade.20"
+							"aliasOf": "Global.Color.Brand.60"
 						}
 					}
 				}
@@ -443,16 +443,16 @@
         "Fill": {
           "Color": {
             "Rest": {
-              "aliasOf": "Global.Color.Brand.Shade.10"
+              "aliasOf": "Global.Color.Brand.70"
             },
             "Hover": {
-              "aliasOf": "Global.Color.Brand.Primary"
+              "aliasOf": "Global.Color.Brand.80"
             },
             "Pressed": {
-              "aliasOf": "Global.Color.Brand.Shade.40"
+              "aliasOf": "Global.Color.Brand.40"
             },
             "Selected": {
-              "aliasOf": "Global.Color.Brand.Shade.20"
+              "aliasOf": "Global.Color.Brand.60"
             }
           }
         }
@@ -461,13 +461,13 @@
         "Fill": {
           "Color": {
             "Rest": {
-              "aliasOf": "Global.Color.Brand.Tint.10"
+              "aliasOf": "Global.Color.Brand.90"
             },
             "Hover": {
-              "aliasOf": "Global.Color.Brand.Tint.20"
+              "aliasOf": "Global.Color.Brand.100"
             },
             "Pressed": {
-              "aliasOf": "Global.Color.Brand.Primary"
+              "aliasOf": "Global.Color.Brand.80"
             }
           }
         }
@@ -476,7 +476,7 @@
         "Fill": {
           "Color": {
             "Rest": {
-              "aliasOf": "Global.Color.Brand.Primary"
+              "aliasOf": "Global.Color.Brand.80"
             }
           }
         }
@@ -485,7 +485,7 @@
         "Fill": {
           "Color": {
             "Rest": {
-              "aliasOf": "Global.Color.Brand.Shade.40"
+              "aliasOf": "Global.Color.Brand.40"
             }
           }
         }
@@ -497,13 +497,13 @@
               "aliasOf": "Global.Color.White"
             },
             "Hover": {
-              "aliasOf": "Global.Color.Brand.Tint.60"
+              "aliasOf": "Global.Color.Brand.160"
             },
             "Pressed": {
-              "aliasOf": "Global.Color.Brand.Tint.40"
+              "aliasOf": "Global.Color.Brand.140"
             },
             "Selected": {
-              "aliasOf": "Global.Color.Brand.Tint.50"
+              "aliasOf": "Global.Color.Brand.150"
             }
           }
         }
@@ -521,7 +521,7 @@
               "aliasOf": "Global.Color.Grey.70"
             },
             "Selected": {
-              "aliasOf": "Global.Color.Brand.Tint.20"
+              "aliasOf": "Global.Color.Brand.100"
             }
           }
         }
@@ -593,7 +593,7 @@
         "Stroke": {
           "Color": {
             "Rest": {
-              "aliasOf": "Global.Color.Brand.Tint.10"
+              "aliasOf": "Global.Color.Brand.90"
             }
           }
         }
@@ -602,7 +602,7 @@
         "Stroke": {
           "Color": {
             "Rest": {
-              "aliasOf": "Global.Color.Brand.Shade.30"
+              "aliasOf": "Global.Color.Brand.50"
             }
           }
         }
@@ -611,13 +611,13 @@
         "Stroke": {
           "Color": {
             "Rest": {
-              "aliasOf": "Global.Color.Brand.Tint.10"
+              "aliasOf": "Global.Color.Brand.90"
             },
             "Hover": {
-              "aliasOf": "Global.Color.Brand.Tint.20"
+              "aliasOf": "Global.Color.Brand.100"
             },
             "Pressed": {
-              "aliasOf": "Global.Color.Brand.Primary"
+              "aliasOf": "Global.Color.Brand.80"
             }
           }
         }
