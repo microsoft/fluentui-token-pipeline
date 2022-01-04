@@ -98,7 +98,19 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 					transformGroup: "fluentui/cssflat",
 					buildPath: `${outputPath}/web/`,
 					files: [{ destination: "tokens-flat.css", format: "css/variables" }],
-				}
+				},
+				scss:
+				{
+					transformGroup: "fluentui/scss",
+					buildPath: `${outputPath}/web/`,
+					files: [{ destination: "tokens.scss", format: "scss/variables" }],
+				},
+				scssflat:
+				{
+					transformGroup: "fluentui/scssflat",
+					buildPath: `${outputPath}/web/`,
+					files: [{ destination: "tokens-flat.scss", format: "scss/variables" }],
+				},
 			}
 		)
 	}
@@ -145,7 +157,6 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 				}
 		}
 	)
-
 }
 
 const buildOnePlatform = (tokens: any, platformOverride: SupportedPlatform | null, platformConfig: Record<string, unknown>): void =>

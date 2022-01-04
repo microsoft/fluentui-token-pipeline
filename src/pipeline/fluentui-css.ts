@@ -21,6 +21,13 @@ StyleDictionary.registerTransform({
 })
 
 StyleDictionary.registerTransform({
+	name: "fluentui/alias/scss",
+	type: "value",
+	matcher: prop => "resolvedAliasPath" in prop,
+	transformer: prop => `$${nameForCss(prop.resolvedAliasPath)}`,
+})
+
+StyleDictionary.registerTransform({
 	name: "fluentui/size/css",
 	type: "value",
 	matcher: prop => prop.attributes.category === "size",
@@ -176,6 +183,16 @@ StyleDictionary.registerTransformGroup({
 })
 
 StyleDictionary.registerTransformGroup({
+	name: "fluentui/scss",
+	transforms: ["fluentui/attribute", "fluentui/name/kebab", "fluentui/alias/scss", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/shadow/css"],
+})
+
+StyleDictionary.registerTransformGroup({
 	name: "fluentui/cssflat",
+	transforms: ["fluentui/attribute", "fluentui/name/kebab", "fluentui/alias/flatten", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/shadow/css"],
+})
+
+StyleDictionary.registerTransformGroup({
+	name: "fluentui/scssflat",
 	transforms: ["fluentui/attribute", "fluentui/name/kebab", "fluentui/alias/flatten", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/shadow/css"],
 })
