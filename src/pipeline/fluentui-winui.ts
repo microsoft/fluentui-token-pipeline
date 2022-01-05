@@ -161,7 +161,7 @@ StyleDictionary.registerTransform({
 		{
 			const xamlValue = colorToWFColor(prop.value)
 			if (xamlValue.toLowerCase().startsWith("systemcolor"))
-				return { xaml: `<StaticResource x:Key="${prop.name}" ResourceKey="${prop.value}" />` }
+				return { xaml: `<StaticResource x:Key="${prop.name}" ResourceKey="${xamlValue}" />` }
 			else
 				return xamlValue
 		}
