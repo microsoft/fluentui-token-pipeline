@@ -154,6 +154,15 @@
           }
         }
       },
+      "NeutralForeground1Static": {
+        "Fill": {
+          "Color": {
+            "Rest": {
+              "aliasOf": "Global.Color.hcCanvas"
+            }
+          }
+        }
+      },
       "NeutralForegroundInverted": {
         "Fill": {
           "Color": {
@@ -425,7 +434,7 @@
         "Fill": {
           "Color": {
             "Rest": {
-              "aliasOf": "Global.Color.Grey.8"
+              "aliasOf": "Global.Color.hcCanvasText"
             }
           }
         }
@@ -434,7 +443,7 @@
         "Fill": {
           "Color": {
             "Rest": {
-              "aliasOf": "Global.Color.Grey.52"
+              "aliasOf": "Global.Color.hcCanvasText"
             }
           }
         }
