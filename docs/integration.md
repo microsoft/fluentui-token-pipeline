@@ -115,12 +115,3 @@ Many of the pipeline's output formats strip all hierarchy from the tokens, so al
 There's also a `tokens-flat.css` file in the same folder that uses `#242424` directly for all three variables.
 
 The main advantage of preserving that hierarchy is the ability to change things at runtime. For example, you could have multiple "grey" ramps, and give the user a choice between a warmer grey palette and a cooler grey palette. In that case, you might redefine `--global-color-grey-14` at runtime: if you preserve the token hierarchy in your export like in the `tokens.css` example, the button control using `--button-icon-fill-color-rest` would automatically update its icon color whenever you alter the grey colors.
-
-## So what was that about automating this stuff...?
-
-Once you've got the process working manually for at least one control, you can start looking into automating this process. The specifics of what exactly you need to do will depend on how you want to organize tokens for your project, but I've put together [an example repo that might help](https://github.com/TravisSpomer/fluentui-token-repo-example). That repo includes a token JSON file with just one token in it. Whenever someone changes that file, a GitHub Actions workflow starts that:
-
-1. Processes the tokens to produce all of the defined code outputs (JSON, CSS, WinUI, etc.)
-2. Saves all of the outputs as a build artifact
-3. Packages all of that into an NPM package and publishes it
-4. Produces a human-readable token reference page on GitHub Pages
