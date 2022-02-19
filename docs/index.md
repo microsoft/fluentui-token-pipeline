@@ -19,3 +19,4 @@ It's currently a functional prototype, and is not yet designed for use beyond th
 # Other links
 
 * [`@fluentui/token-pipeline` on NPM](https://www.npmjs.com/package/@fluentui/token-pipeline)
+* [Fluent UI design tokens on GitHub](https://github.com/microsoft/fluentui-design-tokens)
