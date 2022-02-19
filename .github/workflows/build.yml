@@ -29,7 +29,6 @@ jobs:
       run: |
         npm run test --if-present
         npm run transform
-        npm run transform-light
 
     - name: Save test transform output as artifact
       uses: actions/upload-artifact@v2
