@@ -1,5 +1,5 @@
 {
-	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$schema": "https://json-schema.org/draft-04/schema",
 	"$id": "https://raw.githubusercontent.com/microsoft/fluentui-token-pipeline/main/docs/token.schema.json",
 	"title": "Fluent UI token JSON",
 	"description": "A set of tokens for the Fluent UI token pipeline.",
@@ -201,7 +201,7 @@
 			"properties": {
 				"generate": { "$ref": "#/definitions/ColorTokenGeneration" }
 			},
-			"required": "generate",
+			"required": [ "generate" ],
 			"additionalProperties": false
 		},
 
