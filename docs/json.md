@@ -294,9 +294,9 @@ Font weights are specified in standard weight units, integers 100-900.
 * `600`
 * <strike>**not** `"semibold"`</strike>
 
-### Widths and heights
+### Widths and heights and spacing
 
-Element widths and heights are specifed as independent properties in device-independent pixels **without units**.
+Element widths and heights and spacing values are specifed as independent properties in device-independent pixels **without units**.
 
 * `80`
 * <strike>**not** `"80px"`</strike>

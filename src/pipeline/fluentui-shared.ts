@@ -16,6 +16,7 @@ const getSDAttributes = (category, attribute) =>
 	// Color is a special case: you can skip the word before it (Fill or Stroke) in case your color sets are more general and not specific to fills or strokes.
 	if (category === "Color" || attribute === "Color") return { category: "color", xamlType: "SolidColorBrush" } // Can also be a LinearGradientBrush: the fluentui/xaml/res formats won't use the xamlType in that case
 	if (attribute === "Padding") return { category: "size", xamlType: "Thickness" }
+	if (attribute === "Spacing") return { category: "size", xamlType: "x:Double" }
 	if (category === "Layout")
 	{
 		if (attribute === "Width" || attribute === "Height") return { category: "size", xamlType: "x:Double" }
@@ -56,7 +57,7 @@ StyleDictionary.registerTransform({
 		}
 		else
 		{
-			sdAttributes = prop.path[prop.path.length - 2] === 'Color'
+			sdAttributes = prop.path[prop.path.length - 2] === "Color"
 				? getSDAttributes(prop.path[prop.path.length - 3], prop.path[prop.path.length - 2])
 				: getSDAttributes(prop.path[2], prop.path[3])
 		}
