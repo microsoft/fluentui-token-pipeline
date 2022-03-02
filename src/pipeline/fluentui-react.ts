@@ -43,6 +43,30 @@ StyleDictionary.registerTransform({
 })
 
 StyleDictionary.registerTransform({
+	name: "fluentui/react/highContrastColors",
+	type: "value",
+	matcher: prop => prop.attributes.category === "color",
+	transformer: prop =>
+	{
+		if (typeof prop.value !== "string") return
+
+		// High contrast colors aren't supported for this output, so convert to the expected hard-coded values.
+		switch (prop.value.toLowerCase())
+		{
+			case "canvas": return "#000000"
+			case "canvastext": return "#ffffff"
+			case "linktext": return "#ffff00"
+			case "graytext": return "#3ff23f"
+			case "highlight": return "#1aebff"
+			case "highlighttext": return "#000000"
+			case "buttonface": return "#ffffff"
+			case "buttontext": return "#000000"
+		}
+		return prop.value
+	},
+})
+
+StyleDictionary.registerTransform({
 	name: "fluentui/react/globalColorName",
 	type: "name",
 	matcher: prop => (
@@ -74,7 +98,9 @@ StyleDictionary.registerTransform({
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/react",
 	transforms: [
+		"fluentui/attribute",
 		"fluentui/name/kebab",
+		"fluentui/react/highContrastColors",
 		"fluentui/react/aliasCssVariable",
 		"fluentui/react/globalColorName",
 		"fluentui/react/aliasColorName",
