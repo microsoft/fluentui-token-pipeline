@@ -43,7 +43,7 @@ You can use this CLI as a build step in another repo with this in your `package.
 
 ```json
 "devDependencies": {
-	"@fluentui/token-pipeline": "0.5.0"
+	"@fluentui/token-pipeline": "0.5.1"
 },
 "scripts": {
 	"build": "transform-tokens --in tokens.json --out build"
@@ -51,6 +51,20 @@ You can use this CLI as a build step in another repo with this in your `package.
 ```
 
 Then, when you run `npm run build` in that repo, it would produce output into a `build` subfolder based on tokens defined in `tokens.json`.
+
+## Output structure
+
+All outputs will be generated into the folder specified by `--out`.
+
+* If exactly one platform is specified, the files are generated directly into that folder.
+* If more than one platform is specified (or none are, indicating that all platforms should be exported), the files are generated into subfolders of that folder.
+
+For example:
+
+* `transform-tokens --platform css --in tokens.json --out build` would generate `./build/tokens.css`.
+* `transform-tokens --in tokens.json --out build` (without `--platform`) would generate `./build/web/tokens.css`.
+
+The file and subfolder names are defined by the individual transforms and cannot be further configured on the command line.
 
 ## Security
 

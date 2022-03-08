@@ -26,6 +26,10 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 		}
 	}
 
+	const useSubfolders = !platforms || platforms.length !== 1
+
+	if (!outputPath.endsWith("/")) outputPath = outputPath + "/"
+
 	const tokens = {}
 	if (typeof input === "string") input = [input]
 	input.forEach((inputFile) => _.merge(tokens, jsonfile.readFileSync(inputFile)))
@@ -35,7 +39,7 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 			debug:
 			{
 				transformGroup: "js",
-				buildPath: `${outputPath}/debug/`,
+				buildPath: useSubfolders ? `${outputPath}debug/` : outputPath,
 				files: [{ destination: "tokens-debug.json", format: "json" }],
 			}
 		}
@@ -46,7 +50,7 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 			json:
 			{
 				transformGroup: "fluentui/json/grouped",
-				buildPath: `${outputPath}/json/`,
+				buildPath: useSubfolders ? `${outputPath}json/` : outputPath,
 				files: [
 					{ destination: "tokens-global.json", format: "fluentui/json/grouped", filter: "isGlobal" },
 					{ destination: "tokens-aliases.json", format: "fluentui/json/grouped", filter: "isAlias" },
@@ -61,7 +65,7 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 			reference:
 			{
 				transformGroup: "fluentui/html",
-				buildPath: `${outputPath}/reference/`,
+				buildPath: useSubfolders ? `${outputPath}reference/` : outputPath,
 				files: [{ destination: "index.html", format: "fluentui/html/reference" }],
 			}
 		}
@@ -72,7 +76,7 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 			ios:
 			{
 				transformGroup: "fluentui/swift",
-				buildPath: `${outputPath}/ios/`,
+				buildPath: useSubfolders ? `${outputPath}ios/` : outputPath,
 				files: [
 					{ destination: "Tokens.swift", format: "ios-swift/class.swift", className: "Tokens" },
 					{ destination: "ColorTokens.swift", format: "ios-swift/class.swift", className: "ColorTokens", filter: "isColor" },
@@ -90,25 +94,25 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 				css:
 				{
 					transformGroup: "fluentui/css",
-					buildPath: `${outputPath}/web/`,
+					buildPath: useSubfolders ? `${outputPath}web/` : outputPath,
 					files: [{ destination: "tokens.css", format: "css/variables" }],
 				},
 				cssflat:
 				{
 					transformGroup: "fluentui/cssflat",
-					buildPath: `${outputPath}/web/`,
+					buildPath: useSubfolders ? `${outputPath}web/` : outputPath,
 					files: [{ destination: "tokens-flat.css", format: "css/variables" }],
 				},
 				scss:
 				{
 					transformGroup: "fluentui/scss",
-					buildPath: `${outputPath}/web/`,
+					buildPath: useSubfolders ? `${outputPath}web/` : outputPath,
 					files: [{ destination: "tokens.scss", format: "scss/variables" }],
 				},
 				scssflat:
 				{
 					transformGroup: "fluentui/scssflat",
-					buildPath: `${outputPath}/web/`,
+					buildPath: useSubfolders ? `${outputPath}web/` : outputPath,
 					files: [{ destination: "tokens-flat.scss", format: "scss/variables" }],
 				},
 			}
@@ -120,7 +124,7 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 			reactnative:
 			{
 				transformGroup: "fluentui/reactnative",
-				buildPath: `${outputPath}/reactnative/`,
+				buildPath: useSubfolders ? `${outputPath}reactnative/` : outputPath,
 				files: [
 					{ destination: "tokens-global.json", format: "fluentui/json/grouped", filter: "isGlobal" },
 					{ destination: "tokens-aliases.json", format: "fluentui/json/grouped", filter: "isAlias" },
@@ -135,7 +139,7 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 			winui:
 			{
 				transformGroup: "fluentui/winui",
-				buildPath: `${outputPath}/winui/`,
+				buildPath: useSubfolders ? `${outputPath}winui/` : outputPath,
 				files: [
 					{ destination: "Tokens.xaml", format: "fluentui/xaml/res" },
 					{ destination: "ThemedTokens.xaml", format: "fluentui/xaml/res/themed" },
@@ -149,7 +153,7 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 			react:
 				{
 					transformGroup: "fluentui/react",
-					buildPath: `${outputPath}/react/`,
+					buildPath: useSubfolders ? `${outputPath}react/` : outputPath,
 					files: [
 						{ destination: "global-colors.ts", format: "react/colors/global", filter: "isGlobalColor" },
 						{ destination: "alias-colors.ts", format: "react/colors/alias", filter: "isAliasColor" },
