@@ -223,6 +223,7 @@
 			"type": "string",
 			"enum": [
 				"lightness0to100by2",
+				"alpha5to90",
 				"fluentsharedcolors"
 			]
 		},
@@ -262,7 +263,7 @@
 
 		"NameOverride": {
 			"title": "Name override",
-			"description": "A name override for export only. For example, \"MyTokenNameForExport\". Aliases will will refer to this token by its canonical name.",
+			"description": "A name override for export only. For example, \"MyTokenNameForExport\". Aliases will still refer to this token by its canonical name.",
 			"type": "string"
 		}
 
