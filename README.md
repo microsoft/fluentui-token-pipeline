@@ -7,7 +7,7 @@ It's currently a functional prototype, and is not yet designed for use beyond th
 * **[Documentation site](https://microsoft.github.io/fluentui-token-pipeline/)**
 * [Source code on GitHub](https://github.com/microsoft/fluentui-token-pipeline)
 * [`@fluentui/token-pipeline` on NPM](https://www.npmjs.com/package/@fluentui/token-pipeline)
-* [Fluent UI design tokens on GitHub](https://github.com/microsoft/fluentui-design-tokens)
+* [Fluent UI design tokens on GitHub](https://github.com/microsoft/fluentui-design-tokens) with links to packages of transformed tokens **\[Will be public shortly\]**
 
 ---
 
