@@ -162,7 +162,7 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 				}
 		}
 	)
-	if (platforms?.includes("trident"))
+	if (platforms && platforms.includes("trident"))
 	{
 		buildOnePlatform(tokens, "trident",
 			{
