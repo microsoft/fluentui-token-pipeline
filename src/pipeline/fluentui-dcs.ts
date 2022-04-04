@@ -6,43 +6,29 @@ import * as Utils from "./utils"
 import { degrees } from "./transform-math"
 import path from "path"
 
-const nameForCss = (path) =>
+const nameForCss = (path: any[]): string =>
 {
-	let y = path.toString().includes("Global") ? path.join("-").toLowerCase() : `color${path.join("")}`
-	y = y.replace("NeutralNeutral", "Neutral")
-	y = y.replace("NeutralBrand", "Brand")
-	y = y.replace("NeutralPalette", "Palette")
-	y = y.replace("NeutralSubtle", "Subtle")
-	y = y.replace("StrokeColor", "")
-	y = y.replace("FillColor", "")
-	y = y.replace("Rest", "")
-	return y
+	let name = path[0].includes("Global") ? path.join("-").toLowerCase() : `${path.join("")}`
+	return name
 }
 
 if (nameForCss.toString().includes("Global")) 
 
 StyleDictionary.registerTransform({
-	name: "fluentui/name/kebab",
+	name: "dcs/kebab",
 	type: "name",
 	transformer: prop => nameForCss(Utils.getTokenExportPath(prop)),
 })
 
 StyleDictionary.registerTransform({
-	name: "fluentui/alias/css",
+	name: "dcs/alias/css",
 	type: "value",
 	matcher: prop => "resolvedAliasPath" in prop,
 	transformer: prop => `var(--${nameForCss(prop.resolvedAliasPath)})`,
 })
 
 StyleDictionary.registerTransform({
-	name: "fluentui/alias/scss",
-	type: "value",
-	matcher: prop => "resolvedAliasPath" in prop,
-	transformer: prop => `$${nameForCss(prop.resolvedAliasPath)}`,
-})
-
-StyleDictionary.registerTransform({
-	name: "fluentui/size/css",
+	name: "dcs/size/css",
 	type: "value",
 	matcher: prop => prop.attributes.category === "size",
 	transformer: prop =>
@@ -119,7 +105,7 @@ const cssAngle = (deg: number) =>
 const percent = (float: number) => `${(float * 100)}%`
 
 StyleDictionary.registerTransform({
-	name: "fluentui/color/css",
+	name: "dcs/color/css",
 	type: "value",
 	matcher: prop => prop.attributes.category === "color",
 	transformer: prop =>
@@ -159,7 +145,7 @@ StyleDictionary.registerTransform({
 })
 
 StyleDictionary.registerTransform({
-	name: "fluentui/strokealignment/css",
+	name: "dcs/strokealignment/css",
 	type: "value",
 	matcher: prop => prop.attributes.category === "strokeAlignment",
 	transformer: prop =>
@@ -179,7 +165,7 @@ StyleDictionary.registerTransform({
 })
 
 StyleDictionary.registerTransform({
-	name: "fluentui/shadow/css",
+	name: "dcs/shadow/css",
 	type: "value",
 	matcher: prop => prop.attributes.category === "shadow",
 	transformer: prop =>
@@ -192,21 +178,6 @@ StyleDictionary.registerTransform({
 })
 
 StyleDictionary.registerTransformGroup({
-	name: "fluentui/css",
-	transforms: ["fluentui/attribute", "fluentui/name/kebab", "fluentui/alias/css", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/shadow/css"],
-})
-
-StyleDictionary.registerTransformGroup({
-	name: "fluentui/scss",
-	transforms: ["fluentui/attribute", "fluentui/name/kebab", "fluentui/alias/scss", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/shadow/css"],
-})
-
-StyleDictionary.registerTransformGroup({
-	name: "fluentui/cssflat",
-	transforms: ["fluentui/attribute", "fluentui/name/kebab", "fluentui/alias/flatten", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/shadow/css"],
-})
-
-StyleDictionary.registerTransformGroup({
-	name: "fluentui/scssflat",
-	transforms: ["fluentui/attribute", "fluentui/name/kebab", "fluentui/alias/flatten", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/shadow/css"],
+	name: "fluentui/dcs",
+	transforms: ["dcs/kebab", "dcs/alias/css", "dcs/size/css", "dcs/color/css", "dcs/strokealignment/css", "dcs/shadow/css"],
 })

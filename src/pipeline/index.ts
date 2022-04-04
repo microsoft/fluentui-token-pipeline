@@ -14,7 +14,7 @@ import "./fluentui-ios"
 import "./fluentui-react"
 import "./fluentui-reactnative"
 import "./fluentui-winui"
-import "./fluentui-trident"
+import "./fluentui-dcs"
 
 export const buildOutputs = (input: string[] | string, outputPath: string, platforms: SupportedPlatform[] | undefined): void =>
 {
@@ -162,13 +162,13 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 				}
 		}
 	)
-	if (platforms && platforms.includes("trident"))
+	if (platforms && platforms.includes("dcs"))
 	{
-		buildOnePlatform(tokens, "trident",
+		buildOnePlatform(tokens, "dcs",
 			{
 				css:
 				{
-					transformGroup: "fluentui/css",
+					transformGroup: "fluentui/dcs",
 					buildPath: useSubfolders ? `${outputPath}tokens/` : outputPath,
 					files: [{ destination: "theme.css", format: "css/variables" }],
 				},
