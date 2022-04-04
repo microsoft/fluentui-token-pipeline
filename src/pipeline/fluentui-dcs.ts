@@ -5,10 +5,15 @@ import { Gradient, ValueToken } from "./types"
 import * as Utils from "./utils"
 import { degrees } from "./transform-math"
 import path from "path"
+import { pathToFileURL } from "url"
 
 const nameForCss = (path: any[]): string =>
 {
-	let name = path[0].includes("Global") ? path.join("-").toLowerCase() : `${path.join("")}`
+
+	let name = path[0] !== "Global" && path[3] === "Color" ? `color${path.join("")}` : path.join("-").toLowerCase();
+	name = name.replace("NeutralNeutral", "Neutral");
+	name = name.replace("FillColor", "");
+
 	return name
 }
 
