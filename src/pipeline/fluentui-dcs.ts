@@ -12,8 +12,6 @@ const nameForCss = (path: any[]): string =>
 	return name
 }
 
-if (nameForCss.toString().includes("Global")) 
-
 StyleDictionary.registerTransform({
 	name: "dcs/kebab",
 	type: "name",
