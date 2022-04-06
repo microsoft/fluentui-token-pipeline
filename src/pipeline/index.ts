@@ -63,7 +63,7 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 
 	if (!platforms || platforms.includes("w3c")) buildOnePlatform(tokens, /* platformOverride: */ null,
 		{
-			reference:
+			w3c:
 			{
 				transformGroup: "fluentui/w3c",
 				buildPath: useSubfolders ? `${outputPath}w3c/` : outputPath,
