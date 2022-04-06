@@ -14,6 +14,7 @@ import "./fluentui-ios"
 import "./fluentui-react"
 import "./fluentui-reactnative"
 import "./fluentui-winui"
+import "./fluentui-w3c"
 
 export const buildOutputs = (input: string[] | string, outputPath: string, platforms: SupportedPlatform[] | undefined): void =>
 {
@@ -55,6 +56,20 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 					{ destination: "tokens-global.json", format: "fluentui/json/grouped", filter: "isGlobal" },
 					{ destination: "tokens-aliases.json", format: "fluentui/json/grouped", filter: "isAlias" },
 					{ destination: "tokens-controls.json", format: "fluentui/json/grouped", filter: "isControl" },
+				],
+			}
+		}
+	)
+
+	if (!platforms || platforms.includes("w3c")) buildOnePlatform(tokens, /* platformOverride: */ null,
+		{
+			reference:
+			{
+				transformGroup: "fluentui/w3c",
+				buildPath: useSubfolders ? `${outputPath}w3c/` : outputPath,
+				files: [
+					{ destination: "tokens.json", format: "fluentui/w3c" },
+					{ destination: "tokens-legacy-nodollar.json", format: "fluentui/w3c/legacy-nodollar" },
 				],
 			}
 		}
@@ -119,6 +134,20 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 		)
 	}
 
+	if (!platforms || platforms.includes("react")) buildOnePlatform(tokens, /* platformOverride: */ null,
+		{
+			react:
+				{
+					transformGroup: "fluentui/react",
+					buildPath: useSubfolders ? `${outputPath}react/` : outputPath,
+					files: [
+						{ destination: "global-colors.ts", format: "react/colors/global", filter: "isGlobalColor" },
+						{ destination: "alias-colors.ts", format: "react/colors/alias", filter: "isAliasColor" },
+					],
+				}
+		}
+	)
+
 	if (!platforms || platforms.includes("reactnative")) buildOnePlatform(tokens, /* platformOverride: */ null,
 		{
 			reactnative:
@@ -145,20 +174,6 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 					{ destination: "ThemedTokens.xaml", format: "fluentui/xaml/res/themed" },
 				],
 			}
-		}
-	)
-
-	if (!platforms || platforms.includes("react")) buildOnePlatform(tokens, null,
-		{
-			react:
-				{
-					transformGroup: "fluentui/react",
-					buildPath: useSubfolders ? `${outputPath}react/` : outputPath,
-					files: [
-						{ destination: "global-colors.ts", format: "react/colors/global", filter: "isGlobalColor" },
-						{ destination: "alias-colors.ts", format: "react/colors/alias", filter: "isAliasColor" },
-					],
-				}
 		}
 	)
 }
