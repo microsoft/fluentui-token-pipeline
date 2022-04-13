@@ -178,19 +178,16 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 		}
 	)
 
-	if (platforms && platforms.includes("dcs"))
-	{
-		buildOnePlatform(tokens, "dcs",
+	if (!platforms || platforms.includes("dcs")) buildOnePlatform(tokens, "dcs",
+		{
+			dcs:
 			{
-				dcs:
-				{
-					transformGroup: "fluentui/dcs",
-					buildPath: useSubfolders ? `${outputPath}tokens/` : outputPath,
-					files: [{ destination: "theme.css", format: "css/variables" }],
-				},
-			}
-		)
-	}
+				transformGroup: "fluentui/dcs",
+				buildPath: useSubfolders ? `${outputPath}dcs/` : outputPath,
+				files: [{ destination: "theme.css", format: "css/variables" }],
+			},
+		}
+	)
 }
 
 const buildOnePlatform = (tokens: any, platformOverride: SupportedPlatform | null, platformConfig: Record<string, unknown>): void =>

@@ -14,7 +14,7 @@ const constructName = (path: any[]): string =>
 }
 
 StyleDictionary.registerTransform({
-	name: "dcs/kebab",
+	name: "dcs/name/kebab",
 	type: "name",
 	transformer: prop => constructName(Utils.getTokenExportPath(prop)),
 })
@@ -28,5 +28,5 @@ StyleDictionary.registerTransform({
 
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/dcs",
-	transforms: ["fluentui/attribute", "dcs/kebab", "dcs/alias/css", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/shadow/css"],
+	transforms: ["fluentui/attribute", "dcs/name/kebab", "dcs/alias/css", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/shadow/css"],
 })
