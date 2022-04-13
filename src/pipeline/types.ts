@@ -88,12 +88,13 @@ export const SupportedPlatforms =
 	debug: true,
 	json: true,
 	reference: true,
+	w3c: true,
 	css: true,
 	cssflat: true,
 	ios: true,
+	react: true,
 	reactnative: true,
 	winui: true,
-	react: true,
 	dcs: true
 }
 export type SupportedPlatform = keyof typeof SupportedPlatforms
