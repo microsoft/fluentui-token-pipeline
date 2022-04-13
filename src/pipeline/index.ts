@@ -178,7 +178,7 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 		}
 	)
 
-  if (platforms && platforms.includes("dcs"))
+	if (platforms && platforms.includes("dcs"))
 	{
 		buildOnePlatform(tokens, "dcs",
 			{

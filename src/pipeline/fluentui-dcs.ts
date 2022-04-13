@@ -1,20 +1,17 @@
 import StyleDictionary from "style-dictionary"
 import * as Utils from "./utils"
 
-
 const constructName = (path: any[]): string =>
 {
+	let newName = path[0] !== "Global" && path[3] === "Color" ? `color${path.join("")}` : path.join("-").toLowerCase()
+	newName = newName.replace("NeutralNeutral", "Neutral")
+	newName = newName.replace("NeutralBrand", "Brand")
+	newName = newName.replace("NeutralCompound", "Compound")
+	newName = newName.replace("Rest", "")
+	newName = newName.replace("FillColor", "")
 
-	let name = path[0] !== "Global" && path[3] === "Color" ? `color${path.join("")}` : path.join("-").toLowerCase();
-	name = name.replace("NeutralNeutral", "Neutral");
-	name = name.replace("NeutralBrand", "Brand")
-	name = name.replace("NeutralCompound", "Compound")
-	name = name.replace("Rest", "");
-	name = name.replace("FillColor", "");
-
-	return name
+	return newName
 }
-
 
 StyleDictionary.registerTransform({
 	name: "dcs/kebab",
@@ -28,8 +25,6 @@ StyleDictionary.registerTransform({
 	matcher: prop => "resolvedAliasPath" in prop,
 	transformer: prop => `var(--${constructName(prop.resolvedAliasPath)})`,
 })
-
-
 
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/dcs",
