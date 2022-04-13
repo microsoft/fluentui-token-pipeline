@@ -166,7 +166,7 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 	{
 		buildOnePlatform(tokens, "dcs",
 			{
-				css:
+				dcs:
 				{
 					transformGroup: "fluentui/dcs",
 					buildPath: useSubfolders ? `${outputPath}tokens/` : outputPath,
