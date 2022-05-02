@@ -111,6 +111,7 @@ const globalColorTypes = {
 	"grey": "Record<Greys, string>",
 	"whiteAlpha": "Record<AlphaColors, string>",
 	"blackAlpha": "Record<AlphaColors, string>",
+	"grey14Alpha": "Record<AlphaColors, string>",
 }
 
 StyleDictionary.registerFormat({
@@ -206,11 +207,13 @@ StyleDictionary.registerFormat({
 			}`
 		})
 
+		const themeUsesBrand = imports.has("brand")
+
 		return [
-			`import { ${Array.from(imports).filter(i => i !== "brand").sort().join(", ")}, sharedColors } from '../global/colors';`,
-			"import type { BrandVariants, GlobalSharedColors, ColorTokens, ColorPaletteTokens } from '../types';",
+			`import { ${Array.from(imports).filter(i => i !== "brand").sort().join(", ")} } from '../global/colors';`,
+			`import type { ${themeUsesBrand ? "BrandVariants, " : ""}ColorTokens } from '../types';`,
 			"",
-			"export const generateColorTokens = (brand: BrandVariants): ColorTokens => ({",
+			`export const generateColorTokens = (${themeUsesBrand ? "brand: BrandVariants" : ""}): ColorTokens => ({`,
 			...colorTokens,
 			"});",
 		].join("\n")
