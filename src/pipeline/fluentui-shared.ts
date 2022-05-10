@@ -6,30 +6,31 @@ const getSDAttributes = (category, attribute) =>
 {
 	if (category === "Stroke")
 	{
-		if (attribute === "Width") return { category: "size", xamlType: "Thickness" }
-		if (attribute === "Alignment") return { category: "strokeAlignment", xamlType: "BackgroundSizing" }
+		if (attribute === "Width") return { category: "size", w3cType: "dimension", figmaTokensType: "borderWidth", xamlType: "Thickness" }
+		if (attribute === "Alignment") return { category: "strokeAlignment", w3cType: "string", xamlType: "BackgroundSizing" }
 	}
 	if (category === "Corner")
 	{
-		if (attribute === "Radius") return { category: "size", xamlType: "CornerRadius" }
+		if (attribute === "Radius") return { category: "size", w3cType: "dimension", figmaTokensType: "borderRadius", xamlType: "CornerRadius" }
 	}
 	// Color is a special case: you can skip the word before it (Fill or Stroke) in case your color sets are more general and not specific to fills or strokes.
-	if (category === "Color" || attribute === "Color") return { category: "color", xamlType: "SolidColorBrush" } // Can also be a LinearGradientBrush: the fluentui/xaml/res formats won't use the xamlType in that case
-	if (attribute === "Padding") return { category: "size", xamlType: "Thickness" }
-	if (attribute === "Spacing") return { category: "size", xamlType: "x:Double" }
+	if (category === "Color" || attribute === "Color") return { category: "color", w3cType: "color", figmaTokensType: "color", xamlType: "SolidColorBrush" } // Can also be a LinearGradientBrush: the fluentui/xaml/res formats won't use the xamlType in that case
+	if (attribute === "Padding") return { category: "size", w3cType: "dimension", figmaTokensType: "spacing", xamlType: "Thickness" }
+	if (attribute === "Spacing") return { category: "size", w3cType: "dimension", figmaTokensType: "spacing", xamlType: "x:Double" }
 	if (category === "Layout")
 	{
-		if (attribute === "Width" || attribute === "Height") return { category: "size", xamlType: "x:Double" }
+		if (attribute === "Width" || attribute === "Height") return { category: "size", w3cType: "dimension", figmaTokensType: "sizing", xamlType: "x:Double" }
 	}
 	if (category === "Font")
 	{
-		if (attribute === "Family") return { category: "font", xamlType: "FontFamily" }
-		if (attribute === "Size" || attribute === "LineHeight") return { category: "size", xamlType: "x:Double" }
-		if (attribute === "Weight") return { category: "fontWeight", xamlType: "x:Double" }
+		if (attribute === "Family") return { category: "font", w3cType: "fontFamily", figmaTokensType: "fontFamilies", xamlType: "FontFamily" }
+		if (attribute === "Size") return { category: "size", w3cType: "fontSize", figmaTokensType: "fontSizes", xamlType: "x:Double" }
+		if (attribute === "LineHeight") return { category: "size", w3cType: "dimension", figmaTokensType: "lineHeights", xamlType: "x:Double" }
+		if (attribute === "Weight") return { category: "fontWeight", w3cType: "fontWeight", figmaTokensType: "fontWeights", xamlType: "x:Double" }
 	}
 	if (category === "Shadow" || attribute === "Shadow")
 	{
-		return { category: "shadow", xamlType: "none" } // WinUI uses Z-axis translation and doesn't support this kind of shadow natively
+		return { category: "shadow", w3cType: "shadow", figmaTokensType: "boxShadow", xamlType: "none" } // WinUI uses Z-axis translation and doesn't support this kind of shadow natively
 	}
 	return null
 }

@@ -14,8 +14,9 @@ import "./fluentui-ios"
 import "./fluentui-react"
 import "./fluentui-reactnative"
 import "./fluentui-winui"
-import "./fluentui-dcs"
 import "./fluentui-w3c"
+import "./fluentui-dcs"
+import "./figmatokens"
 
 export const buildOutputs = (input: string[] | string, outputPath: string, platforms: SupportedPlatform[] | undefined): void =>
 {
@@ -68,10 +69,7 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 			{
 				transformGroup: "fluentui/w3c",
 				buildPath: useSubfolders ? `${outputPath}w3c/` : outputPath,
-				files: [
-					{ destination: "tokens.json", format: "fluentui/w3c" },
-					{ destination: "tokens-legacy-nodollar.json", format: "fluentui/w3c/legacy-nodollar" },
-				],
+				files: [{ destination: "tokens.json", format: "fluentui/w3c" }],
 			}
 		}
 	)
@@ -174,6 +172,17 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 					{ destination: "Tokens.xaml", format: "fluentui/xaml/res" },
 					{ destination: "ThemedTokens.xaml", format: "fluentui/xaml/res/themed" },
 				],
+			}
+		}
+	)
+
+	if (!platforms || platforms.includes("figmatokens")) buildOnePlatform(tokens, /* platformOverride: */ null,
+		{
+			figmatokens:
+			{
+				transformGroup: "fluentui/figmatokens",
+				buildPath: useSubfolders ? `${outputPath}figmatokens/` : outputPath,
+				files: [{ destination: "figmatokens.json", format: "fluentui/figmatokens" }],
 			}
 		}
 	)

@@ -95,7 +95,8 @@ export const SupportedPlatforms =
 	react: true,
 	reactnative: true,
 	winui: true,
-	dcs: true
+	figmatokens: true,
+	dcs: true,
 }
 export type SupportedPlatform = keyof typeof SupportedPlatforms
 export type SupportedPlatformList<ValueType> =
