@@ -18,17 +18,16 @@ StyleDictionary.registerTransform({
 	matcher: prop => prop.attributes.category === "shadow",
 	transformer: prop =>
 	{
-		if (prop.value.length > 1)
-			Utils.reportError(`Only the first shadow defined for token ${prop.path.join(".")} could be exported because the Figma Tokens format only supports single shadows.`)
-		const shadow = prop.value[0]
-		return {
-			color: colorTokenToHexColor(shadow.color),
-			x: shadow.x.toString(),
-			y: shadow.y.toString(),
-			blur: shadow.blur.toString(),
-			spread: "0",
-			type: "dropShadow",
-		}
+		const shadowsArray = prop.value.map(shadow =>
+			({
+				color: colorTokenToHexColor(shadow.color),
+				x: shadow.x.toString(),
+				y: shadow.y.toString(),
+				blur: shadow.blur.toString(),
+				spread: "0",
+				type: "dropShadow",
+			}))
+		return shadowsArray.length === 1 ? shadowsArray[0] : shadowsArray
 	},
 })
 
