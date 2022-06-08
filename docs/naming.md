@@ -12,8 +12,8 @@ Our design tokens follow a consistent taxonomy and naming system. To understand 
 
 * At the core are your **global tokens**, which contain all of the different values in your design system: colors, sizes, typography, and more. They have very specific names and no particular meaning. For example, "blue #60" would be a global token, such as `Global.Color.Blue.60`.
 	* As a general rule, global tokens always have an explicit value and don't refer to any other token. Exceptions are permitted, however, for cases such as:
-			* `Global.Color.Accent.60` that just shares its value with `Global.Color.Blue.60`
-			* A global shadow token that gets its fill color from another global token
+		* `Global.Color.Accent.60` that just shares its value with `Global.Color.Blue.60`
+		* A global shadow token that gets its fill color from another global token
 * **Alias tokens** give semantic meaning to those raw values. For example, if design dictates that a control that performs an action that is accent-colored should have a background fill color when hovered as blue #60, they might set `Set.AccentActionControl.Fill.Color.Hover` to be an *alias* of `Global.Color.Blue.60`.
 	* Alias tokens always get their value from another token.
 	* The prefix `Set.` is used in the token JSON but is always omitted when referring to that token elsewhere.
