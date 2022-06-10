@@ -98,6 +98,18 @@ export const SupportedPlatforms =
 	figmatokens: true,
 	dcs: true,
 }
+export type SupportedThemes = keyof typeof SupportedPlatforms
+export type SupportedThemesList<ValueType> =
+{
+	[theme in SupportedThemes]: ValueType
+	}
+
+	export const SupportedThemes =
+{
+	light: true,
+	dark: true,
+	hc: true,
+}
 export type SupportedPlatform = keyof typeof SupportedPlatforms
 export type SupportedPlatformList<ValueType> =
 {
