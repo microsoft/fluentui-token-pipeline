@@ -6,22 +6,13 @@ title: Token JSON format reference
 
 # Token JSON format reference
 
-## About design tokens
+This reference assumes that you're familiar with the general concept of design tokens.
 
-This readme assumes that you're familiar with the general concept of design tokens.
-
-But let's get clear on the naming system that we have for different types of tokens:
-
-* At the core are your global tokens, which contain all of the different values in your design system: colors, sizes, typography, and more. They have very specific names and no particular meaning. For example, "blue #60" would be a global token, such as `Global.Color.Blue.60`.
-* Alias tokens give semantic meaning to those raw values. For example, if design dictates that a control that performs an action that is accent-colored should have a background fill color when hovered as blue #60, they might set `Set.AccentActionControl.Fill.Color.Hover` to be an *alias* of `Global.Color.Blue.60`.
-* Alias sets are just groups of alias tokens that can be reused for convenience and consistency. For example, `Set.AccentActionControl.Fill.Color` is a set that defines `.Rest`, `.Hover`, `.Pressed`, and `.Disabled` colors for that same part of the same type of control. Assigning something else to be an alias of that set is just a simpler way of assigning individual Rest, Hover, Press, and Disabled properties to those individual alias tokens—it's exactly equivalent.
-* Finally, controls in your UI platform of choice get their default styling values from control mappings, also known as control tokens. For example, an accent-colored button's base (background) element's fill color when hovered should be set to `AccentButton.Base.Fill.Color.Hover`.
-
-After transforming once, it can sometimes be helpful to refer to [`build/reference/index.html`](build/reference/index.html)—it's effectively a more human-readable version of your token JSON that gets built by the pipeline.
+After transforming once, it can sometimes be helpful to refer to [`build/reference/index.html`](../build/reference/index.html)—it's effectively a more human-readable version of your token JSON that gets built by the pipeline.
 
 ## Token organization
 
-The included file `src/demo/fluentui.json` is an example of most of the different types of supported design tokens and how they are organized. **The organization and naming of the tokens in `fluentui.json` is intentional, and affects how they are processed and exported.** So, it's useful to know the basics of that organization.
+The included file `src/demo/fluentui.json` is an example of most of the different types of supported design tokens and how they are organized. **The organization and naming of the tokens in `fluentui.json` is intentional, and affects how they are processed and exported.** So, it's useful to know [the basics of that organization and naming](naming.md).
 
 * Global tokens go in the `Global` node. Tokens under `Global` should all contain raw values and not refer to any other token, with few exceptions. (One reasonable exception might be that if we wanted to treat "Accent" as a color and put it next to other colors such as blue and red, but *define* the Accent colors as identical to the blue colors, for example.)
 * Alias tokens and sets go in the `Set` node. (More on what that means momentarily.) Tokens under `Set` should never have a distinct value, and instead should be defined based on other tokens. Sets don't have to be explicitly defined as a set—they're just how we refer to any grouping of alias tokens. `Set.MyFavoriteColors` is just a way of saying "all of the tokens defined under 'MyFavoriteColors'."

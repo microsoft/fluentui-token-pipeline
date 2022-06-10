@@ -16,6 +16,8 @@ import "./fluentui-reactnative"
 import "./fluentui-winui"
 import "./fluentui-dcs"
 import "./fluentui-w3c"
+import "./fluentui-dcs"
+import "./figmatokens"
 
 export const buildOutputs = (input: string[] | string, outputPath: string, platforms: SupportedPlatform[] | undefined): void =>
 {
@@ -68,10 +70,7 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 			{
 				transformGroup: "fluentui/w3c",
 				buildPath: useSubfolders ? `${outputPath}w3c/` : outputPath,
-				files: [
-					{ destination: "tokens.json", format: "fluentui/w3c" },
-					{ destination: "tokens-legacy-nodollar.json", format: "fluentui/w3c/legacy-nodollar" },
-				],
+				files: [{ destination: "tokens.json", format: "fluentui/w3c" }],
 			}
 		}
 	)
@@ -156,7 +155,8 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 				transformGroup: "fluentui/reactnative",
 				buildPath: useSubfolders ? `${outputPath}reactnative/` : outputPath,
 				files: [
-					{ destination: "tokens-global.json", format: "fluentui/json/grouped", filter: "isGlobal" },
+					{ destination: "tokens-global.json", format: "fluentui/json/grouped", filter: "isGlobalNotShadow" },
+					{ destination: "tokens-shadow.json", format: "fluentui/json/grouped", filter: "isGlobalShadow" },
 					{ destination: "tokens-aliases.json", format: "fluentui/json/grouped", filter: "isAlias" },
 					{ destination: "tokens-controls.json", format: "fluentui/json/grouped", filter: "isControl" },
 				],
@@ -178,19 +178,27 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 		}
 	)
 
-  if (platforms && platforms.includes("dcs"))
-	{
-		buildOnePlatform(tokens, "dcs",
+	if (!platforms || platforms.includes("figmatokens")) buildOnePlatform(tokens, /* platformOverride: */ null,
+		{
+			figmatokens:
 			{
-				dcs:
-				{
-					transformGroup: "fluentui/dcs",
-					buildPath: useSubfolders ? `${outputPath}tokens/` : outputPath,
-					files: [{ destination: "theme.css", format: "css/variables" }],
-				},
+				transformGroup: "fluentui/figmatokens",
+				buildPath: useSubfolders ? `${outputPath}figmatokens/` : outputPath,
+				files: [{ destination: "figmatokens.json", format: "fluentui/figmatokens" }],
 			}
-		)
-	}
+		}
+	)
+
+	if (!platforms || platforms.includes("dcs")) buildOnePlatform(tokens, "dcs",
+		{
+			dcs:
+			{
+				transformGroup: "fluentui/dcs",
+				buildPath: useSubfolders ? `${outputPath}dcs/` : outputPath,
+				files: [{ destination: "theme.css", format: "css/variables" }],
+			},
+		}
+	)
 }
 
 const buildOnePlatform = (tokens: any, platformOverride: SupportedPlatform | null, platformConfig: Record<string, unknown>): void =>

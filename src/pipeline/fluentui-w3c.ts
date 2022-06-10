@@ -40,25 +40,12 @@ StyleDictionary.registerTransform({
 	},
 })
 
-/*
-	The Figma Tokens plugin uses a slightly different format for shadows, not supported here:
-	"TOKEN_NAME": {
-		"value": {
-			"x": "0",
-			"y": "0",
-			"blur": "0",
-			"spread": "0",
-			"color": "#000000",
-			"type": "dropShadow"
-		},
-		"type": "boxShadow"
-	}
-*/
-
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/w3c",
 	transforms: ["fluentui/attribute", "fluentui/name/w3c", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/shadow/w3c"],
 })
+
+// TODO: The current draft as of 10 May 2022 specifies that font families should be an array of strings, not a single CSS string.
 
 StyleDictionary.registerFormat({
 	name: "fluentui/w3c",
@@ -69,20 +56,15 @@ StyleDictionary.registerFormat({
 	},
 })
 
-StyleDictionary.registerFormat({
-	name: "fluentui/w3c/legacy-nodollar",
-	formatter: (dictionary, config) =>
-	{
-		const tokens = getW3CJson(dictionary.allProperties, { noDollarSigns: true })
-		return JSON.stringify(tokens, /* replacer: */ undefined, /* space: */ "\t")
-	},
-})
-
-export const getW3CJson = (props: any[], options: { noDollarSigns?: boolean } = {}): any =>
+export const getW3CJson = (props: any[], options: unknown = {}): any =>
 {
 	const tokens: any = {}
 	for (const thisProp of props)
 	{
+		// If this isn't a supported token type in the W3C format, just skip it.
+		const type = thisProp.attributes.w3cType
+		if (type === null) continue
+
 		// First, find or recreate this token's parent group in the new tokens object.
 		let group: any = tokens
 		for (const segment of thisProp.path.slice(0, -1))
@@ -92,10 +74,9 @@ export const getW3CJson = (props: any[], options: { noDollarSigns?: boolean } = 
 			else
 				group = (group[segment] = {})
 		}
+
 		// Then, toss this token in there.
-		const token = options.noDollarSigns ?
-			{ type: getW3CType(thisProp), value: getValueOrReference(thisProp) } :
-			{ $type: getW3CType(thisProp), $value: getValueOrReference(thisProp) }
+		const token = { $type: type, $value: getValueOrReference(thisProp) }
 		group[thisProp.path[thisProp.path.length - 1]] = token
 	}
 	return tokens
@@ -103,7 +84,7 @@ export const getW3CJson = (props: any[], options: { noDollarSigns?: boolean } = 
 
 /// Converts an alias token into a W3C alias reference. (This can't be done earlier in the process because the W3C format uses the same format
 /// for aliases that Style Dictionary does, and using Style Dictionary's syntax will cause Style Dictionary to try to resolve those aliases!)
-const getValueOrReference = (prop: any): any =>
+export const getValueOrReference = (prop: any): any =>
 {
 	if (prop.resolvedAliasPath)
 	{
@@ -112,41 +93,5 @@ const getValueOrReference = (prop: any): any =>
 	else
 	{
 		return prop.value
-	}
-}
-
-/// Converts a token's Style Dictionary category (including our proprietary extensions) to the appropriate W3C DTCG $type value, or null if none.
-const getW3CType = (prop: any): string | null =>
-{
-	const category: string | undefined = prop.attributes.aliasCategory || prop.attributes.category
-	switch (category)
-	{
-		case "color":
-			if (typeof prop.original.value === "object")
-			{
-				Utils.reportError(`Can't properly export token ${prop.path.join(".")} because the W3C format does not have sufficent gradient support for our needs.`)
-				return null
-			}
-			return "color"
-		case "font":
-			return "fontFamily"
-		case "fontSize":
-			return "fontSize"
-		case "fontWeight":
-			return "fontWeight"
-		case "shadow":
-			return "shadow"
-		case "size":
-			if (typeof prop.original.value === "object")
-			{
-				Utils.reportError(`Can't properly export token ${prop.path.join(".")} because the W3C format only allows single values for dimensions.`)
-				return null
-			}
-			return "dimension"
-		case "strokeAlignment":
-			return "string"
-		default:
-			Utils.reportError(`Can't export token ${prop.path.join(".")} because the token type "${category}" is not supported.`)
-			return null
 	}
 }
