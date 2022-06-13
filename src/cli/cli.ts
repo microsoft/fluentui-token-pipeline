@@ -7,8 +7,8 @@ import { buildOutputs } from "../pipeline"
 	args
 		.option("in", "A JSON file to use as input", [])
 		.option("out", "A path to output built files to", "build")
-		.option("theme", "A string to denote theme")
 		.option("platform", "A platform to build outputs for (debug, json, reference, w3c, css, react, reactnative, ios, winui, figmatokens, dcs)", [])
+		.option("theme", "The theme to export (for the \"dcs\" platform only)")
 		.example("transform-tokens --in mytokens.json --out build", "Transform mytokens.json and put the output in a folder called \"build\".")
 		.example("transform-tokens --in mytokens.json --out build -p winui -p css", "Just output the files for the winui and css platforms.")
 		.example("transform-tokens --in mytokens.json --out build -p dcs --theme light", "Just output the files for the dcs platform in light theme.")
