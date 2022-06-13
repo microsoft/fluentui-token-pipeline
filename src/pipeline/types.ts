@@ -98,22 +98,22 @@ export const SupportedPlatforms =
 	figmatokens: true,
 	dcs: true,
 }
-export type SupportedThemes = keyof typeof SupportedPlatforms
-export type SupportedThemesList<ValueType> =
+export type SupportedPlatform = keyof typeof SupportedPlatforms
+export type SupportedPlatformList<ValueType> =
 {
-	[theme in SupportedThemes]: ValueType
-	}
+	[platform in SupportedPlatform]: ValueType
+}
 
-	export const SupportedThemes =
+export const SupportedThemes =
 {
 	light: true,
 	dark: true,
 	hc: true,
 }
-export type SupportedPlatform = keyof typeof SupportedPlatforms
-export type SupportedPlatformList<ValueType> =
+export type SupportedThemes = keyof typeof SupportedThemes
+export type SupportedThemesList<ValueType> =
 {
-	[platform in SupportedPlatform]: ValueType
+	[theme in SupportedThemes]: ValueType
 }
 
 // ------------------------------------------------------------
