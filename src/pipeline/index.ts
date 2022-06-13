@@ -1,7 +1,7 @@
 import _ from "lodash"
 import jsonfile from "jsonfile"
 
-import { SupportedPlatform, SupportedPlatforms } from "./types"
+import { SupportedPlatform, SupportedPlatforms, SupportedThemes } from "./types"
 import { resolveAliases } from "./fluentui-aliases"
 import { resolveGeneratedSets } from "./fluentui-generate"
 import { resolveComputedTokens } from "./fluentui-computed"
@@ -18,7 +18,7 @@ import "./fluentui-w3c"
 import "./fluentui-dcs"
 import "./figmatokens"
 
-export const buildOutputs = (input: string[] | string, outputPath: string, platforms: SupportedPlatform[] | undefined): void =>
+export const buildOutputs = (input: string[] | string, outputPath: string, platforms: SupportedPlatform[] | undefined, theme: string | undefined): void =>
 {
 	if (platforms)
 	{
@@ -26,8 +26,21 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 		{
 			if (!SupportedPlatforms[platform])
 				throw new Error(`Unsupported platform: ${platform}`)
+			if (platform.includes('dcs'))
+			{
+				if (!theme)
+				{
+					throw new Error(`Please specify a --theme if using the dcs platform ( supported themes: dark, light, hc )`)
+				}
+				if (!SupportedThemes[theme])
+				{
+					throw new Error(`Unsupported theme: ${theme} ( supported themes: dark, light, hc )`)
+				}
+			}
 		}
+		
 	}
+
 
 	const useSubfolders = !platforms || platforms.length !== 1
 
@@ -194,7 +207,8 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 			{
 				transformGroup: "fluentui/dcs",
 				buildPath: useSubfolders ? `${outputPath}dcs/` : outputPath,
-				files: [{ destination: "theme.css", format: "css/variables" }],
+				files: [{ destination: `fluent-${theme}-theme.css`, format: "fluentui/dcs", selector: `[data-theme="fluent-${theme}"]`,
+			}],
 			},
 		}
 	)

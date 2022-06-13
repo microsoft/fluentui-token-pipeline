@@ -7,9 +7,11 @@ import { buildOutputs } from "../pipeline"
 	args
 		.option("in", "A JSON file to use as input", [])
 		.option("out", "A path to output built files to", "build")
+		.option("theme", "A string to denote theme")
 		.option("platform", "A platform to build outputs for (debug, json, reference, w3c, css, react, reactnative, ios, winui, figmatokens, dcs)", [])
 		.example("transform-tokens --in mytokens.json --out build", "Transform mytokens.json and put the output in a folder called \"build\".")
 		.example("transform-tokens --in mytokens.json --out build -p winui -p css", "Just output the files for the winui and css platforms.")
+		.example("transform-tokens --in mytokens.json --out build -p dcs --theme light", "Just output the files for the dcs platform in light theme.")
 
 	const flags = args.parse(process.argv, { name: "transform-tokens" })
 
@@ -32,5 +34,5 @@ import { buildOutputs } from "../pipeline"
 	}
 
 	// Now, build what they asked for.
-	buildOutputs(flags.in, flags.out, flags.platform)
+	buildOutputs(flags.in, flags.out, flags.platform, flags.theme)
 })()

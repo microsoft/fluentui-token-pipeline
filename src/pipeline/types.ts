@@ -104,6 +104,18 @@ export type SupportedPlatformList<ValueType> =
 	[platform in SupportedPlatform]: ValueType
 }
 
+export const SupportedThemes =
+{
+	light: true,
+	dark: true,
+	hc: true,
+}
+export type SupportedThemes = keyof typeof SupportedThemes
+export type SupportedThemesList<ValueType> =
+{
+	[theme in SupportedThemes]: ValueType
+}
+
 // ------------------------------------------------------------
 
 // Uncomment this and paste the contents of your token JSON to validate it:
