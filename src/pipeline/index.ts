@@ -26,7 +26,7 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 		{
 			if (!SupportedPlatforms[platform])
 				throw new Error(`Unsupported platform: ${platform}`)
-			if (platform.includes('dcs'))
+			if (platform.includes("dcs"))
 			{
 				if (!theme)
 				{
@@ -38,7 +38,6 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 				}
 			}
 		}
-		
 	}
 
 
@@ -203,13 +202,22 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 
 	if (!platforms || platforms.includes("dcs")) buildOnePlatform(tokens, "dcs",
 		{
-			dcs:
+			dcsCss:
 			{
-				transformGroup: "fluentui/dcs",
+				transformGroup: "dcs/css",
 				buildPath: useSubfolders ? `${outputPath}dcs/` : outputPath,
-				files: [{ destination: `fluent-${theme}-theme.css`, format: "fluentui/dcs", selector: `[data-theme="fluent-${theme}"]`,
-			}],
+				files: [
+					{ destination: `fluent-${theme}-theme.css`, format: "fluentui/dcs/css", selector: `[data-theme="fluent-${theme}"]` },
+				],
 			},
+			dcsJson:
+			{
+				transformGroup: "dcs/json",
+				buildPath: useSubfolders ? `${outputPath}dcs/` : outputPath,
+				files: [
+					{ destination: `fluent-${theme}-theme.json`, format: "fluentui/dcs/json" }
+				],
+			}
 		}
 	)
 }
