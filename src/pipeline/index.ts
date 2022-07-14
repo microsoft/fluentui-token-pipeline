@@ -207,7 +207,7 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 				transformGroup: "dcs/css",
 				buildPath: useSubfolders ? `${outputPath}dcs/` : outputPath,
 				files: [
-					{ destination: `fluent-${theme}-theme.css`, format: "fluentui/dcs/css", selector: `[data-theme="fluent-${theme}"]` },
+					{ destination: `css/fluent-${theme}-theme.css`, format: "fluentui/dcs/css", selector: `[data-theme="fluent-${theme}"]` },
 				],
 			},
 			dcsJson:
@@ -215,7 +215,7 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 				transformGroup: "dcs/json",
 				buildPath: useSubfolders ? `${outputPath}dcs/` : outputPath,
 				files: [
-					{ destination: `fluent-${theme}-theme.json`, format: "fluentui/dcs/json" }
+					{ destination: `json/fluent-${theme}-theme.json`, format: "fluentui/dcs/json" }
 				],
 			}
 		}

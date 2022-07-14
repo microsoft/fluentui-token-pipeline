@@ -58,17 +58,17 @@ StyleDictionary.registerTransformGroup({
 
 StyleDictionary.registerFormat({
 	name: "fluentui/dcs/css",
-	formatter: function (dictionary, config)
+	formatter: function (dictionary: { allProperties: { name: any; value: any }[] }, config: any)
 	{
 		return `${this.selector} {
-		${dictionary.allProperties.map(prop => `  --${prop.name}: ${prop.value};`).join("\n")}
+		${dictionary.allProperties.map((prop: { name: any; value: any }) => `  --${prop.name}: ${prop.value};`).join("\n")}
 	  }`
 	}
 })
 
 StyleDictionary.registerFormat({
 	name: "fluentui/dcs/json",
-	formatter: (dictionary, config) =>
+	formatter: (dictionary: { allProperties: any[] }) =>
 	{
 		// Flatten out the token hierarchy and just keep the important bits.
 		const sortedProps = Utils.sortPropertiesForReadability(dictionary.allProperties)
