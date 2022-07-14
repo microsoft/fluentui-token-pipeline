@@ -3,9 +3,7 @@ import * as Utils from "./utils"
 import _ from "lodash"
 
 
-
 const constructJsonName = (path: any[]) => _.camelCase(`${path.join("")}`)
-
 const constructCssName = (path: any[]): string =>
 {
 	let newName = path[0] !== "Global" && path[3] === "Color" ? `color${path.join("")}` : path.join("")
@@ -15,10 +13,8 @@ const constructCssName = (path: any[]): string =>
 	newName = newName.replace("NeutralCompound", "Compound")
 	newName = newName.replace("Rest", "")
 	newName = newName.replace("FillColor", "")
-
 	return newName
 }
-
 
 StyleDictionary.registerTransform({
 	name: "dcs/name/json",
@@ -108,4 +104,3 @@ StyleDictionary.registerFormat({
 		return JSON.stringify(tokens, /* replacer: */ undefined, /* space: */ "\t")
 	},
 })
-
