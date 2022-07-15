@@ -110,6 +110,7 @@ export const SupportedThemes =
 	dark: true,
 	hc: true,
 }
+
 export type SupportedTheme = keyof typeof SupportedThemes
 export type SupportedThemeList<ValueType> =
 {

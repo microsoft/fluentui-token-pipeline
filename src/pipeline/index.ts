@@ -40,6 +40,7 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 		}
 	}
 
+
 	const useSubfolders = !platforms || platforms.length !== 1
 
 	if (!outputPath.endsWith("/")) outputPath = outputPath + "/"
@@ -201,12 +202,22 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 
 	if (!platforms || platforms.includes("dcs")) buildOnePlatform(tokens, "dcs",
 		{
-			dcs:
+			dcsCss:
 			{
-				transformGroup: "fluentui/dcs",
+				transformGroup: "dcs/css",
 				buildPath: useSubfolders ? `${outputPath}dcs/` : outputPath,
-				files: [{ destination: `fluent-${theme}-theme.css`, format: "fluentui/dcs", selector: `[data-theme="fluent-${theme}"]` }],
+				files: [
+					{ destination: `css/fluent-${theme}-theme.css`, format: "fluentui/dcs/css", selector: `[data-theme="fluent-${theme}"]` },
+				],
 			},
+			dcsJson:
+			{
+				transformGroup: "dcs/json",
+				buildPath: useSubfolders ? `${outputPath}dcs/` : outputPath,
+				files: [
+					{ destination: `json/fluent-${theme}-theme.json`, format: "fluentui/dcs/json" }
+				],
+			}
 		}
 	)
 }
