@@ -57,8 +57,8 @@ StyleDictionary.registerFormat({
 	formatter: function (dictionary: { allProperties: { name: any; value: any }[] }, config: any)
 	{
 		return `${this.selector} {
-		${dictionary.allProperties.map((prop: { name: any; value: any }) => `  --${prop.name}: ${prop.value};`).join("\n")}
-	  }`
+${dictionary.allProperties.map((prop: { name: any; value: any }) => `  --${prop.name}: ${prop.value};`).join("\n")}
+}`
 	}
 })
 
@@ -77,7 +77,6 @@ StyleDictionary.registerFormat({
 		{
 			const rootName = _.camelCase(thisProp.path[1])
 			const subgroupName: string | null = null
-
 
 			{
 				tokens = thisOutputObject = tokens || {}
