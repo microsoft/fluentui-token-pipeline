@@ -22,6 +22,13 @@ StyleDictionary.registerTransform({
 })
 
 StyleDictionary.registerTransform({
+	name: "fluentui/letterspacing/w3c",
+	type: "value",
+	matcher: prop => prop.attributes.category === "letterSpacing",
+	transformer: prop => `${prop.value}rem`,
+})
+
+StyleDictionary.registerTransform({
 	name: "fluentui/shadow/w3c",
 	type: "value",
 	matcher: prop => prop.attributes.category === "shadow",
@@ -42,7 +49,7 @@ StyleDictionary.registerTransform({
 
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/w3c",
-	transforms: ["fluentui/attribute", "fluentui/name/w3c", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/shadow/w3c"],
+	transforms: ["fluentui/attribute", "fluentui/name/w3c", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/letterspacing/w3c", "fluentui/shadow/w3c"],
 })
 
 // TODO: The current draft as of 10 May 2022 specifies that font families should be an array of strings, not a single CSS string.

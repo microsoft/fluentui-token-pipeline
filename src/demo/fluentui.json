@@ -149,6 +149,10 @@
 				"Medium": { "value": 500 },
 				"Semibold": { "value": 600 },
 				"Bold": { "value": 700 }
+			},
+			"LetterSpacing": {
+				"None": { "value": 0 },
+				"Tight": { "value": -0.02 }
 			}
 		},
 		"Shadow": {

@@ -77,9 +77,16 @@ StyleDictionary.registerTransform({
 	},
 })
 
+StyleDictionary.registerTransform({
+	name: "fluentui/letterspacing/figmatokens",
+	type: "value",
+	matcher: prop => prop.attributes.category === "letterSpacing",
+	transformer: prop => `${prop.value * 100}%`,
+})
+
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/figmatokens",
-	transforms: ["fluentui/attribute", "fluentui/name/figmatokens", "time/seconds", "fluentui/size/figmatokens", "fluentui/color/css", "fluentui/font/figmatokens", "fluentui/strokealignment/css", "fluentui/shadow/figmatokens"],
+	transforms: ["fluentui/attribute", "fluentui/name/figmatokens", "time/seconds", "fluentui/size/figmatokens", "fluentui/color/css", "fluentui/font/figmatokens", "fluentui/strokealignment/css", "fluentui/letterspacing/figmatokens", "fluentui/shadow/figmatokens"],
 })
 
 StyleDictionary.registerFormat({

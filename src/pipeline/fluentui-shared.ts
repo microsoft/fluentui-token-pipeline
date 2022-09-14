@@ -27,6 +27,7 @@ const getSDAttributes = (category, attribute) =>
 		if (attribute === "Size") return { category: "size", w3cType: "fontSize", figmaTokensType: "fontSizes", xamlType: "x:Double" }
 		if (attribute === "LineHeight") return { category: "size", w3cType: "dimension", figmaTokensType: "lineHeights", xamlType: "x:Double" }
 		if (attribute === "Weight") return { category: "fontWeight", w3cType: "fontWeight", figmaTokensType: "fontWeights", xamlType: "x:Double" }
+		if (attribute === "LetterSpacing") return { category: "letterSpacing", w3cType: "dimension", figmaTokensType: "letterSpacing", xamlType: "x:Int32" }
 	}
 	if (category === "Shadow" || attribute === "Shadow")
 	{

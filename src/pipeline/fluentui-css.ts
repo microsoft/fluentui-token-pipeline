@@ -165,6 +165,19 @@ StyleDictionary.registerTransform({
 })
 
 StyleDictionary.registerTransform({
+	name: "fluentui/letterspacing/css",
+	type: "value",
+	matcher: prop => prop.attributes.category === "letterSpacing",
+	transformer: prop =>
+	{
+		/*
+			Adds units for a CSS letter-spacing property value.
+		*/
+		return `${prop.value}em`
+	},
+})
+
+StyleDictionary.registerTransform({
 	name: "fluentui/shadow/css",
 	type: "value",
 	matcher: prop => prop.attributes.category === "shadow",
@@ -179,20 +192,20 @@ StyleDictionary.registerTransform({
 
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/css",
-	transforms: ["fluentui/attribute", "fluentui/name/kebab", "fluentui/alias/css", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/shadow/css"],
+	transforms: ["fluentui/attribute", "fluentui/name/kebab", "fluentui/alias/css", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/letterspacing/css", "fluentui/shadow/css"],
 })
 
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/scss",
-	transforms: ["fluentui/attribute", "fluentui/name/kebab", "fluentui/alias/scss", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/shadow/css"],
+	transforms: ["fluentui/attribute", "fluentui/name/kebab", "fluentui/alias/scss", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/letterspacing/css", "fluentui/shadow/css"],
 })
 
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/cssflat",
-	transforms: ["fluentui/attribute", "fluentui/name/kebab", "fluentui/alias/flatten", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/shadow/css"],
+	transforms: ["fluentui/attribute", "fluentui/name/kebab", "fluentui/alias/flatten", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/letterspacing/css", "fluentui/shadow/css"],
 })
 
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/scssflat",
-	transforms: ["fluentui/attribute", "fluentui/name/kebab", "fluentui/alias/flatten", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/shadow/css"],
+	transforms: ["fluentui/attribute", "fluentui/name/kebab", "fluentui/alias/flatten", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/letterspacing/css", "fluentui/shadow/css"],
 })
