@@ -285,6 +285,22 @@ Font weights are specified in standard weight units, integers 100-900.
 * `600`
 * <strike>**not** `"semibold"`</strike>
 
+### Font letter spacing
+
+Letter spacing (aka character spacing or tracking) is specified in ems (not pixels) **without units**.
+
+**Except for Swift**, where the values are specified in points without units instead. (This means that you'll need to use platform-specific overrides to use a single source JSON file to export to both Swift and at least one other platform.)
+
+* `-0.02`
+* <strike>**not** `"-0.02em"`</strike>
+
+### Line spacing
+
+Line spacing (aka leading) is specified in device-independent pixels (not multiples or percentages) **without units**.
+
+* `20`
+* <strike>**not** `"20px"`</strike>
+
 ### Widths and heights and spacing
 
 Element widths and heights and spacing values are specifed as independent properties in device-independent pixels **without units**.
