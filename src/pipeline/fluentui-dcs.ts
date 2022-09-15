@@ -15,6 +15,7 @@ const constructCssName = (path: any[]): string =>
 	newName = newName.replace("NeutralCompound", "Compound")
 	newName = newName.replace("Rest", "")
 	newName = newName.replace("FillColor", "")
+	newName = newName.replace("StrokeColor", "")
 
 	return newName
 }
