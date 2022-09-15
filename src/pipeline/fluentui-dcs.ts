@@ -3,7 +3,9 @@ import * as Utils from "./utils"
 import _ from "lodash"
 
 
+
 const constructJsonName = (path: any[]) => _.camelCase(`${path.join("")}`)
+
 const constructCssName = (path: any[]): string =>
 {
 	let newName = path[0] !== "Global" && path[3] === "Color" ? `color${path.join("")}` : path.join("")
@@ -13,8 +15,11 @@ const constructCssName = (path: any[]): string =>
 	newName = newName.replace("NeutralCompound", "Compound")
 	newName = newName.replace("Rest", "")
 	newName = newName.replace("FillColor", "")
+	newName = newName.replace("StrokeColor", "")
+
 	return newName
 }
+
 
 StyleDictionary.registerTransform({
 	name: "dcs/name/json",
@@ -44,12 +49,12 @@ StyleDictionary.registerTransform({
 
 StyleDictionary.registerTransformGroup({
 	name: "dcs/json",
-	transforms: ["fluentui/attribute", "dcs/name/json", "dcs/alias/json", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/letterspacing/css", "fluentui/shadow/css"],
+	transforms: ["fluentui/attribute", "dcs/name/json", "dcs/alias/json", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/shadow/css"],
 })
 
 StyleDictionary.registerTransformGroup({
 	name: "dcs/css",
-	transforms: ["fluentui/attribute", "dcs/name/css", "dcs/alias/css", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/letterspacing/css", "fluentui/shadow/css"],
+	transforms: ["fluentui/attribute", "dcs/name/css", "dcs/alias/css", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/shadow/css"],
 })
 
 StyleDictionary.registerFormat({
@@ -57,8 +62,8 @@ StyleDictionary.registerFormat({
 	formatter: function (dictionary: { allProperties: { name: any; value: any }[] }, config: any)
 	{
 		return `${this.selector} {
-${dictionary.allProperties.map((prop: { name: any; value: any }) => `  --${prop.name}: ${prop.value};`).join("\n")}
-}`
+		${dictionary.allProperties.map((prop: { name: any; value: any }) => `  --${prop.name}: ${prop.value};`).join("\n")}
+	  }`
 	}
 })
 
@@ -77,6 +82,7 @@ StyleDictionary.registerFormat({
 		{
 			const rootName = _.camelCase(thisProp.path[1])
 			const subgroupName: string | null = null
+
 
 			{
 				tokens = thisOutputObject = tokens || {}
@@ -103,3 +109,4 @@ StyleDictionary.registerFormat({
 		return JSON.stringify(tokens, /* replacer: */ undefined, /* space: */ "\t")
 	},
 })
+

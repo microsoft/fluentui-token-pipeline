@@ -110,11 +110,10 @@ export const SupportedThemes =
 	dark: true,
 	hc: true,
 }
-
-export type SupportedTheme = keyof typeof SupportedThemes
-export type SupportedThemeList<ValueType> =
+export type SupportedThemes = keyof typeof SupportedThemes
+export type SupportedThemesList<ValueType> =
 {
-	[theme in SupportedTheme]: ValueType
+	[theme in SupportedThemes]: ValueType
 }
 
 // ------------------------------------------------------------
