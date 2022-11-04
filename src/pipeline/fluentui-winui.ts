@@ -246,7 +246,7 @@ StyleDictionary.registerTransform({
 
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/winui",
-	transforms: ["fluentui/attribute", "fluentui/name/pascal", "fluentui/alias/winui", "fluentui/size/winui", "fluentui/font/winui", "fluentui/color/winui", "fluentui/strokealignment/winui", "fluentui/letterspacing/winui"],
+	transforms: ["fluentui/name/pascal", "fluentui/alias/winui", "fluentui/size/winui", "fluentui/font/winui", "fluentui/color/winui", "fluentui/strokealignment/winui", "fluentui/letterspacing/winui"],
 })
 
 const getAllResourcesAsString = (dictionary, indent) =>

@@ -2,6 +2,7 @@ import _ from "lodash"
 import jsonfile from "jsonfile"
 
 import { SupportedPlatform, SupportedPlatforms, SupportedThemes } from "./types"
+import { mergeNumbers } from "./utils"
 import { resolveAliases } from "./fluentui-aliases"
 import { resolveGeneratedSets } from "./fluentui-generate"
 import { resolveComputedTokens } from "./fluentui-computed"
@@ -17,6 +18,7 @@ import "./fluentui-winui"
 import "./fluentui-w3c"
 import "./fluentui-dcs"
 import "./figmatokens"
+import { setAttributesFromNames } from "./fluentui-shared"
 
 export const buildOutputs = (input: string[] | string, outputPath: string, platforms: SupportedPlatform[] | undefined, theme: string | undefined): void =>
 {
@@ -172,7 +174,8 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 					{ destination: "tokens-controls.json", format: "fluentui/json/grouped", filter: "isControl" },
 				],
 			}
-		}
+		},
+		{ mergeNumbers: true }
 	)
 
 	if (!platforms || platforms.includes("winui")) buildOnePlatform(tokens, "winui",
@@ -222,12 +225,14 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 	)
 }
 
-const buildOnePlatform = (tokens: any, platformOverride: SupportedPlatform | null, platformConfig: Record<string, unknown>): void =>
+const buildOnePlatform = (tokens: any, platformOverride: SupportedPlatform | null, platformConfig: Record<string, unknown>, options: { mergeNumbers?: boolean } = {}): void =>
 {
 	tokens = platformOverride ? resolvePlatformOverrides(_.cloneDeep(tokens), platformOverride) : _.cloneDeep(tokens)
 	tokens = resolveGeneratedSets(tokens)
 	tokens = resolveAliases(tokens)
 	tokens = resolveComputedTokens(tokens)
+	tokens = setAttributesFromNames(tokens)
+	if (options.mergeNumbers) tokens = mergeNumbers(tokens)
 
 	require("style-dictionary").extend(
 		{

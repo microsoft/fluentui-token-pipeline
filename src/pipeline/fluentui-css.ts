@@ -192,20 +192,20 @@ StyleDictionary.registerTransform({
 
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/css",
-	transforms: ["fluentui/attribute", "fluentui/name/kebab", "fluentui/alias/css", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/letterspacing/css", "fluentui/shadow/css"],
+	transforms: ["fluentui/name/kebab", "fluentui/alias/css", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/letterspacing/css", "fluentui/shadow/css"],
 })
 
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/scss",
-	transforms: ["fluentui/attribute", "fluentui/name/kebab", "fluentui/alias/scss", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/letterspacing/css", "fluentui/shadow/css"],
+	transforms: ["fluentui/name/kebab", "fluentui/alias/scss", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/letterspacing/css", "fluentui/shadow/css"],
 })
 
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/cssflat",
-	transforms: ["fluentui/attribute", "fluentui/name/kebab", "fluentui/alias/flatten", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/letterspacing/css", "fluentui/shadow/css"],
+	transforms: ["fluentui/name/kebab", "fluentui/alias/flatten", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/letterspacing/css", "fluentui/shadow/css"],
 })
 
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/scssflat",
-	transforms: ["fluentui/attribute", "fluentui/name/kebab", "fluentui/alias/flatten", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/letterspacing/css", "fluentui/shadow/css"],
+	transforms: ["fluentui/name/kebab", "fluentui/alias/flatten", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/letterspacing/css", "fluentui/shadow/css"],
 })

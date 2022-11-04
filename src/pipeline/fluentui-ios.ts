@@ -43,5 +43,5 @@ StyleDictionary.registerTransform({
 
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/swift",
-	transforms: ["fluentui/attribute", "fluentui/name/swift", "fluentui/alias/flatten", "time/seconds", "fluentui/size/swift", "font/swift/literal", "color/UIColorSwift"],
+	transforms: ["fluentui/name/swift", "fluentui/alias/flatten", "time/seconds", "fluentui/size/swift", "font/swift/literal", "color/UIColorSwift"],
 })

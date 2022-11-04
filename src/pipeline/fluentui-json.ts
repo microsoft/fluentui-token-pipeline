@@ -25,7 +25,7 @@ StyleDictionary.registerTransform({
 
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/json/grouped",
-	transforms: ["fluentui/attribute", "fluentui/name/json/grouped", "fluentui/alias/flatten", "fluentui/color/css", "fluentui/shadow/json"],
+	transforms: ["fluentui/name/json/grouped", "fluentui/alias/flatten", "fluentui/color/css", "fluentui/shadow/json"],
 })
 
 StyleDictionary.registerFormat({

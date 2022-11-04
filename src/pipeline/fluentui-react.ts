@@ -103,7 +103,6 @@ StyleDictionary.registerTransform({
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/react",
 	transforms: [
-		"fluentui/attribute",
 		"fluentui/name/kebab",
 		"fluentui/react/highContrastColors",
 		"fluentui/react/aliasCssVariable",

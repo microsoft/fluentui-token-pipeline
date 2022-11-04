@@ -86,7 +86,7 @@ StyleDictionary.registerTransform({
 
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/figmatokens",
-	transforms: ["fluentui/attribute", "fluentui/name/figmatokens", "time/seconds", "fluentui/size/figmatokens", "fluentui/color/css", "fluentui/font/figmatokens", "fluentui/strokealignment/css", "fluentui/letterspacing/figmatokens", "fluentui/shadow/figmatokens"],
+	transforms: ["fluentui/name/figmatokens", "time/seconds", "fluentui/size/figmatokens", "fluentui/color/css", "fluentui/font/figmatokens", "fluentui/strokealignment/css", "fluentui/letterspacing/figmatokens", "fluentui/shadow/figmatokens"],
 })
 
 StyleDictionary.registerFormat({
