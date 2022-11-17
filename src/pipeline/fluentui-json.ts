@@ -41,10 +41,10 @@ StyleDictionary.registerFormat({
 		let thisOutputObject: any | null = null
 		for (const thisProp of sortedProps)
 		{
-			let rootName = _.camelCase(thisProp.path[0])
+			let rootName: string | null = _.camelCase(thisProp.path[0])
 			let subgroupName: string | null = null
 			let meaningfulPathStart = 1
-			if (rootName === "global" && thisProp.path.length > 3)
+			if (rootName === "global" && thisProp.path.length >= 3)
 			{
 				meaningfulPathStart = 3
 				rootName = _.camelCase(thisProp.path[1])
@@ -55,17 +55,28 @@ StyleDictionary.registerFormat({
 				meaningfulPathStart = 2
 				rootName = _.camelCase(thisProp.path[1])
 			}
+			else if (rootName === "global" && thisProp.path.length === 2)
+			{
+				meaningfulPathStart = 1
+				rootName = null
+			}
 			if (thisProp.path.length > 2 && thisProp.path[1] === "Base")
 			{
 				meaningfulPathStart = 2
 			}
-			meaningfulPathStart = Math.min(meaningfulPathStart, thisProp.path.length - 1)
 
 			if (!previousProp || rootName !== previousPropRoot || subgroupName !== previousPropSubgroup)
 			{
-				tokens[rootName] = thisOutputObject = tokens[rootName] || {}
-				if (subgroupName && !(subgroupName in thisOutputObject))
-					thisOutputObject = thisOutputObject[subgroupName] = {}
+				if (rootName)
+				{
+					tokens[rootName] = thisOutputObject = tokens[rootName] || {}
+					if (subgroupName && !(subgroupName in thisOutputObject))
+						thisOutputObject = thisOutputObject[subgroupName] = {}
+				}
+				else
+				{
+					thisOutputObject = tokens
+				}
 			}
 
 			const exportName = _.camelCase(thisProp.path.slice(meaningfulPathStart).join(" "))
