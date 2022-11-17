@@ -18,6 +18,7 @@ const getSDAttributes = (category, attribute) =>
 	if (category === "Color" || attribute === "Color") return { category: "color", w3cType: "color", figmaTokensType: "color", xamlType: "SolidColorBrush" } // Can also be a LinearGradientBrush: the fluentui/xaml/res formats won't use the xamlType in that case
 	if (attribute === "Padding") return { category: "size", w3cType: "dimension", figmaTokensType: "spacing", xamlType: "Thickness" }
 	if (attribute === "Spacing") return { category: "size", w3cType: "dimension", figmaTokensType: "spacing", xamlType: "x:Double" }
+	if (attribute === "Size") return { category: "size", w3cType: "dimension", figmaTokensType: "spacing", xamlType: "x:Double" }
 	if (category === "Layout")
 	{
 		if (attribute === "Width" || attribute === "Height") return { category: "size", w3cType: "dimension", figmaTokensType: "sizing", xamlType: "x:Double" }
