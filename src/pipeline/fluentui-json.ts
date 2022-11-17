@@ -44,7 +44,7 @@ StyleDictionary.registerFormat({
 			let rootName: string | null = _.camelCase(thisProp.path[0])
 			let subgroupName: string | null = null
 			let meaningfulPathStart = 1
-			if (rootName === "global" && thisProp.path.length >= 3)
+			if (rootName === "global" && thisProp.path.length > 3)
 			{
 				meaningfulPathStart = 3
 				rootName = _.camelCase(thisProp.path[1])
