@@ -60,6 +60,18 @@ export const colorToHexColor = (color: string): string =>
 {
 	const specialColor: string | undefined = specialColorNames[color.toLowerCase()]
 	if (specialColor) return specialColor
+	return colorToHexColorWithoutShorthand(color)
+}
+
+export const colorToHexColorFallback = (color: string): string =>
+{
+	const fallbackColor: string | undefined = specialColorFallbacks[color.toLowerCase()]
+	if (fallbackColor) return fallbackColor
+	return colorToHexColorWithoutShorthand(color)
+}
+
+const colorToHexColorWithoutShorthand = (color: string): string =>
+{
 	const tinycolor = Color(color)
 	if (!tinycolor.isValid()) console.warn(`Unsupported color value: "${color}".`)
 	return tinycolor.getAlpha() < 1 ? tinycolor.toHex8String() : tinycolor.toHexString()
@@ -82,7 +94,23 @@ const specialColorNames: Record<string, string> =
 	// https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#system_colors
 }
 
+const specialColorFallbacks: Record<string, string> =
+{
+	// Common transparent color shortcut
+	"transparent": "#00000000",
+	// Fully-supported high contrast colors
+	"canvas": "#202020",
+	"canvastext": "#ffffff",
+	"linktext": "#75e9fc",
+	"graytext": "#a6a6at",
+	"highlight": "#8ee3f0",
+	"highlighttext": "#263b50",
+	"buttonface": "#202020",
+	"buttontext": "#ffffff",
+}
+
 export const colorTokenToHexColor = (token: ValueToken): string => colorToHexColor(token.value as string)
+export const colorTokenToHexColorFallback = (token: ValueToken): string => colorToHexColorFallback(token.value as string)
 
 /**
 	Takes an angle of the start of a gradient and transforms it into the format required by CSS linear-gradient().
@@ -90,7 +118,7 @@ export const colorTokenToHexColor = (token: ValueToken): string => colorToHexCol
  	@param deg An angle of the start of a gradient in degrees counting clockwise from 0° at the top.
 	@returns A CSS angle for use in linear-gradient().
  */
-const cssAngle = (deg: number) =>
+const cssAngle = (deg: number): string =>
 {
 	switch (deg)
 	{
@@ -102,7 +130,7 @@ const cssAngle = (deg: number) =>
 	}
 }
 
-const percent = (float: number) => `${(float * 100)}%`
+const percent = (float: number): string => `${(float * 100)}%`
 
 StyleDictionary.registerTransform({
 	name: "fluentui/color/css",

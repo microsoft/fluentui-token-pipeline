@@ -43,7 +43,7 @@ You can use this CLI as a build step in another repo with this in your `package.
 
 ```json
 "devDependencies": {
-	"@fluentui/token-pipeline": "0.15.0"
+	"@fluentui/token-pipeline": "0.15.1"
 },
 "scripts": {
 	"build": "transform-tokens --in tokens.json --out build"
