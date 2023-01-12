@@ -101,7 +101,7 @@ export const getW3CJson = (props: any[], options: unknown = {}): any =>
 
 		// First, find or recreate this token's parent group in the new tokens object.
 		let group: any = tokens
-		for (const segment of thisProp.path.slice(0, -1))
+		for (const segment of thisProp.path.slice(thisProp.path[0] === "Set" ? 1 : 0, -1))
 		{
 			if (segment in group)
 				group = group[segment]
