@@ -24,7 +24,7 @@
 					"60": { "value": "#eff6fc" }
 				}
 			},
-			"Grey": { "generate": { "type": "lightness0to100by2", "value": "grey" } },
+			"Grey": { "generate": { "type": "lightness2to98by2", "value": "grey" } },
 			"HC": {
 				"Canvas": { "value": "Canvas" },
 				"CanvasText": { "value": "CanvasText" },
@@ -392,7 +392,7 @@
 		"NeutralBackground1": {
 			"Fill": {
 				"Color": {
-					"Rest": { "aliasOf": "Global.Color.Grey.100" },
+					"Rest": { "aliasOf": "Global.Color.White" },
 					"Hover": { "aliasOf": "Global.Color.Grey.96" },
 					"Pressed": { "aliasOf": "Global.Color.Grey.88" },
 					"Disabled": { "aliasOf": "Global.Color.Grey.94" }

@@ -225,10 +225,9 @@ You can also specify an entire color ramp from a single base color value. Instea
 {
 	"Color": {
 		"Grey": {
-			"0": { "value": "#000000" },
 			"2": { "value": "#050505" },
 			"4": { "value": "#0a0a0a" },
-			"100": { "value": "#ffffff" },
+			"98": { "value": "#fafafa" },
 		}
 	}
 }
@@ -240,7 +239,7 @@ You can also specify an entire color ramp from a single base color value. Instea
 {
 	"Color": {
 		"Grey": {
-			"generate": { "type": "lightness0to100by2", "value": "#808080" }
+			"generate": { "type": "lightness2to98by2", "value": "#808080" }
 		}
 	}
 }
@@ -250,7 +249,7 @@ These color ramp algorithms are supported:
 
 | `type` | Description |
 | --- | --- |
-| `lightness0to100by2` | Produces a color ramp with values `0`, `2`, `4`, ... `100`, where each color differs only by HSL lightness value. `0` will be black, `100` will be white, and the values in-between will be different shades of the base color. |
+| `lightness2to98by2` | Produces a color ramp with values `2`, `4`, ... `98`, where each color differs only by HSL lightness value. `2` will be a shade above black, `98` will be a shade below white, and the values in-between will be different shades of the base color. |
 | `fluentsharedcolors` | Produces a color ramp with `Primary` as the base color, five darker shades as `Shade10` through `Shade50`, and six lighter tints as `Tint10` through `Tint60`. |
 
 **Important:** `value` must be a single color, not a gradient or alias of another token.
