@@ -227,7 +227,7 @@ You can also specify an entire color ramp from a single base color value. Instea
 		"Grey": {
 			"2": { "value": "#050505" },
 			"4": { "value": "#0a0a0a" },
-			"98": { "value": "#fafafa" },
+			"98": { "value": "#fafafa" }
 		}
 	}
 }
