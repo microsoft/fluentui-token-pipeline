@@ -36,7 +36,7 @@ export interface TokenGenerationProperties
 
 export const TokenGenerationTypes =
 {
-	lightness0to100by2: true,
+	lightness2to98by2: true,
 	fluentsharedcolors: true,
 	alpha5to90: true,
 }
