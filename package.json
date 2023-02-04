@@ -1,6 +1,6 @@
 {
 	"name": "@fluentui/token-pipeline",
-	"version": "0.16.0",
+	"version": "0.17.0",
 	"description": "The Fluent UI design token pipeline",
 	"repository": {
 		"type": "git",
@@ -53,6 +53,7 @@
 		"build": "tsc",
 		"inc": "tsc --incremental --tsBuildInfoFile .tsbuildinfo",
 		"watch": "tsc --watch",
-		"transform": "node dist/cli --in src/demo/fluentui.json --out build"
+		"transform": "node dist/cli --in src/demo/fluentui.json --out build",
+		"w3c": "node dist/cli --in src/demo/w3c/global.tokens.json --in src/demo/w3c/light.tokens.json --out build"
 	}
 }
