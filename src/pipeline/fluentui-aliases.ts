@@ -47,6 +47,8 @@ const resolveAlias = (prop: Token, properties: TokenSet): AliasToken | null =>
 	if (target === null)
 	{
 		Utils.setErrorValue(prop, `token ${JSON.stringify(prop.aliasOf)} missing`, `Invalid aliasOf: ${JSON.stringify(prop.aliasOf)}. That token doesn't exist.`)
+		const propAsAny = prop as any
+		propAsAny.resolvedAliasPath = Utils.getTokenExportPath(prop, prop.aliasOf)
 		return null
 	}
 
