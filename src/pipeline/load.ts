@@ -105,6 +105,10 @@ const getConvertedToken = (w3cToken: Record<string, any>): Token =>
 			value = parseInt(value, 10)
 			attributes = { category: "size", figmaTokensType: "fontSizes", xamlType: "x:Double" }
 			break
+		case "fontWeight":
+			value = parseInt(value, 10)
+			attributes = { category: "fontWeight", figmaTokensType: "fontWeight", xamlType: "x:Double" }
+			break
 		default:
 			throw new Error(`Token had an unsupported $type: ${w3cToken.$type}`)
 	}
