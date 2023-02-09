@@ -5,7 +5,7 @@ import { buildOutputs } from "../pipeline"
 {
 	// Parse and validate the command-line arguments using the 'args' package.
 	args
-		.option("in", "A JSON file to use as input", [])
+		.option("in", "A JSON file (proprietary or DTCG format) to use as input", [])
 		.option("out", "A path to output built files to", "build")
 		.option("theme", "A string to denote theme")
 		.option("platform", "A platform to build outputs for (debug, json, reference, w3c, css, react, reactnative, ios, winui, figmatokens, dcs)", [])

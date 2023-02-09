@@ -8,6 +8,8 @@ title: Token JSON format reference
 
 This reference assumes that you're familiar with the general concept of design tokens.
 
+This reference also only describes the original proprietary design token format. The tool now also supports some input files in the [W3C Design Token Community Group format](https://design-tokens.github.io/community-group/format), but that format is not described here.
+
 After transforming once, it can sometimes be helpful to refer to [`build/reference/index.html`](../build/reference/index.html)—it's effectively a more human-readable version of your token JSON that gets built by the pipeline.
 
 ## Token organization
@@ -341,7 +343,7 @@ Note that stroke alignment doesn't actually affect the sizing of the element, an
 
 ## Versioning and validation
 
-Token JSON files should start with the following:
+Token JSON files must start with the following:
 
 ```json
 {
@@ -354,6 +356,7 @@ Token JSON files should start with the following:
 
 * The `$schema` property tells your text editor where to find the schema for token JSON, which will help you validate your tokens before running them through the pipeline.
 * The `Meta.FluentUITokensVersion` property indicates that your token JSON was created for use with this version of the pipeline and could be used in the future for compatibility.
+	* If this property is not present, the token file will be assumed to be in the DTCG format instead of the format described here.
 
 ### Validation errors in Visual Studio Code
 

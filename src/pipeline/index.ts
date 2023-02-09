@@ -1,8 +1,8 @@
 import _ from "lodash"
-import jsonfile from "jsonfile"
 
 import { SupportedPlatform, SupportedPlatforms, SupportedThemes } from "./types"
 import { mergeNumbers } from "./utils"
+import { loadTokensFile } from "./load"
 import { resolveAliases } from "./fluentui-aliases"
 import { resolveGeneratedSets } from "./fluentui-generate"
 import { resolveComputedTokens } from "./fluentui-computed"
@@ -49,7 +49,7 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 
 	const tokens = {}
 	if (typeof input === "string") input = [input]
-	input.forEach((inputFile) => _.merge(tokens, jsonfile.readFileSync(inputFile)))
+	input.forEach((inputFile) => _.merge(tokens, loadTokensFile(inputFile)))
 
 	if (!platforms || platforms.includes("debug")) buildOnePlatform(tokens, /* platformOverride: */ null,
 		{

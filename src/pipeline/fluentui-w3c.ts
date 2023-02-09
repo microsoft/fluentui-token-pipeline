@@ -61,16 +61,22 @@ StyleDictionary.registerTransform({
 	matcher: prop => prop.attributes.category === "shadow",
 	transformer: prop =>
 	{
-		if (prop.value.length > 1)
-			Utils.reportError(`Only the first shadow defined for token ${prop.path.join(".")} could be exported because the W3C format only supports single shadows.`)
-		const shadow = prop.value[0]
-		return {
-			color: colorTokenToHexColorFallback(shadow.color),
-			offsetX: `${shadow.x}px`,
-			offsetY: `${shadow.y}px`,
-			blur: `${shadow.blur}px`,
-			spread: "0px",
-		}
+		// WARNING: as of February 2023 the DTCG format for shadows does not allow an array of shadows, but it's a near-sure thing and we can't use
+		// any of the Fluent shadows without it, so I'm just assuming it will be added.
+		// See: https://github.com/design-tokens/community-group/issues/100
+		return prop.value.map(shadow =>
+		{
+			// It isn't currently possible to have Style Dictionary export strings with {}, so use [] instead.
+			// REVIEW: Do we need to strip "Set." here?
+			const color = shadow.color.resolvedAliasPath ? `[${shadow.color.resolvedAliasPath.join(".")}]` : colorTokenToHexColorFallback(shadow.color.value)
+			return {
+				color: color,
+				offsetX: `${shadow.x}px`,
+				offsetY: `${shadow.y}px`,
+				blur: `${shadow.blur}px`,
+				spread: "0px",
+			}
+		})
 	},
 })
 
@@ -86,7 +92,7 @@ StyleDictionary.registerFormat({
 	formatter: (dictionary, config) =>
 	{
 		const tokens = getW3CJson(dictionary.allProperties)
-		return JSON.stringify(tokens, /* replacer: */ undefined, /* space: */ "\t")
+		return JSON.stringify(tokens, /* replacer: */ undefined, /* space: */ "\t") + "\n"
 	},
 })
 
@@ -122,6 +128,7 @@ export const getValueOrReference = (prop: any): any =>
 {
 	if (prop.resolvedAliasPath)
 	{
+		// REVIEW: Do we need to strip "Set" here?
 		return `{${prop.resolvedAliasPath.join(".")}}`
 	}
 	else
