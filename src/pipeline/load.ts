@@ -29,7 +29,7 @@ const convertW3CTokens = (tokens: any): TokenJson =>
 {
 	// Note that this function isn't intended to be able to fully round-trip tokens back and forth between the W3C format;
 	// it's just intended to be "good enough" to allow our existing code to continue working with W3C-format token files.
-	// This is a lossy process!
+	// This is a lossy process! Think "compatibility shim," not "spec-compliant parser."
 
 	const converted: any = { Meta: { FluentUITokensVersion: 0 } }
 	for (const childName in tokens)
@@ -94,7 +94,7 @@ const getConvertedToken = (w3cToken: Record<string, any>): Token =>
 			attributes = { category: "color", figmaTokensType: "color", xamlType: "SolidColorBrush" }
 			break
 		case "dimension":
-			value = parseInt(value, 10)
+			value = parseFloat(value)
 			attributes = { category: "size", figmaTokensType: "sizing", xamlType: "x:Double" }
 			break
 		case "fontFamily":
@@ -102,12 +102,27 @@ const getConvertedToken = (w3cToken: Record<string, any>): Token =>
 			attributes = { category: "font", figmaTokensType: "fontFamilies", xamlType: "FontFamily" }
 			break
 		case "fontSize":
-			value = parseInt(value, 10)
+			value = parseFloat(value)
 			attributes = { category: "size", figmaTokensType: "fontSizes", xamlType: "x:Double" }
 			break
 		case "fontWeight":
 			value = parseInt(value, 10)
 			attributes = { category: "fontWeight", figmaTokensType: "fontWeight", xamlType: "x:Double" }
+			break
+		case "shadow":
+			if (!Array.isArray(value)) value = [value]
+			value = value.map(shadow =>
+			{
+				// [] isn't actual valid aliasing syntax, but Style Dictionary doesn't let us export strings with {} so we support both.
+				const color = (shadow.color[0] === "{" || shadow.color[0] === "[") ? { aliasOf: shadow.color.slice(1, -1) } : { value: shadow.color }
+				return {
+					color: color,
+					x: parseFloat(shadow.offsetX),
+					y: parseFloat(shadow.offsetY),
+					blur: parseFloat(shadow.blur),
+				}
+			})
+			attributes = { category: "shadow", figmaTokensType: "shadow", xamlType: "none" }
 			break
 		default:
 			throw new Error(`Token had an unsupported $type: ${w3cToken.$type}`)
@@ -138,4 +153,5 @@ const getW3CAliasTargetName = (value: any): string | null =>
 	if (typeof value === "string" && value.charCodeAt(0) === 123 /* "{" */ && value.charCodeAt(value.length - 1) === 125 /* "}" */)
 		return value.slice(1, -1)
 	else return null
+	// REVIEW: Do we need to re-add "Set." here?
 }
