@@ -102,7 +102,7 @@ const specialColorFallbacks: Record<string, string> =
 	"canvas": "#202020",
 	"canvastext": "#ffffff",
 	"linktext": "#75e9fc",
-	"graytext": "#a6a6at",
+	"graytext": "#a6a6a6",
 	"highlight": "#8ee3f0",
 	"highlighttext": "#263b50",
 	"buttonface": "#202020",
