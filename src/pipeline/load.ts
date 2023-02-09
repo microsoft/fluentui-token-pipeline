@@ -114,7 +114,8 @@ const getConvertedToken = (w3cToken: Record<string, any>): Token =>
 			value = value.map(shadow =>
 			{
 				// [] isn't actual valid aliasing syntax, but Style Dictionary doesn't let us export strings with {} so we support both.
-				const color = (shadow.color[0] === "{" || shadow.color[0] === "[") ? { aliasOf: shadow.color.slice(1, -1) } : { value: shadow.color }
+				const first = shadow.color.charCodeAt(0)
+				const color = (first === 123 /* "{" */ || first === 91 /* "[" */) ? { aliasOf: shadow.color.slice(1, -1) } : { value: shadow.color }
 				return {
 					color: color,
 					x: parseFloat(shadow.offsetX),
