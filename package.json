@@ -53,7 +53,6 @@
 		"build": "tsc",
 		"inc": "tsc --incremental --tsBuildInfoFile .tsbuildinfo",
 		"watch": "tsc --watch",
-		"transform": "node dist/cli --in src/demo/fluentui.json --out build",
-		"w3c": "node dist/cli --in src/demo/w3c/global.tokens.json --in src/demo/w3c/light.tokens.json --out build"
+		"transform": "node dist/cli --in src/demo/fluentui.json --out build"
 	}
 }
