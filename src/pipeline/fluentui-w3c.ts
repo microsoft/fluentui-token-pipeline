@@ -92,7 +92,7 @@ StyleDictionary.registerFormat({
 	formatter: (dictionary, config) =>
 	{
 		const tokens = getW3CJson(dictionary.allProperties)
-		return JSON.stringify(tokens, /* replacer: */ undefined, /* space: */ "\t")
+		return JSON.stringify(tokens, /* replacer: */ undefined, /* space: */ "\t") + "\n"
 	},
 })
 
