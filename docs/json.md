@@ -4,6 +4,14 @@ title: Token JSON format reference
 
 🏠 [Home](./)
 
+# This tool has been deprecated
+
+**The file format described on this page is no longer in use.** Our design token files are now in the [W3C Design Token Community Group](https://design-tokens.github.io/community-group/format/) draft standard format, so this tool is no longer required to work with them.
+
+Consider the remainder of this page out-of-date.
+
+---
+
 # Token JSON format reference
 
 This reference assumes that you're familiar with the general concept of design tokens.
