@@ -2,16 +2,20 @@
 
 The Fluent UI token pipeline transforms JSON files describing design tokens into source code for eventual use in the Fluent UI libraries.
 
-It's currently a functional prototype, and is not yet designed for use beyond the Fluent UI libraries at this time. The actual token values in the `src/demo` folder are just examples, and they do not represent an evolution of Microsoft's design systems. Not all features shown at Build 2020 are currently available for testing.
+This tool was originally designed to process files in Microsoft's proprietary design token format. Our design token files are now in the [W3C Design Token Community Group](https://design-tokens.github.io/community-group/format/) draft standard format, so this tool is no longer required to work with them.
+
+Do not add new dependencies on this tool. Over time, it is expected that Fluent UI teams will transition from using this tool to using standard open source solutions for consuming design tokens. But while this tool is deprecated, it is still fully functional and will remain so for the foreseeable future. And since this tool can also read DTCG format JSON, existing code written when continues to work even though we no longer use this proprietary format.
 
 * **[Documentation site](https://microsoft.github.io/fluentui-token-pipeline/)**
 * [Source code on GitHub](https://github.com/microsoft/fluentui-token-pipeline)
 * [`@fluentui/token-pipeline` on NPM](https://www.npmjs.com/package/@fluentui/token-pipeline)
-* [Fluent UI design tokens on GitHub](https://github.com/microsoft/fluentui-design-tokens) 🔒 \[WIP\] with links to packages of transformed tokens
+* [Fluent UI design tokens on GitHub](https://github.com/microsoft/fluentui-design-tokens) 🔒 with links to packages of transformed tokens
 
 ---
 
 # The legal stuff
+
+The actual token values in the `src/demo` folder are just examples, and they do not represent an evolution of Microsoft's design systems.
 
 ## Contributing
 

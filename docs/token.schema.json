@@ -222,7 +222,7 @@
 			"description": "The color token generation algorithm to use for this set. See the documentation for details on what tokens each algorithm generates.",
 			"type": "string",
 			"enum": [
-				"lightness0to100by2",
+				"lightness2to98by2",
 				"alpha5to90",
 				"fluentsharedcolors"
 			]

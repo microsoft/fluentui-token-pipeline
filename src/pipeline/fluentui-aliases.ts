@@ -7,12 +7,12 @@ export const resolveAliases = (properties: TokenSet): TokenSet =>
 {
 	// Okay, buckle in, cupcake: we're gonna traverse this whole properties tree and find every alias token in the bunch.
 	// (Note that we're only looking for Fluent UI aliases, not Style Dictionary aliases.)
-	const resolver = (prop: Token | TokenSet, key: string) =>
+	const resolver = (prop: Token | TokenSet, path: string[]) =>
 	{
 		if (resolveAlias(prop as any, properties))
 		{
 			if ("aliasOf" in prop)
-				Utils.reportError(`_resolveAlias failed to resolve ${key} -- skipping to prevent infinite recursion.`)
+				Utils.reportError(`resolveAlias failed to resolve ${path.join(".")} -- skipping to prevent infinite recursion.`)
 			else
 				Utils.forEachRecursive(prop as any, resolver, { requiredChild: "aliasOf" })
 		}
@@ -47,6 +47,8 @@ const resolveAlias = (prop: Token, properties: TokenSet): AliasToken | null =>
 	if (target === null)
 	{
 		Utils.setErrorValue(prop, `token ${JSON.stringify(prop.aliasOf)} missing`, `Invalid aliasOf: ${JSON.stringify(prop.aliasOf)}. That token doesn't exist.`)
+		const propAsAny = prop as any
+		propAsAny.resolvedAliasPath = Utils.getTokenExportPath(prop, prop.aliasOf)
 		return null
 	}
 

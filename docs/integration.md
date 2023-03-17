@@ -4,15 +4,15 @@ title: Integration with the pipeline
 
 🏠 [Home](./)
 
+# This tool has been deprecated
+
+**This tool is no longer required to consume our design tokens.** Internal teams should reach out to the Fluent token team for guidance on how to proceed. Everyone else: we're glad you're excited! More details on how to consume our design tokens are forthcoming—they aren't quite ready for you to take a dependency just yet.
+
+Consider the remainder of this page out-of-date.
+
+---
+
 # I'm an engineer and someone told me I had to integrate with this pipeline thing.
-
-You're in the right place! First question: are you working on one of the Fluent UI libraries for Microsoft?
-
-**If yes:** Great! Keep reading, and I'll help you get going.
-
-**If no:** Great! We're glad you're excited. This project's still in the early stages right now, though, and we'd like to build out a couple of end-to-end workflows and tidy up a bit before adding any official third-party support. But feel free to keep watching this space, and we'll try to be transparent about how things are progressing.
-
-(By the way, "I" in this document is Travis Spomer. If you answered "Yes" to that question, you can find me on Teams.)
 
 ## Where should I get started?
 

@@ -21,7 +21,7 @@ StyleDictionary.registerTransform({
 
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/html",
-	transforms: ["fluentui/attribute", "fluentui/name/reference", "fluentui/alias/reference", "fluentui/alias/flatten", "fluentui/shadow/css"],
+	transforms: ["fluentui/name/reference", "fluentui/alias/reference", "fluentui/alias/flatten", "fluentui/shadow/css"],
 })
 
 const getHTMLForToken = (prop) =>

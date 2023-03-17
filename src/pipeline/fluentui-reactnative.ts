@@ -52,15 +52,15 @@ const colorToRNColor = (color: string) =>
 
 StyleDictionary.registerFilter({
 	name: "isGlobalShadow",
-	matcher: prop => prop.path[0] === "Global" && prop.path[1] === "Shadow",
+	matcher: prop => prop.path[0] === "Global" && prop.attributes.category === "shadow",
 })
 
 StyleDictionary.registerFilter({
 	name: "isGlobalNotShadow",
-	matcher: prop => prop.path[0] === "Global" && prop.path[1] !== "Shadow",
+	matcher: prop => prop.path[0] === "Global" && prop.attributes.category !== "shadow",
 })
 
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/reactnative",
-	transforms: ["fluentui/attribute", "fluentui/name/json/grouped", "fluentui/alias/flatten", "fluentui/color/reactnative", "fluentui/font-weight/string", "fluentui/shadow/json"],
+	transforms: ["fluentui/name/json/grouped", "fluentui/alias/flatten", "fluentui/color/reactnative", "fluentui/font-weight/string", "fluentui/shadow/json"],
 })

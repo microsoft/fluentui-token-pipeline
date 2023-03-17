@@ -21,7 +21,7 @@ const resolveGenerated = (prop: Token | TokenSet): void =>
 	delete (prop as any).generate
 	if (typeof generationProperties !== "object")
 	{
-		Utils.setErrorValue(prop, "Invalid token set generation syntax", `Invalid token set generation syntax: ${JSON.stringify(generationProperties)}. The generate property should be an object like this: "generate": { "type": "lightness0to100by2", "value": "#0000ff" }.`)
+		Utils.setErrorValue(prop, "Invalid token set generation syntax", `Invalid token set generation syntax: ${JSON.stringify(generationProperties)}. The generate property should be an object like this: "generate": { "type": "lightness2to98by2", "value": "#0000ff" }.`)
 		return
 	}
 
@@ -43,8 +43,8 @@ const resolveGenerated = (prop: Token | TokenSet): void =>
 	delete (generationProperties as any).value
 	switch (type)
 	{
-		case "lightness0to100by2":
-			return createLightness0to100by2Ramp(prop, value)
+		case "lightness2to98by2":
+			return createLightness2to98by2Ramp(prop, value)
 		case "fluentsharedcolors":
 			return createSharedColorRamp(prop, value)
 		case "alpha5to90":
@@ -55,11 +55,11 @@ const resolveGenerated = (prop: Token | TokenSet): void =>
 	}
 }
 
-const createLightness0to100by2Ramp = (prop: TokenSet, value: string): void =>
+const createLightness2to98by2Ramp = (prop: TokenSet, value: string): void =>
 {
 	const hsl = new Color(value).toHsl()
 
-	for (let i = 0; i <= 100; i += 2)
+	for (let i = 2; i <= 98; i += 2)
 		prop[i.toString()] = { value: Color.fromRatio({ ...hsl, l: i / 100 }).toHexString() }
 }
 

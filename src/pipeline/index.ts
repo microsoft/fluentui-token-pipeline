@@ -1,7 +1,8 @@
 import _ from "lodash"
-import jsonfile from "jsonfile"
 
 import { SupportedPlatform, SupportedPlatforms, SupportedThemes } from "./types"
+import { mergeNumbers } from "./utils"
+import { loadTokensFile } from "./load"
 import { resolveAliases } from "./fluentui-aliases"
 import { resolveGeneratedSets } from "./fluentui-generate"
 import { resolveComputedTokens } from "./fluentui-computed"
@@ -17,6 +18,7 @@ import "./fluentui-winui"
 import "./fluentui-w3c"
 import "./fluentui-dcs"
 import "./figmatokens"
+import { setAttributesFromNames } from "./fluentui-shared"
 
 export const buildOutputs = (input: string[] | string, outputPath: string, platforms: SupportedPlatform[] | undefined, theme: string | undefined): void =>
 {
@@ -26,7 +28,7 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 		{
 			if (!SupportedPlatforms[platform])
 				throw new Error(`Unsupported platform: ${platform}`)
-			if (platform.includes('dcs'))
+			if (platform.includes("dcs"))
 			{
 				if (!theme)
 				{
@@ -48,7 +50,7 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 
 	const tokens = {}
 	if (typeof input === "string") input = [input]
-	input.forEach((inputFile) => _.merge(tokens, jsonfile.readFileSync(inputFile)))
+	input.forEach((inputFile) => _.merge(tokens, loadTokensFile(inputFile)))
 
 	if (!platforms || platforms.includes("debug")) buildOnePlatform(tokens, /* platformOverride: */ null,
 		{
@@ -173,7 +175,8 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 					{ destination: "tokens-controls.json", format: "fluentui/json/grouped", filter: "isControl" },
 				],
 			}
-		}
+		},
+		{ mergeNumbers: true }
 	)
 
 	if (!platforms || platforms.includes("winui")) buildOnePlatform(tokens, "winui",
@@ -203,23 +206,34 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 
 	if (!platforms || platforms.includes("dcs")) buildOnePlatform(tokens, "dcs",
 		{
-			dcs:
+			dcsCss:
 			{
-				transformGroup: "fluentui/dcs",
+				transformGroup: "dcs/css",
 				buildPath: useSubfolders ? `${outputPath}dcs/` : outputPath,
-				files: [{ destination: `fluent-${theme}-theme.css`, format: "fluentui/dcs", selector: `[data-theme="fluent-${theme}"]`,
-			}],
+				files: [
+					{ destination: `css/fluent-${theme}-theme.css`, format: "fluentui/dcs/css", selector: `[data-theme="fluent-${theme}"]` },
+				],
 			},
+			dcsJson:
+			{
+				transformGroup: "dcs/json",
+				buildPath: useSubfolders ? `${outputPath}dcs/` : outputPath,
+				files: [
+					{ destination: `json/fluent-${theme}-theme.json`, format: "fluentui/dcs/json" }
+				],
+			}
 		}
 	)
 }
 
-const buildOnePlatform = (tokens: any, platformOverride: SupportedPlatform | null, platformConfig: Record<string, unknown>): void =>
+const buildOnePlatform = (tokens: any, platformOverride: SupportedPlatform | null, platformConfig: Record<string, unknown>, options: { mergeNumbers?: boolean } = {}): void =>
 {
 	tokens = platformOverride ? resolvePlatformOverrides(_.cloneDeep(tokens), platformOverride) : _.cloneDeep(tokens)
 	tokens = resolveGeneratedSets(tokens)
 	tokens = resolveAliases(tokens)
 	tokens = resolveComputedTokens(tokens)
+	tokens = setAttributesFromNames(tokens)
+	if (options.mergeNumbers) tokens = mergeNumbers(tokens)
 
 	require("style-dictionary").extend(
 		{

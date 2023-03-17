@@ -1,4 +1,5 @@
 import StyleDictionary from "style-dictionary"
+import type { TokenSet } from "./types"
 import * as Utils from "./utils"
 
 /// Returns a Style Dictionary attributes object or null.
@@ -17,6 +18,7 @@ const getSDAttributes = (category, attribute) =>
 	if (category === "Color" || attribute === "Color") return { category: "color", w3cType: "color", figmaTokensType: "color", xamlType: "SolidColorBrush" } // Can also be a LinearGradientBrush: the fluentui/xaml/res formats won't use the xamlType in that case
 	if (attribute === "Padding") return { category: "size", w3cType: "dimension", figmaTokensType: "spacing", xamlType: "Thickness" }
 	if (attribute === "Spacing") return { category: "size", w3cType: "dimension", figmaTokensType: "spacing", xamlType: "x:Double" }
+	if (attribute === "Size") return { category: "size", w3cType: "dimension", figmaTokensType: "spacing", xamlType: "x:Double" }
 	if (category === "Layout")
 	{
 		if (attribute === "Width" || attribute === "Height") return { category: "size", w3cType: "dimension", figmaTokensType: "sizing", xamlType: "x:Double" }
@@ -27,6 +29,7 @@ const getSDAttributes = (category, attribute) =>
 		if (attribute === "Size") return { category: "size", w3cType: "fontSize", figmaTokensType: "fontSizes", xamlType: "x:Double" }
 		if (attribute === "LineHeight") return { category: "size", w3cType: "dimension", figmaTokensType: "lineHeights", xamlType: "x:Double" }
 		if (attribute === "Weight") return { category: "fontWeight", w3cType: "fontWeight", figmaTokensType: "fontWeights", xamlType: "x:Double" }
+		if (attribute === "LetterSpacing") return { category: "letterSpacing", w3cType: "dimension", figmaTokensType: "letterSpacing", xamlType: "x:Int32" }
 	}
 	if (category === "Shadow" || attribute === "Shadow")
 	{
@@ -35,36 +38,36 @@ const getSDAttributes = (category, attribute) =>
 	return null
 }
 
-StyleDictionary.registerTransform({
-	name: "fluentui/attribute",
-	type: "attribute",
-	transformer: (prop, options) =>
+export const setAttributesFromNames = (tokens: TokenSet): TokenSet =>
+{
+	// IMPORTANT! This is designed to be used AFTER resolveAliases and its kin. It will miss things like aliases if any remain.
+	Utils.forEachRecursive(tokens, (prop: any, path: ReadonlyArray<string>) =>
 	{
 		/*
 			Transforms all properties to add appropriate category and xamlType fields.
 			(Fluent UI token names use a different structure than the Category-Type-Item structure recommended
 			by style-dictionary, so the built-in attribute/cti transform will not work.)
 		*/
-		let sdAttributes
+		let sdAttributes: any
 
-		if (prop.path[0] === "Global")
+		if (path[0] === "Global")
 		{
 			// The category name in global tokens is optional. So, we'll try the type detection twice: first assuming it's
 			// present, and then if that fails, assuming it's not.
-			if (prop.path.length > 3)
-				sdAttributes = getSDAttributes(prop.path[1], prop.path[2])
+			if (path.length > 3)
+				sdAttributes = getSDAttributes(path[1], path[2])
 			if (!sdAttributes)
-				sdAttributes = getSDAttributes(undefined, prop.path[1])
+				sdAttributes = getSDAttributes(undefined, path[1])
 		}
 		else
 		{
-			sdAttributes = prop.path[prop.path.length - 2] === "Color"
-				? getSDAttributes(prop.path[prop.path.length - 3], prop.path[prop.path.length - 2])
-				: getSDAttributes(prop.path[2], prop.path[3])
+			sdAttributes = path[path.length - 2] === "Color"
+				? getSDAttributes(path[path.length - 3], path[path.length - 2])
+				: getSDAttributes(path[2], path[3])
 		}
 
 		if (!sdAttributes)
-			Utils.reportError(`Unable to determine data type based on token name "${prop.path.join(".")}".`)
+			Utils.reportError(`Unable to determine data type based on token name "${path.join(".")}".`)
 
 		if (sdAttributes && prop.resolvedAliasPath)
 		{
@@ -74,9 +77,10 @@ StyleDictionary.registerTransform({
 			sdAttributes.category = "alias"
 		}
 
-		return sdAttributes
-	},
-})
+		prop.attributes = sdAttributes
+	}, { requiredChild: "value" })
+	return tokens
+}
 
 StyleDictionary.registerTransform({
 	name: "fluentui/alias/flatten",
@@ -104,13 +108,9 @@ StyleDictionary.registerFilter({
 	},
 })
 
-// This is only for the Build demo iOS export. Don't use it in new code.
 StyleDictionary.registerFilter({
 	name: "isColor",
-	matcher: function (prop)
-	{
-		return new Set(prop.path).has("Color")
-	},
+	matcher: prop => prop.attributes.category === "color",
 })
 
 // This is only for the Build demo iOS export. Don't use it in new code.

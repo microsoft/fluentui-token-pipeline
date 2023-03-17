@@ -4,9 +4,19 @@ title: Token JSON format reference
 
 🏠 [Home](./)
 
+# This tool has been deprecated
+
+**The file format described on this page is no longer in use.** Our design token files are now in the [W3C Design Token Community Group](https://design-tokens.github.io/community-group/format/) draft standard format, so this tool is no longer required to work with them.
+
+Consider the remainder of this page out-of-date.
+
+---
+
 # Token JSON format reference
 
 This reference assumes that you're familiar with the general concept of design tokens.
+
+This reference also only describes the original proprietary design token format. The tool now also supports some input files in the [W3C Design Token Community Group format](https://design-tokens.github.io/community-group/format), but that format is not described here.
 
 After transforming once, it can sometimes be helpful to refer to [`build/reference/index.html`](../build/reference/index.html)—it's effectively a more human-readable version of your token JSON that gets built by the pipeline.
 
@@ -225,10 +235,9 @@ You can also specify an entire color ramp from a single base color value. Instea
 {
 	"Color": {
 		"Grey": {
-			"0": { "value": "#000000" },
 			"2": { "value": "#050505" },
 			"4": { "value": "#0a0a0a" },
-			"100": { "value": "#ffffff" },
+			"98": { "value": "#fafafa" }
 		}
 	}
 }
@@ -240,7 +249,7 @@ You can also specify an entire color ramp from a single base color value. Instea
 {
 	"Color": {
 		"Grey": {
-			"generate": { "type": "lightness0to100by2", "value": "#808080" }
+			"generate": { "type": "lightness2to98by2", "value": "#808080" }
 		}
 	}
 }
@@ -250,7 +259,7 @@ These color ramp algorithms are supported:
 
 | `type` | Description |
 | --- | --- |
-| `lightness0to100by2` | Produces a color ramp with values `0`, `2`, `4`, ... `100`, where each color differs only by HSL lightness value. `0` will be black, `100` will be white, and the values in-between will be different shades of the base color. |
+| `lightness2to98by2` | Produces a color ramp with values `2`, `4`, ... `98`, where each color differs only by HSL lightness value. `2` will be a shade above black, `98` will be a shade below white, and the values in-between will be different shades of the base color. |
 | `fluentsharedcolors` | Produces a color ramp with `Primary` as the base color, five darker shades as `Shade10` through `Shade50`, and six lighter tints as `Tint10` through `Tint60`. |
 
 **Important:** `value` must be a single color, not a gradient or alias of another token.
@@ -284,6 +293,22 @@ Font weights are specified in standard weight units, integers 100-900.
 
 * `600`
 * <strike>**not** `"semibold"`</strike>
+
+### Font letter spacing
+
+Letter spacing (aka character spacing or tracking) is specified in ems (not pixels) **without units**.
+
+**Except for Swift**, where the values are specified in points without units instead. (This means that you'll need to use platform-specific overrides to use a single source JSON file to export to both Swift and at least one other platform.)
+
+* `-0.02`
+* <strike>**not** `"-0.02em"`</strike>
+
+### Line spacing
+
+Line spacing (aka leading) is specified in device-independent pixels (not multiples or percentages) **without units**.
+
+* `20`
+* <strike>**not** `"20px"`</strike>
 
 ### Widths and heights and spacing
 
@@ -326,7 +351,7 @@ Note that stroke alignment doesn't actually affect the sizing of the element, an
 
 ## Versioning and validation
 
-Token JSON files should start with the following:
+Token JSON files must start with the following:
 
 ```json
 {
@@ -339,6 +364,7 @@ Token JSON files should start with the following:
 
 * The `$schema` property tells your text editor where to find the schema for token JSON, which will help you validate your tokens before running them through the pipeline.
 * The `Meta.FluentUITokensVersion` property indicates that your token JSON was created for use with this version of the pipeline and could be used in the future for compatibility.
+	* If this property is not present, the token file will be assumed to be in the DTCG format instead of the format described here.
 
 ### Validation errors in Visual Studio Code
 

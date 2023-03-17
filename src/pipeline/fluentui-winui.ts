@@ -107,6 +107,13 @@ StyleDictionary.registerTransform({
 	},
 })
 
+StyleDictionary.registerTransform({
+	name: "fluentui/letterspacing/winui",
+	type: "value",
+	matcher: prop => prop.attributes.category === "letterSpacing",
+	transformer: prop => `${Math.round(prop.value * 1000)}`,
+})
+
 const colorToWFColor = (color: string) =>
 {
 	switch (color.toLowerCase())
@@ -239,7 +246,7 @@ StyleDictionary.registerTransform({
 
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/winui",
-	transforms: ["fluentui/attribute", "fluentui/name/pascal", "fluentui/alias/winui", "fluentui/size/winui", "fluentui/font/winui", "fluentui/color/winui", "fluentui/strokealignment/winui"],
+	transforms: ["fluentui/name/pascal", "fluentui/alias/winui", "fluentui/size/winui", "fluentui/font/winui", "fluentui/color/winui", "fluentui/strokealignment/winui", "fluentui/letterspacing/winui"],
 })
 
 const getAllResourcesAsString = (dictionary, indent) =>
