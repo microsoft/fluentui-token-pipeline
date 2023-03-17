@@ -3,7 +3,6 @@ import * as Utils from "./utils"
 import _ from "lodash"
 
 
-
 const constructJsonName = (path: any[]) => _.camelCase(`${path.join("")}`)
 
 const constructCssName = (path: any[]): string =>
@@ -13,13 +12,18 @@ const constructCssName = (path: any[]): string =>
 	newName = newName.replace("NeutralNeutral", "Neutral")
 	newName = newName.replace("NeutralBrand", "Brand")
 	newName = newName.replace("NeutralCompound", "Compound")
+	newName = newName.replace("NeutralRed", "PaletteRed")
+	newName = newName.replace("NeutralGreen", "PaletteGreen")
+	newName = newName.replace("NeutralDarkOrange", "PaletteDarkOrange")
+	newName = newName.replace("NeutralYellow", "PaletteYellow")
 	newName = newName.replace("Rest", "")
+	newName = newName.replace("set", "")
 	newName = newName.replace("FillColor", "")
 	newName = newName.replace("StrokeColor", "")
+	newName = newName.replace("BorderColor", "")
 
 	return newName
 }
-
 
 StyleDictionary.registerTransform({
 	name: "dcs/name/json",
@@ -31,7 +35,7 @@ StyleDictionary.registerTransform({
 	name: "dcs/alias/json",
 	type: "value",
 	matcher: prop => "resolvedAliasPath" in prop,
-	transformer: prop => `${constructJsonName(prop.resolvedAliasPath)}`,
+	transformer: prop => `var(--${constructJsonName(prop.resolvedAliasPath)})`,
 })
 
 StyleDictionary.registerTransform({
@@ -97,9 +101,15 @@ StyleDictionary.registerFormat({
 			exportName = exportName.replace("NeutralNeutral", "Neutral")
 			exportName = exportName.replace("NeutralBrand", "Brand")
 			exportName = exportName.replace("NeutralCompound", "Compound")
+			exportName = exportName.replace("NeutralRed", "PaletteRed")
+			exportName = exportName.replace("NeutralGreen", "PaletteGreen")
+			exportName = exportName.replace("NeutralDarkOrange", "PaletteDarkOrange")
+			exportName = exportName.replace("NeutralYellow", "PaletteYellow")
 			exportName = exportName.replace("Rest", "")
 			exportName = exportName.replace("set", "")
 			exportName = exportName.replace("FillColor", "")
+			exportName = exportName.replace("StrokeColor", "")
+			exportName = exportName.replace("BorderColor", "")
 			thisOutputObject[exportName] = thisProp.value
 			previousProp = thisProp
 			previousPropRoot = rootName
