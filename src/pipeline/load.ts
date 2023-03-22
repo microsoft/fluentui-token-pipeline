@@ -37,17 +37,7 @@ const convertW3CTokens = (tokens: any): TokenJson =>
 		if (isReservedW3CName(childName)) continue
 		if (!tokens.hasOwnProperty(childName)) continue
 
-		if (childName === "Global")
-		{
-			convertAndCopyTokens(tokens.Global, converted.Global = {})
-		}
-		else
-		{
-			// Anything that's not in the Global namespace gets "Set." prepended to the name so that existing code that assumes
-			// that word will be there will continue working.
-			if (!("Set" in converted)) converted.Set = {}
-			convertAndCopyTokens(tokens[childName], converted.Set[childName] = {})
-		}
+		convertAndCopyTokens(tokens[childName], converted[childName] = {})
 	}
 	return converted as TokenJson
 }
@@ -154,5 +144,4 @@ const getW3CAliasTargetName = (value: any): string | null =>
 	if (typeof value === "string" && value.charCodeAt(0) === 123 /* "{" */ && value.charCodeAt(value.length - 1) === 125 /* "}" */)
 		return value.slice(1, -1)
 	else return null
-	// REVIEW: Do we need to re-add "Set." here?
 }

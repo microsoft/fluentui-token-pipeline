@@ -19,30 +19,7 @@ StyleDictionary.registerFilter({
 	matcher: prop =>
 	{
 		const rootName = prop.path[0]
-		return rootName === "Set" && new Set(prop.path).has("Color")
-	},
-})
-
-// These are hacks - can we update the input JSON structure to match the expected output?
-StyleDictionary.registerTransform({
-	name: "fluentui/react/aliasCssVariable",
-	type: "value",
-	matcher: prop => "resolvedAliasPath" in prop,
-	transformer: prop =>
-	{
-		const aliasPath = prop.resolvedAliasPath.map(_.camelCase)
-
-		// var(--global-color-grey-94) -> var(--global-palette-grey-94)
-		//              ^^^^^                          ^^^^^^^
-		if (aliasPath.length === 4
-			&& aliasPath[0] === "global"
-			&& aliasPath[1] === "color"
-		)
-		{
-			return `var(--global-palette-${aliasPath[2]}-${aliasPath[3]})`
-		}
-
-		return `var(--${aliasPath.join("-")})`
+		return rootName !== "Global" && new Set(prop.path).has("Color")
 	},
 })
 
@@ -86,16 +63,20 @@ StyleDictionary.registerTransform({
 	name: "fluentui/react/aliasColorName",
 	type: "name",
 	matcher: prop => (
-		prop.path[0] === "Set"
+		prop.path[0] !== "Global"
 	),
 	transformer: prop =>
 	{
-		let suffix = prop.path[prop.path.length - 1]
-		if (suffix === "Rest")
+		const path: string[] = [...prop.path]
+		if (path[1] === "Fill" || path[1] === "Stroke")
 		{
-			suffix = ""
+			path.splice(1, 2)
 		}
-		return `${_.camelCase(prop.path[1])}.${_.camelCase(prop.path[2])}${suffix}`
+		if (path[path.length - 1] === "Rest")
+		{
+			path.pop()
+		}
+		return _.camelCase(path.join(" "))
 	},
 })
 
@@ -104,7 +85,6 @@ StyleDictionary.registerTransformGroup({
 	transforms: [
 		"fluentui/name/kebab",
 		"fluentui/react/highContrastColors",
-		"fluentui/react/aliasCssVariable",
 		"fluentui/react/globalColorName",
 		"fluentui/react/aliasColorName",
 	],
@@ -175,7 +155,14 @@ const aliasPathToGlobalImport = (resolvedAliasPath: string[], imports: Set<strin
 	if (resolvedAliasPath.length === 4)
 	{
 		imports.add(exportName)
-		return `${exportName}[${resolvedAliasPath[3]}]`
+		if (isNaN(parseInt(resolvedAliasPath[3], 10)))
+		{
+			return `${exportName}.${firstCharToLowerCase(resolvedAliasPath[3])}`
+		}
+		else
+		{
+			return `${exportName}[${resolvedAliasPath[3]}]`
+		}
 	}
 
 	if (resolvedAliasPath.length !== 3)
@@ -191,22 +178,15 @@ StyleDictionary.registerFormat({
 	name: "react/colors/alias",
 	formatter: (dictionary, config) =>
 	{
-		const colors: any = { neutral: {} }
-		dictionary.allProperties.forEach(prop =>
-		{
-			_.setWith(colors, prop.name, prop, Object)
-		})
-
 		const imports = new Set<string>()
 
-		const colorTokens = Object.keys(colors.neutral).map(colorName =>
+		const colorTokens = Object.values<any>(dictionary.allProperties).map((prop) =>
 		{
-			const prop = colors.neutral[colorName]
 			const value = prop.resolvedAliasPath
 				? aliasPathToGlobalImport(prop.resolvedAliasPath, imports)
 				: `'${prop.value}'`
 
-			return `\tcolor${firstCharToUpperCase(colorName)}: ${value}, // ${prop.original.value} ${
+			return `\tcolor${firstCharToUpperCase(prop.name)}: ${value}, // ${prop.original.value} ${
 				prop.resolvedAliasPath && prop.resolvedAliasPath.join(".")
 			}`
 		})

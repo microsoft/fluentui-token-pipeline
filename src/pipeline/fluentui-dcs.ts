@@ -9,15 +9,7 @@ const constructCssName = (path: any[]): string =>
 {
 	let newName = path[0] !== "Global" && path[3] === "Color" ? `color${path.join("")}` : path.join("")
 	newName = newName.charAt(0).toLowerCase() + newName.slice(1)
-	newName = newName.replace("NeutralNeutral", "Neutral")
-	newName = newName.replace("NeutralBrand", "Brand")
-	newName = newName.replace("NeutralCompound", "Compound")
-	newName = newName.replace("NeutralRed", "PaletteRed")
-	newName = newName.replace("NeutralGreen", "PaletteGreen")
-	newName = newName.replace("NeutralDarkOrange", "PaletteDarkOrange")
-	newName = newName.replace("NeutralYellow", "PaletteYellow")
 	newName = newName.replace("Rest", "")
-	newName = newName.replace("set", "")
 	newName = newName.replace("FillColor", "")
 	newName = newName.replace("StrokeColor", "")
 	newName = newName.replace("BorderColor", "")
@@ -53,12 +45,12 @@ StyleDictionary.registerTransform({
 
 StyleDictionary.registerTransformGroup({
 	name: "dcs/json",
-	transforms: ["dcs/name/json", "dcs/alias/json", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/shadow/css"],
+	transforms: ["dcs/name/json", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/shadow/css", "dcs/alias/json"],
 })
 
 StyleDictionary.registerTransformGroup({
 	name: "dcs/css",
-	transforms: ["dcs/name/css", "dcs/alias/css", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/shadow/css"],
+	transforms: ["dcs/name/css", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/shadow/css", "dcs/alias/css"],
 })
 
 StyleDictionary.registerFormat({
@@ -98,15 +90,7 @@ StyleDictionary.registerFormat({
 				? `color${_.camelCase(thisProp.path.slice(0).join(""))}`
 				: _.camelCase(thisProp.path.slice(0).join(""))
 
-			exportName = exportName.replace("NeutralNeutral", "Neutral")
-			exportName = exportName.replace("NeutralBrand", "Brand")
-			exportName = exportName.replace("NeutralCompound", "Compound")
-			exportName = exportName.replace("NeutralRed", "PaletteRed")
-			exportName = exportName.replace("NeutralGreen", "PaletteGreen")
-			exportName = exportName.replace("NeutralDarkOrange", "PaletteDarkOrange")
-			exportName = exportName.replace("NeutralYellow", "PaletteYellow")
 			exportName = exportName.replace("Rest", "")
-			exportName = exportName.replace("set", "")
 			exportName = exportName.replace("FillColor", "")
 			exportName = exportName.replace("StrokeColor", "")
 			exportName = exportName.replace("BorderColor", "")

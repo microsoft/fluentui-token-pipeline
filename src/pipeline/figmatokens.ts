@@ -111,7 +111,7 @@ export const getFigmaTokensJson = (props: any[], options: unknown = {}): any =>
 
 		// First, find or recreate this token's parent group in the new tokens object.
 		let group: any = tokens.Fluent
-		const path = thisProp.path[0] === "Set" ? thisProp.path.slice(1, -1) : thisProp.path.slice(0, -1)
+		const path = thisProp.path.slice(0, -1)
 		for (const segment of path)
 		{
 			if (segment in group)

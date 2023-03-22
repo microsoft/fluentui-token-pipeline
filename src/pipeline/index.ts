@@ -40,7 +40,6 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 				}
 			}
 		}
-		
 	}
 
 
@@ -72,7 +71,6 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 				files: [
 					{ destination: "tokens-global.json", format: "fluentui/json/grouped", filter: "isGlobal" },
 					{ destination: "tokens-aliases.json", format: "fluentui/json/grouped", filter: "isAlias" },
-					{ destination: "tokens-controls.json", format: "fluentui/json/grouped", filter: "isControl" },
 				],
 			}
 		}
@@ -172,7 +170,6 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 					{ destination: "tokens-global.json", format: "fluentui/json/grouped", filter: "isGlobalNotShadow" },
 					{ destination: "tokens-shadow.json", format: "fluentui/json/grouped", filter: "isGlobalShadow" },
 					{ destination: "tokens-aliases.json", format: "fluentui/json/grouped", filter: "isAlias" },
-					{ destination: "tokens-controls.json", format: "fluentui/json/grouped", filter: "isControl" },
 				],
 			}
 		},

@@ -27,5 +27,261 @@
 		"ComputedColors": {
 			"TranslucentAccent": { "computed": { "color": "Global.Color.AccentBase", "opacity": 0.05 } }
 		}
+	},
+	"Button": {
+		"Content": {
+			"Font": { "aliasOf": "Control.Font" },
+			"Fill": { "Color": { "aliasOf": "NeutralForeground1.Fill.Color", "Selected": { "aliasOf": "NeutralForeground1Selected.Fill.Color" } } }
+		},
+		"Icon": {
+			"Fill": { "Color": { "aliasOf": "NeutralForeground1.Fill.Color", "Selected": { "aliasOf": "NeutralForeground1Selected.Fill.Color" } } }
+		},
+		"Base": {
+			"Fill": { "Color": { "aliasOf": "NeutralBackground1.Fill.Color", "Selected": { "aliasOf": "NeutralBackground1Selected.Fill.Color" } } },
+			"Stroke": {
+				"Color": { "aliasOf": "NeutralStroke1.Stroke.Color", "Selected": { "aliasOf": "NeutralStroke1Selected.Stroke.Color" } },
+				"Width": { "aliasOf": "NeutralStroke1.Stroke.Width", "Selected": { "aliasOf": "NeutralStroke1Selected.Stroke.Width" } }
+			},
+			"Corner": { "aliasOf": "Control.Corner" },
+			"Layout": { "Padding": { "value": [ 7, 15, 7, 15 ] } }
+		}
+	},
+
+	"ButtonPrimary": {
+		"Content": {
+			"Font": { "aliasOf": "Control.Font" },
+			"Fill": { "Color": { "aliasOf": "NeutralForegroundInvertedAccessible.Fill.Color", "Selected": { "aliasOf": "NeutralForegroundInvertedAccessibleSelected.Fill.Color" } } }
+		},
+		"Icon": {
+			"Fill": { "Color": { "aliasOf": "NeutralForegroundInvertedAccessible.Fill.Color", "Selected": { "aliasOf": "NeutralForegroundInvertedAccessibleSelected.Fill.Color" } } }
+		},
+		"Base": {
+			"Fill": { "Color": { "aliasOf": "BrandBackground.Fill.Color", "Selected": { "aliasOf": "BrandBackgroundSelected.Fill.Color" } } },
+			"Stroke": {
+				"Color": { "aliasOf": "Borderless.Stroke.Color", "Selected": { "aliasOf": "Borderless.Stroke.Color" } },
+				"Width": { "aliasOf": "Borderless.Stroke.Width", "Selected": { "aliasOf": "Borderless.Stroke.Width" } }
+			},
+			"Corner": { "aliasOf": "Control.Corner" },
+			"Layout": { "Padding": { "value": [ 7, 15, 7, 15 ] } }
+		}
+	},
+
+	"ButtonOutline": {
+		"Content": {
+			"Font": { "aliasOf": "Control.Font" },
+			"Fill": { "Color": { "aliasOf": "NeutralForeground1.Fill.Color", "Selected": { "aliasOf": "NeutralForeground1Selected.Fill.Color" } } }
+		},
+		"Icon": {
+			"Fill": { "Color": { "aliasOf": "NeutralForeground1.Fill.Color", "Selected": { "aliasOf": "NeutralForeground1Selected.Fill.Color" } } }
+		},
+		"Base": {
+			"Fill": { "Color": { "aliasOf": "TransparentBackground.Fill.Color", "Selected": { "aliasOf": "TransparentBackgroundSelected.Fill.Color" } } },
+			"Stroke": {
+				"Color": { "aliasOf": "NeutralStroke1.Stroke.Color", "Selected": { "aliasOf": "NeutralStroke1.Stroke.Color" } },
+				"Width": { "aliasOf": "NeutralStroke1.Stroke.Width", "Selected": { "aliasOf": "NeutralStroke1.Stroke.Width" } }
+			},
+			"Corner": { "aliasOf": "Control.Corner" },
+			"Layout": { "Padding": { "value": [7, 15, 7, 15] } }
+		}
+	},
+
+	"ButtonGhost": {
+		"Content": {
+			"Font": { "aliasOf": "Body.Font" },
+			"Fill": { "Color": { "aliasOf": "NeutralForeground2Brand.Fill.Color", "Selected": { "aliasOf": "NeutralForeground2BrandSelected.Fill.Color" } } }
+		},
+		"Icon": {
+			"Fill": { "Color": { "aliasOf": "NeutralForeground2Brand.Fill.Color", "Selected": { "aliasOf": "NeutralForeground2BrandSelected.Fill.Color" } } }
+		},
+		"Base": {
+			"Fill": { "Color": { "aliasOf": "GhostBackground.Fill.Color", "Selected": { "aliasOf": "GhostBackgroundSelected.Fill.Color" } } },
+			"Stroke": {
+				"Color": { "aliasOf": "Borderless.Stroke.Color", "Selected": { "aliasOf": "Borderless.Stroke.Color" } },
+				"Width": { "aliasOf": "Borderless.Stroke.Width", "Selected": { "aliasOf": "Borderless.Stroke.Width" } }
+			},
+			"Corner": { "aliasOf": "Control.Corner" },
+			"Layout": { "Padding": { "value": [ 7, 15, 7, 15 ] } }
+		}
+	},
+
+	"CheckBox": {
+		"Text": {
+			"Font": { "aliasOf": "Body.Font" },
+			"Fill": {
+				"Color": {
+					"aliasOf": "NeutralForegroundInvertedAccessible.Fill.Color",
+					"platform": {
+						"winui": {
+							"Rest": { "fullName": "CheckBoxForegroundUnchecked" },
+							"Hover": { "fullName": "CheckBoxForegroundUncheckedPointerOver" },
+							"Press": { "fullName": "CheckBoxForegroundUncheckedPressed" },
+							"Disabled": { "fullName": "CheckBoxForegroundUncheckedDisabled" }
+						}
+					},
+					"Selected": {
+						"aliasOf": "NeutralForegroundInvertedAccessible.Fill.Color",
+						"platform": {
+							"winui": {
+								"Rest": { "fullName": "CheckBoxForegroundChecked" },
+								"Hover": { "fullName": "CheckBoxForegroundCheckedPointerOver" },
+								"Press": { "fullName": "CheckBoxForegroundCheckedPressed" },
+								"Disabled": { "fullName": "CheckBoxForegroundCheckedDisabled" }
+							}
+						}
+					},
+					"Indeterminate": {
+						"aliasOf": "NeutralForegroundInvertedAccessible.Fill.Color",
+						"platform": {
+							"winui": {
+								"Rest": { "fullName": "CheckBoxForegroundIndeterminate" },
+								"Hover": { "fullName": "CheckBoxForegroundIndeterminatePointerOver" },
+								"Press": { "fullName": "CheckBoxForegroundIndeterminatePressed" },
+								"Disabled": { "fullName": "CheckBoxForegroundIndeterminateDisabled" }
+							}
+						}
+					}
+				}
+			}
+		},
+		"Check": {
+			"Fill": {
+				"Color": {
+					"aliasOf": "NeutralForegroundInvertedAccessible.Fill.Color",
+					"platform": {
+						"winui": {
+							"Rest": { "fullName": "CheckBoxCheckGlyphForegroundUnchecked" },
+							"Hover": { "fullName": "CheckBoxCheckGlyphForegroundUncheckedPointerOver" },
+							"Press": { "fullName": "CheckBoxCheckGlyphForegroundUncheckedPressed" },
+							"Disabled": { "fullName": "CheckBoxCheckGlyphForegroundUncheckedDisabled" }
+						}
+					},
+					"Selected": {
+						"aliasOf": "NeutralForegroundInvertedAccessible.Fill.Color",
+						"platform": {
+							"winui": {
+								"Rest": { "fullName": "CheckBoxCheckGlyphForegroundChecked" },
+								"Hover": { "fullName": "CheckBoxCheckGlyphForegroundCheckedPointerOver" },
+								"Press": { "fullName": "CheckBoxCheckGlyphForegroundCheckedPressed" },
+								"Disabled": { "fullName": "CheckBoxCheckGlyphForegroundCheckedDisabled" }
+							}
+						}
+					},
+					"Indeterminate": {
+						"aliasOf": "NeutralForegroundInvertedAccessible.Fill.Color",
+						"platform": {
+							"winui": {
+								"Rest": { "fullName": "CheckBoxCheckGlyphForegroundIndeterminate" },
+								"Hover": { "fullName": "CheckBoxCheckGlyphForegroundIndeterminatePointerOver" },
+								"Press": { "fullName": "CheckBoxCheckGlyphForegroundIndeterminatePressed" },
+								"Disabled": { "fullName": "CheckBoxCheckGlyphForegroundIndeterminateDisabled" }
+							}
+						}
+					}
+				}
+			}
+		},
+		"Box": {
+			"Fill": {
+				"Color": {
+					"aliasOf": "TransparentBackground.Fill.Color",
+					"platform": {
+						"winui": {
+							"Rest": { "fullName": "CheckBoxCheckBackgroundFillUnchecked" },
+							"Hover": { "fullName": "CheckBoxCheckBackgroundFillUncheckedPointerOver" },
+							"Press": { "fullName": "CheckBoxCheckBackgroundFillUncheckedPressed" },
+							"Disabled": { "fullName": "CheckBoxCheckBackgroundFillUncheckedDisabled" }
+						}
+					},
+					"Selected": { "aliasOf": "BrandBackground.Fill.Color",
+						"platform": {
+							"winui": {
+								"Rest": { "fullName": "CheckBoxCheckBackgroundFillChecked" },
+								"Hover": { "fullName": "CheckBoxCheckBackgroundFillCheckedPointerOver" },
+								"Press": { "fullName": "CheckBoxCheckBackgroundFillCheckedPressed" },
+								"Disabled": { "fullName": "CheckBoxCheckBackgroundFillCheckedDisabled" }
+							}
+						} },
+					"Indeterminate": { "aliasOf": "BrandBackground.Fill.Color",
+						"platform": {
+							"winui": {
+								"Rest": { "fullName": "CheckBoxCheckBackgroundFillIndeterminate" },
+								"Hover": { "fullName": "CheckBoxCheckBackgroundFillIndeterminatePointerOver" },
+								"Press": { "fullName": "CheckBoxCheckBackgroundFillIndeterminatePressed" },
+								"Disabled": { "fullName": "CheckBoxCheckBackgroundFillIndeterminateDisabled" }
+							}
+						} }
+				}
+			},
+			"Stroke": {
+				"Color": {
+					"aliasOf": "NeutralStroke1.Stroke.Color",
+					"platform": {
+						"winui": {
+							"Rest": { "fullName": "CheckBoxCheckBackgroundStrokeUnchecked" },
+							"Hover": { "fullName": "CheckBoxCheckBackgroundStrokeUncheckedPointerOver" },
+							"Press": { "fullName": "CheckBoxCheckBackgroundStrokeUncheckedPressed" },
+							"Disabled": { "fullName": "CheckBoxCheckBackgroundStrokeUncheckedDisabled" }
+						}
+					},
+					"Selected": { "aliasOf": "Borderless.Stroke.Color",
+						"platform": {
+							"winui": {
+								"Rest": { "fullName": "CheckBoxCheckBackgroundStrokeChecked" },
+								"Hover": { "fullName": "CheckBoxCheckBackgroundStrokeCheckedPointerOver" },
+								"Press": { "fullName": "CheckBoxCheckBackgroundStrokeCheckedPressed" },
+								"Disabled": { "fullName": "CheckBoxCheckBackgroundStrokeCheckedDisabled" }
+							}
+						}
+					},
+					"Indeterminate": { "aliasOf": "Borderless.Stroke.Color",
+						"platform": {
+							"winui": {
+								"Rest": { "fullName": "CheckBoxCheckBackgroundStrokeIndeterminate" },
+								"Hover": { "fullName": "CheckBoxCheckBackgroundStrokeIndeterminatePointerOver" },
+								"Press": { "fullName": "CheckBoxCheckBackgroundStrokeIndeterminatePressed" },
+								"Disabled": { "fullName": "CheckBoxCheckBackgroundStrokeIndeterminateDisabled" }
+							}
+						}
+					}
+				},
+				"Width": { "aliasOf": "NeutralStroke1.Stroke.Width",
+					"platform": {
+						"winui": {
+							"fullName": "CheckBoxBorderThemeThickness"
+						}
+					} 
+				}
+			},
+			"Corner": { "aliasOf": "Control.Corner" }
+		}
+	},
+
+	"Slider": {
+		"Thumb": {
+			"Fill": {
+				"Color": { "aliasOf": "BrandBackground.Fill.Color" }
+			},
+			"Stroke": {
+				"Color": { "aliasOf": "Borderless.Stroke.Color" },
+				"Width": { "aliasOf": "Borderless.Stroke.Width" }
+			},
+			"Layout": {
+				"Width": { "value": 20 },
+				"Height": { "value": 20 }
+			},
+			"Corner": { "aliasOf": "Round.Corner" }
+		},
+		"Track": {
+			"Fill": {
+				"Color": { "Empty": { "aliasOf": "NeutralBackground2.Fill.Color" }, "Full": { "aliasOf": "NeutralStroke2.Stroke.Color" } }
+			},
+			"Layout": { "Height": { "value": 2 } }
+		},
+		"Ticks": {
+			"Fill": {
+				"Color": { "aliasOf": "NeutralForegroundInvertedAccessible.Fill.Color" }
+			},
+			"Layout": { "Height": { "value": 4 } }
+		}
 	}
 }

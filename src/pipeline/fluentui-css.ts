@@ -220,12 +220,12 @@ StyleDictionary.registerTransform({
 
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/css",
-	transforms: ["fluentui/name/kebab", "fluentui/alias/css", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/letterspacing/css", "fluentui/shadow/css"],
+	transforms: ["fluentui/name/kebab", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/letterspacing/css", "fluentui/shadow/css", "fluentui/alias/css"],
 })
 
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/scss",
-	transforms: ["fluentui/name/kebab", "fluentui/alias/scss", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/letterspacing/css", "fluentui/shadow/css"],
+	transforms: ["fluentui/name/kebab", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/letterspacing/css", "fluentui/shadow/css", "fluentui/alias/scss"],
 })
 
 StyleDictionary.registerTransformGroup({
