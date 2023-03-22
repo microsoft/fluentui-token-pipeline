@@ -68,7 +68,7 @@ const convertAndCopyTokens = (from: any, to: TokenSet): void =>
 const getConvertedToken = (w3cToken: Record<string, any>): Token =>
 {
 	let value = w3cToken.$value
-	let attributes: any = { w3cType: w3cToken.$type }
+	let attributes: any = {}
 	const aliasTarget = getW3CAliasTargetName(value)
 	const converted: any = aliasTarget ? { aliasOf: aliasTarget } : {}
 
@@ -120,6 +120,7 @@ const getConvertedToken = (w3cToken: Record<string, any>): Token =>
 	}
 
 	if (!aliasTarget) converted.value = value
+	attributes.w3cType = w3cToken.$type
 	converted.attributes = attributes
 	return converted as unknown as Token
 }
