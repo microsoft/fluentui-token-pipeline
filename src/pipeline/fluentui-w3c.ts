@@ -67,7 +67,6 @@ StyleDictionary.registerTransform({
 		return prop.value.map(shadow =>
 		{
 			// It isn't currently possible to have Style Dictionary export strings with {}, so use [] instead.
-			// REVIEW: Do we need to strip "Set." here?
 			const color = shadow.color.resolvedAliasPath ? `[${shadow.color.resolvedAliasPath.join(".")}]` : colorTokenToHexColorFallback(shadow.color.value)
 			return {
 				color: color,
@@ -107,7 +106,7 @@ export const getW3CJson = (props: any[], options: unknown = {}): any =>
 
 		// First, find or recreate this token's parent group in the new tokens object.
 		let group: any = tokens
-		for (const segment of thisProp.path.slice(thisProp.path[0] === "Set" ? 1 : 0, -1))
+		for (const segment of thisProp.path.slice(0, -1))
 		{
 			if (segment in group)
 				group = group[segment]
@@ -128,7 +127,6 @@ export const getValueOrReference = (prop: any): any =>
 {
 	if (prop.resolvedAliasPath)
 	{
-		// REVIEW: Do we need to strip "Set" here?
 		return `{${prop.resolvedAliasPath.join(".")}}`
 	}
 	else

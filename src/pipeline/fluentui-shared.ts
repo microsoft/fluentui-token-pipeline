@@ -43,6 +43,9 @@ export const setAttributesFromNames = (tokens: TokenSet): TokenSet =>
 	// IMPORTANT! This is designed to be used AFTER resolveAliases and its kin. It will miss things like aliases if any remain.
 	Utils.forEachRecursive(tokens, (prop: any, path: ReadonlyArray<string>) =>
 	{
+		// If the token already has a category set (normal for W3C files), skip it.
+		if (prop.attributes && prop.attributes.category) return
+
 		/*
 			Transforms all properties to add appropriate category and xamlType fields.
 			(Fluent UI token names use a different structure than the Category-Type-Item structure recommended
@@ -61,9 +64,9 @@ export const setAttributesFromNames = (tokens: TokenSet): TokenSet =>
 		}
 		else
 		{
-			sdAttributes = path[path.length - 2] === "Color"
-				? getSDAttributes(path[path.length - 3], path[path.length - 2])
-				: getSDAttributes(path[2], path[3])
+			sdAttributes = path[path.length - 1] === "Color"
+				? getSDAttributes(path[path.length - 2], path[path.length - 1])
+				: getSDAttributes(path[1], path[2])
 		}
 
 		if (!sdAttributes)
@@ -91,21 +94,12 @@ StyleDictionary.registerTransform({
 
 StyleDictionary.registerFilter({
 	name: "isAlias",
-	matcher: prop => prop.path[0] === "Set",
+	matcher: prop => prop.path[0] !== "Global",
 })
 
 StyleDictionary.registerFilter({
 	name: "isGlobal",
 	matcher: prop => prop.path[0] === "Global",
-})
-
-StyleDictionary.registerFilter({
-	name: "isControl",
-	matcher: prop =>
-	{
-		const rootName = prop.path[0]
-		return rootName !== "Global" && rootName !== "Set"
-	},
 })
 
 StyleDictionary.registerFilter({

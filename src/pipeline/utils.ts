@@ -39,9 +39,6 @@ export const getTokenExportPath = (prop: Token, propPath?: string): string[] =>
 	if (!path)
 		throw new Error(`Path wasn't present in token OR specified for getTokenExportPath: ${JSON.stringify(prop)}`)
 
-	// Strip off "Set" if present.
-	if (path.length > 1 && path[0] === "Set") path = path.slice(1)
-
 	return path
 }
 
@@ -58,10 +55,6 @@ export const sortPropertiesForReadability = (dictionary: any[]): any[] =>
 		// Global tokens before everything else.
 		if (categoryA === "Global" && categoryB !== "Global") return -1
 		else if (categoryB === "Global" && categoryA !== "Global") return 1
-
-		// Alias sets before everything else except Global tokens.
-		if (categoryA === "Set" && categoryB !== "Set") return -1
-		else if (categoryB === "Set" && categoryA !== "Set") return 1
 
 		// Check each path segment except the last one in order.
 		const minLength = Math.min(a.path.length, b.path.length)
@@ -181,6 +174,14 @@ export const mergeNumbers = (subtree: TokenSet, setName?: string): TokenSet =>
 		if (!searching.hasOwnProperty(key)) continue
 		const prop: TokenSet | Token = searching[key]
 		if (typeof prop !== "object") continue
+
+		// Special case for when legacy brand colors and modern brand colors are both present:
+		// if there's a child named "Primary", skip this one entirely.
+		if (key === "Primary")
+		{
+			shouldMerge = false
+			break
+		}
 
 		// Okay, we'll merge this and all other children.
 		shouldMerge = shouldMerge || canMerge && /^[0-9]+$/.test(key)
