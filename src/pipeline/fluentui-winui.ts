@@ -6,7 +6,7 @@ import { Gradient, ValueToken } from "./types"
 import * as Utils from "./utils"
 import { degrees } from "./transform-math"
 
-const nameForWinUI = (path: string[]): string => path.map(word => word[0].toUpperCase() + word.substr(1)).join("")
+const nameForWinUI = (path: string[]): string => Utils.pascalCase(path)
 
 StyleDictionary.registerTransform({
 	name: "fluentui/name/pascal",
@@ -256,7 +256,7 @@ const getAllResourcesAsString = (dictionary, indent) =>
 	{
 		if (prop.attributes.aliasResourceName)
 		{
-			return `${tabs}<StaticResource x:Key="${prop.name}" ResourceKey="${prop.attributes.aliasResourceName}" />`
+			return `${tabs}<StaticResource x:Key="${Utils.pascalCase(prop.name)}" ResourceKey="${prop.attributes.aliasResourceName}" />`
 		}
 		else if (typeof prop.value === "object" && "xaml" in prop.value)
 		{
@@ -266,7 +266,7 @@ const getAllResourcesAsString = (dictionary, indent) =>
 		else
 		{
 			const xamlType = prop.attributes.xamlType || "x:String"
-			return `${tabs}<${xamlType} x:Key="${prop.name}">${Utils.escapeXml(prop.value)}</${xamlType}>`
+			return `${tabs}<${xamlType} x:Key="${Utils.pascalCase(prop.name)}">${Utils.escapeXml(prop.value)}</${xamlType}>`
 		}
 	}).join("\n")
 }

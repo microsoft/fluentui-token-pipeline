@@ -1,4 +1,5 @@
 import StyleDictionary from "style-dictionary"
+import * as Utils from "./utils"
 import _ from "lodash"
 
 const generatedComment = `/* !!! DO NOT EDIT !!! */
@@ -132,16 +133,6 @@ StyleDictionary.registerFormat({
 	},
 })
 
-const firstCharToLowerCase = (input: string): string =>
-{
-	return input[0].toLowerCase() + input.slice(1)
-}
-
-const firstCharToUpperCase = (input: string): string =>
-{
-	return input[0].toUpperCase() + input.slice(1)
-}
-
 const aliasPathToGlobalImport = (resolvedAliasPath: string[], imports: Set<string>): string =>
 {
 	if (resolvedAliasPath.length < 3 || resolvedAliasPath[0] !== "Global" || resolvedAliasPath[1] !== "Color")
@@ -149,7 +140,7 @@ const aliasPathToGlobalImport = (resolvedAliasPath: string[], imports: Set<strin
 		throw new Error(`Unexpected resolved alias path ${resolvedAliasPath.join(".")}`)
 	}
 
-	const exportName = firstCharToLowerCase(resolvedAliasPath[2])
+	const exportName = _.camelCase(resolvedAliasPath[2])
 
 	// grey[14]
 	if (resolvedAliasPath.length === 4)
@@ -157,7 +148,7 @@ const aliasPathToGlobalImport = (resolvedAliasPath: string[], imports: Set<strin
 		imports.add(exportName)
 		if (isNaN(parseInt(resolvedAliasPath[3], 10)))
 		{
-			return `${exportName}.${firstCharToLowerCase(resolvedAliasPath[3])}`
+			return `${exportName}.${_.camelCase(resolvedAliasPath[3])}`
 		}
 		else
 		{
@@ -186,7 +177,7 @@ StyleDictionary.registerFormat({
 				? aliasPathToGlobalImport(prop.resolvedAliasPath, imports)
 				: `'${prop.value}'`
 
-			return `\tcolor${firstCharToUpperCase(prop.name)}: ${value}, // ${prop.original.value} ${
+			return `\tcolor${Utils.pascalCase(prop.name)}: ${value}, // ${prop.original.value} ${
 				prop.resolvedAliasPath && prop.resolvedAliasPath.join(".")
 			}`
 		})

@@ -1,11 +1,12 @@
 import StyleDictionary from "style-dictionary"
 import Color from "tinycolor2"
+import _ from "lodash"
 
 import { Gradient, ValueToken } from "./types"
 import * as Utils from "./utils"
 import { degrees } from "./transform-math"
 
-const nameForCss = path => path.join("-").toLowerCase()
+const nameForCss = path => path.map(segment => _.kebabCase(segment).replaceAll("-", "")).join("-").toLowerCase()
 
 StyleDictionary.registerTransform({
 	name: "fluentui/name/kebab",

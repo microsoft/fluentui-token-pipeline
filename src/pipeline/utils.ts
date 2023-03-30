@@ -1,4 +1,5 @@
 import { Token, TokenSet, ValueToken } from "./types"
+import _ from "lodash"
 
 const charactersToEscape = /([<>&])/g
 const escapedCharacters =
@@ -22,6 +23,14 @@ const orderOfInteractionStates =
 export const escapeXml = (text: any): string =>
 {
 	return (typeof text === "string" ? text : text.toString()).replace(charactersToEscape, char => escapedCharacters[char])
+}
+
+/// PascalCase is camelCase with a capital letter.
+export const pascalCase = (text: string | string[]): string =>
+{
+	return (typeof text === "string") ?
+		_.upperFirst(_.camelCase(text)) :
+		_.upperFirst(_.camelCase(text.join(" ")))
 }
 
 /// Given a prop, returns the components of its name as an array of strings.

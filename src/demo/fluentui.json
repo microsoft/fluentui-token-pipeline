@@ -82,10 +82,10 @@
 			"Charcoal": { "generate": { "type": "fluentsharedcolors", "value": "#393939"  }},
 			"White": { "value": "#ffffff" },
 			"Black": { "value": "#000000" },
-			"NeutralShadowAmbient": { "value": "rgba(0,0,0,0.12)" },
-			"NeutralShadowKey": { "value": "rgba(0,0,0,0.14)" },
-			"BrandShadowAmbient": { "value": "rgba(0,0,0,0.30)" },
-			"BrandShadowKey": { "value": "rgba(0,0,0,0.25)" }
+			"Neutral Shadow Ambient": { "value": "rgba(0,0,0,0.12)" },
+			"Neutral Shadow Key": { "value": "rgba(0,0,0,0.14)" },
+			"Brand Shadow Ambient": { "value": "rgba(0,0,0,0.30)" },
+			"Brand Shadow Key": { "value": "rgba(0,0,0,0.25)" }
 		},
 		"Stroke": {
 			"Width": {
@@ -128,7 +128,7 @@
 				"900": { "value": 40, "platform": { "ios": { "value": 60 } } },
 				"1000": { "value": 68 }
 			},
-			"LineHeight": {
+			"Line Height": {
 				"100": { "value": 14, "platform": { "ios": { "value": 16 } } },
 				"200": { "value": 16  },
 				"300": { "value": 20 },
@@ -154,75 +154,75 @@
 		"Shadow": {
 			"2": {
 				"value": [
-					{ "x": 0, "y": 0, "blur": 2, "color": { "aliasOf": "Global.Color.NeutralShadowAmbient" }},
-					{ "x": 0, "y": 1, "blur": 2, "color": { "aliasOf": "Global.Color.NeutralShadowKey" }}
+					{ "x": 0, "y": 0, "blur": 2, "color": { "aliasOf": "Global.Color.Neutral Shadow Ambient" }},
+					{ "x": 0, "y": 1, "blur": 2, "color": { "aliasOf": "Global.Color.Neutral Shadow Key" }}
 				]
 			},
 			"4": {
 				"value": [
-					{ "x": 0, "y": 0, "blur": 2, "color": { "aliasOf": "Global.Color.NeutralShadowAmbient" }},
-					{ "x": 0, "y": 2, "blur": 4, "color": { "aliasOf": "Global.Color.NeutralShadowKey" }}
+					{ "x": 0, "y": 0, "blur": 2, "color": { "aliasOf": "Global.Color.Neutral Shadow Ambient" }},
+					{ "x": 0, "y": 2, "blur": 4, "color": { "aliasOf": "Global.Color.Neutral Shadow Key" }}
 				]
 			},
 			"8": {
 				"value": [
-					{ "x": 0, "y": 0, "blur": 2, "color": { "aliasOf": "Global.Color.NeutralShadowAmbient" }},
-					{ "x": 0, "y": 4, "blur": 8, "color": { "aliasOf": "Global.Color.NeutralShadowKey" }}
+					{ "x": 0, "y": 0, "blur": 2, "color": { "aliasOf": "Global.Color.Neutral Shadow Ambient" }},
+					{ "x": 0, "y": 4, "blur": 8, "color": { "aliasOf": "Global.Color.Neutral Shadow Key" }}
 				]
 			},
 			"16": {
 				"value": [
-					{ "x": 0, "y": 0, "blur": 2, "color": { "aliasOf": "Global.Color.NeutralShadowAmbient" }},
-					{ "x": 0, "y": 8, "blur": 16, "color": { "aliasOf": "Global.Color.NeutralShadowKey" }}
+					{ "x": 0, "y": 0, "blur": 2, "color": { "aliasOf": "Global.Color.Neutral Shadow Ambient" }},
+					{ "x": 0, "y": 8, "blur": 16, "color": { "aliasOf": "Global.Color.Neutral Shadow Key" }}
 				]
 			},
 			"28": {
 				"value": [
-					{ "x": 0, "y": 0, "blur": 8, "color": { "aliasOf": "Global.Color.NeutralShadowAmbient" }},
-					{ "x": 0, "y": 14, "blur": 28, "color": { "aliasOf": "Global.Color.NeutralShadowKey" }}
+					{ "x": 0, "y": 0, "blur": 8, "color": { "aliasOf": "Global.Color.Neutral Shadow Ambient" }},
+					{ "x": 0, "y": 14, "blur": 28, "color": { "aliasOf": "Global.Color.Neutral Shadow Key" }}
 				]
 			},
 			"64": {
 				"value": [
-					{ "x": 0, "y": 0, "blur": 8, "color": { "aliasOf": "Global.Color.NeutralShadowAmbient" }},
-					{ "x": 0, "y": 32, "blur": 64, "color": { "aliasOf": "Global.Color.NeutralShadowKey" }}
+					{ "x": 0, "y": 0, "blur": 8, "color": { "aliasOf": "Global.Color.Neutral Shadow Ambient" }},
+					{ "x": 0, "y": 32, "blur": 64, "color": { "aliasOf": "Global.Color.Neutral Shadow Key" }}
 				]
 			},
 			"Brand": {
 				"2": {
 					"value": [
-						{ "x": 0, "y": 0, "blur": 2, "color": { "aliasOf": "Global.Color.BrandShadowAmbient" }},
-						{ "x": 0, "y": 1, "blur": 2, "color": { "aliasOf": "Global.Color.BrandShadowKey" }}
+						{ "x": 0, "y": 0, "blur": 2, "color": { "aliasOf": "Global.Color.Brand Shadow Ambient" }},
+						{ "x": 0, "y": 1, "blur": 2, "color": { "aliasOf": "Global.Color.Brand Shadow Key" }}
 					]
 				},
 				"4": {
 					"value": [
-						{ "x": 0, "y": 0, "blur": 2, "color": { "aliasOf": "Global.Color.BrandShadowAmbient" }},
-						{ "x": 0, "y": 2, "blur": 4, "color": { "aliasOf": "Global.Color.BrandShadowKey" }}
+						{ "x": 0, "y": 0, "blur": 2, "color": { "aliasOf": "Global.Color.Brand Shadow Ambient" }},
+						{ "x": 0, "y": 2, "blur": 4, "color": { "aliasOf": "Global.Color.Brand Shadow Key" }}
 					]
 				},
 				"8": {
 					"value": [
-						{ "x": 0, "y": 0, "blur": 2, "color": { "aliasOf": "Global.Color.BrandShadowAmbient" }},
-						{ "x": 0, "y": 4, "blur": 8, "color": { "aliasOf": "Global.Color.BrandShadowKey" }}
+						{ "x": 0, "y": 0, "blur": 2, "color": { "aliasOf": "Global.Color.Brand Shadow Ambient" }},
+						{ "x": 0, "y": 4, "blur": 8, "color": { "aliasOf": "Global.Color.Brand Shadow Key" }}
 					]
 				},
 				"16": {
 					"value": [
-						{ "x": 0, "y": 0, "blur": 2, "color": { "aliasOf": "Global.Color.BrandShadowAmbient" }},
-						{ "x": 0, "y": 8, "blur": 16, "color": { "aliasOf": "Global.Color.BrandShadowKey" }}
+						{ "x": 0, "y": 0, "blur": 2, "color": { "aliasOf": "Global.Color.Brand Shadow Ambient" }},
+						{ "x": 0, "y": 8, "blur": 16, "color": { "aliasOf": "Global.Color.Brand Shadow Key" }}
 					]
 				},
 				"28": {
 					"value": [
-						{ "x": 0, "y": 0, "blur": 8, "color": { "aliasOf": "Global.Color.BrandShadowAmbient" }},
-						{ "x": 0, "y": 14, "blur": 28, "color": { "aliasOf": "Global.Color.BrandShadowKey" }}
+						{ "x": 0, "y": 0, "blur": 8, "color": { "aliasOf": "Global.Color.Brand Shadow Ambient" }},
+						{ "x": 0, "y": 14, "blur": 28, "color": { "aliasOf": "Global.Color.Brand Shadow Key" }}
 					]
 				},
 				"64": {
 					"value": [
-						{ "x": 0, "y": 0, "blur": 8, "color": { "aliasOf": "Global.Color.BrandShadowAmbient" }},
-						{ "x": 0, "y": 32, "blur": 64, "color": { "aliasOf": "Global.Color.BrandShadowKey" }}
+						{ "x": 0, "y": 0, "blur": 8, "color": { "aliasOf": "Global.Color.Brand Shadow Ambient" }},
+						{ "x": 0, "y": 32, "blur": 64, "color": { "aliasOf": "Global.Color.Brand Shadow Key" }}
 					]
 				}
 			}
@@ -234,7 +234,7 @@
 			"Family": { "aliasOf": "Global.Font.Family.Default" },
 			"Size": { "aliasOf": "Global.Font.Size.200" },
 			"Weight": { "aliasOf": "Global.Font.Weight.Regular" },
-			"LineHeight": { "aliasOf": "Global.Font.LineHeight.200" }
+			"Line Height": { "aliasOf": "Global.Font.Line Height.200" }
 		}
 	},
 	"Body": {
@@ -242,7 +242,7 @@
 			"Family": { "aliasOf": "Global.Font.Family.Default" },
 			"Size": { "aliasOf": "Global.Font.Size.300" },
 			"Weight": { "aliasOf": "Global.Font.Weight.Regular" },
-			"LineHeight": { "aliasOf": "Global.Font.LineHeight.300" }
+			"Line Height": { "aliasOf": "Global.Font.Line Height.300" }
 		}
 	},
 	"Subheadline": {
@@ -250,7 +250,7 @@
 			"Family": { "aliasOf": "Global.Font.Family.Default" },
 			"Size": { "aliasOf": "Global.Font.Size.400" },
 			"Weight": { "aliasOf": "Global.Font.Weight.Semibold" },
-			"LineHeight": { "aliasOf": "Global.Font.LineHeight.400" }
+			"Line Height": { "aliasOf": "Global.Font.Line Height.400" }
 		}
 	},
 	"Headline": {
@@ -258,7 +258,7 @@
 			"Family": { "aliasOf": "Global.Font.Family.Default" },
 			"Size": { "aliasOf": "Global.Font.Size.500" },
 			"Weight": { "aliasOf": "Global.Font.Weight.Semibold" },
-			"LineHeight": { "aliasOf": "Global.Font.LineHeight.500" }
+			"Line Height": { "aliasOf": "Global.Font.Line Height.500" }
 		}
 	},
 	"Title3": {
@@ -266,7 +266,7 @@
 			"Family": { "aliasOf": "Global.Font.Family.Default" },
 			"Size": { "aliasOf": "Global.Font.Size.600" },
 			"Weight": { "aliasOf": "Global.Font.Weight.Semibold" },
-			"LineHeight": { "aliasOf": "Global.Font.LineHeight.600" }
+			"Line Height": { "aliasOf": "Global.Font.Line Height.600" }
 		}
 	},
 	"Title2": {
@@ -274,7 +274,7 @@
 			"Family": { "aliasOf": "Global.Font.Family.Default" },
 			"Size": { "aliasOf": "Global.Font.Size.700" },
 			"Weight": { "aliasOf": "Global.Font.Weight.Semibold" },
-			"LineHeight": { "aliasOf": "Global.Font.LineHeight.700" }
+			"Line Height": { "aliasOf": "Global.Font.Line Height.700" }
 		}
 	},
 	"Title1": {
@@ -282,7 +282,7 @@
 			"Family": { "aliasOf": "Global.Font.Family.Default" },
 			"Size": { "aliasOf": "Global.Font.Size.800" },
 			"Weight": { "aliasOf": "Global.Font.Weight.Semibold" },
-			"LineHeight": { "aliasOf": "Global.Font.LineHeight.800" }
+			"Line Height": { "aliasOf": "Global.Font.Line Height.800" }
 		}
 	},
 	"LargeTitle": {
@@ -290,7 +290,7 @@
 			"Family": { "aliasOf": "Global.Font.Family.Default" },
 			"Size": { "aliasOf": "Global.Font.Size.900" },
 			"Weight": { "aliasOf": "Global.Font.Weight.Semibold" },
-			"LineHeight": { "aliasOf": "Global.Font.LineHeight.900" }
+			"Line Height": { "aliasOf": "Global.Font.Line Height.900" }
 		}
 	},
 	"Display": {
@@ -298,7 +298,7 @@
 			"Family": { "aliasOf": "Global.Font.Family.Default" },
 			"Size": { "aliasOf": "Global.Font.Size.1000" },
 			"Weight": { "aliasOf": "Global.Font.Weight.Semibold" },
-			"LineHeight": { "aliasOf": "Global.Font.LineHeight.1000" }
+			"Line Height": { "aliasOf": "Global.Font.Line Height.1000" }
 		}
 	},
 	
@@ -320,7 +320,7 @@
 			"Family": { "aliasOf": "Global.Font.Family.Default" },
 			"Size": { "aliasOf": "Global.Font.Size.300" },
 			"Weight": { "aliasOf": "Global.Font.Weight.Semibold" },
-			"LineHeight": { "aliasOf": "Global.Font.LineHeight.300" }
+			"Line Height": { "aliasOf": "Global.Font.Line Height.300" }
 		}
 	},
 	"Surface": {

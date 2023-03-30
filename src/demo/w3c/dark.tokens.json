@@ -909,7 +909,7 @@
 			}
 		}
 	},
-	"NeutralShadowAmbient": {
+	"Neutral Shadow Ambient": {
 		"Fill": {
 			"Color": {
 				"Rest": {
@@ -919,7 +919,7 @@
 			}
 		}
 	},
-	"NeutralShadowKey": {
+	"Neutral Shadow Key": {
 		"Fill": {
 			"Color": {
 				"Rest": {
@@ -929,7 +929,7 @@
 			}
 		}
 	},
-	"NeutralShadowAmbientLighter": {
+	"Neutral Shadow AmbientLighter": {
 		"Fill": {
 			"Color": {
 				"Rest": {
@@ -939,7 +939,7 @@
 			}
 		}
 	},
-	"NeutralShadowKeyLighter": {
+	"Neutral Shadow KeyLighter": {
 		"Fill": {
 			"Color": {
 				"Rest": {
@@ -949,7 +949,7 @@
 			}
 		}
 	},
-	"NeutralShadowAmbientDarker": {
+	"Neutral Shadow AmbientDarker": {
 		"Fill": {
 			"Color": {
 				"Rest": {
@@ -959,7 +959,7 @@
 			}
 		}
 	},
-	"NeutralShadowKeyDarker": {
+	"Neutral Shadow KeyDarker": {
 		"Fill": {
 			"Color": {
 				"Rest": {
@@ -969,7 +969,7 @@
 			}
 		}
 	},
-	"BrandShadowAmbient": {
+	"Brand Shadow Ambient": {
 		"Fill": {
 			"Color": {
 				"Rest": {
@@ -979,7 +979,7 @@
 			}
 		}
 	},
-	"BrandShadowKey": {
+	"Brand Shadow Key": {
 		"Fill": {
 			"Color": {
 				"Rest": {
