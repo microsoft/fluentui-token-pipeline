@@ -43,12 +43,12 @@ StyleDictionary.registerTransform({
 
 StyleDictionary.registerTransformGroup({
 	name: "dcs/json",
-	transforms: ["dcs/name/json", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/shadow/css", "dcs/alias/json"],
+	transforms: ["dcs/name/json", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/shadow/css", "fluentui/font/css", "dcs/alias/json"],
 })
 
 StyleDictionary.registerTransformGroup({
 	name: "dcs/css",
-	transforms: ["dcs/name/css", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/shadow/css", "dcs/alias/css"],
+	transforms: ["dcs/name/css", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/shadow/css", "fluentui/font/css", "dcs/alias/css"],
 })
 
 StyleDictionary.registerFormat({

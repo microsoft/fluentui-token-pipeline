@@ -112,9 +112,9 @@
 		},
 		"Font": {
 			"Family": {
-				"Default": { "value": "\"Segoe UI\", Roboto, \"SF Pro Text\", \"Helvetica Neue\", Helvetica, Arial, sans-serif" },
-				"Monospace": { "value": "Consolas, \"Courier New\", monospace" },
-				"Numeric": { "value": "\"Bahnschrift\", \"Segoe UI\", Roboto, \"SF Pro Text\", \"Helvetica Neue\", Helvetica, Arial, sans-serif" }
+				"Default": { "value": [ "Segoe UI", "Roboto", "SF Pro Text", "Helvetica Neue", "Helvetica", "Arial", "sans-serif" ] },
+				"Monospace": { "value": [ "Consolas", "Courier New", "monospace" ] },
+				"Numeric": { "value": [ "Bahnschrift", "Segoe UI", "Roboto", "SF Pro Text", "Helvetica Neue", "Helvetica", "Arial", "sans-serif" ] }
 			},
 			"Size": {
 				"100": { "value": 10, "platform": { "ios": { "value": 12 } } },

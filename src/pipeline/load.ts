@@ -88,7 +88,6 @@ const getConvertedToken = (w3cToken: Record<string, any>): Token =>
 			attributes = { category: "size", figmaTokensType: "sizing", xamlType: "x:Double" }
 			break
 		case "fontFamily":
-			if (Array.isArray(value)) value = JSON.stringify(value).slice(1, -1)
 			attributes = { category: "font", figmaTokensType: "fontFamilies", xamlType: "FontFamily" }
 			break
 		case "fontSize":

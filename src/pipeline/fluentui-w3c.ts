@@ -84,8 +84,6 @@ StyleDictionary.registerTransformGroup({
 	transforms: ["fluentui/name/w3c", "time/seconds", "fluentui/size/css", "fluentui/color/w3c", "fluentui/strokealignment/css", "fluentui/letterspacing/w3c", "fluentui/shadow/w3c"],
 })
 
-// TODO: The current draft as of 10 May 2022 specifies that font families should be an array of strings, not a single CSS string.
-
 StyleDictionary.registerFormat({
 	name: "fluentui/w3c",
 	formatter: (dictionary, config) =>

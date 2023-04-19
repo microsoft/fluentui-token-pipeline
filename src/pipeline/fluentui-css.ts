@@ -219,22 +219,36 @@ StyleDictionary.registerTransform({
 	},
 })
 
+StyleDictionary.registerTransform({
+	name: "fluentui/font/css",
+	type: "value",
+	matcher: prop => prop.attributes.category === "font",
+	transformer: prop =>
+	{
+		/*
+			Transforms a font family array into a CSS font-family property.
+		*/
+		const array = Array.isArray(prop.value) ? prop.value : [prop.value]
+		return JSON.stringify(array).slice(1, -1)
+	},
+})
+
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/css",
-	transforms: ["fluentui/name/kebab", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/letterspacing/css", "fluentui/shadow/css", "fluentui/alias/css"],
+	transforms: ["fluentui/name/kebab", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/letterspacing/css", "fluentui/shadow/css", "fluentui/font/css", "fluentui/alias/css"],
 })
 
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/scss",
-	transforms: ["fluentui/name/kebab", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/letterspacing/css", "fluentui/shadow/css", "fluentui/alias/scss"],
+	transforms: ["fluentui/name/kebab", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/letterspacing/css", "fluentui/shadow/css", "fluentui/font/css", "fluentui/alias/scss"],
 })
 
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/cssflat",
-	transforms: ["fluentui/name/kebab", "fluentui/alias/flatten", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/letterspacing/css", "fluentui/shadow/css"],
+	transforms: ["fluentui/name/kebab", "fluentui/alias/flatten", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/letterspacing/css", "fluentui/font/css", "fluentui/shadow/css"],
 })
 
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/scssflat",
-	transforms: ["fluentui/name/kebab", "fluentui/alias/flatten", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/letterspacing/css", "fluentui/shadow/css"],
+	transforms: ["fluentui/name/kebab", "fluentui/alias/flatten", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/letterspacing/css", "fluentui/font/css", "fluentui/shadow/css"],
 })

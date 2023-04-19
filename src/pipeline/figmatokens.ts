@@ -53,27 +53,7 @@ StyleDictionary.registerTransform({
 	transformer: prop =>
 	{
 		const value: string = prop.value
-		if (value.startsWith("\""))
-		{
-			// The first font family in this list is a quoted string.
-			const secondQuoteIndex = value.indexOf("\"", 1)
-			if (secondQuoteIndex < 0)
-			{
-				Utils.reportError(`Invalid font family name ${prop.path.join(".")} = "${value}".`)
-				return value
-			}
-			return value.substring(1, secondQuoteIndex)
-		}
-		else if (value.indexOf(",") > 0)
-		{
-			// The first font family in this list is unquoted.
-			return value.substring(0, value.indexOf(","))
-		}
-		else
-		{
-			// This is a single font family name, or something we don't understand.
-			return value
-		}
+		return Array.isArray(value) ? value[0] : value
 	},
 })
 
