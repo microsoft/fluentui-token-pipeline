@@ -92,6 +92,13 @@ StyleDictionary.registerTransform({
 	transformer: (prop, options) =>({ category: prop.attributes.aliasCategory }),
 })
 
+StyleDictionary.registerTransform({
+	name: "fluentui/font/single",
+	type: "value",
+	matcher: prop => prop.attributes.category === "font",
+	transformer: prop => Array.isArray(prop.value) ? prop.value[0] : prop.value
+})
+
 StyleDictionary.registerFilter({
 	name: "isAlias",
 	matcher: prop => prop.path[0] !== "Global",
