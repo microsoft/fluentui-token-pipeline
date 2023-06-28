@@ -1,6 +1,6 @@
 {
 	"name": "@fluentui/token-pipeline",
-	"version": "0.21.1",
+	"version": "0.21.2",
 	"description": "The Fluent UI design token pipeline",
 	"repository": {
 		"type": "git",

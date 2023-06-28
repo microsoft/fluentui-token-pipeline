@@ -11,7 +11,7 @@ StyleDictionary.registerFilter({
 	matcher: prop =>
 	{
 		const rootName = prop.path[0]
-		return rootName === "Global" && new Set(prop.path).has("Color")
+		return rootName === "Global" && prop.attributes.category === "color"
 	},
 })
 
@@ -20,7 +20,7 @@ StyleDictionary.registerFilter({
 	matcher: prop =>
 	{
 		const rootName = prop.path[0]
-		return rootName !== "Global" && new Set(prop.path).has("Color")
+		return rootName !== "Global" && prop.attributes.category === "color"
 	},
 })
 
