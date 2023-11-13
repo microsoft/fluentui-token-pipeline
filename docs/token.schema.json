@@ -65,7 +65,7 @@
 				"value": {
 					"anyOf": [
 						{ "title": "Token value", "description": "See the documentation for what is allowed for each type of token.", "type": [ "string", "number", "boolean" ] },
-						{ "title": "Token array value", "description": "See the documentation for what is allowed for each type of token.", "type": "array", "items": { "type": "number" } },
+						{ "title": "Token array value", "description": "See the documentation for what is allowed for each type of token.", "type": "array", "items": { "type": [ "string", "number" ] } },
 						{ "$ref": "#/definitions/Gradient" },
 						{ "$ref": "#/definitions/ShadowList" }
 					]

@@ -6,7 +6,7 @@ import { Gradient, ValueToken } from "./types"
 import * as Utils from "./utils"
 import { degrees } from "./transform-math"
 
-const nameForWinUI = (path: string[]): string => path.map(word => word[0].toUpperCase() + word.substr(1)).join("")
+const nameForWinUI = (path: string[]): string => Utils.pascalCase(path)
 
 StyleDictionary.registerTransform({
 	name: "fluentui/name/pascal",
@@ -43,25 +43,16 @@ StyleDictionary.registerTransform({
 	transformer: prop =>
 	{
 		/*
-			Transforms a CSS font-family string to one for Microsoft.UI.Xaml.Media.FontFamily.
+			Transforms an array of font family name strings to a string representation of a Microsoft.UI.Xaml.Media.FontFamily.
 
-			"Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif
+			[ "Segoe UI", "Roboto", "Helvetica Neue", "Helvetica", "Arial", "sans-serif" ]
 				-->
-			Segoe UI, Roboto, Helvetica Neue, Helvetica, Arial
+			"Segoe UI, Roboto, Helvetica Neue, Helvetica, Arial"
 		*/
-		const transformedList = prop.value.split(",").map((family) =>
-		{
-			const trimmed = family.trim()
-			const minusDoubleQuotes = trimmed.startsWith("\"") && trimmed.endsWith("\"") ? trimmed.substring(1, trimmed.length - 1) : trimmed
-			return minusDoubleQuotes.startsWith("'") && minusDoubleQuotes.endsWith("'")
-				? minusDoubleQuotes.substring(1, minusDoubleQuotes.length - 1)
-				: minusDoubleQuotes
-		})
-		if (transformedList.length === 0)
-			return ""
-		if (winuiInvalidFontFamilies.has(transformedList[transformedList.length - 1]))
-			transformedList.pop()
-		return transformedList.join(", ")
+		const array = prop.value
+		if (array.length === 0) return ""
+		if (winuiInvalidFontFamilies.has(array[array.length - 1])) array.pop()
+		return array
 	},
 })
 
@@ -256,7 +247,7 @@ const getAllResourcesAsString = (dictionary, indent) =>
 	{
 		if (prop.attributes.aliasResourceName)
 		{
-			return `${tabs}<StaticResource x:Key="${prop.name}" ResourceKey="${prop.attributes.aliasResourceName}" />`
+			return `${tabs}<StaticResource x:Key="${Utils.pascalCase(prop.name)}" ResourceKey="${prop.attributes.aliasResourceName}" />`
 		}
 		else if (typeof prop.value === "object" && "xaml" in prop.value)
 		{
@@ -266,7 +257,7 @@ const getAllResourcesAsString = (dictionary, indent) =>
 		else
 		{
 			const xamlType = prop.attributes.xamlType || "x:String"
-			return `${tabs}<${xamlType} x:Key="${prop.name}">${Utils.escapeXml(prop.value)}</${xamlType}>`
+			return `${tabs}<${xamlType} x:Key="${Utils.pascalCase(prop.name)}">${Utils.escapeXml(prop.value)}</${xamlType}>`
 		}
 	}).join("\n")
 }

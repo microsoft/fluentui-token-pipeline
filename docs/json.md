@@ -275,10 +275,11 @@ Stroke widths and radii can be specified as a single value or as an array in the
 
 ### Font families
 
-Font families are specified as in CSS, with fallbacks. You can include a generic font family such as `monospace` or `serif` at the end, and the pipeline will remove it for non-web platforms.
+Font families are specified as an array of strings in descending order of preference, as in CSS. You can include a CSS generic font family such as `monospace` or `serif` at the end, and the pipeline will remove it for non-web platforms.
 
-* `"Segoe UI"`
-* `"\"Segoe UI\", \"Helvetica Neue\", 'Comic Sans MS', Arial, sans-serif"`
+* `[ "Segoe UI" ]`
+* `[ "Segoe UI", "Helvetica Neue", "Comic Sans MS", "Arial", "sans-serif" ]`
+* <strike>**not** single strings: `"Segoe UI"` or `"\"Segoe UI\", sans-serif"`</strike>
 
 ### Font sizes
 

@@ -21,7 +21,7 @@ StyleDictionary.registerTransform({
 
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/html",
-	transforms: ["fluentui/name/reference", "fluentui/alias/reference", "fluentui/alias/flatten", "fluentui/shadow/css"],
+	transforms: ["fluentui/name/reference", "fluentui/alias/reference", "fluentui/alias/flatten", "fluentui/shadow/css", "fluentui/font/css"],
 })
 
 const getHTMLForToken = (prop) =>
@@ -75,20 +75,12 @@ StyleDictionary.registerFormat({
 			{
 				header = "<h1>Global tokens</h1>\n\n"
 			}
-			else if (thisProp.path[0] === "Set" && (!previousProp || previousProp.path[0] !== "Set"))
+			else if (thisProp.path[0] !== "Global" && (!previousProp || previousProp.path[0] === "Global"))
 			{
 				header = "<h1>Alias tokens</h1>\n\n"
 			}
-			else if (thisProp.path[0] !== "Global" && thisProp.path[0] !== "Set" && (!previousProp || previousProp.path[0] === "Global" || previousProp.path[0] === "Set"))
-			{
-				header = "<h1>Control tokens</h1>\n\n"
-			}
 
-			if (thisProp.path[0] === "Set" && (!previousProp || thisProp.path[1] !== previousProp.path[1]))
-			{
-				header = (header || "") + `<h2>Set-${thisProp.path[1]}</h2>\n\n`
-			}
-			else if (thisProp.path[0] !== "Global" && thisProp.path[0] !== "Set" && (!previousProp || thisProp.path[0] !== previousProp.path[0]))
+			if (thisProp.path[0] !== "Global" && (!previousProp || thisProp.path[0] !== previousProp.path[0]))
 			{
 				header = (header || "") + `<h2>${thisProp.path[0]}</h2>\n\n`
 			}
@@ -98,13 +90,6 @@ StyleDictionary.registerFormat({
 				if (previousProp) list += "</div>\n\n"
 				list += header
 				list += "<div class=\"tokentable\">\n\n"
-			}
-
-			if (thisProp.path[0] !== "Global" && thisProp.path[0] !== "Set" && (!previousProp || thisProp.path[1] !== previousProp.path[1]))
-			{
-				// The H3-level headers inside of the control token tables (such as "Base" for "Button-Base-Fill-Color-Rest")
-				// go INSIDE the table.
-				list += `<h3>${thisProp.path[1]}</h3>\n\n`
 			}
 
 			previousProp = thisProp

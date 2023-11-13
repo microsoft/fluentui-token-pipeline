@@ -37,17 +37,7 @@ const convertW3CTokens = (tokens: any): TokenJson =>
 		if (isReservedW3CName(childName)) continue
 		if (!tokens.hasOwnProperty(childName)) continue
 
-		if (childName === "Global")
-		{
-			convertAndCopyTokens(tokens.Global, converted.Global = {})
-		}
-		else
-		{
-			// Anything that's not in the Global namespace gets "Set." prepended to the name so that existing code that assumes
-			// that word will be there will continue working.
-			if (!("Set" in converted)) converted.Set = {}
-			convertAndCopyTokens(tokens[childName], converted.Set[childName] = {})
-		}
+		convertAndCopyTokens(tokens[childName], converted[childName] = {})
 	}
 	return converted as TokenJson
 }
@@ -78,7 +68,7 @@ const convertAndCopyTokens = (from: any, to: TokenSet): void =>
 const getConvertedToken = (w3cToken: Record<string, any>): Token =>
 {
 	let value = w3cToken.$value
-	let attributes: any = { w3cType: w3cToken.$type }
+	let attributes: any = {}
 	const aliasTarget = getW3CAliasTargetName(value)
 	const converted: any = aliasTarget ? { aliasOf: aliasTarget } : {}
 
@@ -98,7 +88,6 @@ const getConvertedToken = (w3cToken: Record<string, any>): Token =>
 			attributes = { category: "size", figmaTokensType: "sizing", xamlType: "x:Double" }
 			break
 		case "fontFamily":
-			if (Array.isArray(value)) value = JSON.stringify(value).slice(1, -1)
 			attributes = { category: "font", figmaTokensType: "fontFamilies", xamlType: "FontFamily" }
 			break
 		case "fontSize":
@@ -130,6 +119,7 @@ const getConvertedToken = (w3cToken: Record<string, any>): Token =>
 	}
 
 	if (!aliasTarget) converted.value = value
+	attributes.w3cType = w3cToken.$type
 	converted.attributes = attributes
 	return converted as unknown as Token
 }
@@ -154,5 +144,4 @@ const getW3CAliasTargetName = (value: any): string | null =>
 	if (typeof value === "string" && value.charCodeAt(0) === 123 /* "{" */ && value.charCodeAt(value.length - 1) === 125 /* "}" */)
 		return value.slice(1, -1)
 	else return null
-	// REVIEW: Do we need to re-add "Set." here?
 }
