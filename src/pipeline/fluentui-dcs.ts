@@ -5,13 +5,23 @@ import _ from "lodash"
 
 const constructCssName = (path: any[]): string =>
 {
-	let newName = path[0] !== "Global" && path[3] === "Color" ? `color${Utils.pascalCase(path)}` : _.camelCase(path.join(" "))
+	let newName = path.includes("Global") ? path.join("") : `color${path.join("")}`
+	newName = newName.charAt(0).toLowerCase() + newName.slice(1)
+	newName = newName.replace("NeutralNeutral", "Neutral")
+	newName = newName.replace("NeutralBrand", "Brand")
+	newName = newName.replace("NeutralCompound", "Compound")
+	newName = newName.replace("NeutralRed", "PaletteRed")
+	newName = newName.replace("NeutralGreen", "PaletteGreen")
+	newName = newName.replace("NeutralDarkOrange", "PaletteDarkOrange")
+	newName = newName.replace("NeutralYellow", "PaletteYellow")
 	newName = newName.replace("Rest", "")
-	newName = newName.replace("set", "")
+	newName = newName.replace("Set", "")
+	newName = newName.replace("NeutralSubtle", "Subtle")
+	newName = newName.replace("NeutralTransparent", "Transparent")
 	newName = newName.replace("FillColor", "")
 	newName = newName.replace("StrokeColor", "")
 	newName = newName.replace("BorderColor", "")
-	newName = newName.replace("globalColorHc", "globalColorhc")
+	newName = newName.replace(" ", "")
 
 	return newName
 }
