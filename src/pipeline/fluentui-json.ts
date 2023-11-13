@@ -50,7 +50,7 @@ StyleDictionary.registerFormat({
 				rootName = _.camelCase(thisProp.path[1])
 				subgroupName = _.camelCase(thisProp.path[2])
 			}
-			else if ((rootName === "set" || rootName === "global") && thisProp.path.length > 2)
+			else if (rootName === "global" && thisProp.path.length > 2)
 			{
 				meaningfulPathStart = 2
 				rootName = _.camelCase(thisProp.path[1])

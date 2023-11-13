@@ -3,24 +3,15 @@ import * as Utils from "./utils"
 import _ from "lodash"
 
 
-const constructJsonName = (path: any[]) => _.camelCase(`${path.join("")}`)
-
 const constructCssName = (path: any[]): string =>
 {
-	let newName = path[0] !== "Global" && path[3] === "Color" ? `color${path.join("")}` : path.join("")
-	newName = newName.charAt(0).toLowerCase() + newName.slice(1)
-	newName = newName.replace("NeutralNeutral", "Neutral")
-	newName = newName.replace("NeutralBrand", "Brand")
-	newName = newName.replace("NeutralCompound", "Compound")
-	newName = newName.replace("NeutralRed", "PaletteRed")
-	newName = newName.replace("NeutralGreen", "PaletteGreen")
-	newName = newName.replace("NeutralDarkOrange", "PaletteDarkOrange")
-	newName = newName.replace("NeutralYellow", "PaletteYellow")
+	let newName = path[0] !== "Global" && path[3] === "Color" ? `color${Utils.pascalCase(path)}` : _.camelCase(path.join(" "))
 	newName = newName.replace("Rest", "")
 	newName = newName.replace("set", "")
 	newName = newName.replace("FillColor", "")
 	newName = newName.replace("StrokeColor", "")
 	newName = newName.replace("BorderColor", "")
+	newName = newName.replace("globalColorHc", "globalColorhc")
 
 	return newName
 }
@@ -28,14 +19,14 @@ const constructCssName = (path: any[]): string =>
 StyleDictionary.registerTransform({
 	name: "dcs/name/json",
 	type: "name",
-	transformer: prop => `${constructJsonName(Utils.getTokenExportPath(prop))}`,
+	transformer: prop => `${constructCssName(Utils.getTokenExportPath(prop))}`,
 })
 
 StyleDictionary.registerTransform({
 	name: "dcs/alias/json",
 	type: "value",
 	matcher: prop => "resolvedAliasPath" in prop,
-	transformer: prop => `var(--${constructJsonName(prop.resolvedAliasPath)})`,
+	transformer: prop => `var(--${constructCssName(prop.resolvedAliasPath)})`,
 })
 
 StyleDictionary.registerTransform({
@@ -53,12 +44,12 @@ StyleDictionary.registerTransform({
 
 StyleDictionary.registerTransformGroup({
 	name: "dcs/json",
-	transforms: ["dcs/name/json", "dcs/alias/json", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/shadow/css"],
+	transforms: ["dcs/name/json", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/shadow/css", "fluentui/font/css", "dcs/alias/json"],
 })
 
 StyleDictionary.registerTransformGroup({
 	name: "dcs/css",
-	transforms: ["dcs/name/css", "dcs/alias/css", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/shadow/css"],
+	transforms: ["dcs/name/css", "time/seconds", "fluentui/size/css", "fluentui/color/css", "fluentui/strokealignment/css", "fluentui/shadow/css", "fluentui/font/css", "dcs/alias/css"],
 })
 
 StyleDictionary.registerFormat({
@@ -77,46 +68,12 @@ StyleDictionary.registerFormat({
 	{
 		// Flatten out the token hierarchy and just keep the important bits.
 		const sortedProps = Utils.sortPropertiesForReadability(dictionary.allProperties)
-		let tokens: any = {}
-		let previousProp: any | null = null
-		let previousPropRoot: string | null = null
-		let previousPropSubgroup: string | null = null
-		let thisOutputObject: any | null = null
+		const tokens: any = {}
 		for (const thisProp of sortedProps)
 		{
-			const rootName = _.camelCase(thisProp.path[1])
-			const subgroupName: string | null = null
-
-
-			{
-				tokens = thisOutputObject = tokens || {}
-				if (subgroupName && !(subgroupName in thisOutputObject))
-					thisOutputObject = thisOutputObject[subgroupName] = {}
-			}
-			let exportName = thisProp.path[0] !== "Global"
-				&& thisProp.path[4] === "Color"
-				? `color${_.camelCase(thisProp.path.slice(0).join(""))}`
-				: _.camelCase(thisProp.path.slice(0).join(""))
-
-			exportName = exportName.replace("NeutralNeutral", "Neutral")
-			exportName = exportName.replace("NeutralBrand", "Brand")
-			exportName = exportName.replace("NeutralCompound", "Compound")
-			exportName = exportName.replace("NeutralRed", "PaletteRed")
-			exportName = exportName.replace("NeutralGreen", "PaletteGreen")
-			exportName = exportName.replace("NeutralDarkOrange", "PaletteDarkOrange")
-			exportName = exportName.replace("NeutralYellow", "PaletteYellow")
-			exportName = exportName.replace("Rest", "")
-			exportName = exportName.replace("set", "")
-			exportName = exportName.replace("FillColor", "")
-			exportName = exportName.replace("StrokeColor", "")
-			exportName = exportName.replace("BorderColor", "")
-			thisOutputObject[exportName] = thisProp.value
-			previousProp = thisProp
-			previousPropRoot = rootName
-			previousPropSubgroup = subgroupName
+			tokens[constructCssName(thisProp.path)] = thisProp.value
 		}
 
 		return JSON.stringify(tokens, /* replacer: */ undefined, /* space: */ "\t")
 	},
 })
-

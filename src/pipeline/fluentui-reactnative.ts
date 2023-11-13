@@ -62,5 +62,5 @@ StyleDictionary.registerFilter({
 
 StyleDictionary.registerTransformGroup({
 	name: "fluentui/reactnative",
-	transforms: ["fluentui/name/json/grouped", "fluentui/alias/flatten", "fluentui/color/reactnative", "fluentui/font-weight/string", "fluentui/shadow/json"],
+	transforms: ["fluentui/name/json/grouped", "fluentui/alias/flatten", "fluentui/color/reactnative", "fluentui/font/single", "fluentui/font-weight/string", "fluentui/shadow/json"],
 })
