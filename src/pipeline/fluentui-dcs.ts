@@ -2,77 +2,50 @@ import StyleDictionary from "style-dictionary"
 import * as Utils from "./utils"
 import _ from "lodash"
 
-
-const tokenOverrides = {
-	"globalColorBrand10": "#001919",
-	"globalColorBrand20": "#012826",
-	"globalColorBrand30": "#01322e",
-	"globalColorBrand40": "#033f38",
-	"globalColorBrand50": "#054d43",
-	"globalColorBrand60": "#0a5c50",
-	"globalColorBrand70": "#0c695a",
-	"globalColorBrand80": "#117865",
-	"globalColorBrand90": "#1f937e",
-	"globalColorBrand100": "#2aac94",
-	"globalColorBrand110": "#3abb9f",
-	"globalColorBrand120": "#52c7aa",
-	"globalColorBrand130": "#78d3b9",
-	"globalColorBrand140": "#9ee0cb",
-	"globalColorBrand150": "#c0ecdd",
-	"globalColorBrand160": "#e3f7ef",
-}
-
-const constructCssName = (path: any, prop: any): string =>
+const constructName = (path: any, prop: any): string =>
 {
-	let newName = path[0] !== "Global" && prop.attributes.category === "color" ? `color${Utils.pascalCase(path)}` : _.camelCase(path.join(""))
+	let newName = path[0] !== "Global" && prop.attributes.category === "color" ? `color${Utils.pascalCase(path)}` : _.camelCase(path.join(" "))
 	newName = newName.replace("Rest", "")
-
-	// Check if the constructed name is in the tokenOverrides object
-	if (tokenOverrides.hasOwnProperty(newName))
-	{
-		prop.value = tokenOverrides[newName]
-	}
-
 	return newName
 }
 
 StyleDictionary.registerTransform({
 	name: "dcs/name/json",
 	type: "name",
-	transformer: prop => `${constructCssName(Utils.getTokenExportPath(prop), prop)}`,
+	transformer: prop => `${constructName(Utils.getTokenExportPath(prop), prop)}`,
 })
 
 StyleDictionary.registerTransform({
 	name: "dcs/alias/json",
 	type: "value",
 	matcher: prop => "resolvedAliasPath" in prop,
-	transformer: prop => `var(--${constructCssName(prop.resolvedAliasPath, prop)})`,
+	transformer: prop => `var(--${constructName(prop.resolvedAliasPath, prop)})`,
 })
 
 StyleDictionary.registerTransform({
 	name: "dcs/name/css",
 	type: "name",
-	transformer: prop => `${constructCssName(Utils.getTokenExportPath(prop), prop)}`,
+	transformer: prop => `${constructName(Utils.getTokenExportPath(prop), prop)}`,
 })
 
 StyleDictionary.registerTransform({
 	name: "dcs/alias/css",
 	type: "value",
 	matcher: prop => "resolvedAliasPath" in prop,
-	transformer: prop => `var(--${constructCssName(prop.resolvedAliasPath, prop)})`,
+	transformer: prop => `var(--${constructName(prop.resolvedAliasPath, prop)})`,
 })
 
 StyleDictionary.registerTransform({
 	name: "dcs/name/mixins",
 	type: "name",
-	transformer: prop => `${constructCssName(Utils.getTokenExportPath(prop), prop)}`,
+	transformer: prop => `${constructName(Utils.getTokenExportPath(prop), prop)}`,
 })
 
 StyleDictionary.registerTransform({
 	name: "dcs/alias/mixins",
 	type: "value",
 	matcher: prop => "resolvedAliasPath" in prop,
-	transformer: prop => `var(--${constructCssName(prop.resolvedAliasPath, prop)})`,
+	transformer: prop => `var(--${constructName(prop.resolvedAliasPath, prop)})`,
 })
 
 StyleDictionary.registerTransformGroup({
@@ -120,7 +93,7 @@ StyleDictionary.registerFormat({
 		const tokens: any = {}
 		for (const thisProp of sortedProps)
 		{
-			tokens[constructCssName(thisProp.path, thisProp)] = thisProp.value
+			tokens[constructName(thisProp.path, thisProp)] = thisProp.value
 		}
 
 		return JSON.stringify(tokens, /* replacer: */ undefined, /* space: */ "\t")
