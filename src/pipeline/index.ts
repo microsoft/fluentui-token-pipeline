@@ -211,6 +211,15 @@ export const buildOutputs = (input: string[] | string, outputPath: string, platf
 					{ destination: `css/fluent-${theme}.css`, format: "fluentui/dcs/css", selector: `[data-theme="fluent-${theme}"]` },
 				],
 			},
+			dcsMixins:
+			{
+				transformGroup: "dcs/mixins",
+				buildPath: useSubfolders ? `${outputPath}dcs/` : outputPath,
+				files: [
+
+					{ destination: `scss/fluent-${theme}.scss`, format: "fluentui/dcs/mixins", selector: `@mixin install-fluent-${theme}-tokens` },
+				],
+			},
 			dcsJson:
 			{
 				transformGroup: "dcs/json",
